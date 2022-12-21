@@ -10,8 +10,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        maven("https://jitpack.io")
     }
 }
 rootProject.name = "dui"
-include ':app'
-include ':dodam-components'
+include(":app")
+include(":dodam-components")
