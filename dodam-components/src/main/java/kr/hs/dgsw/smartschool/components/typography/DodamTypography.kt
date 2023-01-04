@@ -1,12 +1,10 @@
 package kr.hs.dgsw.smartschool.components.typography
 
-import androidx.compose.foundation.clickable
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.PlatformTextStyle
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -165,7 +163,7 @@ fun Display1(
     onTextLayout: (TextLayoutResult) -> Unit = {},
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
-    rippleColor: Color = Color.Unspecified
+    rippleColor: Color = Color.Unspecified,
 ) {
     Text(
         modifier = modifier.dodamClickable(
@@ -196,10 +194,16 @@ fun Display2(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    onClick: () -> Unit = {},
+    onClick: (() -> Unit)? = null,
+    rippleEnabled: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
 ) {
     Text(
-        modifier = modifier.clickable { onClick.invoke() },
+        modifier = modifier.dodamClickable(
+            onClick = onClick,
+            rippleColor = rippleColor,
+            rippleEnable = rippleEnabled
+        ),
         text = text,
         style = DodamTypography.display2,
         color = textColor,
@@ -223,10 +227,16 @@ fun Display3(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    onClick: () -> Unit = {},
+    onClick: (() -> Unit)? = null,
+    rippleEnabled: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
 ) {
     Text(
-        modifier = modifier.clickable { onClick.invoke() },
+        modifier = modifier.dodamClickable(
+            onClick = onClick,
+            rippleColor = rippleColor,
+            rippleEnable = rippleEnabled
+        ),
         text = text,
         style = DodamTypography.display3,
         color = textColor,
@@ -250,10 +260,16 @@ fun Headline1(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    onClick: () -> Unit = {},
+    onClick: (() -> Unit)? = null,
+    rippleEnabled: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
 ) {
     Text(
-        modifier = modifier.clickable { onClick.invoke() },
+        modifier = modifier.dodamClickable(
+            onClick = onClick,
+            rippleColor = rippleColor,
+            rippleEnable = rippleEnabled
+        ),
         text = text,
         style = DodamTypography.headline1,
         color = textColor,
@@ -277,10 +293,16 @@ fun Headline2(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    onClick: () -> Unit = {},
+    onClick: (() -> Unit)? = null,
+    rippleEnabled: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
 ) {
     Text(
-        modifier = modifier.clickable { onClick.invoke() },
+        modifier = modifier.dodamClickable(
+            onClick = onClick,
+            rippleColor = rippleColor,
+            rippleEnable = rippleEnabled
+        ),
         text = text,
         style = DodamTypography.headline2,
         color = textColor,
@@ -304,10 +326,16 @@ fun Headline3(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    onClick: () -> Unit = {},
+    onClick: (() -> Unit)? = null,
+    rippleEnabled: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
 ) {
     Text(
-        modifier = modifier.clickable { onClick.invoke() },
+        modifier = modifier.dodamClickable(
+            onClick = onClick,
+            rippleColor = rippleColor,
+            rippleEnable = rippleEnabled
+        ),
         text = text,
         style = DodamTypography.headline3,
         color = textColor,
@@ -331,10 +359,16 @@ fun Title1(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    onClick: () -> Unit = {},
+    onClick: (() -> Unit)? = null,
+    rippleEnabled: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
 ) {
     Text(
-        modifier = modifier.clickable { onClick.invoke() },
+        modifier = modifier.dodamClickable(
+            onClick = onClick,
+            rippleColor = rippleColor,
+            rippleEnable = rippleEnabled
+        ),
         text = text,
         style = DodamTypography.title1,
         color = textColor,
@@ -358,10 +392,16 @@ fun Title2(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    onClick: () -> Unit = {},
+    onClick: (() -> Unit)? = null,
+    rippleEnabled: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
 ) {
     Text(
-        modifier = modifier.clickable { onClick.invoke() },
+        modifier = modifier.dodamClickable(
+            onClick = onClick,
+            rippleColor = rippleColor,
+            rippleEnable = rippleEnabled
+        ),
         text = text,
         style = DodamTypography.title2,
         color = textColor,
@@ -385,10 +425,16 @@ fun Title3(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    onClick: () -> Unit = {},
+    onClick: (() -> Unit)? = null,
+    rippleEnabled: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
 ) {
     Text(
-        modifier = modifier.clickable { onClick.invoke() },
+        modifier = modifier.dodamClickable(
+            onClick = onClick,
+            rippleColor = rippleColor,
+            rippleEnable = rippleEnabled
+        ),
         text = text,
         style = DodamTypography.title3,
         color = textColor,
@@ -412,10 +458,16 @@ fun Label1(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    onClick: () -> Unit = {},
+    onClick: (() -> Unit)? = null,
+    rippleEnabled: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
 ) {
     Text(
-        modifier = modifier.clickable { onClick.invoke() },
+        modifier = modifier.dodamClickable(
+            onClick = onClick,
+            rippleColor = rippleColor,
+            rippleEnable = rippleEnabled
+        ),
         text = text,
         style = DodamTypography.label1,
         color = textColor,
@@ -439,10 +491,16 @@ fun Label2(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    onClick: () -> Unit = {},
+    onClick: (() -> Unit)? = null,
+    rippleEnabled: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
 ) {
     Text(
-        modifier = modifier.clickable { onClick.invoke() },
+        modifier = modifier.dodamClickable(
+            onClick = onClick,
+            rippleColor = rippleColor,
+            rippleEnable = rippleEnabled
+        ),
         text = text,
         style = DodamTypography.label2,
         color = textColor,
@@ -466,10 +524,16 @@ fun Label3(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    onClick: () -> Unit = {},
+    onClick: (() -> Unit)? = null,
+    rippleEnabled: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
 ) {
     Text(
-        modifier = modifier.clickable { onClick.invoke() },
+        modifier = modifier.dodamClickable(
+            onClick = onClick,
+            rippleColor = rippleColor,
+            rippleEnable = rippleEnabled
+        ),
         text = text,
         style = DodamTypography.label3,
         color = textColor,
@@ -493,10 +557,16 @@ fun Body1(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    onClick: () -> Unit = {},
+    onClick: (() -> Unit)? = null,
+    rippleEnabled: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
 ) {
     Text(
-        modifier = modifier.clickable { onClick.invoke() },
+        modifier = modifier.dodamClickable(
+            onClick = onClick,
+            rippleColor = rippleColor,
+            rippleEnable = rippleEnabled
+        ),
         text = text,
         style = DodamTypography.body1,
         color = textColor,
@@ -520,10 +590,16 @@ fun Body2(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    onClick: () -> Unit = {},
+    onClick: (() -> Unit)? = null,
+    rippleEnabled: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
 ) {
     Text(
-        modifier = modifier.clickable { onClick.invoke() },
+        modifier = modifier.dodamClickable(
+            onClick = onClick,
+            rippleColor = rippleColor,
+            rippleEnable = rippleEnabled
+        ),
         text = text,
         style = DodamTypography.body2,
         color = textColor,
@@ -547,10 +623,16 @@ fun Body3(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    onClick: () -> Unit = {},
+    onClick: (() -> Unit)? = null,
+    rippleEnabled: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
 ) {
     Text(
-        modifier = modifier.clickable { onClick.invoke() },
+        modifier = modifier.dodamClickable(
+            onClick = onClick,
+            rippleColor = rippleColor,
+            rippleEnable = rippleEnabled
+        ),
         text = text,
         style = DodamTypography.body3,
         color = textColor,
@@ -574,10 +656,16 @@ fun DodamError(
     softWrap: Boolean = true,
     maxLines: Int = Int.MAX_VALUE,
     onTextLayout: (TextLayoutResult) -> Unit = {},
-    onClick: () -> Unit = {},
+    onClick: (() -> Unit)? = null,
+    rippleEnabled: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
 ) {
     Text(
-        modifier = modifier.clickable { onClick.invoke() },
+        modifier = modifier.dodamClickable(
+            onClick = onClick,
+            rippleColor = rippleColor,
+            rippleEnable = rippleEnabled
+        ),
         text = text,
         style = DodamTypography.body3,
         color = textColor,
