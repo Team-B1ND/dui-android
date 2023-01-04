@@ -28,6 +28,5 @@ fun Modifier.dodamClickable(
             },
             interactionSource = remember { MutableInteractionSource() }
         )
-    }
-    this
+    } ?: this
 }

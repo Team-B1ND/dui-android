@@ -1,6 +1,9 @@
 package kr.hs.dgsw.smartschool.dui
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
@@ -10,7 +13,9 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.currentCompositionLocalContext
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kr.hs.dgsw.smartschool.components.color.DodamColor
@@ -64,7 +69,9 @@ fun DodamDisplayText() {
     Column {
         Display1(
             text = "도담도담 Display1",
-            onClick = {},
+            onClick = { Log.d("DuiTest", "Display1 클릭되었습니다.") },
+            rippleColor = DodamColor.MainColor,
+            rippleEnabled = true
         )
         Display2(text = "도담도담 Display2")
         Display3(text = "도담도담 Display3")
