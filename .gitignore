@@ -145,3 +145,5 @@ fabric.properties
 # End of https://www.toptal.com/developers/gitignore/api/androidstudio
 
 gradle.properties
+
+.idea/inspectionProfiles/Project_Default.xml
