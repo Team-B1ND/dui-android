@@ -163,7 +163,7 @@ fun Display1(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
-    bounded: Boolean = true
+    bounded: Boolean = true,
 ) {
     Text(
         modifier = modifier.dodamClickable(
@@ -198,12 +198,14 @@ fun Display2(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
+    bounded: Boolean = true,
 ) {
     Text(
         modifier = modifier.dodamClickable(
             onClick = onClick,
             rippleColor = rippleColor,
-            rippleEnable = rippleEnabled
+            rippleEnable = rippleEnabled,
+            bounded = bounded
         ),
         text = text,
         style = DodamTypography.display2,
@@ -231,12 +233,14 @@ fun Display3(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
+    bounded: Boolean = true,
 ) {
     Text(
         modifier = modifier.dodamClickable(
             onClick = onClick,
             rippleColor = rippleColor,
-            rippleEnable = rippleEnabled
+            rippleEnable = rippleEnabled,
+            bounded = bounded
         ),
         text = text,
         style = DodamTypography.display3,
@@ -264,12 +268,14 @@ fun Headline1(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
+    bounded: Boolean = true,
 ) {
     Text(
         modifier = modifier.dodamClickable(
             onClick = onClick,
             rippleColor = rippleColor,
-            rippleEnable = rippleEnabled
+            rippleEnable = rippleEnabled,
+            bounded = bounded
         ),
         text = text,
         style = DodamTypography.headline1,
@@ -297,12 +303,14 @@ fun Headline2(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
+    bounded: Boolean = true,
 ) {
     Text(
         modifier = modifier.dodamClickable(
             onClick = onClick,
             rippleColor = rippleColor,
-            rippleEnable = rippleEnabled
+            rippleEnable = rippleEnabled,
+            bounded = bounded
         ),
         text = text,
         style = DodamTypography.headline2,
@@ -330,12 +338,14 @@ fun Headline3(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
+    bounded: Boolean = true,
 ) {
     Text(
         modifier = modifier.dodamClickable(
             onClick = onClick,
             rippleColor = rippleColor,
-            rippleEnable = rippleEnabled
+            rippleEnable = rippleEnabled,
+            bounded = bounded
         ),
         text = text,
         style = DodamTypography.headline3,
@@ -363,12 +373,14 @@ fun Title1(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
+    bounded: Boolean = true,
 ) {
     Text(
         modifier = modifier.dodamClickable(
             onClick = onClick,
             rippleColor = rippleColor,
-            rippleEnable = rippleEnabled
+            rippleEnable = rippleEnabled,
+            bounded = bounded
         ),
         text = text,
         style = DodamTypography.title1,
@@ -396,12 +408,14 @@ fun Title2(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
+    bounded: Boolean = true,
 ) {
     Text(
         modifier = modifier.dodamClickable(
             onClick = onClick,
             rippleColor = rippleColor,
-            rippleEnable = rippleEnabled
+            rippleEnable = rippleEnabled,
+            bounded = bounded
         ),
         text = text,
         style = DodamTypography.title2,
@@ -429,12 +443,14 @@ fun Title3(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
+    bounded: Boolean = true,
 ) {
     Text(
         modifier = modifier.dodamClickable(
             onClick = onClick,
             rippleColor = rippleColor,
-            rippleEnable = rippleEnabled
+            rippleEnable = rippleEnabled,
+            bounded = bounded
         ),
         text = text,
         style = DodamTypography.title3,
@@ -462,12 +478,14 @@ fun Label1(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
+    bounded: Boolean = true,
 ) {
     Text(
         modifier = modifier.dodamClickable(
             onClick = onClick,
             rippleColor = rippleColor,
-            rippleEnable = rippleEnabled
+            rippleEnable = rippleEnabled,
+            bounded = bounded
         ),
         text = text,
         style = DodamTypography.label1,
@@ -495,12 +513,14 @@ fun Label2(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
+    bounded: Boolean = true,
 ) {
     Text(
         modifier = modifier.dodamClickable(
             onClick = onClick,
             rippleColor = rippleColor,
-            rippleEnable = rippleEnabled
+            rippleEnable = rippleEnabled,
+            bounded = bounded
         ),
         text = text,
         style = DodamTypography.label2,
@@ -528,12 +548,14 @@ fun Label3(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
+    bounded: Boolean = true,
 ) {
     Text(
         modifier = modifier.dodamClickable(
             onClick = onClick,
             rippleColor = rippleColor,
-            rippleEnable = rippleEnabled
+            rippleEnable = rippleEnabled,
+            bounded = bounded
         ),
         text = text,
         style = DodamTypography.label3,
@@ -561,12 +583,14 @@ fun Body1(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
+    bounded: Boolean = true,
 ) {
     Text(
         modifier = modifier.dodamClickable(
             onClick = onClick,
             rippleColor = rippleColor,
-            rippleEnable = rippleEnabled
+            rippleEnable = rippleEnabled,
+            bounded = bounded
         ),
         text = text,
         style = DodamTypography.body1,
@@ -594,12 +618,14 @@ fun Body2(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
+    bounded: Boolean = true,
 ) {
     Text(
         modifier = modifier.dodamClickable(
             onClick = onClick,
             rippleColor = rippleColor,
-            rippleEnable = rippleEnabled
+            rippleEnable = rippleEnabled,
+            bounded = bounded
         ),
         text = text,
         style = DodamTypography.body2,
@@ -627,12 +653,14 @@ fun Body3(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
+    bounded: Boolean = true,
 ) {
     Text(
         modifier = modifier.dodamClickable(
             onClick = onClick,
             rippleColor = rippleColor,
-            rippleEnable = rippleEnabled
+            rippleEnable = rippleEnabled,
+            bounded = bounded
         ),
         text = text,
         style = DodamTypography.body3,
@@ -660,12 +688,14 @@ fun DodamError(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
+    bounded: Boolean = true,
 ) {
     Text(
         modifier = modifier.dodamClickable(
             onClick = onClick,
             rippleColor = rippleColor,
-            rippleEnable = rippleEnabled
+            rippleEnable = rippleEnabled,
+            bounded = bounded
         ),
         text = text,
         style = DodamTypography.body3,
