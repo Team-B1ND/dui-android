@@ -1,10 +1,11 @@
 package kr.hs.dgsw.smartschool.components.typography
 
-import androidx.compose.material.Text
+import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.takeOrElse
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
@@ -15,6 +16,8 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
 import kr.hs.dgsw.smartschool.components.color.DodamColor
+import kr.hs.dgsw.smartschool.components.color.LocalContentAlpha
+import kr.hs.dgsw.smartschool.components.color.LocalContentColor
 import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
 import kr.hs.smartschool.components.R
 
@@ -164,12 +167,14 @@ fun Display1(
     onClick: (() -> Unit)? = null,
     rippleEnabled: Boolean = true,
     rippleColor: Color = Color.Unspecified,
+    bounded: Boolean = true
 ) {
     Text(
         modifier = modifier.dodamClickable(
             onClick = onClick,
             rippleColor = rippleColor,
-            rippleEnable = rippleEnabled
+            rippleEnable = rippleEnabled,
+            bounded = bounded
         ),
         text = text,
         style = DodamTypography.display1,
@@ -675,5 +680,42 @@ fun DodamError(
         softWrap = softWrap,
         maxLines = maxLines,
         onTextLayout = onTextLayout,
+    )
+}
+
+@Composable
+fun Text(
+    text: String,
+    modifier: Modifier = Modifier,
+    color: Color = Color.Unspecified,
+    style: TextStyle = DodamTypography.body1,
+    textAlign: TextAlign? = null,
+    textDecoration: TextDecoration? = null,
+    overflow: TextOverflow = TextOverflow.Clip,
+    softWrap: Boolean = true,
+    maxLines: Int = Int.MAX_VALUE,
+    onTextLayout: (TextLayoutResult) -> Unit = {}
+) {
+
+    val textColor = color.takeOrElse {
+        style.color.takeOrElse {
+            LocalContentColor.current.copy(alpha = LocalContentAlpha.current)
+        }
+    }
+
+    val mergedStyle = style.copy(
+        color = textColor,
+        textAlign = textAlign,
+        textDecoration = textDecoration
+    )
+
+    BasicText(
+        text = text,
+        modifier = modifier,
+        style = mergedStyle,
+        overflow = overflow,
+        softWrap = softWrap,
+        maxLines = maxLines,
+        onTextLayout = onTextLayout
     )
 }

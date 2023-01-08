@@ -17,16 +17,19 @@ fun Modifier.dodamClickable(
     onClick: (() -> Unit)? = null,
     rippleColor: Color = Color.Unspecified,
     rippleEnable: Boolean = true,
+    bounded: Boolean = true
 ) = composed {
     onClick?.let { onClick ->
         clickable(
             onClick = { onClick() },
-            indication = rememberRipple(
-                color = rippleColor
-            ).takeIf {
-                rippleEnable
-            },
+            indication = if (rippleEnable)
+                rememberRipple(
+                    color = rippleColor,
+                    bounded = bounded
+                ) else null,
             interactionSource = remember { MutableInteractionSource() }
         )
     } ?: this
 }
+
+

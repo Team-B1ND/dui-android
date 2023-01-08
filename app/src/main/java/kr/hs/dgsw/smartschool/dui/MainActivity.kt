@@ -3,6 +3,7 @@ package kr.hs.dgsw.smartschool.dui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Indication
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -63,7 +64,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DodamDisplayText() {
     Column {
-        Display1(text = "도담도담 Display1")
+        Display1(text = "도담도담 Display1", onClick = {}, rippleColor = DodamColor.MainColor )
         Display2(text = "도담도담 Display2")
         Display3(text = "도담도담 Display3")
     }
