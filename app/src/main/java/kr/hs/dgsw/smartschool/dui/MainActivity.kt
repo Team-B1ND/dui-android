@@ -3,7 +3,6 @@ package kr.hs.dgsw.smartschool.dui
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Indication
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -14,23 +13,25 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import kr.hs.dgsw.smartschool.components.color.DodamColor
-import kr.hs.dgsw.smartschool.components.typography.Body1
-import kr.hs.dgsw.smartschool.components.typography.Body2
-import kr.hs.dgsw.smartschool.components.typography.Body3
-import kr.hs.dgsw.smartschool.components.typography.Display1
-import kr.hs.dgsw.smartschool.components.typography.Display2
-import kr.hs.dgsw.smartschool.components.typography.Display3
-import kr.hs.dgsw.smartschool.components.typography.DodamError
-import kr.hs.dgsw.smartschool.components.typography.Headline1
-import kr.hs.dgsw.smartschool.components.typography.Headline2
-import kr.hs.dgsw.smartschool.components.typography.Headline3
-import kr.hs.dgsw.smartschool.components.typography.Label1
-import kr.hs.dgsw.smartschool.components.typography.Label2
-import kr.hs.dgsw.smartschool.components.typography.Label3
-import kr.hs.dgsw.smartschool.components.typography.Title1
-import kr.hs.dgsw.smartschool.components.typography.Title2
-import kr.hs.dgsw.smartschool.components.typography.Title3
+import kr.hs.dgsw.smartschool.components.theme.Body1
+import kr.hs.dgsw.smartschool.components.theme.Body2
+import kr.hs.dgsw.smartschool.components.theme.Body3
+import kr.hs.dgsw.smartschool.components.theme.Display1
+import kr.hs.dgsw.smartschool.components.theme.Display2
+import kr.hs.dgsw.smartschool.components.theme.Display3
+import kr.hs.dgsw.smartschool.components.theme.DodamColor
+import kr.hs.dgsw.smartschool.components.theme.DodamError
+import kr.hs.dgsw.smartschool.components.theme.Headline1
+import kr.hs.dgsw.smartschool.components.theme.Headline2
+import kr.hs.dgsw.smartschool.components.theme.Headline3
+import kr.hs.dgsw.smartschool.components.theme.IcBreakfast3D
+import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
+import kr.hs.dgsw.smartschool.components.theme.Label1
+import kr.hs.dgsw.smartschool.components.theme.Label2
+import kr.hs.dgsw.smartschool.components.theme.Label3
+import kr.hs.dgsw.smartschool.components.theme.Title1
+import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.components.theme.Title3
 import kr.hs.dgsw.smartschool.dui.ui.theme.DuiTheme
 
 class MainActivity : ComponentActivity() {
@@ -54,6 +55,7 @@ class MainActivity : ComponentActivity() {
                         DodamLabelText()
                         DodamBodyText()
                         DodamError(text = "도담도담 Error Text")
+                        IcBreakfast3D(contentDescription = null)
                     }
                 }
             }
@@ -144,6 +146,12 @@ fun BodyTextPreview() {
     DuiTheme {
         DodamBodyText()
     }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun IcBack() {
+    IcLeftArrow(contentDescription = null, tint = DodamColor.MainColor)
 }
 
 @Preview(showBackground = true)

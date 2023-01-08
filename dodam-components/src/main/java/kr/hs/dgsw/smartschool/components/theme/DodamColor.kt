@@ -1,4 +1,4 @@
-package kr.hs.dgsw.smartschool.components.color
+package kr.hs.dgsw.smartschool.components.theme
 
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.staticCompositionLocalOf

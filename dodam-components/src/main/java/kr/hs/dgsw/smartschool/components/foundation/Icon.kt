@@ -1,4 +1,4 @@
-package kr.hs.dgsw.smartschool.components.icon
+package kr.hs.dgsw.smartschool.components.foundation
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
@@ -16,20 +16,32 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
-import kr.hs.dgsw.smartschool.components.color.LocalContentAlpha
-import kr.hs.dgsw.smartschool.components.color.LocalContentColor
+import kr.hs.dgsw.smartschool.components.theme.LocalContentAlpha
+import kr.hs.dgsw.smartschool.components.theme.LocalContentColor
 
+/**
+ * @param painter Draw Icon
+ * @param contentDescription Icon 설명
+ * @param modifier modifier
+ * @param tint 아이콘의 색을 지정해 줌. 3D 아이콘의 경우 null 지정 시 아무 값이 지정 되지 않음.
+ */
 @Composable
 fun Icon(
     painter: Painter,
     contentDescription: String?,
     modifier: Modifier = Modifier,
-    tint: Color = LocalContentColor.current.copy(alpha = LocalContentAlpha.current)
+    tint: Color? = LocalContentColor.current.copy(alpha = LocalContentAlpha.current)
 ) {
-    val colorFilter = if (tint == Color.Unspecified) {
-        ColorFilter.tint(LocalContentColor.current)
-    } else {
-        ColorFilter.tint(tint)
+    val colorFilter: ColorFilter? = when (tint) {
+        null -> {
+            null
+        }
+        Color.Unspecified -> {
+            ColorFilter.tint(LocalContentColor.current)
+        }
+        else -> {
+            ColorFilter.tint(tint)
+        }
     }
 
     val semantics = if (contentDescription != null) {
@@ -55,7 +67,7 @@ fun Icon(
     )
 }
 
-// 기본 사이즈를 지정한다.
+// 기본 사이즈를 지정
 private fun Modifier.defaultSizeFor(painter: Painter) =
     this.then(
         if (painter.intrinsicSize == Size.Unspecified || painter.intrinsicSize.isInfinite()) {
