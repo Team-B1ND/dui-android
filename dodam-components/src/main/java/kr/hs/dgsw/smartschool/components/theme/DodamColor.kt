@@ -64,6 +64,6 @@ object DodamColor {
     }
 }
 
-internal val LocalColors = staticCompositionLocalOf { DodamColor }
+internal val LocalColor = staticCompositionLocalOf { DodamColor }
 internal val LocalContentColor = compositionLocalOf { Color.Black }
 internal val LocalContentAlpha = compositionLocalOf { 1f }

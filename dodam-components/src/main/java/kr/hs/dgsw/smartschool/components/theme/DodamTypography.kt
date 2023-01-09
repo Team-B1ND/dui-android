@@ -2,6 +2,7 @@ package kr.hs.dgsw.smartschool.components.theme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextLayoutResult
@@ -708,3 +709,5 @@ fun DodamError(
         onTextLayout = onTextLayout,
     )
 }
+
+internal val LocalTypography = staticCompositionLocalOf { DodamTypography }
