@@ -37,8 +37,12 @@ dependencies {
     implementation(AndroidX.LIFECYCLE_KTX)
     implementation(Compose.ACTIVITY_COMPOSE)
     implementation(Compose.UI_COMPOSE)
-    implementation(Compose.UI_TOOLING_PREVIEW)
+    implementation(Compose.FOUNDATION)
+
+    // 최소한으로 사용!!!!!!!!!
     implementation(Compose.MATERIAL_COMPOSE)
+
+    implementation(Compose.UI_TOOLING_PREVIEW)
     testImplementation(UnitTest.JUNIT)
     androidTestImplementation(AndroidTest.ANDROID_JUNIT)
     androidTestImplementation(AndroidTest.ESPRESSO_CORE)

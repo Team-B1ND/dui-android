@@ -1,5 +1,7 @@
-package kr.hs.dgsw.smartschool.components.color
+package kr.hs.dgsw.smartschool.components.theme
 
+import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 /**
@@ -61,3 +63,7 @@ object DodamColor {
         val MyInfoColor = Color(0xFF03C75A)
     }
 }
+
+internal val LocalColor = staticCompositionLocalOf { DodamColor }
+internal val LocalContentColor = compositionLocalOf { Color.Black }
+internal val LocalContentAlpha = compositionLocalOf { 1f }

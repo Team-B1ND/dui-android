@@ -26,6 +26,7 @@ object Compose {
     const val UI_TEST_JUNIT4 = "androidx.compose.ui:ui-test-junit4:${Versions.COMPOSE_VERSION}"
     const val UI_TOOLING = "androidx.compose.ui:ui-tooling:${Versions.COMPOSE_VERSION}"
     const val UI_TEST_MANIFEST = "androidx.compose.ui:ui-test-manifest:${Versions.COMPOSE_VERSION}"
+    const val FOUNDATION = "androidx.compose.foundation:foundation:${Versions.COMPOSE_VERSION}"
 }
 
 object Gradle {
