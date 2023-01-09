@@ -31,5 +31,3 @@ fun Modifier.dodamClickable(
         )
     } ?: this
 }
-
-

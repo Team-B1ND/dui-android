@@ -66,7 +66,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun DodamDisplayText() {
     Column {
-        Display1(text = "도담도담 Display1", onClick = {}, rippleColor = DodamColor.MainColor )
+        Display1(text = "도담도담 Display1", onClick = {}, rippleColor = DodamColor.MainColor)
         Display2(text = "도담도담 Display2")
         Display3(text = "도담도담 Display3")
     }
