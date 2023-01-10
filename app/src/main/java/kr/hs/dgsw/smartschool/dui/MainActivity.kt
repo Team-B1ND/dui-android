@@ -1,11 +1,14 @@
 package kr.hs.dgsw.smartschool.dui
 
+import android.content.Context
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -14,7 +17,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import kr.hs.dgsw.smartschool.components.component.button.Button
+import kr.hs.dgsw.smartschool.components.component.button.ButtonType
+import kr.hs.dgsw.smartschool.components.component.button.DodamLargeRoundedButton
+import kr.hs.dgsw.smartschool.components.component.button.DodamMediumRoundedButton
 import kr.hs.dgsw.smartschool.components.component.button.DodamSmallRoundedButton
 import kr.hs.dgsw.smartschool.components.theme.Body1
 import kr.hs.dgsw.smartschool.components.theme.Body2
@@ -24,6 +29,7 @@ import kr.hs.dgsw.smartschool.components.theme.Display2
 import kr.hs.dgsw.smartschool.components.theme.Display3
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamError
+import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.Headline1
 import kr.hs.dgsw.smartschool.components.theme.Headline2
 import kr.hs.dgsw.smartschool.components.theme.Headline3
@@ -41,7 +47,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            DuiTheme {
+            DodamTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = DodamColor.Background
@@ -50,7 +56,7 @@ class MainActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier
                             .padding(5.dp)
-                            .verticalScroll(scrollState)
+                            .verticalScroll(scrollState),
                     ) {
                         DodamDisplayText()
                         DodamHeadlineText()
@@ -59,12 +65,20 @@ class MainActivity : ComponentActivity() {
                         DodamBodyText()
                         DodamError(text = "도담도담 Error Text")
                         IcBreakfast3D(contentDescription = null)
-                        DodamSmallRoundedButton(onClick = {}, text = "Hello")
+                        DodamSmallRoundedButton(onClick = { sampleOnClick(this@MainActivity) }, text = "Small")
+                        Spacer(modifier = Modifier.height(8.dp))
+                        DodamMediumRoundedButton(onClick = { sampleOnClick(this@MainActivity) }, text = "Medium", type = ButtonType.Danger)
+                        Spacer(modifier = Modifier.height(8.dp))
+                        DodamLargeRoundedButton(onClick = { sampleOnClick(this@MainActivity) }, text = "Large", type = ButtonType.Disable, enable = false)
                     }
                 }
             }
         }
     }
+}
+
+private fun sampleOnClick(context: Context) {
+    Toast.makeText(context, "Hello", Toast.LENGTH_SHORT).show()
 }
 
 @Composable

@@ -34,3 +34,60 @@ fun DodamSmallRoundedButton(
         Label1(text = text)
     }
 }
+
+@Composable
+fun DodamMediumRoundedButton(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    iconLeft: @Composable (() -> Unit)? = null,
+    iconRight: @Composable (() -> Unit)? = null,
+    type: ButtonType = ButtonType.Primary,
+    enable: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
+    rippleEnable: Boolean = true,
+    bounded: Boolean = true,
+    text: String,
+) {
+    Button(
+        onClick = onClick,
+        modifier = modifier,
+        iconLeft = iconLeft,
+        iconRight = iconRight,
+        type = type,
+        enable = enable,
+        rippleColor = rippleColor,
+        rippleEnable = rippleEnable,
+        bounded = bounded
+    ) {
+        Label1(text = text)
+    }
+}
+
+@Composable
+fun DodamLargeRoundedButton(
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    iconLeft: @Composable (() -> Unit)? = null,
+    iconRight: @Composable (() -> Unit)? = null,
+    type: ButtonType = ButtonType.Primary,
+    enable: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
+    rippleEnable: Boolean = true,
+    bounded: Boolean = true,
+    text: String,
+) {
+    Button(
+        onClick = onClick,
+        modifier = modifier,
+        iconLeft = iconLeft,
+        iconRight = iconRight,
+        shape = DodamTheme.shape.large,
+        type = type,
+        enable = enable,
+        rippleColor = rippleColor,
+        rippleEnable = rippleEnable,
+        bounded = bounded
+    ) {
+        Label1(text = text)
+    }
+}
