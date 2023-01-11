@@ -17,8 +17,6 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.RadioButton
-import androidx.compose.material.RadioButtonColors
-import androidx.compose.material.RadioButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
@@ -46,7 +44,7 @@ sealed interface ButtonType {
     object Secondary : ButtonType
     object SecondaryVariant : ButtonType
     object Danger : ButtonType
-    object Disable: ButtonType
+    object Disable : ButtonType
 
     object Song : ButtonType
     object Schedule : ButtonType
@@ -70,7 +68,7 @@ fun Button(
     content: @Composable RowScope.() -> Unit,
 ) {
     val color = backgroundColorFor(type)
-    
+
     Surface(
         onClick = if (enable) onClick else null,
         modifier = modifier,
@@ -117,7 +115,7 @@ fun IconButton(
     val backgroundColor = backgroundColorFor(type)
 
     val iconColor = contentColorFor(backgroundColor = backgroundColor)
-    
+
     CompositionLocalProvider(
         LocalContentColor provides iconColor
     ) {
