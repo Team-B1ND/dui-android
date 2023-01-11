@@ -2,6 +2,9 @@ package kr.hs.dgsw.smartschool.components.foundation
 
 import androidx.compose.foundation.text.BasicText
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.structuralEqualityPolicy
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.takeOrElse
@@ -50,3 +53,11 @@ fun Text(
         onTextLayout = onTextLayout
     )
 }
+
+@Composable
+fun ProvideTextStyle(value: TextStyle, content: @Composable () -> Unit) {
+    val mergedStyle = LocalTextStyle.current.merge(value)
+    CompositionLocalProvider(LocalTextStyle provides mergedStyle, content = content)
+}
+
+val LocalTextStyle = compositionLocalOf(structuralEqualityPolicy()) { TextStyle.Default }

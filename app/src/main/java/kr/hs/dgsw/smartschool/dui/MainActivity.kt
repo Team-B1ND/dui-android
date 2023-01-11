@@ -1,18 +1,33 @@
 package kr.hs.dgsw.smartschool.dui
 
+import android.content.Context
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import kr.hs.dgsw.smartschool.components.component.Surface
+import kr.hs.dgsw.smartschool.components.component.button.ButtonType
+import kr.hs.dgsw.smartschool.components.component.button.DodamLargeRoundedButton
+import kr.hs.dgsw.smartschool.components.component.button.DodamMediumRoundedButton
+import kr.hs.dgsw.smartschool.components.component.button.DodamSmallRoundedButton
+import kr.hs.dgsw.smartschool.components.component.button.IconButton
+import kr.hs.dgsw.smartschool.components.component.button.RadioButton
 import kr.hs.dgsw.smartschool.components.theme.Body1
 import kr.hs.dgsw.smartschool.components.theme.Body2
 import kr.hs.dgsw.smartschool.components.theme.Body3
@@ -21,11 +36,13 @@ import kr.hs.dgsw.smartschool.components.theme.Display2
 import kr.hs.dgsw.smartschool.components.theme.Display3
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamError
+import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.Headline1
 import kr.hs.dgsw.smartschool.components.theme.Headline2
 import kr.hs.dgsw.smartschool.components.theme.Headline3
 import kr.hs.dgsw.smartschool.components.theme.IcBreakfast3D
 import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
+import kr.hs.dgsw.smartschool.components.theme.IcSong
 import kr.hs.dgsw.smartschool.components.theme.Label1
 import kr.hs.dgsw.smartschool.components.theme.Label2
 import kr.hs.dgsw.smartschool.components.theme.Label3
@@ -38,7 +55,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            DuiTheme {
+            DodamTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = DodamColor.Background
@@ -47,7 +64,7 @@ class MainActivity : ComponentActivity() {
                     Column(
                         modifier = Modifier
                             .padding(5.dp)
-                            .verticalScroll(scrollState)
+                            .verticalScroll(scrollState),
                     ) {
                         DodamDisplayText()
                         DodamHeadlineText()
@@ -56,11 +73,31 @@ class MainActivity : ComponentActivity() {
                         DodamBodyText()
                         DodamError(text = "도담도담 Error Text")
                         IcBreakfast3D(contentDescription = null)
+                        DodamSmallRoundedButton(onClick = { sampleOnClick(this@MainActivity) }, text = "Small")
+                        Spacer(modifier = Modifier.height(8.dp))
+                        DodamMediumRoundedButton(onClick = { sampleOnClick(this@MainActivity) }, text = "도담도담 버튼", type = ButtonType.Danger, iconLeft = { IcSong(contentDescription = null) })
+                        Spacer(modifier = Modifier.height(8.dp))
+                        DodamLargeRoundedButton(onClick = { sampleOnClick(this@MainActivity) }, text = "Large", type = ButtonType.Disable, enable = false)
+                        Spacer(modifier = Modifier.height(8.dp))
+                        IconButton(icon = { IcSong(contentDescription = null) }, onClick = { sampleOnClick(this@MainActivity) }, type = ButtonType.Danger)
+
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        val radioState = remember { mutableStateOf(true) }
+                        Row {
+                            RadioButton(selected = radioState.value, onClick = { radioState.value = !radioState.value }, type = ButtonType.Itmap)
+                            Spacer(modifier = Modifier.width(8.dp))
+                            Body2(text = "Radio", modifier = Modifier.align(Alignment.CenterVertically))
+                        }
                     }
                 }
             }
         }
     }
+}
+
+private fun sampleOnClick(context: Context) {
+    Toast.makeText(context, "Hello", Toast.LENGTH_SHORT).show()
 }
 
 @Composable

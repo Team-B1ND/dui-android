@@ -154,7 +154,7 @@ object DodamTypography {
 fun Display1(
     modifier: Modifier = Modifier,
     text: String,
-    textColor: Color = DodamColor.Black,
+    textColor: Color = LocalContentColor.current,
     textAlign: TextAlign = TextAlign.Start,
     textDecoration: TextDecoration? = null,
     textOverflow: TextOverflow = TextOverflow.Clip,
@@ -189,7 +189,7 @@ fun Display1(
 fun Display2(
     modifier: Modifier = Modifier,
     text: String,
-    textColor: Color = DodamColor.Black,
+    textColor: Color = LocalContentColor.current,
     textAlign: TextAlign = TextAlign.Start,
     textDecoration: TextDecoration? = null,
     textOverflow: TextOverflow = TextOverflow.Clip,
@@ -224,7 +224,7 @@ fun Display2(
 fun Display3(
     modifier: Modifier = Modifier,
     text: String,
-    textColor: Color = DodamColor.Black,
+    textColor: Color = LocalContentColor.current,
     textAlign: TextAlign = TextAlign.Start,
     textDecoration: TextDecoration? = null,
     textOverflow: TextOverflow = TextOverflow.Clip,
@@ -259,7 +259,7 @@ fun Display3(
 fun Headline1(
     modifier: Modifier = Modifier,
     text: String,
-    textColor: Color = DodamColor.Black,
+    textColor: Color = LocalContentColor.current,
     textAlign: TextAlign = TextAlign.Start,
     textDecoration: TextDecoration? = null,
     textOverflow: TextOverflow = TextOverflow.Clip,
@@ -294,7 +294,7 @@ fun Headline1(
 fun Headline2(
     modifier: Modifier = Modifier,
     text: String,
-    textColor: Color = DodamColor.Black,
+    textColor: Color = LocalContentColor.current,
     textAlign: TextAlign = TextAlign.Start,
     textDecoration: TextDecoration? = null,
     textOverflow: TextOverflow = TextOverflow.Clip,
@@ -329,7 +329,7 @@ fun Headline2(
 fun Headline3(
     modifier: Modifier = Modifier,
     text: String,
-    textColor: Color = DodamColor.Black,
+    textColor: Color = LocalContentColor.current,
     textAlign: TextAlign = TextAlign.Start,
     textDecoration: TextDecoration? = null,
     textOverflow: TextOverflow = TextOverflow.Clip,
@@ -364,7 +364,7 @@ fun Headline3(
 fun Title1(
     modifier: Modifier = Modifier,
     text: String,
-    textColor: Color = DodamColor.Black,
+    textColor: Color = LocalContentColor.current,
     textAlign: TextAlign = TextAlign.Start,
     textDecoration: TextDecoration? = null,
     textOverflow: TextOverflow = TextOverflow.Clip,
@@ -399,7 +399,7 @@ fun Title1(
 fun Title2(
     modifier: Modifier = Modifier,
     text: String,
-    textColor: Color = DodamColor.Black,
+    textColor: Color = LocalContentColor.current,
     textAlign: TextAlign = TextAlign.Start,
     textDecoration: TextDecoration? = null,
     textOverflow: TextOverflow = TextOverflow.Clip,
@@ -434,7 +434,7 @@ fun Title2(
 fun Title3(
     modifier: Modifier = Modifier,
     text: String,
-    textColor: Color = DodamColor.Black,
+    textColor: Color = LocalContentColor.current,
     textAlign: TextAlign = TextAlign.Start,
     textDecoration: TextDecoration? = null,
     textOverflow: TextOverflow = TextOverflow.Clip,
@@ -469,7 +469,7 @@ fun Title3(
 fun Label1(
     modifier: Modifier = Modifier,
     text: String,
-    textColor: Color = DodamColor.Black,
+    textColor: Color = LocalContentColor.current,
     textAlign: TextAlign = TextAlign.Start,
     textDecoration: TextDecoration? = null,
     textOverflow: TextOverflow = TextOverflow.Clip,
@@ -504,7 +504,7 @@ fun Label1(
 fun Label2(
     modifier: Modifier = Modifier,
     text: String,
-    textColor: Color = DodamColor.Black,
+    textColor: Color = LocalContentColor.current,
     textAlign: TextAlign = TextAlign.Start,
     textDecoration: TextDecoration? = null,
     textOverflow: TextOverflow = TextOverflow.Clip,
@@ -539,7 +539,7 @@ fun Label2(
 fun Label3(
     modifier: Modifier = Modifier,
     text: String,
-    textColor: Color = DodamColor.Black,
+    textColor: Color = LocalContentColor.current,
     textAlign: TextAlign = TextAlign.Start,
     textDecoration: TextDecoration? = null,
     textOverflow: TextOverflow = TextOverflow.Clip,
@@ -574,7 +574,7 @@ fun Label3(
 fun Body1(
     modifier: Modifier = Modifier,
     text: String,
-    textColor: Color = DodamColor.Black,
+    textColor: Color = LocalContentColor.current,
     textAlign: TextAlign = TextAlign.Start,
     textDecoration: TextDecoration? = null,
     textOverflow: TextOverflow = TextOverflow.Clip,
@@ -609,7 +609,7 @@ fun Body1(
 fun Body2(
     modifier: Modifier = Modifier,
     text: String,
-    textColor: Color = DodamColor.Black,
+    textColor: Color = LocalContentColor.current,
     textAlign: TextAlign = TextAlign.Start,
     textDecoration: TextDecoration? = null,
     textOverflow: TextOverflow = TextOverflow.Clip,
@@ -644,7 +644,7 @@ fun Body2(
 fun Body3(
     modifier: Modifier = Modifier,
     text: String,
-    textColor: Color = DodamColor.Black,
+    textColor: Color = LocalContentColor.current,
     textAlign: TextAlign = TextAlign.Start,
     textDecoration: TextDecoration? = null,
     textOverflow: TextOverflow = TextOverflow.Clip,
