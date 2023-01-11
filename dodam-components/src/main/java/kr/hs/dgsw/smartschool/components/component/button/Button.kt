@@ -1,22 +1,37 @@
 package kr.hs.dgsw.smartschool.components.component.button
 
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.RadioButton
+import androidx.compose.material.RadioButtonColors
+import androidx.compose.material.RadioButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
+import androidx.compose.ui.graphics.drawscope.Fill
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import kr.hs.dgsw.smartschool.components.component.Surface
 import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
@@ -27,7 +42,9 @@ import kr.hs.dgsw.smartschool.components.theme.contentColorFor
 
 sealed interface ButtonType {
     object Primary : ButtonType
+    object PrimaryVariant : ButtonType
     object Secondary : ButtonType
+    object SecondaryVariant : ButtonType
     object Danger : ButtonType
     object Disable: ButtonType
 
@@ -136,11 +153,68 @@ fun IconButton(
     }
 }
 
+private val RadioButtonDotSize = 12.dp
+private val StrokeWidth = 1.dp
+private val RadioButtonSize = 20.dp
+
+@Composable
+fun RadioButton(
+    selected: Boolean,
+    onClick: (() -> Unit)?,
+    modifier: Modifier = Modifier,
+    enabled: Boolean = true,
+    type: ButtonType = ButtonType.PrimaryVariant,
+) {
+    val selectedColor = animateColorAsState(
+        if (selected) backgroundColorFor(type) else DodamColor.Gray500
+    )
+
+    val dotRadius = animateDpAsState(
+        targetValue = if (selected) RadioButtonDotSize / 2 else 0.dp,
+        animationSpec = tween(durationMillis = 100)
+    )
+
+    val selectableModifier = if (onClick != null) {
+        Modifier.selectable(
+            selected = selected,
+            onClick = onClick,
+            enabled = enabled,
+            role = Role.RadioButton,
+            interactionSource = remember { MutableInteractionSource() },
+            indication = null
+        )
+    } else Modifier
+
+    Canvas(
+        modifier
+            .then(selectableModifier)
+            .wrapContentSize(Alignment.Center)
+            .padding(2.dp)
+            .requiredSize(RadioButtonDotSize)
+    ) {
+        val strokeWidth = StrokeWidth.toPx()
+
+        // Outside Circle
+        drawCircle(
+            selectedColor.value,
+            (RadioButtonSize / 2).toPx() - strokeWidth / 2, // 전체의 반 - 테두리 굵기 -> 반지름
+            style = Stroke(strokeWidth)
+        )
+
+        // Insize Circle -> radius = dotRadius - 테두리 굵기
+        if (dotRadius.value > 0.dp) {
+            drawCircle(selectedColor.value, dotRadius.value.toPx() - strokeWidth / 2, style = Fill)
+        }
+    }
+}
+
 @Composable
 private fun backgroundColorFor(type: ButtonType): Color =
     when (type) {
         ButtonType.Primary -> DodamTheme.color.MainColor
+        ButtonType.PrimaryVariant -> DodamTheme.color.MainColor400
         ButtonType.Secondary -> DodamTheme.color.SecondaryColor
+        ButtonType.SecondaryVariant -> DodamTheme.color.SecondaryColor400
         ButtonType.Danger -> DodamTheme.color.Error
         ButtonType.Disable -> DodamTheme.color.Gray100
         ButtonType.Song -> DodamColor.FeatureColor.SongColor
