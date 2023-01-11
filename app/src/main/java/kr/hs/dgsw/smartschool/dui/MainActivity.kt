@@ -21,6 +21,7 @@ import kr.hs.dgsw.smartschool.components.component.button.ButtonType
 import kr.hs.dgsw.smartschool.components.component.button.DodamLargeRoundedButton
 import kr.hs.dgsw.smartschool.components.component.button.DodamMediumRoundedButton
 import kr.hs.dgsw.smartschool.components.component.button.DodamSmallRoundedButton
+import kr.hs.dgsw.smartschool.components.component.button.IconButton
 import kr.hs.dgsw.smartschool.components.theme.Body1
 import kr.hs.dgsw.smartschool.components.theme.Body2
 import kr.hs.dgsw.smartschool.components.theme.Body3
@@ -35,6 +36,7 @@ import kr.hs.dgsw.smartschool.components.theme.Headline2
 import kr.hs.dgsw.smartschool.components.theme.Headline3
 import kr.hs.dgsw.smartschool.components.theme.IcBreakfast3D
 import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
+import kr.hs.dgsw.smartschool.components.theme.IcSong
 import kr.hs.dgsw.smartschool.components.theme.Label1
 import kr.hs.dgsw.smartschool.components.theme.Label2
 import kr.hs.dgsw.smartschool.components.theme.Label3
@@ -67,9 +69,11 @@ class MainActivity : ComponentActivity() {
                         IcBreakfast3D(contentDescription = null)
                         DodamSmallRoundedButton(onClick = { sampleOnClick(this@MainActivity) }, text = "Small")
                         Spacer(modifier = Modifier.height(8.dp))
-                        DodamMediumRoundedButton(onClick = { sampleOnClick(this@MainActivity) }, text = "Medium", type = ButtonType.Danger)
+                        DodamMediumRoundedButton(onClick = { sampleOnClick(this@MainActivity) }, text = "도담도담 버튼", type = ButtonType.Danger, iconLeft = { IcSong(contentDescription = null) })
                         Spacer(modifier = Modifier.height(8.dp))
                         DodamLargeRoundedButton(onClick = { sampleOnClick(this@MainActivity) }, text = "Large", type = ButtonType.Disable, enable = false)
+                        Spacer(modifier = Modifier.height(8.dp))
+                        IconButton(icon = { IcSong(contentDescription = null) }, onClick = { sampleOnClick(this@MainActivity) }, type = ButtonType.Danger)
                     }
                 }
             }
