@@ -14,6 +14,7 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -34,6 +35,7 @@ import androidx.compose.ui.unit.dp
 import kr.hs.dgsw.smartschool.components.theme.Body2
 import kr.hs.dgsw.smartschool.components.theme.Body3
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
+import kr.hs.dgsw.smartschool.components.theme.LocalContentColor
 
 sealed interface InputType {
     object Default : InputType
@@ -185,18 +187,29 @@ private fun MainTextField(
             verticalAlignment = Alignment.CenterVertically
         ) {
             leadingIcon?.let {
-                leadingIcon()
+                CompositionLocalProvider(
+                    LocalContentColor provides inputColor
+                ) {
+                    leadingIcon()
+                }
                 Spacer(modifier = Modifier.width(7.dp))
             }
 
             if (inputType == InputType.Default || inputType == InputType.Error.Default)
-                Body2(text = hint, textColor = inputColor)
+                Body2(text = hint, textColor = inputColor, modifier = Modifier.weight(1f))
             else
-                innerTextField()
-
+                Box(Modifier.weight(1f)) {
+                    innerTextField()
+                }
             trailingIcon?.let {
                 Spacer(modifier = Modifier.width(7.dp))
-                trailingIcon()
+                CompositionLocalProvider(
+                    LocalContentColor provides inputColor
+                ) {
+                    if (!(inputType == InputType.Default || inputType == InputType.Error.Default))
+                        trailingIcon()
+                }
+
             }
         }
     }

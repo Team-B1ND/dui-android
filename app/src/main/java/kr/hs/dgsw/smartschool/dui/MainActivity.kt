@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -46,6 +47,7 @@ import kr.hs.dgsw.smartschool.components.theme.Headline3
 import kr.hs.dgsw.smartschool.components.theme.IcBreakfast3D
 import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
 import kr.hs.dgsw.smartschool.components.theme.IcSong
+import kr.hs.dgsw.smartschool.components.theme.IcX
 import kr.hs.dgsw.smartschool.components.theme.Label1
 import kr.hs.dgsw.smartschool.components.theme.Label2
 import kr.hs.dgsw.smartschool.components.theme.Label3
@@ -100,7 +102,8 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier.fillMaxWidth(),
                             value = value.value,
                             hint = "Test Hint",
-                            onValueChange = { value.value = it }
+                            onValueChange = { value.value = it },
+                            leadingIcon = { IcSong(contentDescription = null) },
                         )
                         Spacer(modifier = Modifier.height(8.dp))
 
@@ -112,6 +115,7 @@ class MainActivity : ComponentActivity() {
                             isError = true,
                             errorMessage = "응애 에러 발생 에러 발생",
                             onValueChange = { value2.value = it },
+                            trailingIcon = { IcX(contentDescription = null, modifier = Modifier.clickable { value2.value = "" }) },
                         )
                     }
                 }
