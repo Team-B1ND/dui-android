@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.BasicTextField
@@ -29,7 +30,9 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import kr.hs.dgsw.smartschool.components.theme.Body2
 import kr.hs.dgsw.smartschool.components.theme.Body3
+import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 
 sealed interface InputType {
@@ -117,23 +120,27 @@ fun InputDecoration(
         InputType.Error -> DodamTheme.color.Error
     }
 
-    Column {
+    Column(
+
+    ) {
         if (inputType != InputType.Default)
             Body3(
                 text = hint,
                 textColor = inputColor
             )
         Box(
-            modifier = Modifier.drawBehind {
-                val strokeWidth = 1.dp.toPx()
-                val y = size.height - strokeWidth / 2
-                drawLine(
-                    inputColor,
-                    Offset(0f, y),
-                    Offset(size.width, y),
-                    strokeWidth
-                )
-            }
+            modifier = Modifier
+                .fillMaxWidth()
+                .drawBehind {
+                    val strokeWidth = 1.dp.toPx()
+                    val y = size.height - strokeWidth / 2
+                    drawLine(
+                        color = inputColor,
+                        start = Offset(0f, y),
+                        end = Offset(size.width, y),
+                        strokeWidth = strokeWidth
+                    )
+                },
         ) {
             Row(
                 modifier = Modifier.padding(
@@ -147,7 +154,7 @@ fun InputDecoration(
                 }
 
                 if (inputType == InputType.Default)
-                    Body3(text = hint, textColor = inputColor)
+                    Body2(text = hint, textColor = inputColor)
                 else
                     innerTextField()
 
