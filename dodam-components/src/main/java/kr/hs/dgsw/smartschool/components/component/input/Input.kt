@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.BasicTextField
@@ -32,14 +33,17 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import kr.hs.dgsw.smartschool.components.theme.Body2
 import kr.hs.dgsw.smartschool.components.theme.Body3
-import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 
 sealed interface InputType {
     object Default : InputType
     object UnFocus : InputType
     object Focus : InputType
-    object Error : InputType
+    object Error {
+        object Default : InputType
+        object UnFocus : InputType
+        object Focus : InputType
+    }
 }
 
 private val MinHeight = 60.dp
@@ -51,10 +55,11 @@ fun Input(
     onValueChange: (String) -> Unit,
     hint: String,
     modifier: Modifier = Modifier,
+    isError: Boolean = false,
+    errorMessage: String = "",
     enabled: Boolean = true,
     textColor: Color = Color.Black,
     textStyle: TextStyle = DodamTheme.typography.body2,
-    inputType: InputType = InputType.Default,
     focusColor: Color = DodamTheme.color.MainColor400,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
@@ -65,7 +70,7 @@ fun Input(
     val mergedTextStyle = textStyle.merge(TextStyle(color = textColor))
     val focusRequester by remember { mutableStateOf(FocusRequester()) }
 
-    var currentInputType by remember { mutableStateOf(inputType) }
+    var currentInputType: InputType by remember { mutableStateOf(InputType.Default) }
 
     BasicTextField(
         value = value,
@@ -81,7 +86,7 @@ fun Input(
             )
             .focusRequester(focusRequester)
             .onFocusChanged {
-                currentInputType = focusStateAsInputType(it.isFocused, value)
+                currentInputType = focusStateAsInputType(it.isFocused, value, isError)
             },
         enabled = enabled,
         textStyle = mergedTextStyle,
@@ -97,6 +102,7 @@ fun Input(
                 hint = hint,
                 innerTextField = innerTextField,
                 focusColor = focusColor,
+                errorMessage = errorMessage,
                 leadingIcon = leadingIcon,
                 trailingIcon = trailingIcon,
             )
@@ -109,6 +115,7 @@ fun InputDecoration(
     inputType: InputType,
     hint: String,
     focusColor: Color,
+    errorMessage: String,
     innerTextField: @Composable () -> Unit,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
@@ -117,58 +124,100 @@ fun InputDecoration(
         InputType.Default -> DodamTheme.color.Gray200
         InputType.UnFocus -> DodamTheme.color.Black
         InputType.Focus -> focusColor
-        InputType.Error -> DodamTheme.color.Error
+        InputType.Error.Default -> DodamTheme.color.Error
+        InputType.Error.Focus -> DodamTheme.color.Error
+        InputType.Error.UnFocus -> DodamTheme.color.Error
     }
 
-    Column(
+    Column {
+        // Label
+        if (!(inputType == InputType.Default || inputType == InputType.Error.Default))
+            Body3(text = hint, textColor = inputColor)
 
-    ) {
-        if (inputType != InputType.Default)
-            Body3(
-                text = hint,
-                textColor = inputColor
-            )
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .drawBehind {
-                    val strokeWidth = 1.dp.toPx()
-                    val y = size.height - strokeWidth / 2
-                    drawLine(
-                        color = inputColor,
-                        start = Offset(0f, y),
-                        end = Offset(size.width, y),
-                        strokeWidth = strokeWidth
-                    )
-                },
+        MainTextField(
+            hint = hint,
+            inputColor = inputColor,
+            inputType = inputType,
+            innerTextField = innerTextField,
+            leadingIcon = leadingIcon,
+            trailingIcon = trailingIcon
+        )
+
+        // Bottom Label -> error message
+        if (
+            (inputType == InputType.Error.Default) or
+            (inputType == InputType.Error.UnFocus) or
+            (inputType == InputType.Error.Focus)
         ) {
-            Row(
-                modifier = Modifier.padding(
-                    vertical = 12.dp,
-                ),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                leadingIcon?.let {
-                    leadingIcon()
-                    Spacer(modifier = Modifier.width(7.dp))
-                }
+            Spacer(modifier = Modifier.height(3.dp))
+            Body3(text = errorMessage, textColor = inputColor)
+        }
+    }
+}
 
-                if (inputType == InputType.Default)
-                    Body2(text = hint, textColor = inputColor)
-                else
-                    innerTextField()
+@Composable
+private fun MainTextField(
+    hint: String,
+    inputColor: Color,
+    inputType: InputType,
+    innerTextField: @Composable () -> Unit,
+    leadingIcon: @Composable (() -> Unit)? = null,
+    trailingIcon: @Composable (() -> Unit)? = null,
+) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .drawBehind {
+                val strokeWidth = 1.dp.toPx()
+                val y = size.height - strokeWidth / 2
+                drawLine(
+                    color = inputColor,
+                    start = Offset(0f, y),
+                    end = Offset(size.width, y),
+                    strokeWidth = strokeWidth
+                )
+            },
+    ) {
+        Row(
+            modifier = Modifier.padding(
+                vertical = 12.dp,
+            ),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            leadingIcon?.let {
+                leadingIcon()
+                Spacer(modifier = Modifier.width(7.dp))
+            }
 
-                trailingIcon?.let {
-                    Spacer(modifier = Modifier.width(7.dp))
-                    trailingIcon()
-                }
+            if (inputType == InputType.Default || inputType == InputType.Error.Default)
+                Body2(text = hint, textColor = inputColor)
+            else
+                innerTextField()
+
+            trailingIcon?.let {
+                Spacer(modifier = Modifier.width(7.dp))
+                trailingIcon()
             }
         }
     }
 }
 
-private fun focusStateAsInputType(isFocused: Boolean, currentValue: String): InputType =
-    if (isFocused) {
+private fun focusStateAsInputType(
+    isFocused: Boolean,
+    currentValue: String,
+    isError: Boolean
+): InputType =
+    if (isError) {
+        if (isFocused) {
+            InputType.Error.Focus
+        } else if (currentValue.isNotBlank()) {
+            InputType.Error.UnFocus
+        } else if (currentValue.isBlank()) {
+            InputType.Error.Default
+        } else {
+            InputType.Error.Default
+        }
+    } else if (isFocused) {
         InputType.Focus
     } else if (currentValue.isNotBlank()) {
         InputType.UnFocus

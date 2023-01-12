@@ -109,6 +109,8 @@ class MainActivity : ComponentActivity() {
                             modifier = Modifier.fillMaxWidth(),
                             value = value2.value,
                             hint = "Test Hint2",
+                            isError = true,
+                            errorMessage = "응애 에러 발생 에러 발생",
                             onValueChange = { value2.value = it },
                         )
                     }
