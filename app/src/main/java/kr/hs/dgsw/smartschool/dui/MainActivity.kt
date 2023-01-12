@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -28,6 +29,7 @@ import kr.hs.dgsw.smartschool.components.component.button.DodamMediumRoundedButt
 import kr.hs.dgsw.smartschool.components.component.button.DodamSmallRoundedButton
 import kr.hs.dgsw.smartschool.components.component.button.IconButton
 import kr.hs.dgsw.smartschool.components.component.button.RadioButton
+import kr.hs.dgsw.smartschool.components.component.input.Input
 import kr.hs.dgsw.smartschool.components.theme.Body1
 import kr.hs.dgsw.smartschool.components.theme.Body2
 import kr.hs.dgsw.smartschool.components.theme.Body3
@@ -63,7 +65,7 @@ class MainActivity : ComponentActivity() {
                     val scrollState = rememberScrollState()
                     Column(
                         modifier = Modifier
-                            .padding(5.dp)
+                            .padding(10.dp)
                             .verticalScroll(scrollState),
                     ) {
                         DodamDisplayText()
@@ -89,6 +91,25 @@ class MainActivity : ComponentActivity() {
                             Spacer(modifier = Modifier.width(8.dp))
                             Body2(text = "Radio", modifier = Modifier.align(Alignment.CenterVertically))
                         }
+
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        val value = remember { mutableStateOf("Test Input") }
+                        Input(
+                            modifier = Modifier.fillMaxWidth(),
+                            value = value.value,
+                            hint = "Test Hint",
+                            onValueChange = { value.value = it }
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+
+                        val value2 = remember { mutableStateOf("Test Input2") }
+                        Input(
+                            modifier = Modifier.fillMaxWidth(),
+                            value = value2.value,
+                            hint = "Test Hint2",
+                            onValueChange = { value2.value = it },
+                        )
                     }
                 }
             }
