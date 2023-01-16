@@ -209,7 +209,6 @@ private fun MainTextField(
                     if (!(inputType == InputType.Default || inputType == InputType.Error.Default))
                         trailingIcon()
                 }
-
             }
         }
     }
