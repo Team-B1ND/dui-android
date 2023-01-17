@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,12 +16,17 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kr.hs.dgsw.smartschool.components.component.Surface
@@ -31,6 +37,7 @@ import kr.hs.dgsw.smartschool.components.component.button.DodamSmallRoundedButto
 import kr.hs.dgsw.smartschool.components.component.button.IconButton
 import kr.hs.dgsw.smartschool.components.component.button.RadioButton
 import kr.hs.dgsw.smartschool.components.component.input.Input
+import kr.hs.dgsw.smartschool.components.component.input.Select
 import kr.hs.dgsw.smartschool.components.theme.Body1
 import kr.hs.dgsw.smartschool.components.theme.Body2
 import kr.hs.dgsw.smartschool.components.theme.Body3
@@ -55,6 +62,7 @@ import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.components.theme.Title3
 import kr.hs.dgsw.smartschool.dui.ui.theme.DuiTheme
 
+@ExperimentalFoundationApi
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -96,6 +104,18 @@ class MainActivity : ComponentActivity() {
 
                         Spacer(modifier = Modifier.height(8.dp))
 
+                        val testValue = remember { mutableStateOf("") }
+                        Input(
+                            modifier = Modifier.fillMaxWidth(),
+                            value = testValue.value,
+                            hint = "테스트 값을 입력해 주세요!",
+                            onValueChange = { testValue.value = it },
+                            focusColor = DodamColor.FeatureColor.LostFoundColor,
+                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
+                            visualTransformation = PasswordVisualTransformation()
+                        )
+                        Spacer(modifier = Modifier.height(8.dp))
+
                         val value = remember { mutableStateOf("Test Input") }
                         Input(
                             modifier = Modifier.fillMaxWidth(),
@@ -116,6 +136,8 @@ class MainActivity : ComponentActivity() {
                             onValueChange = { value2.value = it },
                             trailingIcon = { IcX(contentDescription = null, modifier = Modifier.clickable { value2.value = "" }) },
                         )
+
+                        Spacer(modifier = Modifier.height(8.dp))
                     }
                 }
             }
@@ -216,6 +238,19 @@ fun BodyTextPreview() {
 @Composable
 fun IcBack() {
     IcLeftArrow(contentDescription = null, tint = DodamColor.MainColor)
+}
+
+@Preview(showBackground = true)
+@Composable
+fun SelectPreview() {
+    Surface(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Select(
+            items = listOf("Test1", "Test2", "Test3", "Test4"),
+            hint = "안녕하세용"
+        )
+    }
 }
 
 @Preview(showBackground = true)

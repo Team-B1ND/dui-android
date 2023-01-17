@@ -206,8 +206,7 @@ private fun MainTextField(
                 CompositionLocalProvider(
                     LocalContentColor provides inputColor
                 ) {
-                    if (!(inputType == InputType.Default || inputType == InputType.Error.Default))
-                        trailingIcon()
+                    trailingIcon()
                 }
             }
         }
