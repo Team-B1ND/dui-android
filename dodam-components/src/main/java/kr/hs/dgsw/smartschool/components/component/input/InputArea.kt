@@ -3,6 +3,7 @@ package kr.hs.dgsw.smartschool.components.component.input
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
@@ -10,6 +11,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -53,6 +56,7 @@ fun InputArea(
     topLabel: String = "",
     bottomLabel: String = "",
     enabled: Boolean = true,
+    singleLine: Boolean = false,
     maxLines: Int = Int.MAX_VALUE,
     textColor: Color = Color.Black,
     textStyle: TextStyle = DodamTheme.typography.body2,
@@ -67,86 +71,61 @@ fun InputArea(
 
     var currentInputType: InputAreaType by remember { mutableStateOf(InputAreaType.Default) }
 
-    BasicTextField(
-        value = value,
-        onValueChange = onValueChange,
-        modifier = modifier
-            .focusRequester(focusRequester)
-            .onFocusChanged {
-                currentInputType = stateAsInputAreaType(it.isFocused, value, isError)
-            },
-        enabled = enabled,
-        textStyle = mergedTextStyle,
-        cursorBrush = SolidColor(focusColor),
-        visualTransformation = visualTransformation,
-        keyboardOptions = keyboardOptions,
-        keyboardActions = keyboardActions,
-        singleLine = true,
-        maxLines = maxLines,
-        readOnly = readOnly,
-        decorationBox = @Composable { innerTextField ->
-            InputAreaDecoration(
-                inputAreaType = currentInputType,
-                hint = hint,
-                topLabel = topLabel,
-                bottomLabel = bottomLabel,
-                innerTextField = innerTextField,
-                focusColor = focusColor,
-            )
-        }
-    )
-}
-
-@Composable
-fun InputAreaDecoration(
-    inputAreaType: InputAreaType,
-    hint: String,
-    topLabel: String,
-    bottomLabel: String,
-    focusColor: Color,
-    innerTextField: @Composable () -> Unit,
-) {
-
     Column {
-        // Top Label
         if (topLabel.isNotBlank())
             Body3(
                 text = topLabel,
                 textColor = getInputAreaColorByType(
-                    inputAreaType = inputAreaType,
+                    inputAreaType = currentInputType,
                     focusColor = focusColor,
-                    isLabel = true
                 )
             )
         Spacer(modifier = Modifier.height(4.dp))
 
-        // Main Input Area
-        MainInputArea(
-            hint = hint,
-            inputColor = getInputAreaColorByType(inputAreaType = inputAreaType, focusColor = focusColor),
-            inputAreaType = inputAreaType,
-            innerTextField = innerTextField,
+        BasicTextField(
+            value = value,
+            onValueChange = onValueChange,
+            modifier = modifier
+                .width(IntrinsicSize.Max)
+                .focusRequester(focusRequester)
+                .onFocusChanged {
+                    currentInputType = stateAsInputAreaType(it.isFocused, value, isError)
+                },
+            enabled = enabled,
+            textStyle = mergedTextStyle,
+            cursorBrush = SolidColor(focusColor),
+            visualTransformation = visualTransformation,
+            keyboardOptions = keyboardOptions,
+            keyboardActions = keyboardActions,
+            singleLine = singleLine,
+            maxLines = maxLines,
+            readOnly = readOnly,
+            decorationBox = @Composable { innerTextField ->
+                InputAreaDecoration(
+                    inputAreaType = currentInputType,
+                    hint = hint,
+                    innerTextField = innerTextField,
+                )
+            }
         )
-        Spacer(modifier = Modifier.height(4.dp))
 
+        Spacer(modifier = Modifier.height(4.dp))
         // Bottom Label
         if (bottomLabel.isNotBlank())
             Body3(
                 text = bottomLabel,
                 textColor = getInputAreaColorByType(
-                    inputAreaType = inputAreaType,
+                    inputAreaType = currentInputType,
                     focusColor = focusColor,
-                    isLabel = true
                 )
             )
     }
 }
 
 @Composable
-private fun MainInputArea(
-    hint: String,
-    inputColor: Color,
+fun InputAreaDecoration(
     inputAreaType: InputAreaType,
+    hint: String,
     innerTextField: @Composable () -> Unit,
 ) {
     Box(
@@ -163,7 +142,7 @@ private fun MainInputArea(
         ) {
 
             if (inputAreaType is InputAreaType.Default)
-                Body2(text = hint, textColor = inputColor)
+                Body2(text = hint, textColor = DodamTheme.color.Gray200)
             else
                 innerTextField()
         }
@@ -189,7 +168,7 @@ private fun stateAsInputAreaType(
 private fun getInputAreaColorByType(
     inputAreaType: InputAreaType,
     focusColor: Color,
-    isLabel: Boolean = false,
+    isLabel: Boolean = true,
 ): Color =
     when (inputAreaType) {
         InputAreaType.Default -> if (isLabel) DodamTheme.color.Black else DodamTheme.color.Gray200
@@ -214,8 +193,7 @@ fun InputAreaPreview() {
         InputArea(
             value = testValue,
             onValueChange = { testValue = it },
-            hint = "Hello",
-            bottomLabel = "Bottom Label"
+            hint = "Hello World",
         )
 
         Spacer(modifier = Modifier.height(10.dp))
@@ -224,15 +202,21 @@ fun InputAreaPreview() {
             value = testValue2,
             onValueChange = { testValue2 = it},
             topLabel = "Top Label",
+            hint = "Input Some Text"
         )
 
         Spacer(modifier = Modifier.height(10.dp))
 
         InputArea(
             value = testValue3,
-            onValueChange = { testValue3 = it},
+            onValueChange = { testValue3 = it },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(270.dp),
             topLabel = "Top Label",
             bottomLabel = "Bottom Label",
+            hint = "사이즈 조정 가능",
+            focusColor = DodamColor.FeatureColor.ItMapColor,
         )
     }
 }
