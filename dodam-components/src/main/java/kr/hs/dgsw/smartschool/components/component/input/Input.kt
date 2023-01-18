@@ -257,7 +257,7 @@ fun InputPreview() {
 
         Input(
             value = testValue2,
-            onValueChange = { testValue2 = it},
+            onValueChange = { testValue2 = it },
             hint = "Input Some Text",
             trailingIcon = { IcSearch(contentDescription = null) },
         )

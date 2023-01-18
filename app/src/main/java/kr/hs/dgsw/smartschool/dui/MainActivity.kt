@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -26,7 +25,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kr.hs.dgsw.smartschool.components.component.Surface
@@ -37,7 +35,6 @@ import kr.hs.dgsw.smartschool.components.component.button.DodamSmallRoundedButto
 import kr.hs.dgsw.smartschool.components.component.button.IconButton
 import kr.hs.dgsw.smartschool.components.component.button.RadioButton
 import kr.hs.dgsw.smartschool.components.component.input.Input
-import kr.hs.dgsw.smartschool.components.component.input.Select
 import kr.hs.dgsw.smartschool.components.theme.Body1
 import kr.hs.dgsw.smartschool.components.theme.Body2
 import kr.hs.dgsw.smartschool.components.theme.Body3
