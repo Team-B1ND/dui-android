@@ -242,19 +242,6 @@ fun IcBack() {
 
 @Preview(showBackground = true)
 @Composable
-fun SelectPreview() {
-    Surface(
-        modifier = Modifier.fillMaxSize()
-    ) {
-        Select(
-            items = listOf("Test1", "Test2", "Test3", "Test4"),
-            hint = "안녕하세용"
-        )
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
 fun ErrorTextPreview() {
     DuiTheme {
         DodamError(text = "도담도담 Error Text")

@@ -63,6 +63,7 @@ fun Input(
     textColor: Color = Color.Black,
     textStyle: TextStyle = DodamTheme.typography.body2,
     focusColor: Color = DodamTheme.color.MainColor400,
+    readOnly: Boolean = false,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
     visualTransformation: VisualTransformation = VisualTransformation.None,
@@ -98,6 +99,7 @@ fun Input(
         keyboardActions = keyboardActions,
         singleLine = true,
         maxLines = 1,
+        readOnly = readOnly,
         decorationBox = @Composable { innerTextField ->
             InputDecoration(
                 inputType = currentInputType,
