@@ -1,5 +1,6 @@
 package kr.hs.dgsw.smartschool.components.component.input
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -38,6 +39,8 @@ import kr.hs.dgsw.smartschool.components.theme.Body2
 import kr.hs.dgsw.smartschool.components.theme.Body3
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
+import kr.hs.dgsw.smartschool.components.theme.IcHome
+import kr.hs.dgsw.smartschool.components.theme.IcSearch
 import kr.hs.dgsw.smartschool.components.theme.LocalContentColor
 
 sealed interface InputType {
@@ -75,16 +78,21 @@ fun Input(
     val mergedTextStyle = textStyle.merge(TextStyle(color = textColor))
     val focusRequester by remember { mutableStateOf(FocusRequester()) }
 
-    var currentInputType: InputType by remember { mutableStateOf(InputType.Default) }
+    var isFocus by remember { mutableStateOf(false) }
+    var currentInputType: InputType by remember { mutableStateOf(if (isError) InputType.Error.UnFocus else InputType.Default) }
 
     Column {
-
+        // Top Label
         if (!(currentInputType == InputType.Default || currentInputType == InputType.Error.Default))
             Body3(text = hint, textColor = getInputColor(focusColor, currentInputType))
 
+        currentInputType = focusStateAsInputType(isFocus, value, isError)
+
         BasicTextField(
             value = value,
-            onValueChange = onValueChange,
+            onValueChange = {
+                onValueChange(it)
+            },
             modifier = modifier
                 .width(IntrinsicSize.Max)
                 .background(
@@ -93,7 +101,7 @@ fun Input(
                 )
                 .focusRequester(focusRequester)
                 .onFocusChanged {
-                    currentInputType = focusStateAsInputType(it.isFocused, value, isError)
+                    isFocus = it.isFocused
                 },
             enabled = enabled,
             textStyle = mergedTextStyle,
@@ -173,9 +181,11 @@ fun InputDecoration(
             }
 
             if (inputType == InputType.Default || inputType == InputType.Error.Default)
-                Body2(text = hint, textColor = inputColor)
+                Body2(text = hint, textColor = inputColor, modifier = Modifier.weight(1f))
             else
-                innerTextField()
+                Box(modifier = Modifier.weight(1f)) {
+                    innerTextField()
+                }
 
             trailingIcon?.let {
                 Spacer(modifier = Modifier.width(7.dp))
@@ -230,7 +240,6 @@ private fun getInputColor(focusColor: Color, inputType: InputType): Color =
 fun InputPreview() {
     var testValue by remember { mutableStateOf("") }
     var testValue2 by remember { mutableStateOf("") }
-    var testValue3 by remember { mutableStateOf("") }
 
     Column(
         Modifier
@@ -242,6 +251,7 @@ fun InputPreview() {
             value = testValue,
             onValueChange = { testValue = it },
             hint = "Hello World",
+            leadingIcon = { IcSearch(contentDescription = null) },
         )
 
         Spacer(modifier = Modifier.height(10.dp))
@@ -249,20 +259,26 @@ fun InputPreview() {
         Input(
             value = testValue2,
             onValueChange = { testValue2 = it},
-            hint = "Input Some Text"
+            hint = "Input Some Text",
+            trailingIcon = { IcSearch(contentDescription = null) },
         )
 
         Spacer(modifier = Modifier.height(10.dp))
 
+        var testValue3 by remember { mutableStateOf("") }
+
         Input(
             value = testValue3,
-            onValueChange = { testValue3 = it },
+            onValueChange = {
+                testValue3 = it
+            },
             modifier = Modifier
                 .fillMaxWidth(),
             hint = "사이즈 조정 가능",
             focusColor = DodamColor.FeatureColor.ItMapColor,
-            isError = true,
-            errorMessage = "Error Message"
+            isError = testValue3 == "HI",
+            errorMessage = "Error Message",
+            trailingIcon = { IcHome(contentDescription = null) },
         )
     }
 }

@@ -1,14 +1,17 @@
 package kr.hs.dgsw.smartschool.components.component.input
 
-import android.util.Log
+import android.widget.Toast
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.DropdownMenu
 import androidx.compose.material.DropdownMenuItem
-import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -21,6 +24,7 @@ import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
@@ -37,6 +41,9 @@ import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
 fun Select(
     itemList: List<String>,
     hint: String,
+    modifier: Modifier = Modifier,
+    onItemClickListener: (String) -> Unit = {},
+    onValueChange: (String) -> Unit = {},
     enabled: Boolean = true,
     focusColor: Color = DodamColor.MainColor400,
     isError: Boolean = false,
@@ -47,29 +54,31 @@ fun Select(
     rippleColor: Color = Color.Unspecified,
     rippleEnable: Boolean = false,
     bounded: Boolean = true,
-    onItemSelectedListener: (String) -> Unit = {},
 ) {
     var expanded by remember { mutableStateOf(false) }
     var selectedItem by remember { mutableStateOf("") }
     var textFieldSize by remember { mutableStateOf(Size.Zero) }
 
+    var isErrorInSelect by remember { mutableStateOf(isError) }
+
     val focusRequester = remember { FocusRequester() }
 
-    Column(
-        modifier = Modifier.padding(20.dp)
-    ) {
+    Column {
         Input(
             value = selectedItem,
-            onValueChange = { selectedItem = it },
+            onValueChange = {
+                selectedItem = it
+                onValueChange(it)
+            },
             hint = hint,
-            modifier = Modifier
+            modifier = modifier
                 .onGloballyPositioned { coordinates ->
                     textFieldSize = coordinates.size.toSize()
                 }
                 .focusRequester(focusRequester),
             enabled = enabled,
             focusColor = focusColor,
-            isError = isError,
+            isError = isErrorInSelect,
             errorMessage = errorMessage,
             textColor = textColor,
             textStyle = textStyle,
@@ -107,14 +116,14 @@ fun Select(
                 Column {
                     DropdownMenuItem(onClick = {
                         selectedItem = label
-                        onItemSelectedListener(selectedItem)
                         expanded = false
+                        onItemClickListener(label)
                     }) {
                         Body3(
                             text = label,
                             textColor =
                             if (selectedItem == label)
-                                if (isError)
+                                if (isErrorInSelect)
                                     DodamColor.Error
                                 else
                                     focusColor
@@ -134,15 +143,44 @@ fun Select(
 @Preview(showBackground = true)
 @Composable
 fun SelectPreview() {
-    Surface(
-        modifier = Modifier.fillMaxSize()
+    val sampleList = listOf("Hello", "Hello2", "Hello3", "Hello4")
+    val context = LocalContext.current
+
+    Column(
+        Modifier
+            .background(color = DodamColor.Background)
+            .padding(20.dp)
+            .fillMaxSize()
     ) {
-        Column {
-            val sampleList = listOf("Hello", "Kotlin", "Python", "Dark", "Go")
-            Select(itemList = sampleList, "선택해 주세요.", enabled = false)
-            Select(itemList = sampleList, "선택2", focusColor = DodamColor.FeatureColor.ItMapColor) { selectedItem ->
-                Log.d("TestDropDown", "SelectedItem : $selectedItem")
-            }
-        }
+        Select(
+            itemList = sampleList,
+            onItemClickListener = { Toast.makeText(context, it, Toast.LENGTH_SHORT).show() },
+            hint = "Hello World",
+        )
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        val isError = remember { mutableStateOf(false) }
+        Select(
+            itemList = sampleList,
+            onItemClickListener = {
+                Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+                isError.value = it == "Hello2"
+            },
+            hint = "Input Some Text",
+            isError = isError.value,
+            errorMessage = if (isError.value) "Error Message" else ""
+        )
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        Select(
+            itemList = sampleList,
+            onItemClickListener = { Toast.makeText(context, it, Toast.LENGTH_SHORT).show() },
+            modifier = Modifier
+                .fillMaxWidth(),
+            hint = "사이즈 조정 가능",
+            focusColor = DodamColor.FeatureColor.ItMapColor,
+        )
     }
 }
