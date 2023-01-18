@@ -3,9 +3,10 @@ package kr.hs.dgsw.smartschool.components.component.input
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -31,9 +32,11 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kr.hs.dgsw.smartschool.components.theme.Body2
 import kr.hs.dgsw.smartschool.components.theme.Body3
+import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.LocalContentColor
 
@@ -48,9 +51,6 @@ sealed interface InputType {
     }
 }
 
-private val MinHeight = 60.dp
-private val MinWidth = 80.dp
-
 @Composable
 fun Input(
     value: String,
@@ -61,6 +61,8 @@ fun Input(
     errorMessage: String = "",
     enabled: Boolean = true,
     textColor: Color = Color.Black,
+    singleLine: Boolean = true,
+    maxLines: Int = 1,
     textStyle: TextStyle = DodamTheme.typography.body2,
     focusColor: Color = DodamTheme.color.MainColor400,
     readOnly: Boolean = false,
@@ -75,43 +77,61 @@ fun Input(
 
     var currentInputType: InputType by remember { mutableStateOf(InputType.Default) }
 
-    BasicTextField(
-        value = value,
-        onValueChange = onValueChange,
-        modifier = modifier
-            .background(
-                color = DodamTheme.color.Transparent,
-                shape = RectangleShape
-            )
-            .defaultMinSize(
-                minWidth = MinWidth,
-                minHeight = MinHeight,
-            )
-            .focusRequester(focusRequester)
-            .onFocusChanged {
-                currentInputType = focusStateAsInputType(it.isFocused, value, isError)
-            },
-        enabled = enabled,
-        textStyle = mergedTextStyle,
-        cursorBrush = SolidColor(Color.Black),
-        visualTransformation = visualTransformation,
-        keyboardOptions = keyboardOptions,
-        keyboardActions = keyboardActions,
-        singleLine = true,
-        maxLines = 1,
-        readOnly = readOnly,
-        decorationBox = @Composable { innerTextField ->
-            InputDecoration(
-                inputType = currentInputType,
-                hint = hint,
-                innerTextField = innerTextField,
-                focusColor = focusColor,
-                errorMessage = errorMessage,
-                leadingIcon = leadingIcon,
-                trailingIcon = trailingIcon,
+    Column {
+
+        if (!(currentInputType == InputType.Default || currentInputType == InputType.Error.Default))
+            Body3(text = hint, textColor = getInputColor(focusColor, currentInputType))
+
+        BasicTextField(
+            value = value,
+            onValueChange = onValueChange,
+            modifier = modifier
+                .width(IntrinsicSize.Max)
+                .background(
+                    color = DodamTheme.color.Transparent,
+                    shape = RectangleShape
+                )
+                .focusRequester(focusRequester)
+                .onFocusChanged {
+                    currentInputType = focusStateAsInputType(it.isFocused, value, isError)
+                },
+            enabled = enabled,
+            textStyle = mergedTextStyle,
+            cursorBrush = SolidColor(focusColor),
+            visualTransformation = visualTransformation,
+            keyboardOptions = keyboardOptions,
+            keyboardActions = keyboardActions,
+            singleLine = singleLine,
+            maxLines = maxLines,
+            readOnly = readOnly,
+            decorationBox = @Composable { innerTextField ->
+                InputDecoration(
+                    inputType = currentInputType,
+                    hint = hint,
+                    innerTextField = innerTextField,
+                    focusColor = focusColor,
+                    leadingIcon = leadingIcon,
+                    trailingIcon = trailingIcon,
+                )
+            }
+        )
+
+        // Bottom Label -> error message
+        if (
+            (currentInputType == InputType.Error.Default) or
+            (currentInputType == InputType.Error.UnFocus) or
+            (currentInputType == InputType.Error.Focus)
+        ) {
+            Spacer(modifier = Modifier.height(3.dp))
+            Body3(
+                text = errorMessage,
+                textColor = getInputColor(
+                    focusColor = focusColor,
+                    inputType = currentInputType
+                )
             )
         }
-    )
+    }
 }
 
 @Composable
@@ -119,58 +139,13 @@ fun InputDecoration(
     inputType: InputType,
     hint: String,
     focusColor: Color,
-    errorMessage: String,
     innerTextField: @Composable () -> Unit,
     leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
 ) {
-    val inputColor = when (inputType) {
-        InputType.Default -> DodamTheme.color.Gray200
-        InputType.UnFocus -> DodamTheme.color.Black
-        InputType.Focus -> focusColor
-        InputType.Error.Default -> DodamTheme.color.Error
-        InputType.Error.Focus -> DodamTheme.color.Error
-        InputType.Error.UnFocus -> DodamTheme.color.Error
-    }
-
-    Column {
-        // Label
-        if (!(inputType == InputType.Default || inputType == InputType.Error.Default))
-            Body3(text = hint, textColor = inputColor)
-
-        MainTextField(
-            hint = hint,
-            inputColor = inputColor,
-            inputType = inputType,
-            innerTextField = innerTextField,
-            leadingIcon = leadingIcon,
-            trailingIcon = trailingIcon
-        )
-
-        // Bottom Label -> error message
-        if (
-            (inputType == InputType.Error.Default) or
-            (inputType == InputType.Error.UnFocus) or
-            (inputType == InputType.Error.Focus)
-        ) {
-            Spacer(modifier = Modifier.height(3.dp))
-            Body3(text = errorMessage, textColor = inputColor)
-        }
-    }
-}
-
-@Composable
-private fun MainTextField(
-    hint: String,
-    inputColor: Color,
-    inputType: InputType,
-    innerTextField: @Composable () -> Unit,
-    leadingIcon: @Composable (() -> Unit)? = null,
-    trailingIcon: @Composable (() -> Unit)? = null,
-) {
+    val inputColor = getInputColor(focusColor, inputType)
     Box(
         modifier = Modifier
-            .fillMaxWidth()
             .drawBehind {
                 val strokeWidth = 1.dp.toPx()
                 val y = size.height - strokeWidth / 2
@@ -198,11 +173,10 @@ private fun MainTextField(
             }
 
             if (inputType == InputType.Default || inputType == InputType.Error.Default)
-                Body2(text = hint, textColor = inputColor, modifier = Modifier.weight(1f))
+                Body2(text = hint, textColor = inputColor)
             else
-                Box(Modifier.weight(1f)) {
-                    innerTextField()
-                }
+                innerTextField()
+
             trailingIcon?.let {
                 Spacer(modifier = Modifier.width(7.dp))
                 CompositionLocalProvider(
@@ -240,3 +214,55 @@ private fun focusStateAsInputType(
         InputType.Default
     }
 
+@Composable
+private fun getInputColor(focusColor: Color, inputType: InputType): Color =
+    when (inputType) {
+        InputType.Default -> DodamTheme.color.Gray200
+        InputType.UnFocus -> DodamTheme.color.Black
+        InputType.Focus -> focusColor
+        InputType.Error.Default -> DodamTheme.color.Error
+        InputType.Error.Focus -> DodamTheme.color.Error
+        InputType.Error.UnFocus -> DodamTheme.color.Error
+    }
+
+@Preview(showBackground = true)
+@Composable
+fun InputPreview() {
+    var testValue by remember { mutableStateOf("") }
+    var testValue2 by remember { mutableStateOf("") }
+    var testValue3 by remember { mutableStateOf("") }
+
+    Column(
+        Modifier
+            .background(color = DodamColor.Background)
+            .padding(20.dp)
+            .fillMaxSize()
+    ) {
+        Input(
+            value = testValue,
+            onValueChange = { testValue = it },
+            hint = "Hello World",
+        )
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        Input(
+            value = testValue2,
+            onValueChange = { testValue2 = it},
+            hint = "Input Some Text"
+        )
+
+        Spacer(modifier = Modifier.height(10.dp))
+
+        Input(
+            value = testValue3,
+            onValueChange = { testValue3 = it },
+            modifier = Modifier
+                .fillMaxWidth(),
+            hint = "사이즈 조정 가능",
+            focusColor = DodamColor.FeatureColor.ItMapColor,
+            isError = true,
+            errorMessage = "Error Message"
+        )
+    }
+}
