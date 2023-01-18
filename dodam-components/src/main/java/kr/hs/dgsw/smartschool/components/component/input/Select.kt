@@ -44,8 +44,8 @@ fun Select(
     modifier: Modifier = Modifier,
     onItemClickListener: (String) -> Unit = {},
     onValueChange: (String) -> Unit = {},
-    enabled: Boolean = true,
     focusColor: Color = DodamColor.MainColor400,
+    enabled: Boolean = true,
     isError: Boolean = false,
     errorMessage: String = "",
     textColor: Color = DodamColor.Black,
@@ -58,8 +58,6 @@ fun Select(
     var expanded by remember { mutableStateOf(false) }
     var selectedItem by remember { mutableStateOf("") }
     var textFieldSize by remember { mutableStateOf(Size.Zero) }
-
-    var isErrorInSelect by remember { mutableStateOf(isError) }
 
     val focusRequester = remember { FocusRequester() }
 
@@ -76,9 +74,9 @@ fun Select(
                     textFieldSize = coordinates.size.toSize()
                 }
                 .focusRequester(focusRequester),
-            enabled = enabled,
+            enabled = readOnly.not(),
             focusColor = focusColor,
-            isError = isErrorInSelect,
+            isError = isError,
             errorMessage = errorMessage,
             textColor = textColor,
             textStyle = textStyle,
@@ -123,7 +121,7 @@ fun Select(
                             text = label,
                             textColor =
                             if (selectedItem == label)
-                                if (isErrorInSelect)
+                                if (isError)
                                     DodamColor.Error
                                 else
                                     focusColor
@@ -179,6 +177,7 @@ fun SelectPreview() {
             onItemClickListener = { Toast.makeText(context, it, Toast.LENGTH_SHORT).show() },
             modifier = Modifier
                 .fillMaxWidth(),
+            readOnly = false,
             hint = "사이즈 조정 가능",
             focusColor = DodamColor.FeatureColor.ItMapColor,
         )
