@@ -14,10 +14,10 @@ import androidx.compose.ui.graphics.Color
  * @param rippleEnable ripple 활성화 여부
  */
 fun Modifier.dodamClickable(
-    onClick: (() -> Unit)? = null,
     rippleColor: Color = Color.Unspecified,
     rippleEnable: Boolean = true,
-    bounded: Boolean = true
+    bounded: Boolean = true,
+    onClick: (() -> Unit)? = null,
 ) = composed {
     onClick?.let { onClick ->
         clickable(

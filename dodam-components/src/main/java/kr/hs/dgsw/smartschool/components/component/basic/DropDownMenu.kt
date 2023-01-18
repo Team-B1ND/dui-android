@@ -1,9 +1,9 @@
 package kr.hs.dgsw.smartschool.components.component.basic
 
+import android.util.Log
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -20,22 +20,37 @@ import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import androidx.compose.ui.window.PopupProperties
 import kr.hs.dgsw.smartschool.components.component.input.Input
+import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
 import kr.hs.dgsw.smartschool.components.theme.Body3
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
+import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
 
 @Composable
-fun DropDownMenu() {
+fun DropDownMenu(
+    itemList: List<String>,
+    hint: String,
+    enabled: Boolean = true,
+    focusColor: Color = DodamColor.MainColor400,
+    isError: Boolean = false,
+    errorMessage: String = "",
+    textColor: Color = DodamColor.Black,
+    textStyle: TextStyle = DodamTheme.typography.body2,
+    rippleColor: Color = Color.Unspecified,
+    rippleEnable: Boolean = false,
+    bounded: Boolean = true,
+    onItemSelectedListener: (String) -> Unit = {},
+) {
     var expanded by remember { mutableStateOf(false) }
-    val list = listOf("Kotlin", "Java", "Dart", "Python")
     var selectedItem by remember { mutableStateOf("") }
     var textFieldSize by remember { mutableStateOf(Size.Zero) }
 
@@ -47,20 +62,31 @@ fun DropDownMenu() {
         Input(
             value = selectedItem,
             onValueChange = { selectedItem = it },
-            hint = "Selected Item",
+            hint = hint,
             modifier = Modifier
                 .onGloballyPositioned { coordinates ->
                     textFieldSize = coordinates.size.toSize()
                 }
-                .focusRequester(focusRequester)
-            ,
+                .focusRequester(focusRequester),
+            enabled = enabled,
+            focusColor = focusColor,
+            isError = isError,
+            errorMessage = errorMessage,
+            textColor = textColor,
+            textStyle = textStyle,
             trailingIcon = {
                 IcLeftArrow(
                     modifier = Modifier
                         .rotate(if (expanded) 90f else 270f)
-                        .clickable {
-                            expanded = !expanded
-                            focusRequester.requestFocus()
+                        .dodamClickable(
+                            rippleColor = rippleColor,
+                            rippleEnable = rippleEnable,
+                            bounded = bounded
+                        ) {
+                            if (enabled) {
+                                expanded = !expanded
+                                focusRequester.requestFocus()
+                            }
                         }
                         .size(15.dp),
                     contentDescription = null
@@ -76,18 +102,28 @@ fun DropDownMenu() {
                         textFieldSize.width.toDp()
                     }
                 ),
-            properties = PopupProperties(focusable = true)
         ) {
-            list.forEachIndexed { index, label ->
+            itemList.forEachIndexed { index, label ->
                 Column {
                     DropdownMenuItem(onClick = {
                         selectedItem = label
+                        onItemSelectedListener(selectedItem)
                         expanded = false
                     }) {
-                        Body3(text = label, textColor = if (selectedItem == label) DodamColor.MainColor400 else DodamColor.Black)
+                        Body3(
+                            text = label,
+                            textColor =
+                                if (selectedItem == label)
+                                    if (isError)
+                                        DodamColor.Error
+                                    else
+                                        focusColor
+                                else
+                                    DodamColor.Black
+                        )
                     }
 
-                    if (index != list.size - 1)
+                    if (index != itemList.size - 1)
                         Divider(color = DodamColor.Gray50)
                 }
             }
@@ -102,8 +138,11 @@ fun DropDownMenuPreview() {
         modifier = Modifier.fillMaxSize()
     ) {
         Column {
-            DropDownMenu()
-            DropDownMenu()
+            val sampleList = listOf("Hello", "Kotlin", "Python", "Dark", "Go")
+            DropDownMenu(itemList = sampleList, "선택해 주세요.", enabled = false)
+            DropDownMenu(itemList = sampleList, "선택2", isError = true, errorMessage = "오류가 발생했습니다.") { selectedItem ->
+                Log.d("TestDropDown", "SelectedItem : $selectedItem")
+            }
         }
     }
 }
