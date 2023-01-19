@@ -2,6 +2,7 @@ package kr.hs.dgsw.smartschool.components.theme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import kr.hs.dgsw.smartschool.components.foundation.Icon
@@ -73,6 +74,20 @@ fun IcSong(
         painter = painterResource(id = R.drawable.ic_song),
         contentDescription = contentDescription,
         modifier = modifier,
+        tint = tint
+    )
+}
+
+@Composable
+fun IcX(
+    contentDescription: String?,
+    modifier: Modifier = Modifier,
+    tint: Color = Color.Unspecified,
+) {
+    Icon(
+        painter = painterResource(id = R.drawable.ic_add),
+        contentDescription = contentDescription,
+        modifier = modifier.rotate(45f),
         tint = tint
     )
 }
