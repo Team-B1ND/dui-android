@@ -65,10 +65,12 @@ private fun NavBarPreview() {
     Box(
         modifier = Modifier
             .fillMaxSize()
+            .background(DodamColor.Background)
     ) {
         NavBar(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
+                .shadow(elevation = 10.dp, shape = RoundedCornerShape(topEnd = 20.dp, topStart = 20.dp))
                 .clip(RoundedCornerShape(topEnd = 20.dp, topStart = 20.dp))
         ) {
             NavTab(
