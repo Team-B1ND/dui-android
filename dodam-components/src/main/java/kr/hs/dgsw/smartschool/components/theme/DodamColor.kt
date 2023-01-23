@@ -1,6 +1,11 @@
-package kr.hs.dgsw.smartschool.components.color
+package kr.hs.dgsw.smartschool.components.theme
 
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.compositionLocalOf
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.takeOrElse
+import kr.hs.dgsw.smartschool.components.theme.DodamColor.FeatureColor
 
 /**
  * 도담도담 컬러를 정의합니다.
@@ -61,3 +66,27 @@ object DodamColor {
         val MyInfoColor = Color(0xFF03C75A)
     }
 }
+
+@Composable
+fun contentColorFor(backgroundColor: Color) =
+    DodamColor.contentColorFor(backgroundColor).takeOrElse { LocalContentColor.current }
+
+private fun DodamColor.contentColorFor(backgroundColor: Color): Color {
+    return when (backgroundColor) {
+        MainColor -> White
+        SecondaryColor -> White
+        Error -> White
+        Gray100 -> White
+        Background -> Black
+        FeatureColor.SongColor -> White
+        FeatureColor.ScheduleColor -> White
+        FeatureColor.LostFoundColor -> White
+        FeatureColor.ItMapColor -> White
+        FeatureColor.MyInfoColor -> White
+        else -> White
+    }
+}
+
+internal val LocalColor = staticCompositionLocalOf { DodamColor }
+internal val LocalContentColor = compositionLocalOf { Color.Black }
+internal val LocalContentAlpha = compositionLocalOf { 1f }

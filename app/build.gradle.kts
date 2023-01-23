@@ -62,4 +62,6 @@ dependencies {
     androidTestImplementation(Compose.UI_TEST_JUNIT4)
     debugImplementation(Compose.UI_TOOLING)
     debugImplementation(Compose.UI_TEST_MANIFEST)
+
+    implementation(project(":dodam-components"))
 }
