@@ -21,7 +21,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import kr.hs.dgsw.smartschool.components.component.Surface
 import kr.hs.dgsw.smartschool.components.component.basic.Divider
 import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
@@ -74,7 +73,7 @@ fun RowScope.Tab(
                     unSelectStyle = unSelectStyle
                 )
             else if (!showLabel && (icon != null))
-                IconOnly(icon = icon, selected = selected)
+                IconOnly(icon = icon)
             else if (showLabel && icon != null)
                 IconLabel(
                     icon = icon,
@@ -116,7 +115,6 @@ private fun LabelOnly(
 @Composable
 private fun IconOnly(
     icon: @Composable () -> Unit,
-    selected: Boolean,
 ) {
     Column(
         modifier = Modifier.fillMaxWidth()
@@ -155,16 +153,16 @@ private fun IconLabel(
             ) {
                 icon()
             }
-            Spacer(modifier = Modifier.height(1.dp))
+            Spacer(modifier = Modifier.height(3.dp))
             Text(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally),
                 text = text,
                 style =
                     if (selected)
-                        selectedStyle.copy(fontSize = 11.sp)
+                        selectedStyle.copy(fontSize = 10.sp)
                     else
-                        unSelectStyle.copy(fontSize = 11.sp),
+                        unSelectStyle.copy(fontSize = 10.sp),
             )
         }
     }
