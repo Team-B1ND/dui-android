@@ -38,10 +38,10 @@ fun Tabs(
         modifier = modifier,
     ) {
         Row(
-           modifier = Modifier
-               .selectableGroup()
-               .wrapContentWidth(Alignment.CenterHorizontally),
-           content = content,
+            modifier = Modifier
+                .selectableGroup()
+                .wrapContentWidth(Alignment.CenterHorizontally),
+            content = content,
         )
     }
 }
@@ -138,5 +138,4 @@ private fun TabsPreview() {
             )
         }
     }
-
 }

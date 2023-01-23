@@ -159,10 +159,10 @@ private fun IconLabel(
                     .align(Alignment.CenterHorizontally),
                 text = text,
                 style =
-                    if (selected)
-                        selectedStyle.copy(fontSize = 10.sp)
-                    else
-                        unSelectStyle.copy(fontSize = 10.sp),
+                if (selected)
+                    selectedStyle.copy(fontSize = 10.sp)
+                else
+                    unSelectStyle.copy(fontSize = 10.sp),
             )
         }
     }

@@ -46,10 +46,10 @@ fun NavBar(
         modifier = modifier,
     ) {
         Row(
-           modifier = Modifier
-               .fillMaxWidth()
-               .height(NavBarHeight)
-               .selectableGroup(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(NavBarHeight)
+                .selectableGroup(),
             horizontalArrangement = Arrangement.SpaceBetween,
             content = content
         )
@@ -99,5 +99,4 @@ private fun NavBarPreview() {
             )
         }
     }
-
 }
