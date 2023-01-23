@@ -19,10 +19,9 @@ class MainActivity : ComponentActivity() {
             DuiTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                    modifier = Modifier.fillMaxSize()
                 ) {
-                    Greeting("Android")
+                    MainScreen("DUI")
                 }
             }
         }
@@ -30,14 +29,54 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun MainScreen(viewModel: ViewModel) {
+    val scaffoldState = rememberScaffoldState()
+    val scope = rememberCoroutineScope()
+
+    Scaffold(
+        scaffoldState = scaffoldState,
+        topBar = {
+            TopAppBar(
+                title = {
+                },
+                actions = {
+                    IconButton(onClick = { }) {
+                        Icon(Icons.Filled.Send, contentDescription = "")
+                    }
+                },
+                navigationIcon = {
+                    IconButton(onClick = {
+                        scope.launch {
+                            scaffoldState.drawerState.open()
+                        }
+                    }) {
+                        Icon(Icons.Filled.Menu, contentDescription = "")
+                    }
+                },
+                modifier = Modifier.fillMaxWidth(),
+                backgroundColor = MaterialTheme.colors.background,
+                elevation = 0.dp
+            )
+        }
+    ) {
+        Column(
+            modifier = Modifier
+                .padding(it)
+                .fillMaxSize()
+        ) {
+            ListScreen() // 리스트 뷰
+        }
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     DuiTheme {
-        Greeting("Android")
+        Surface (
+            modifier = Modifier.fillMaxSize()
+                ){
+        }
+        MainScreen(name = "DUI")
     }
 }
