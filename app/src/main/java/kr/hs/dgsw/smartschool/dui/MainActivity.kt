@@ -35,6 +35,7 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import kr.hs.dgsw.smartschool.components.component.button.*
 import kr.hs.dgsw.smartschool.components.component.input.Input
 import kr.hs.dgsw.smartschool.components.theme.*
@@ -124,35 +125,69 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@Preview(showBackground = true)
+@Composable
+fun TestPreview(){
+    Surface(
+        modifier = Modifier.fillMaxSize()
+    ){
+        MainScreen(viewModel = null)  
+    }
+}
+
 data class Item(
-    val content : String,
+    val icon : Int,
     val title : String,
-    val icon : Int
+    val content : String
     )
 
+
 @Composable
-fun MainScreen(viewModel : ViewModel){
-    ListScreen()
+fun MainScreen(viewModel : ViewModel?){
+    val list : List<Item> = listOf(
+        Item(kr.hs.smartschool.components.R.drawable.ic_breakfast_3d,"제목","내용"),
+        Item(kr.hs.smartschool.components.R.drawable.ic_breakfast_3d,"제목","내용"),
+        Item(kr.hs.smartschool.components.R.drawable.ic_breakfast_3d,"제목","내용")
+    )
+    Surface(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        ListScreen(list = list)
+    }
 }
 @Composable
 fun ListScreen(
+    list : List<Item>
 ) {
-    
-    Column() {
-        Text(text = "")
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(start = 10.dp, 10.dp, 10.dp, 10.dp)
+    ) {
+        Title1(
+            text = "DUI",
+            modifier = Modifier
+                .padding(start = 30.dp, bottom = 50.dp)
+        )
+        ColumnList(list = list)
     }
 }
 
 @Composable
-fun ColumnList(list : State<List<Item>>){
-    LazyColumn(modifier = Modifier
-        .fillMaxWidth()
-        .horizontalScroll(rememberScrollState())
-        .padding(start = 30.dp, end = 30.dp, top = 10.dp, bottom = 30.dp)){
+fun ColumnList(list : List<Item>){
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .horizontalScroll(rememberScrollState()),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
 
-        list.value.let {
+        list.let {
             items(it) { item ->
-                ColumnItemCard(item = item)
+                ColumnItemCard(
+                    item = item
+                )
             }
         }
     }
@@ -162,16 +197,20 @@ fun ColumnList(list : State<List<Item>>){
 fun ColumnItemCard(item: Item) {
     Card(
         modifier = Modifier
-            .padding(end = 20.dp)
-            .fillMaxWidth(),
+            .fillMaxSize()
+            .padding(vertical = 10.dp),
         shape = MaterialTheme.shapes.small.copy(CornerSize(20.dp)),
-        elevation = 10.dp
+        elevation = 3.dp
     ) {
-        Surface(
-            shape = MaterialTheme.shapes.small.copy(CornerSize(20.dp))
+        Column(modifier = Modifier
+            .height(100.dp)
+            .width(300.dp)
+            .padding(all = 10.dp)
         ) {
             Row(
-                verticalAlignment = Alignment.Bottom
+                modifier = Modifier
+                    .fillMaxSize(),
+                verticalAlignment = Alignment.Top
             ) {
                 ItemImage(
                     item.icon
@@ -180,6 +219,7 @@ fun ColumnItemCard(item: Item) {
                     text = item.title
                 )
             }
+            Body3(text = "내용")
         }
     }
 }
@@ -243,7 +283,7 @@ fun DodamBodyText() {
     }
 }
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun DisplayTextPreview() {
     DuiTheme {
@@ -251,7 +291,7 @@ fun DisplayTextPreview() {
     }
 }
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun HeadlineTextPreview() {
     DuiTheme {
@@ -259,7 +299,7 @@ fun HeadlineTextPreview() {
     }
 }
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun TitleTextPreview() {
     DuiTheme {
@@ -267,7 +307,7 @@ fun TitleTextPreview() {
     }
 }
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun LabelTextPreview() {
     DuiTheme {
@@ -275,7 +315,7 @@ fun LabelTextPreview() {
     }
 }
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun BodyTextPreview() {
     DuiTheme {
@@ -283,13 +323,13 @@ fun BodyTextPreview() {
     }
 }
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun IcBack() {
     IcLeftArrow(contentDescription = null, tint = DodamColor.MainColor)
 }
 
-@Preview(showBackground = true)
+//@Preview(showBackground = true)
 @Composable
 fun ErrorTextPreview() {
     DuiTheme {
