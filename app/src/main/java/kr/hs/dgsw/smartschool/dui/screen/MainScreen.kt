@@ -14,11 +14,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
 import kr.hs.dgsw.smartschool.components.theme.Body3
 import kr.hs.dgsw.smartschool.components.theme.Title1
+import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.components.theme.Title3
 
 
@@ -44,7 +46,7 @@ fun MainScreen(viewModel : ViewModel?){
     val list : List<Item> = listOf(
         Item(kr.hs.smartschool.components.R.drawable.ic_breakfast_3d,"제목","내용"),
         Item(kr.hs.smartschool.components.R.drawable.ic_breakfast_3d,"제목","내용"),
-        Item(kr.hs.smartschool.components.R.drawable.ic_breakfast_3d,"제목","내용")
+        Item(kr.hs.smartschool.components.R.drawable.ic_breakfast_3d,"제목","내용..................................................................sddddddddadwㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷㄷ")
     )
     Surface(
         modifier = Modifier
@@ -63,9 +65,21 @@ fun ListScreen(
             .padding(start = 10.dp, 10.dp, 10.dp, 10.dp)
     ) {
         Title1(
-            text = "DUI",
+            text = "DUI Preview",
             modifier = Modifier
-                .padding(start = 30.dp, bottom = 50.dp)
+                .padding(
+                    start = 35.dp,
+                    top = 40.dp,
+                    bottom = 10.dp
+                    )
+        )
+        Title2(
+            text = "도담 디자인 시스템",
+            modifier = Modifier
+                .padding(
+                    start = 35.dp,
+                    bottom = 20.dp
+                )
         )
         ColumnList(list = list)
     }
@@ -104,17 +118,30 @@ fun ColumnItemCard(item: Item) {
         ) {
             Row(
                 modifier = Modifier
-                    .fillMaxSize(),
-                verticalAlignment = Alignment.Top
+                    .height(30.dp)
+                    .fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
+
             ) {
                 ItemImage(
                     item.icon
                 )
-                Title3(
-                    text = item.title
+                Title2(
+                    text = item.title,
+                    modifier = Modifier
+                        .width(200.dp)
+                        .padding(start = 20.dp),
+                    textAlign = TextAlign.Start
                 )
             }
-            Body3(text = "내용")
+            Body3(
+                modifier = Modifier
+                    .padding(top = 10.dp)
+                    .fillMaxHeight(),
+                text = item.content,
+                textAlign = TextAlign.Start,
+                maxLines = 2
+            )
         }
     }
 }
