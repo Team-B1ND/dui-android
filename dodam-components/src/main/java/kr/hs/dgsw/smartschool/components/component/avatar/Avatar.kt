@@ -98,7 +98,7 @@ fun Avatar(
 
 @Preview(showBackground = true)
 @Composable
-private fun NameAvatarPreview() {
+private fun AvatarPreview() {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -109,5 +109,6 @@ private fun NameAvatarPreview() {
         Avatar(painter = painterResource(id = R.drawable.img_dummy))
         Spacer(modifier = Modifier.height(10.dp))
         Avatar(iconColor = DodamColor.FeatureColor.MyInfoColor)
+        Avatar(iconColor = DodamColor.FeatureColor.MyInfoColor, size = 100.dp, iconSize = 50.dp)
     }
 }
