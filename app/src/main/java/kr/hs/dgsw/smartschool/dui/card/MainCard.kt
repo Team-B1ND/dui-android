@@ -1,6 +1,7 @@
 package kr.hs.dgsw.smartschool.dui.card
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.material.Card
@@ -21,16 +22,19 @@ import kr.hs.dgsw.smartschool.dui.screen.Item
 @Preview(showBackground = true)
 @Composable
 fun CardPreview(){
-    ColumnItemCard(item = DataSet.dummyCard)
+    ColumnItemCard(item = DataSet.ITEM_TEST)
 }
 
 @Composable
 fun ColumnItemCard(item: Item) {
     Card(
         modifier = Modifier
-            .height(100.dp)
-            .width(300.dp)
-            .padding(vertical = 10.dp),
+            .height(110.dp)
+            .width(320.dp)
+            .padding(vertical = 10.dp)
+            .clickable {
+
+            },
         shape = MaterialTheme.shapes.small.copy(CornerSize(20.dp)),
         elevation = 3.dp
     ) {
@@ -59,7 +63,7 @@ fun ColumnItemCard(item: Item) {
             }
             Body3(
                 modifier = Modifier
-                    .padding(top = 10.dp, start = 30.dp)
+                    .padding(top = 10.dp, start = 10.dp)
                     .fillMaxHeight(),
                 text = item.content,
                 textAlign = TextAlign.Start,

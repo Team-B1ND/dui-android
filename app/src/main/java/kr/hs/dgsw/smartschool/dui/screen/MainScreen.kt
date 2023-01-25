@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,6 +16,7 @@ import androidx.lifecycle.ViewModel
 import kr.hs.dgsw.smartschool.components.theme.Title1
 import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.DataSet
+import kr.hs.dgsw.smartschool.dui.Text
 import kr.hs.dgsw.smartschool.dui.card.ColumnItemCard
 
 
@@ -41,7 +43,7 @@ fun MainScreen(viewModel : ViewModel?){
         modifier = Modifier
             .fillMaxSize()
     ) {
-        ListScreen(list = DataSet.dummyList)
+        ListScreen(list = DataSet.LIST_MAIN)
     }
 }
 @Composable
@@ -54,7 +56,7 @@ fun ListScreen(
             .padding(start = 10.dp, 10.dp, 10.dp, 10.dp)
     ) {
         Title1(
-            text = "DUI Preview",
+            text = Text.DUI_TITLE,
             modifier = Modifier
                 .padding(
                     start = 35.dp,
@@ -63,7 +65,7 @@ fun ListScreen(
                     )
         )
         Title2(
-            text = "도담 디자인 시스템",
+            text = Text.DUI_DESCRIPTION,
             modifier = Modifier
                 .padding(
                     start = 35.dp,
