@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -13,9 +12,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.theme.Title1
 import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.DataSet
+import kr.hs.dgsw.smartschool.dui.Item
 import kr.hs.dgsw.smartschool.dui.Text
 import kr.hs.dgsw.smartschool.dui.card.ColumnItemCard
 
@@ -26,29 +28,27 @@ fun TestPreview(){
     Surface(
         modifier = Modifier.fillMaxSize()
     ){
-        MainScreen(viewModel = null)
+        MainScreen(viewModel = null, navController = rememberNavController())
     }
 }
 
-data class Item(
-    val icon : Int,
-    val title : String,
-    val content : String
-)
-
 
 @Composable
-fun MainScreen(viewModel : ViewModel?){
+fun MainScreen(
+    viewModel : ViewModel?,
+    navController: NavController
+){
     Surface(
         modifier = Modifier
             .fillMaxSize()
     ) {
-        ListScreen(list = DataSet.LIST_MAIN)
+        ColumnList(list = DataSet.LIST_MAIN, navController)
     }
 }
 @Composable
-fun ListScreen(
-    list : List<Item>
+fun ColumnList(
+    list : List<Item>,
+    navController: NavController
 ) {
     Column(
         modifier = Modifier
@@ -72,23 +72,19 @@ fun ListScreen(
                     bottom = 20.dp
                 )
         )
-        ColumnList(list = list)
-    }
-}
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .horizontalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ){
 
-@Composable
-fun ColumnList(list : List<Item>){
-    LazyColumn(
-        modifier = Modifier
-            .fillMaxSize()
-            .horizontalScroll(rememberScrollState()),
-        horizontalAlignment = Alignment.CenterHorizontally
-    ){
-
-        items(list) { item ->
-            ColumnItemCard(
-                item = item
-            )
+            items(list) { item ->
+                ColumnItemCard(
+                    item = item,
+                    navController = navController
+                )
+            }
         }
     }
 }

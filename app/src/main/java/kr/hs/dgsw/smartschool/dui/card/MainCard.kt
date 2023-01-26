@@ -14,26 +14,31 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.theme.Body3
 import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.DataSet
-import kr.hs.dgsw.smartschool.dui.screen.Item
+import kr.hs.dgsw.smartschool.dui.Item
 
 @Preview(showBackground = true)
 @Composable
 fun CardPreview(){
-    ColumnItemCard(item = DataSet.ITEM_TEST)
+    ColumnItemCard(item = DataSet.ITEM_TEST, navController = rememberNavController())
 }
 
 @Composable
-fun ColumnItemCard(item: Item) {
+fun ColumnItemCard(
+    item: Item,
+    navController: NavController
+    ) {
     Card(
         modifier = Modifier
             .height(110.dp)
             .width(320.dp)
             .padding(vertical = 10.dp)
             .clickable {
-
+                navController.navigate(item.route)
             },
         shape = MaterialTheme.shapes.small.copy(CornerSize(20.dp)),
         elevation = 3.dp
