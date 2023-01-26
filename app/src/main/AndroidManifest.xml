@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Dui"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".root.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Dui">

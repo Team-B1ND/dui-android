@@ -57,6 +57,7 @@ dependencies {
     implementation(Compose.UI_COMPOSE)
     implementation(Compose.UI_TOOLING_PREVIEW)
     implementation(Compose.MATERIAL_COMPOSE)
+    implementation(Compose.NAVIGATION_COMPOSE)
     implementation(project(mapOf("path" to ":dodam-components")))
     testImplementation(UnitTest.JUNIT)
     androidTestImplementation(AndroidTest.ANDROID_JUNIT)
