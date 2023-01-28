@@ -21,7 +21,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.theme.*
 import kr.hs.dgsw.smartschool.dui.screen.ColorScreen
+import kr.hs.dgsw.smartschool.dui.screen.IconScreen
 import kr.hs.dgsw.smartschool.dui.screen.MainScreen
+import kr.hs.dgsw.smartschool.dui.screen.TypoScreen
 import kr.hs.dgsw.smartschool.dui.ui.theme.DuiTheme
 import kr.hs.dgsw.smartschool.dui.viewmodel.MainViewModel
 
@@ -120,10 +122,13 @@ fun Navigation(modifier : Modifier , viewModel : ViewModel, navController: NavHo
             MainScreen(viewModel, navController)
         }
         composable("typo") {
-
+            TypoScreen(viewModel, navController)
         }
         composable("color") {
             ColorScreen(viewModel, navController)
+        }
+        composable("icon"){
+            IconScreen(viewModel, navController )
         }
     }
 }
