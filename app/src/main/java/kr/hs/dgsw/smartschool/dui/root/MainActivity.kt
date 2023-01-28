@@ -23,10 +23,11 @@ import kr.hs.dgsw.smartschool.components.theme.*
 import kr.hs.dgsw.smartschool.dui.screen.ColorScreen
 import kr.hs.dgsw.smartschool.dui.screen.MainScreen
 import kr.hs.dgsw.smartschool.dui.ui.theme.DuiTheme
+import kr.hs.dgsw.smartschool.dui.viewmodel.MainViewModel
 
 @ExperimentalFoundationApi
 class MainActivity : ComponentActivity() {
-    private val viewModel by viewModels<ViewModel>()
+    private val viewModel by viewModels<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
