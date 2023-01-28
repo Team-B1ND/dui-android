@@ -21,6 +21,7 @@ import kr.hs.dgsw.smartschool.dui.DataSet
 import kr.hs.dgsw.smartschool.dui.Item
 import kr.hs.dgsw.smartschool.dui.Text
 import kr.hs.dgsw.smartschool.dui.card.ColumnItemCard
+import kr.hs.dgsw.smartschool.dui.compose.ScreenAppBar
 
 @Preview(showBackground = true)
 @Composable
