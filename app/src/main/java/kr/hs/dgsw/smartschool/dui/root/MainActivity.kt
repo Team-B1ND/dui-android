@@ -12,7 +12,6 @@ import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.ViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -38,7 +37,7 @@ class MainActivity : ComponentActivity() {
                     color = DodamColor.Background
                 ) {
                     Navigation(
-                        viewModel = viewModel,
+                        // viewModel = viewModel,
                         navController = navController,
                         modifier = Modifier
                             .fillMaxSize()
@@ -55,7 +54,7 @@ fun TestPreview() {
     Surface(
         modifier = Modifier.fillMaxSize()
     ) {
-        MainScreen(viewModel = null, rememberNavController())
+        MainScreen(rememberNavController())
     }
 }
 
@@ -64,23 +63,27 @@ private fun sampleOnClick(context: Context) {
 }
 
 @Composable
-fun Navigation(modifier: Modifier, viewModel: ViewModel, navController: NavHostController) {
+fun Navigation(
+    modifier: Modifier,
+    // viewModel: ViewModel,
+    navController: NavHostController
+) {
     NavHost(
         navController = navController,
         startDestination = "main",
         modifier = modifier
     ) {
         composable("main") {
-            MainScreen(viewModel, navController)
+            MainScreen(navController)
         }
         composable("typo") {
-            TypoScreen(viewModel, navController)
+            TypoScreen(navController)
         }
         composable("color") {
-            ColorScreen(viewModel, navController)
+            ColorScreen(navController)
         }
         composable("icon") {
-            IconScreen(viewModel, navController)
+            IconScreen(navController)
         }
     }
 }

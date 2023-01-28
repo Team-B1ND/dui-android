@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.dui.compose.ScreenAppBar
@@ -17,7 +16,7 @@ fun TypoPreview() {
 
 @Composable
 fun TypoScreen(
-    viewModel: ViewModel,
+    // viewModel: ViewModel,
     navController: NavController
 ) {
     Column(
