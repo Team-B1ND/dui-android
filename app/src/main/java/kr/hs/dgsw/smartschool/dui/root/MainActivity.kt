@@ -6,20 +6,18 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.foundation.*
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.*
+import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.ViewModel
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import kr.hs.dgsw.smartschool.components.theme.*
+import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.dui.screen.ColorScreen
 import kr.hs.dgsw.smartschool.dui.screen.IconScreen
 import kr.hs.dgsw.smartschool.dui.screen.MainScreen
@@ -44,7 +42,7 @@ class MainActivity : ComponentActivity() {
                         navController = navController,
                         modifier = Modifier
                             .fillMaxSize()
-                        )
+                    )
                 }
             }
         }
@@ -53,66 +51,20 @@ class MainActivity : ComponentActivity() {
 
 @Preview(showBackground = true)
 @Composable
-fun TestPreview(){
+fun TestPreview() {
     Surface(
         modifier = Modifier.fillMaxSize()
-    ){
+    ) {
         MainScreen(viewModel = null, rememberNavController())
     }
 }
-
 
 private fun sampleOnClick(context: Context) {
     Toast.makeText(context, "Hello", Toast.LENGTH_SHORT).show()
 }
 
 @Composable
-fun DodamDisplayText() {
-    Column {
-        Display1(text = "도담도담 Display1", onClick = {}, rippleColor = DodamColor.MainColor)
-        Display2(text = "도담도담 Display2")
-        Display3(text = "도담도담 Display3")
-    }
-}
-
-@Composable
-fun DodamHeadlineText() {
-    Column {
-        Headline1(text = "도담도담 Headline1")
-        Headline2(text = "도담도담 Headline2")
-        Headline3(text = "도담도담 Headline3")
-    }
-}
-
-@Composable
-fun DodamTitleText() {
-    Column {
-        Title1(text = "도담도담 Title1")
-        Title2(text = "도담도담 Title2")
-        Title3(text = "도담도담 Title3")
-    }
-}
-
-@Composable
-fun DodamLabelText() {
-    Column {
-        Label1(text = "도담도담 Label1")
-        Label2(text = "도담도담 Label2")
-        Label3(text = "도담도담 Label3")
-    }
-}
-
-@Composable
-fun DodamBodyText() {
-    Column {
-        Body1(text = "도담도담 Body1")
-        Body2(text = "도담도담 Body2")
-        Body3(text = "도담도담 Body3")
-    }
-}
-
-@Composable
-fun Navigation(modifier : Modifier , viewModel : ViewModel, navController: NavHostController) {
+fun Navigation(modifier: Modifier, viewModel: ViewModel, navController: NavHostController) {
     NavHost(
         navController = navController,
         startDestination = "main",
@@ -127,8 +79,8 @@ fun Navigation(modifier : Modifier , viewModel : ViewModel, navController: NavHo
         composable("color") {
             ColorScreen(viewModel, navController)
         }
-        composable("icon"){
-            IconScreen(viewModel, navController )
+        composable("icon") {
+            IconScreen(viewModel, navController)
         }
     }
 }

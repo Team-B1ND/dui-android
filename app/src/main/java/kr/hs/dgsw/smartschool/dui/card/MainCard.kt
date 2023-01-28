@@ -2,7 +2,14 @@ package kr.hs.dgsw.smartschool.dui.card
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
@@ -23,7 +30,7 @@ import kr.hs.dgsw.smartschool.dui.Item
 
 @Preview(showBackground = true)
 @Composable
-fun CardPreview(){
+fun CardPreview() {
     ColumnItemCard(item = DataSet.ITEM_TEST, navController = rememberNavController())
 }
 
@@ -31,7 +38,7 @@ fun CardPreview(){
 fun ColumnItemCard(
     item: Item,
     navController: NavController
-    ) {
+) {
     Card(
         modifier = Modifier
             .height(110.dp)
@@ -43,9 +50,10 @@ fun ColumnItemCard(
         shape = MaterialTheme.shapes.small.copy(CornerSize(20.dp)),
         elevation = 3.dp
     ) {
-        Column(modifier = Modifier
-            .fillMaxSize()
-            .padding(all = 10.dp)
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(all = 10.dp)
         ) {
             Row(
                 modifier = Modifier
@@ -64,7 +72,7 @@ fun ColumnItemCard(
                         .padding(start = 10.dp),
                     textAlign = TextAlign.Start,
 
-                    )
+                )
             }
             Body3(
                 modifier = Modifier
@@ -79,8 +87,8 @@ fun ColumnItemCard(
 }
 
 @Composable
-fun ItemImage(icon : Int){
-    Surface{
+fun ItemImage(icon: Int) {
+    Surface {
         Image(
             painter = painterResource(id = icon),
             contentDescription = null,

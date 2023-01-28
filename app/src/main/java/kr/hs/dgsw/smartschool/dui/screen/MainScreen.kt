@@ -1,7 +1,8 @@
 package kr.hs.dgsw.smartschool.dui.screen
-
 import androidx.compose.foundation.horizontalScroll
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -20,25 +21,22 @@ import kr.hs.dgsw.smartschool.dui.DataSet
 import kr.hs.dgsw.smartschool.dui.Item
 import kr.hs.dgsw.smartschool.dui.Text
 import kr.hs.dgsw.smartschool.dui.card.ColumnItemCard
-import kr.hs.dgsw.smartschool.dui.compose.ScreenAppBar
-
 
 @Preview(showBackground = true)
 @Composable
-fun TestPreview(){
+fun TestPreview() {
     Surface(
         modifier = Modifier.fillMaxSize()
-    ){
+    ) {
         MainScreen(viewModel = null, navController = rememberNavController())
     }
 }
 
-
 @Composable
 fun MainScreen(
-    viewModel : ViewModel?,
+    viewModel: ViewModel?,
     navController: NavController
-){
+) {
     Surface(
         modifier = Modifier
             .fillMaxSize()
@@ -48,7 +46,7 @@ fun MainScreen(
 }
 @Composable
 fun ColumnList(
-    list : List<Item>,
+    list: List<Item>,
     navController: NavController
 ) {
     Column(
@@ -63,7 +61,7 @@ fun ColumnList(
                     start = 35.dp,
                     top = 40.dp,
                     bottom = 10.dp
-                    )
+                )
         )
         Title2(
             text = Text.DUI_DESCRIPTION,
@@ -78,7 +76,7 @@ fun ColumnList(
                 .fillMaxSize()
                 .horizontalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
-        ){
+        ) {
 
             items(list) { item ->
                 ColumnItemCard(
