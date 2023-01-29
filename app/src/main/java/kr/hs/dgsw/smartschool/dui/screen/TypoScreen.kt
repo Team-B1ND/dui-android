@@ -7,7 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import kr.hs.dgsw.smartschool.components.foundation.Text
-import kr.hs.dgsw.smartschool.dui.compose.ScreenAppBar
+import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
 
 @Composable
 @Preview(showBackground = true)
@@ -16,7 +16,6 @@ fun TypoPreview() {
 
 @Composable
 fun TypoScreen(
-    // viewModel: ViewModel,
     navController: NavController
 ) {
     Column(

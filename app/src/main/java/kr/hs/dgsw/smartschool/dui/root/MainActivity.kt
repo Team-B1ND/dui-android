@@ -5,28 +5,39 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Surface
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CornerSize
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import kr.hs.dgsw.smartschool.components.theme.Body3
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
+import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.dui.Item
 import kr.hs.dgsw.smartschool.dui.screen.ColorScreen
 import kr.hs.dgsw.smartschool.dui.screen.IconScreen
 import kr.hs.dgsw.smartschool.dui.screen.MainScreen
 import kr.hs.dgsw.smartschool.dui.screen.TypoScreen
 import kr.hs.dgsw.smartschool.dui.ui.theme.DuiTheme
-import kr.hs.dgsw.smartschool.dui.viewmodel.MainViewModel
 
 @ExperimentalFoundationApi
 class MainActivity : ComponentActivity() {
-    private val viewModel by viewModels<MainViewModel>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -88,70 +99,89 @@ fun Navigation(
     }
 }
 
-/*val scrollState = rememberScrollState()
-Column(
-modifier = Modifier
-.padding(10.dp)
-.verticalScroll(scrollState),
+@Composable
+fun ScreenAppBar(title: String, navController: NavController) {
+    TopAppBar(
+        modifier = Modifier
+            .height(60.dp)
+            .fillMaxWidth(),
+        title = { Text(text = title) },
+        contentColor = MaterialTheme.colors.primary,
+        backgroundColor = Color.White,
+        navigationIcon = {
+            IconButton(onClick = { navController.popBackStack() }) {
+                Icon(
+                    imageVector = Icons.Filled.ArrowBack,
+                    contentDescription = "Menu"
+                )
+            }
+        },
+        elevation = 12.dp,
+    )
+}
+
+@Composable
+fun ColumnItemCard(
+    item: Item,
+    navController: NavController
 ) {
-    DodamDisplayText()
-    DodamHeadlineText()
-    DodamTitleText()
-    DodamLabelText()
-    DodamBodyText()
-    DodamError(text = "도담도담 Error Text")
-    IcBreakfast3D(contentDescription = null)
-    DodamSmallRoundedButton(onClick = { sampleOnClick(this@MainActivity) }, text = "Small")
-    Spacer(modifier = Modifier.height(8.dp))
-    DodamMediumRoundedButton(onClick = { sampleOnClick(this@MainActivity) }, text = "도담도담 버튼", type = ButtonType.Danger, iconLeft = { IcSong(contentDescription = null) })
-    Spacer(modifier = Modifier.height(8.dp))
-    DodamLargeRoundedButton(onClick = { sampleOnClick(this@MainActivity) }, text = "Large", type = ButtonType.Disable, enable = false)
-    Spacer(modifier = Modifier.height(8.dp))
-    IconButton(icon = { IcSong(contentDescription = null) }, onClick = { sampleOnClick(this@MainActivity) }, type = ButtonType.Danger)
+    Card(
+        modifier = Modifier
+            .height(110.dp)
+            .width(320.dp)
+            .padding(vertical = 10.dp)
+            .clickable {
+                navController.navigate(item.route)
+            },
+        shape = MaterialTheme.shapes.small.copy(CornerSize(20.dp)),
+        elevation = 3.dp
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(all = 10.dp)
+        ) {
+            Row(
+                modifier = Modifier
+                    .height(20.dp)
+                    .fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically
 
-    Spacer(modifier = Modifier.height(8.dp))
+            ) {
+                ItemImage(
+                    item.icon
+                )
+                Title2(
+                    text = item.title,
+                    modifier = Modifier
+                        .width(200.dp)
+                        .padding(start = 10.dp),
+                    textAlign = TextAlign.Start,
 
-    val radioState = remember { mutableStateOf(true) }
-    Row {
-        RadioButton(selected = radioState.value, onClick = { radioState.value = !radioState.value }, type = ButtonType.Itmap)
-        Spacer(modifier = Modifier.width(8.dp))
-        Body2(text = "Radio", modifier = Modifier.align(Alignment.CenterVertically))
+                    )
+            }
+            Body3(
+                modifier = Modifier
+                    .padding(top = 10.dp, start = 10.dp)
+                    .fillMaxHeight(),
+                text = item.content,
+                textAlign = TextAlign.Start,
+                maxLines = 2
+            )
+        }
     }
+}
 
-    Spacer(modifier = Modifier.height(8.dp))
+@Composable
+fun ItemImage(icon: Int) {
+    Surface {
+        Image(
+            painter = painterResource(id = icon),
+            contentDescription = null,
+            modifier = Modifier
+                .width(20.dp)
+                .height(20.dp)
+        )
+    }
+}
 
-    val testValue = remember { mutableStateOf("") }
-    Input(
-        modifier = Modifier.fillMaxWidth(),
-        value = testValue.value,
-        hint = "테스트 값을 입력해 주세요!",
-        onValueChange = { testValue.value = it },
-        focusColor = DodamColor.FeatureColor.LostFoundColor,
-        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
-        visualTransformation = PasswordVisualTransformation()
-    )
-    Spacer(modifier = Modifier.height(8.dp))
-
-    val value = remember { mutableStateOf("Test Input") }
-    Input(
-        modifier = Modifier.fillMaxWidth(),
-        value = value.value,
-        hint = "Test Hint",
-        onValueChange = { value.value = it },
-        leadingIcon = { IcSong(contentDescription = null) },
-    )
-    Spacer(modifier = Modifier.height(8.dp))
-
-    val value2 = remember { mutableStateOf("Test Input2") }
-    Input(
-        modifier = Modifier.fillMaxWidth(),
-        value = value2.value,
-        hint = "Test Hint2",
-        isError = true,
-        errorMessage = "응애 에러 발생 에러 발생",
-        onValueChange = { value2.value = it },
-        trailingIcon = { IcX(contentDescription = null, modifier = Modifier.clickable { value2.value = "" }) },
-    )
-
-    Spacer(modifier = Modifier.height(8.dp))
-}*/

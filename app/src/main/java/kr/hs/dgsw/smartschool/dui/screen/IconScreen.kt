@@ -8,7 +8,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.foundation.Text
-import kr.hs.dgsw.smartschool.dui.compose.ScreenAppBar
+import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
 
 @Composable
 @Preview(showBackground = true)
@@ -18,7 +18,6 @@ fun IconPreview() {
 
 @Composable
 fun IconScreen(
-    // viewModel: ViewModel?,
     navController: NavController
 ) {
     Column(

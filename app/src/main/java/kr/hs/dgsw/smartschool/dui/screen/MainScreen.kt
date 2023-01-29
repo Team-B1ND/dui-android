@@ -12,7 +12,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.theme.Title1
@@ -20,7 +19,7 @@ import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.DataSet
 import kr.hs.dgsw.smartschool.dui.Item
 import kr.hs.dgsw.smartschool.dui.Text
-import kr.hs.dgsw.smartschool.dui.card.ColumnItemCard
+import kr.hs.dgsw.smartschool.dui.root.ColumnItemCard
 
 @Preview(showBackground = true)
 @Composable
@@ -34,7 +33,6 @@ fun TestPreview() {
 
 @Composable
 fun MainScreen(
-    //viewModel: ViewModel?,
     navController: NavController
 ) {
     Surface(
