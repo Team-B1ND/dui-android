@@ -33,3 +33,8 @@ object Compose {
 object Gradle {
     const val MAVEN_GRADLE_PLUGIN = "com.github.dcendents:android-maven-gradle-plugin:${Versions.MAVEN_GRADLE_PLUGIN}"
 }
+
+object Project {
+    const val PROJECT_PATH = ":dodam-components"
+    const val PATH = "path"
+}
