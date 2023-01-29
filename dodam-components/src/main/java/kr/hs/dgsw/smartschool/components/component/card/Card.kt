@@ -1,7 +1,6 @@
 package kr.hs.dgsw.smartschool.components.component.card
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,7 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kr.hs.dgsw.smartschool.components.component.badge.Badge
@@ -25,8 +23,6 @@ import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcBreakfast3D
 import kr.hs.dgsw.smartschool.components.theme.IcDinner3D
 import kr.hs.dgsw.smartschool.components.theme.IcLunch3D
-import kr.hs.dgsw.smartschool.components.theme.IcRightArrow
-import kr.hs.dgsw.smartschool.components.theme.contentColorFor
 
 @Composable
 fun Card(
