@@ -28,6 +28,31 @@ import kr.hs.dgsw.smartschool.components.theme.IcRightArrow
 import kr.hs.dgsw.smartschool.components.theme.contentColorFor
 
 @Composable
+fun Card(
+    modifier: Modifier = Modifier,
+    onClick: (() -> Unit)? = null,
+    shape: Shape = DodamTheme.shape.large,
+    background: Color = DodamTheme.color.White,
+    enable: Boolean = true,
+    rippleColor: Color = Color.Unspecified,
+    rippleEnable: Boolean = true,
+    bounded: Boolean = true,
+    content: @Composable () -> Unit
+) {
+    Surface(
+        onClick = if (enable) onClick else null,
+        modifier = modifier,
+        shape = shape,
+        color = background,
+        rippleEnable = rippleEnable,
+        rippleColor = rippleColor,
+        bounded = bounded,
+    ) {
+        content()
+    }
+}
+
+@Composable
 fun ItemCard(
     title: String,
     subTitle: String,
@@ -43,11 +68,11 @@ fun ItemCard(
     rippleEnable: Boolean = true,
     bounded: Boolean = true,
 ) {
-    Surface(
+    Card(
         onClick = if (enable) onClick else null,
         modifier = modifier.width(120.dp),
         shape = shape,
-        color = background,
+        background = background,
         rippleEnable = rippleEnable,
         rippleColor = rippleColor,
         bounded = bounded,
@@ -88,11 +113,11 @@ fun ContentCard(
     bounded: Boolean = true,
     content: (@Composable () -> Unit)? = null
 ) {
-    Surface(
+    Card(
         onClick = if (enable) onClick else null,
         modifier = modifier.fillMaxWidth(),
         shape = shape,
-        color = background,
+        background = background,
         rippleEnable = rippleEnable,
         rippleColor = rippleColor,
         bounded = bounded,
@@ -177,5 +202,4 @@ private fun PreviewCard() {
             }
         }
     }
-
 }
