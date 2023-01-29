@@ -1,4 +1,4 @@
-package kr.hs.dgsw.smartschool.components.component
+package kr.hs.dgsw.smartschool.components.component.basic
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box

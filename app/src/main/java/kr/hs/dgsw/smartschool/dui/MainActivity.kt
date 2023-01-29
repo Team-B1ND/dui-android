@@ -27,7 +27,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import kr.hs.dgsw.smartschool.components.component.Surface
+import kr.hs.dgsw.smartschool.components.component.basic.Surface
 import kr.hs.dgsw.smartschool.components.component.button.ButtonType
 import kr.hs.dgsw.smartschool.components.component.button.DodamLargeRoundedButton
 import kr.hs.dgsw.smartschool.components.component.button.DodamMediumRoundedButton
