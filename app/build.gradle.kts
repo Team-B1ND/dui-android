@@ -53,9 +53,12 @@ dependencies {
     implementation(AndroidX.CORE_KTX)
     implementation(AndroidX.LIFECYCLE_KTX)
     implementation(Compose.ACTIVITY_COMPOSE)
+    implementation(Compose.NAVIGATION_COMPOSE)
     implementation(Compose.UI_COMPOSE)
     implementation(Compose.UI_TOOLING_PREVIEW)
     implementation(Compose.MATERIAL_COMPOSE)
+    implementation(Compose.NAVIGATION_COMPOSE)
+    implementation(project(mapOf(ProjectProperties.PATH to ProjectProperties.PROJECT_PATH)))
     testImplementation(UnitTest.JUNIT)
     androidTestImplementation(AndroidTest.ANDROID_JUNIT)
     androidTestImplementation(AndroidTest.ESPRESSO_CORE)
@@ -63,5 +66,5 @@ dependencies {
     debugImplementation(Compose.UI_TOOLING)
     debugImplementation(Compose.UI_TEST_MANIFEST)
 
-    implementation(project(":dodam-components"))
+    implementation(project(ProjectProperties.PROJECT_PATH))
 }

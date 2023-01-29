@@ -14,6 +14,7 @@ object Versions {
     const val COMPOSE_VERSION = "1.3.1"
     const val ACTIVITY_COMPOSE = "1.6.1"
     const val MATERIAL_COMPOSE = "1.3.1"
+    const val NAVIGATION_COMPOSE = "2.5.3"
 
     const val MAVEN_GRADLE_PLUGIN = "2.1"
 }
