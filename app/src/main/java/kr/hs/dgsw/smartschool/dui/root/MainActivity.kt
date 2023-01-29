@@ -8,9 +8,22 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.material.*
+import androidx.compose.material.Card
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
@@ -146,7 +159,6 @@ fun ColumnItemCard(
                     .height(20.dp)
                     .fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically
-
             ) {
                 ItemImage(
                     item.icon
@@ -157,8 +169,7 @@ fun ColumnItemCard(
                         .width(200.dp)
                         .padding(start = 10.dp),
                     textAlign = TextAlign.Start,
-
-                    )
+                )
             }
             Body3(
                 modifier = Modifier
@@ -184,4 +195,3 @@ fun ItemImage(icon: Int) {
         )
     }
 }
-

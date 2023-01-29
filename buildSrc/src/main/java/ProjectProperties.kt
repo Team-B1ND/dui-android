@@ -29,4 +29,7 @@ object ProjectProperties {
     const val JETBRAINS_KOTLIN = "1.7.10"
 
     const val BUILD_FEATURE_COMPOSE = true
+
+    const val PROJECT_PATH = ":dodam-components"
+    const val PATH = "path"
 }
