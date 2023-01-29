@@ -78,6 +78,7 @@ private fun DodamColor.contentColorFor(backgroundColor: Color): Color {
         Error -> White
         Gray100 -> White
         Background -> Black
+        White -> Black
         FeatureColor.SongColor -> White
         FeatureColor.ScheduleColor -> White
         FeatureColor.LostFoundColor -> White
