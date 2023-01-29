@@ -19,6 +19,10 @@ object DodamColor {
     val Check = Color(0xFF48A068)
     val Error = Color(0xFFDE5257)
 
+    val Breakfast = Color(0xFFFCA800)
+    val Lunch = Color(0xFF3DBDE5)
+    val Dinner = Color(0xFFA252E1)
+
     val Transparent = Color(0x00000000)
 
     val MainColor = Color(0xFF0067BC)

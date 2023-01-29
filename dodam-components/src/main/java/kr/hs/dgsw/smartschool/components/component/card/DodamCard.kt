@@ -136,7 +136,7 @@ fun DodamContentCard(
 @Preview(showBackground = true)
 @Composable
 private fun PreviewDodamCard() {
-    Column {
+    Column(Modifier.padding(16.dp)) {
         Row {
             DodamItemCard(
                 title = "외출 / 외박",
@@ -175,5 +175,11 @@ private fun PreviewDodamCard() {
                 Body3(text = "오늘은 급식이 없네요!", modifier = Modifier.align(Alignment.CenterVertically))
             }
         }
+        Spacer(modifier = Modifier.height(10.dp))
+        MealCard(content = "*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장", mealType = MealType.BreakFast)
+        Spacer(modifier = Modifier.height(10.dp))
+        MealCard(content = "*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장", mealType = MealType.Lunch)
+        Spacer(modifier = Modifier.height(10.dp))
+        MealCard(content = "*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장", mealType = MealType.Dinner)
     }
 }
