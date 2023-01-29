@@ -133,67 +133,6 @@ fun DodamContentCard(
     }
 }
 
-@Composable
-fun DodamMealCard(
-    title: String,
-    modifier: Modifier = Modifier,
-    onClick: (() -> Unit)? = null,
-    hasLinkIcon: Boolean = false,
-    shape: Shape = DodamTheme.shape.large,
-    background: Color = DodamTheme.color.White,
-    titleStyle: TextStyle = DodamTheme.typography.title2,
-    enable: Boolean = true,
-    rippleColor: Color = Color.Unspecified,
-    rippleEnable: Boolean = true,
-    bounded: Boolean = true,
-    content: (@Composable () -> Unit)? = null
-) {
-    Card(
-        onClick = if (enable) onClick else null,
-        modifier = modifier.fillMaxWidth(),
-        shape = shape,
-        background = background,
-        rippleEnable = rippleEnable,
-        rippleColor = rippleColor,
-        bounded = bounded,
-    ) {
-        Column(
-            modifier = Modifier
-                .padding(
-                    horizontal = 18.dp,
-                    vertical = 18.dp
-                )
-                .fillMaxWidth()
-        ) {
-            Row {
-                Text(
-                    text = title,
-                    style = titleStyle.copy(
-                        color = contentColorFor(backgroundColor = background),
-                        fontSize = 18.sp,
-                        lineHeight = 28.sp,
-                    ),
-                    modifier = Modifier.weight(1f)
-                )
-                if (hasLinkIcon) {
-                    Spacer(modifier = Modifier.height(14.dp))
-                    IcRightArrow(
-                        modifier = Modifier
-                            .size(14.dp)
-                            .align(Alignment.CenterVertically),
-                        tint = DodamTheme.color.Gray400,
-                        contentDescription = null
-                    )
-                }
-            }
-            content?.let {
-                Spacer(modifier = Modifier.height(18.dp))
-                it()
-            }
-        }
-    }
-}
-
 @Preview(showBackground = true)
 @Composable
 private fun PreviewDodamCard() {
