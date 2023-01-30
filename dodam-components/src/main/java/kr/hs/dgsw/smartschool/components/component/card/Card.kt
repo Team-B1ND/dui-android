@@ -3,12 +3,14 @@ package kr.hs.dgsw.smartschool.components.component.card
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -96,7 +98,7 @@ fun MealCard(
             onClick = onClick,
             modifier = modifier
                 .fillMaxWidth()
-                .height(80.dp)
+                .defaultMinSize(minHeight = 80.dp)
                 .padding(top = 15.dp),
             shape = shape,
             background = background,
@@ -108,9 +110,9 @@ fun MealCard(
                 modifier = Modifier
                     .padding(
                         horizontal = 18.dp,
-                        vertical = 18.dp
+                        vertical = 24.dp
                     )
-                    .fillMaxSize()
+                    .fillMaxWidth()
             ) {
                 Badge(
                     text = mealData.name,
@@ -120,7 +122,7 @@ fun MealCard(
                 Spacer(modifier = Modifier.width(18.dp))
                 Text(
                     text = content,
-                    style = DodamTheme.typography.body3.copy(color = Color.Black, fontSize = 12.sp),
+                    style = DodamTheme.typography.body3,
                     modifier = Modifier.align(Alignment.CenterVertically),
                 )
             }

@@ -9,6 +9,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -17,7 +19,6 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.theme.Body3
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
@@ -60,7 +61,7 @@ fun DodamItemCard(
                 .fillMaxWidth(),
         ) {
             Text(text = subTitle, style = subTitleStyle.copy(color = DodamTheme.color.Gray500))
-            Spacer(modifier = Modifier.height(6.dp))
+            Spacer(modifier = Modifier.height(2.dp))
             Text(text = title, style = titleStyle.copy(color = contentColorFor(backgroundColor = background)))
             icon?.let {
                 Spacer(modifier = Modifier.height(14.dp))
@@ -107,11 +108,7 @@ fun DodamContentCard(
             Row {
                 Text(
                     text = title,
-                    style = titleStyle.copy(
-                        color = contentColorFor(backgroundColor = background),
-                        fontSize = 18.sp,
-                        lineHeight = 28.sp,
-                    ),
+                    style = titleStyle.copy(contentColorFor(backgroundColor = background)),
                     modifier = Modifier.weight(1f)
                 )
                 if (hasLinkIcon) {
@@ -136,7 +133,12 @@ fun DodamContentCard(
 @Preview(showBackground = true)
 @Composable
 private fun PreviewDodamCard() {
-    Column(Modifier.padding(16.dp)) {
+    val scroll = rememberScrollState()
+    Column(
+        modifier = Modifier
+            .padding(16.dp)
+            .verticalScroll(scroll)
+    ) {
         Row {
             DodamItemCard(
                 title = "외출 / 외박",
@@ -176,10 +178,10 @@ private fun PreviewDodamCard() {
             }
         }
         Spacer(modifier = Modifier.height(10.dp))
-        MealCard(content = "*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장", mealType = MealType.BreakFast)
+        MealCard(content = "오늘은 급식이 없어요!", mealType = MealType.BreakFast)
         Spacer(modifier = Modifier.height(10.dp))
         MealCard(content = "*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장", mealType = MealType.Lunch)
         Spacer(modifier = Modifier.height(10.dp))
-        MealCard(content = "*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장", mealType = MealType.Dinner)
+        MealCard(content = "*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장", mealType = MealType.Dinner)
     }
 }
