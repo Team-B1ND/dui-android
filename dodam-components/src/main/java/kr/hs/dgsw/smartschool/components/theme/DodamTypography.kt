@@ -18,20 +18,20 @@ import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
 import kr.hs.smartschool.components.R
 
-val notoSans = FontFamily(
-    Font(R.font.noto_sans_thin, FontWeight.Thin),
-    Font(R.font.noto_sans_light, FontWeight.Light),
-    Font(R.font.noto_sans_regular, FontWeight.Normal),
-    Font(R.font.noto_sans_medium, FontWeight.Medium),
-    Font(R.font.noto_sans_bold, FontWeight.Bold),
-    Font(R.font.noto_sans_black, FontWeight.Black)
+val pretendard = FontFamily(
+    Font(R.font.pretendard_light, FontWeight.Light),
+    Font(R.font.pretendard_regular, FontWeight.Normal),
+    Font(R.font.pretendard_medium, FontWeight.Medium),
+    Font(R.font.pretendard_bold, FontWeight.Bold),
+    Font(R.font.pretendard_semi_bold, FontWeight.SemiBold),
+    Font(R.font.pretendard_black, FontWeight.Black)
 )
 
 object DodamTypography {
 
     @Stable
     val display1 = TextStyle(
-        fontFamily = notoSans,
+        fontFamily = pretendard,
         fontWeight = FontWeight.Normal,
         fontSize = 57.sp,
         lineHeight = 64.sp,
@@ -39,7 +39,7 @@ object DodamTypography {
 
     @Stable
     val display2 = TextStyle(
-        fontFamily = notoSans,
+        fontFamily = pretendard,
         fontWeight = FontWeight.Normal,
         fontSize = 45.sp,
         lineHeight = 52.sp
@@ -47,7 +47,7 @@ object DodamTypography {
 
     @Stable
     val display3 = TextStyle(
-        fontFamily = notoSans,
+        fontFamily = pretendard,
         fontWeight = FontWeight.Normal,
         fontSize = 36.sp,
         lineHeight = 44.sp
@@ -55,7 +55,7 @@ object DodamTypography {
 
     @Stable
     val headline1 = TextStyle(
-        fontFamily = notoSans,
+        fontFamily = pretendard,
         fontWeight = FontWeight.Normal,
         fontSize = 32.sp,
         lineHeight = 40.sp
@@ -63,7 +63,7 @@ object DodamTypography {
 
     @Stable
     val headline2 = TextStyle(
-        fontFamily = notoSans,
+        fontFamily = pretendard,
         fontWeight = FontWeight.Normal,
         fontSize = 28.sp,
         lineHeight = 36.sp
@@ -71,7 +71,7 @@ object DodamTypography {
 
     @Stable
     val headline3 = TextStyle(
-        fontFamily = notoSans,
+        fontFamily = pretendard,
         fontWeight = FontWeight.Normal,
         fontSize = 24.sp,
         lineHeight = 32.sp
@@ -79,31 +79,31 @@ object DodamTypography {
 
     @Stable
     val title1 = TextStyle(
-        fontFamily = notoSans,
-        fontWeight = FontWeight.Normal,
+        fontFamily = pretendard,
+        fontWeight = FontWeight.SemiBold,
         fontSize = 22.sp,
-        lineHeight = 28.sp
+        lineHeight = 26.sp
     )
 
     @Stable
     val title2 = TextStyle(
-        fontFamily = notoSans,
-        fontWeight = FontWeight.Medium,
-        fontSize = 16.sp,
-        lineHeight = 24.sp
+        fontFamily = pretendard,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 18.sp,
+        lineHeight = 22.sp
     )
 
     @Stable
     val title3 = TextStyle(
-        fontFamily = notoSans,
-        fontWeight = FontWeight.Medium,
-        fontSize = 14.sp,
+        fontFamily = pretendard,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 16.sp,
         lineHeight = 20.sp
     )
 
     @Stable
     val label1 = TextStyle(
-        fontFamily = notoSans,
+        fontFamily = pretendard,
         fontWeight = FontWeight.Medium,
         fontSize = 14.sp,
         lineHeight = 10.sp
@@ -111,7 +111,7 @@ object DodamTypography {
 
     @Stable
     val label2 = TextStyle(
-        fontFamily = notoSans,
+        fontFamily = pretendard,
         fontWeight = FontWeight.Medium,
         fontSize = 12.sp,
         lineHeight = 16.sp
@@ -119,7 +119,7 @@ object DodamTypography {
 
     @Stable
     val label3 = TextStyle(
-        fontFamily = notoSans,
+        fontFamily = pretendard,
         fontWeight = FontWeight.Medium,
         fontSize = 11.sp,
         lineHeight = 16.sp
@@ -127,7 +127,7 @@ object DodamTypography {
 
     @Stable
     val body1 = TextStyle(
-        fontFamily = notoSans,
+        fontFamily = pretendard,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         lineHeight = 24.sp
@@ -135,7 +135,7 @@ object DodamTypography {
 
     @Stable
     val body2 = TextStyle(
-        fontFamily = notoSans,
+        fontFamily = pretendard,
         fontWeight = FontWeight.Normal,
         fontSize = 14.sp,
         lineHeight = 20.sp
@@ -143,7 +143,7 @@ object DodamTypography {
 
     @Stable
     val body3 = TextStyle(
-        fontFamily = notoSans,
+        fontFamily = pretendard,
         fontWeight = FontWeight.Normal,
         fontSize = 12.sp,
         lineHeight = 16.sp

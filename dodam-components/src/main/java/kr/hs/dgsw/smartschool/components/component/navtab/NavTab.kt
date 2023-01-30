@@ -37,6 +37,12 @@ fun RowScope.NavTab(
         DodamTheme.color.Gray200
     }
 
+    val labelColor = if (selected) {
+        selectedColor
+    } else {
+        DodamTheme.color.Gray400
+    }
+
     val style = DodamTheme.typography.body3.copy(fontSize = 10.sp)
 
     CompositionLocalProvider(
@@ -62,7 +68,7 @@ fun RowScope.NavTab(
                         Text(
                             text = text,
                             style = style,
-                            color = Color.Black,
+                            color = labelColor,
                         )
                     }
                 }

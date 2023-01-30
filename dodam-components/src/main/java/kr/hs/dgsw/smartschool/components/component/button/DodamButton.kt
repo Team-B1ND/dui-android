@@ -1,10 +1,17 @@
 package kr.hs.dgsw.smartschool.components.component.button
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.Label1
+import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 
 @Composable
 fun DodamSmallRoundedButton(
@@ -89,5 +96,19 @@ fun DodamLargeRoundedButton(
         bounded = bounded
     ) {
         Label1(text = text)
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewDodamButton() {
+    Column(
+        modifier = Modifier.padding(DodamDimen.ScreenSidePadding)
+    ) {
+        DodamLargeRoundedButton(onClick = {}, text = "도담도담!")
+        Spacer(modifier = Modifier.height(10.dp))
+        DodamMediumRoundedButton(onClick = {}, text = "도담")
+        Spacer(modifier = Modifier.height(10.dp))
+        DodamSmallRoundedButton(onClick = {}, text = "Button")
     }
 }
