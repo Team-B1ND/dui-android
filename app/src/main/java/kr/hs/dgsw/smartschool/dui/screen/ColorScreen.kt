@@ -13,7 +13,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.component.Surface
-import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.theme.*
 import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
 
@@ -58,6 +57,46 @@ fun ColorScreen(
                 color8 = DodamColor.MainColor800,
                 color9 = DodamColor.MainColor900
             )
+            Palette(
+                title = "SecondaryColor",
+                color0 = DodamColor.SecondaryColor50,
+                color1 = DodamColor.SecondaryColor100,
+                color2 = DodamColor.SecondaryColor200,
+                color3 = DodamColor.SecondaryColor300,
+                color4 = DodamColor.SecondaryColor400,
+                color5 = DodamColor.SecondaryColor500,
+                color6 = DodamColor.SecondaryColor600,
+                color7 = DodamColor.SecondaryColor700,
+                color8 = DodamColor.SecondaryColor800,
+                color9 = DodamColor.SecondaryColor900,
+            )
+            Palette(
+                title = "Gray",
+                color0 = DodamColor.Gray50,
+                color1 = DodamColor.Gray100,
+                color2 = DodamColor.Gray200,
+                color3 = DodamColor.Gray300,
+                color4 = DodamColor.Gray400,
+                color5 = DodamColor.Gray500,
+                color6 = DodamColor.Gray600,
+                color7 = DodamColor.Gray700,
+                color8 = DodamColor.Gray800,
+                color9 = DodamColor.Gray900,
+            )
+            Palette(
+                title = "Feature",
+                color0 = DodamColor.FeatureColor.SongColor,
+                color1 = DodamColor.FeatureColor.ItMapColor,
+                color2 = DodamColor.FeatureColor.LostFoundColor,
+                color3 = DodamColor.FeatureColor.MyInfoColor,
+                color4 = DodamColor.FeatureColor.ScheduleColor
+            )
+
+            Palette(
+                title = "Check & Error",
+                color0 = DodamColor.Check,
+                color1 = DodamColor.Error
+            )
         }
     }
 }
@@ -65,22 +104,22 @@ fun ColorScreen(
 @Composable
 fun Palette(
     title : String,
-    color0 : Color,
-    color1 : Color,
-    color2 : Color,
-    color3 : Color,
-    color4 : Color,
-    color5 : Color,
-    color6 : Color,
-    color7 : Color,
-    color8 : Color,
-    color9 : Color
+    color0 : Color = DodamColor.White,
+    color1 : Color = DodamColor.White,
+    color2 : Color = DodamColor.White,
+    color3 : Color = DodamColor.White,
+    color4 : Color = DodamColor.White,
+    color5 : Color = DodamColor.White,
+    color6 : Color = DodamColor.White,
+    color7 : Color = DodamColor.White,
+    color8 : Color = DodamColor.White,
+    color9 : Color = DodamColor.White,
 ){
     Spacer(
         modifier = Modifier
             .padding(top = 30.dp)
     )
-    Title1(
+    Title2(
         text = title,
         textColor = DodamColor.Black
     )
@@ -100,6 +139,7 @@ fun Palette(
         PalettePart(color8)
         PalettePart(color9)
     }
+    Body2(text = "현재 색은 $title", textColor = DodamColor.Check)
 }
 
 @Composable
