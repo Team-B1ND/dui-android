@@ -1,10 +1,11 @@
 package kr.hs.dgsw.smartschool.dui.screen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -15,6 +16,7 @@ import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.component.Surface
 import kr.hs.dgsw.smartschool.components.theme.*
 import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
+
 
 @Composable
 @Preview(showBackground = true)
@@ -115,6 +117,7 @@ fun Palette(
     color8 : Color = DodamColor.White,
     color9 : Color = DodamColor.White,
 ){
+    val colorCode = remember { mutableStateOf( Integer.toHexString(color0.hashCode()))}
     Spacer(
         modifier = Modifier
             .padding(top = 30.dp)
@@ -128,28 +131,36 @@ fun Palette(
             .height(100.dp)
             .fillMaxWidth()
     ){
-        PalettePart(color0)
-        PalettePart(color1)
-        PalettePart(color2)
-        PalettePart(color3)
-        PalettePart(color4)
-        PalettePart(color5)
-        PalettePart(color6)
-        PalettePart(color7)
-        PalettePart(color8)
-        PalettePart(color9)
+        PalettePart(color0,colorCode)
+        PalettePart(color1,colorCode)
+        PalettePart(color2,colorCode)
+        PalettePart(color3,colorCode)
+        PalettePart(color4,colorCode)
+        PalettePart(color5,colorCode)
+        PalettePart(color6,colorCode)
+        PalettePart(color7,colorCode)
+        PalettePart(color8,colorCode)
+        PalettePart(color9,colorCode)
     }
-    Body2(text = "현재 색은 $title", textColor = DodamColor.Check)
+    Spacer(
+        modifier = Modifier
+            .padding(top = 3.dp)
+    )
+    Body2(text = "현재 색은 ${colorCode.value.uppercase()}", textColor = DodamColor.Black)
 }
 
 @Composable
 fun PalettePart(
-    color : Color
+    color : Color,
+    colorCode : MutableState<String>
 ){
     Box(
         modifier = Modifier
             .background(color)
-            .fillMaxHeight()
+            .height(100.dp)
             .width(30.dp)
+            .clickable {
+                colorCode.value =Integer.toHexString(color.hashCode())
+            }
     )
 }
