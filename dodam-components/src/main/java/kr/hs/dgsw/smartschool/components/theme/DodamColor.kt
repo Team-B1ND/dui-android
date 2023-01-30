@@ -19,6 +19,10 @@ object DodamColor {
     val Check = Color(0xFF48A068)
     val Error = Color(0xFFDE5257)
 
+    val Breakfast = Color(0xFFFCA800)
+    val Lunch = Color(0xFF3DBDE5)
+    val Dinner = Color(0xFFA252E1)
+
     val Transparent = Color(0x00000000)
 
     val MainColor = Color(0xFF0067BC)
@@ -78,6 +82,7 @@ private fun DodamColor.contentColorFor(backgroundColor: Color): Color {
         Error -> White
         Gray100 -> White
         Background -> Black
+        White -> Black
         FeatureColor.SongColor -> White
         FeatureColor.ScheduleColor -> White
         FeatureColor.LostFoundColor -> White
