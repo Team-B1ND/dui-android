@@ -4,20 +4,16 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import kr.hs.dgsw.smartschool.components.component.badge.Badge
 import kr.hs.dgsw.smartschool.components.component.basic.Surface
 import kr.hs.dgsw.smartschool.components.foundation.Text
@@ -25,6 +21,8 @@ import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcBreakfast3D
 import kr.hs.dgsw.smartschool.components.theme.IcDinner3D
 import kr.hs.dgsw.smartschool.components.theme.IcLunch3D
+import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
+import kr.hs.dgsw.smartschool.components.utlis.DodamString
 
 @Composable
 fun Card(
@@ -73,19 +71,19 @@ fun MealCard(
 ) {
 
     val mealData: MealData = when (mealType) {
-        MealType.BreakFast -> MealData("조식", DodamTheme.color.Breakfast) {
+        MealType.BreakFast -> MealData(DodamString.Breakfast, DodamTheme.color.Breakfast) {
             IcBreakfast3D(
                 modifier = Modifier.size(MEAL_ICON_SIZE),
                 contentDescription = null
             )
         }
-        MealType.Lunch -> MealData("중식", DodamTheme.color.Lunch) {
+        MealType.Lunch -> MealData(DodamString.Lunch, DodamTheme.color.Lunch) {
             IcLunch3D(
                 modifier = Modifier.size(MEAL_ICON_SIZE),
                 contentDescription = null
             )
         }
-        MealType.Dinner -> MealData("석식", DodamTheme.color.Dinner) {
+        MealType.Dinner -> MealData(DodamString.Dinner, DodamTheme.color.Dinner) {
             IcDinner3D(
                 modifier = Modifier.size(MEAL_ICON_SIZE),
                 contentDescription = null
@@ -109,7 +107,7 @@ fun MealCard(
             Row(
                 modifier = Modifier
                     .padding(
-                        horizontal = 18.dp,
+                        horizontal = DodamDimen.CardSidePadding,
                         vertical = 24.dp
                     )
                     .fillMaxWidth()
@@ -119,7 +117,7 @@ fun MealCard(
                     background = mealData.badgeColor,
                     modifier = Modifier.align(Alignment.CenterVertically),
                 )
-                Spacer(modifier = Modifier.width(18.dp))
+                Spacer(modifier = Modifier.width(DodamDimen.CardSidePadding))
                 Text(
                     text = content,
                     style = DodamTheme.typography.body3,

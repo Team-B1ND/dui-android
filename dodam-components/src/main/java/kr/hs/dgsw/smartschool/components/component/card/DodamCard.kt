@@ -26,6 +26,7 @@ import kr.hs.dgsw.smartschool.components.theme.IcDinner3D
 import kr.hs.dgsw.smartschool.components.theme.IcOut3D
 import kr.hs.dgsw.smartschool.components.theme.IcRightArrow
 import kr.hs.dgsw.smartschool.components.theme.contentColorFor
+import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 
 @Composable
 fun DodamItemCard(
@@ -55,8 +56,8 @@ fun DodamItemCard(
         Column(
             modifier = Modifier
                 .padding(
-                    horizontal = 18.dp,
-                    vertical = 18.dp
+                    horizontal = DodamDimen.CardSidePadding,
+                    vertical = DodamDimen.CardSidePadding
                 )
                 .fillMaxWidth(),
         ) {
@@ -100,8 +101,8 @@ fun DodamContentCard(
         Column(
             modifier = Modifier
                 .padding(
-                    horizontal = 18.dp,
-                    vertical = 18.dp
+                    horizontal = DodamDimen.CardSidePadding,
+                    vertical = DodamDimen.CardSidePadding
                 )
                 .fillMaxWidth()
         ) {
@@ -123,7 +124,7 @@ fun DodamContentCard(
                 }
             }
             content?.let {
-                Spacer(modifier = Modifier.height(18.dp))
+                Spacer(modifier = Modifier.height(DodamDimen.CardSidePadding))
                 it()
             }
         }
@@ -136,7 +137,7 @@ private fun PreviewDodamCard() {
     val scroll = rememberScrollState()
     Column(
         modifier = Modifier
-            .padding(16.dp)
+            .padding(DodamDimen.ScreenSidePadding)
             .verticalScroll(scroll)
     ) {
         Row {
