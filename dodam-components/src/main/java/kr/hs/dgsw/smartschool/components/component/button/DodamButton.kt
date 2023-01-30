@@ -1,6 +1,8 @@
 package kr.hs.dgsw.smartschool.components.component.button
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -103,6 +105,10 @@ private fun PreviewDodamButton() {
     Column(
         modifier = Modifier.padding(DodamDimen.ScreenSidePadding)
     ) {
-
+        DodamLargeRoundedButton(onClick = {}, text = "도담도담!")
+        Spacer(modifier = Modifier.height(10.dp))
+        DodamMediumRoundedButton(onClick = {}, text = "도담")
+        Spacer(modifier = Modifier.height(10.dp))
+        DodamSmallRoundedButton(onClick = {}, text = "Button")
     }
 }
