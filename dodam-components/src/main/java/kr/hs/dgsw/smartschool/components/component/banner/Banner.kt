@@ -36,8 +36,6 @@ import com.skydoves.landscapist.placeholder.shimmer.ShimmerPlugin
 import kotlinx.coroutines.launch
 import kr.hs.dgsw.smartschool.components.component.badge.BadgeBox
 import kr.hs.dgsw.smartschool.components.component.indicator.PagerIndicator
-import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
-import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import kr.hs.smartschool.components.R
@@ -64,7 +62,7 @@ fun Banner(
                 .clip(shape),
             count = imageUrls.size,
             state = pagerState
-        ) {page ->
+        ) { page ->
             GlideImage(
                 modifier = Modifier
                     .fillMaxSize()

@@ -13,8 +13,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -62,7 +62,6 @@ fun PagerIndicator(
         )
     }
 
-
     LazyRow(
         modifier = modifier.width(totalWidth),
         state = listState,
@@ -81,7 +80,6 @@ fun PagerIndicator(
                         scaleX = 1f
                         scaleY = 1f
                     }
-
                     .clip(indicatorShape)
                     .size(indicatorSize)
                     .background(
