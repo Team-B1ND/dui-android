@@ -153,16 +153,16 @@ fun Palette(
             .height(100.dp)
             .fillMaxWidth()
     ) {
-        PalettePart(color0, colorCode,"50")
-        PalettePart(color1, colorCode,"100")
-        PalettePart(color2, colorCode,"200")
-        PalettePart(color3, colorCode,"300")
-        PalettePart(color4, colorCode,"400")
-        PalettePart(color5, colorCode,"500")
-        PalettePart(color6, colorCode,"600")
-        PalettePart(color7, colorCode,"700")
-        PalettePart(color8, colorCode,"800")
-        PalettePart(color9, colorCode,"900")
+        PalettePart(color0, colorCode, "50")
+        PalettePart(color1, colorCode, "100")
+        PalettePart(color2, colorCode, "200")
+        PalettePart(color3, colorCode, "300")
+        PalettePart(color4, colorCode, "400")
+        PalettePart(color5, colorCode, "500")
+        PalettePart(color6, colorCode, "600")
+        PalettePart(color7, colorCode, "700")
+        PalettePart(color8, colorCode, "800")
+        PalettePart(color9, colorCode, "900")
     }
     Spacer(
         modifier = Modifier
@@ -175,13 +175,13 @@ fun Palette(
 fun PalettePart(
     color: Color,
     colorCode: MutableState<String>,
-    value : String
+    value: String
 ) {
-    Column (
+    Column(
         modifier = Modifier
             .height(100.dp)
             .width(30.dp)
-    ){
+    ) {
         Box(
             modifier = Modifier
                 .background(color)
