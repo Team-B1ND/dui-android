@@ -31,6 +31,8 @@ object Compose {
 
     const val PAGER_COMPOSE = "com.google.accompanist:accompanist-pager:${Versions.PAGER_COMPOSE}"
     const val PAGER_INDICATORS_COMPOSE = "com.google.accompanist:accompanist-pager-indicators:${Versions.PAGER_COMPOSE}"
+
+    const val LANDSCAPIST_COMPOSE = "com.github.skydoves:landscapist-glide:${Versions.LANDSCAPIST_COMPOSE}"
 }
 
 object Gradle {

@@ -53,6 +53,9 @@ dependencies {
     // Pager
     implementation(Compose.PAGER_COMPOSE)
     implementation(Compose.PAGER_INDICATORS_COMPOSE)
+
+    // Landscapist-glide
+    implementation(Compose.LANDSCAPIST_COMPOSE)
 }
 
 group = "com.github.Team-B1ND"
