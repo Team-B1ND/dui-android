@@ -1,13 +1,18 @@
 package kr.hs.dgsw.smartschool.components.component.banner
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -17,6 +22,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -30,6 +36,7 @@ import com.skydoves.landscapist.placeholder.shimmer.ShimmerPlugin
 import kotlinx.coroutines.launch
 import kr.hs.dgsw.smartschool.components.component.badge.BadgeBox
 import kr.hs.dgsw.smartschool.components.component.indicator.PagerIndicator
+import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
@@ -41,8 +48,10 @@ fun Banner(
     imageUrls: List<String>,
     modifier: Modifier = Modifier,
     shape: Shape = DodamTheme.shape.small,
+    showIndicator: Boolean = true,
     placeHolderBaseColor: Color = DodamTheme.color.White,
-    placeHolderHighlightColor: Color = DodamTheme.color.MainColor100
+    placeHolderHighlightColor: Color = DodamTheme.color.MainColor100,
+    onClick: ((page: Int) -> Unit)? = null,
 ) {
     val pagerState = rememberPagerState(initialPage = 0)
     val coroutineScope = rememberCoroutineScope()
@@ -57,7 +66,12 @@ fun Banner(
             state = pagerState
         ) {page ->
             GlideImage(
-                modifier = Modifier.fillMaxSize(),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .clickable(
+                        indication = null,
+                        interactionSource = MutableInteractionSource()
+                    ) { onClick?.let { it(page) } },
                 imageModel = { imageUrls[page] },
                 imageOptions = ImageOptions(
                     contentScale = ContentScale.Crop,
@@ -81,28 +95,31 @@ fun Banner(
             )
         }
 
-        BadgeBox(
-            modifier = Modifier
-                .align(Alignment.TopEnd)
-                .padding(top = 6.dp, end = 6.dp),
-            background = DodamTheme.color.Gray200.copy(alpha = 0.8f),
-            contentPaddingValues = PaddingValues(horizontal = 6.dp, vertical = 1.dp)
-        ) {
-            PagerIndicator(
-                pagerState = pagerState,
-                indicatorCount = imageUrls.size,
+        if (showIndicator && imageUrls.size > 1)
+            BadgeBox(
+                modifier = Modifier
+                    .align(Alignment.TopEnd)
+                    .padding(top = 6.dp, end = 6.dp),
+                background = DodamTheme.color.Gray200.copy(alpha = 0.8f),
+                contentPaddingValues = PaddingValues(horizontal = 6.dp, vertical = 1.dp)
             ) {
-                coroutineScope.launch {
-                    pagerState.scrollToPage(it)
+                PagerIndicator(
+                    pagerState = pagerState,
+                    indicatorCount = imageUrls.size,
+                ) {
+                    coroutineScope.launch {
+                        pagerState.scrollToPage(it)
+                    }
                 }
             }
-        }
     }
 }
 
 @Preview
 @Composable
 private fun PreviewBanner() {
+    val context = LocalContext.current
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -114,6 +131,24 @@ private fun PreviewBanner() {
                 "https://dodam.kr.object.ncloudstorage.com/dodam/be5fa717-a286-42e8-bcb3-40c57bfd61cbB1ND%20%E1%84%89%E1%85%AE%E1%84%89%E1%85%B5%20%E1%84%8E%E1%85%A2%E1%84%8B%E1%85%AD%E1%86%BCbanner%20(1).png",
                 "https://dodam.kr.object.ncloudstorage.com/dodam/be5fa717-a286-42e8-bcb3-40c57bfd61cbB1ND%20%E1%84%89%E1%85%AE%E1%84%89%E1%85%B5%20%E1%84%8E%E1%85%A2%E1%84%8B%E1%85%AD%E1%86%BCbanner%20(1).png",
             )
+        )
+        Spacer(modifier = Modifier.height(20.dp))
+        Banner(
+            imageUrls = listOf(
+                "https://dodam.kr.object.ncloudstorage.com/dodam/c70c7b96-dd67-4467-a49c-2d0baa459624TEAM%20B1ND%20Banner.png",
+            )
+        )
+        Spacer(modifier = Modifier.height(20.dp))
+        Banner(
+            imageUrls = listOf(
+                "https://dodam.kr.object.ncloudstorage.com/dodam/c70c7b96-dd67-4467-a49c-2d0baa459624TEAM%20B1ND%20Banner.png",
+                "https://dodam.kr.object.ncloudstorage.com/dodam/be5fa717-a286-42e8-bcb3-40c57bfd61cbB1ND%20%E1%84%89%E1%85%AE%E1%84%89%E1%85%B5%20%E1%84%8E%E1%85%A2%E1%84%8B%E1%85%AD%E1%86%BCbanner%20(1).png",
+                "https://dodam.kr.object.ncloudstorage.com/dodam/be5fa717-a286-42e8-bcb3-40c57bfd61cbB1ND%20%E1%84%89%E1%85%AE%E1%84%89%E1%85%B5%20%E1%84%8E%E1%85%A2%E1%84%8B%E1%85%AD%E1%86%BCbanner%20(1).png",
+            ),
+            showIndicator = false,
+            onClick = { currentPage ->
+                Toast.makeText(context, currentPage.toString(), Toast.LENGTH_SHORT).show()
+            }
         )
     }
 }

@@ -75,23 +75,6 @@ fun PagerIndicator(
 
             val isSelected = (index == currentItem)
 
-            val centerItemIndex = indicatorCount / 2
-
-            val right1 =
-                (currentItem < centerItemIndex &&
-                        index >= indicatorCount - 1)
-
-            val right2 =
-                (currentItem >= centerItemIndex &&
-                        index >= currentItem + centerItemIndex &&
-                        index <= itemCount - centerItemIndex + 1)
-            val isRightEdgeItem = right1 || right2
-
-            val isLeftEdgeItem =
-                index <= currentItem - centerItemIndex &&
-                        currentItem > centerItemIndex &&
-                        index < itemCount - indicatorCount + 1
-
             Box(
                 modifier = Modifier
                     .graphicsLayer {
