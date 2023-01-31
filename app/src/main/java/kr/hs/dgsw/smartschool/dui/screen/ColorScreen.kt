@@ -2,10 +2,22 @@ package kr.hs.dgsw.smartschool.dui.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -14,11 +26,11 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.component.Surface
-import kr.hs.dgsw.smartschool.components.theme.*
-import kr.hs.dgsw.smartschool.dui.R
+import kr.hs.dgsw.smartschool.components.theme.Body2
+import kr.hs.dgsw.smartschool.components.theme.DodamColor
+import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.root.ItemImage
 import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
-
 
 @Composable
 @Preview(showBackground = true)
@@ -107,19 +119,19 @@ fun ColorScreen(
 
 @Composable
 fun Palette(
-    title : String,
-    color0 : Color = DodamColor.White,
-    color1 : Color = DodamColor.White,
-    color2 : Color = DodamColor.White,
-    color3 : Color = DodamColor.White,
-    color4 : Color = DodamColor.White,
-    color5 : Color = DodamColor.White,
-    color6 : Color = DodamColor.White,
-    color7 : Color = DodamColor.White,
-    color8 : Color = DodamColor.White,
-    color9 : Color = DodamColor.White,
-){
-    val colorCode = remember { mutableStateOf( Integer.toHexString(color0.hashCode()))}
+    title: String,
+    color0: Color = DodamColor.White,
+    color1: Color = DodamColor.White,
+    color2: Color = DodamColor.White,
+    color3: Color = DodamColor.White,
+    color4: Color = DodamColor.White,
+    color5: Color = DodamColor.White,
+    color6: Color = DodamColor.White,
+    color7: Color = DodamColor.White,
+    color8: Color = DodamColor.White,
+    color9: Color = DodamColor.White,
+) {
+    val colorCode = remember { mutableStateOf(Integer.toHexString(color0.hashCode())) }
     Spacer(
         modifier = Modifier
             .padding(top = 30.dp)
@@ -132,17 +144,17 @@ fun Palette(
         modifier = Modifier
             .height(100.dp)
             .fillMaxWidth()
-    ){
-        PalettePart(color0,colorCode)
-        PalettePart(color1,colorCode)
-        PalettePart(color2,colorCode)
-        PalettePart(color3,colorCode)
-        PalettePart(color4,colorCode)
-        PalettePart(color5,colorCode)
-        PalettePart(color6,colorCode)
-        PalettePart(color7,colorCode)
-        PalettePart(color8,colorCode)
-        PalettePart(color9,colorCode)
+    ) {
+        PalettePart(color0, colorCode)
+        PalettePart(color1, colorCode)
+        PalettePart(color2, colorCode)
+        PalettePart(color3, colorCode)
+        PalettePart(color4, colorCode)
+        PalettePart(color5, colorCode)
+        PalettePart(color6, colorCode)
+        PalettePart(color7, colorCode)
+        PalettePart(color8, colorCode)
+        PalettePart(color9, colorCode)
     }
     Spacer(
         modifier = Modifier
@@ -153,9 +165,9 @@ fun Palette(
 
 @Composable
 fun PalettePart(
-    color : Color,
-    colorCode : MutableState<String>
-){
+    color: Color,
+    colorCode: MutableState<String>
+) {
     Box(
         modifier = Modifier
             .background(color)
@@ -165,8 +177,8 @@ fun PalettePart(
                 colorCode.value = Integer.toHexString(color.hashCode())
             },
         contentAlignment = Alignment.Center
-    ){
-        if(Integer.toHexString(color.hashCode()) == colorCode.value){
+    ) {
+        if (Integer.toHexString(color.hashCode()) == colorCode.value) {
             ItemImage(icon = kr.hs.smartschool.components.R.drawable.ic_palette_flat)
         }
     }
