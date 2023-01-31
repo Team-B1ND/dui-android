@@ -185,13 +185,11 @@ fun ColumnItemCard(
 
 @Composable
 fun ItemImage(icon: Int) {
-    Surface {
-        Image(
-            painter = painterResource(id = icon),
-            contentDescription = null,
-            modifier = Modifier
-                .width(20.dp)
-                .height(20.dp)
-        )
-    }
+    Image(
+        painter = painterResource(id = icon),
+        contentDescription = null,
+        modifier = Modifier
+            .width(20.dp)
+            .height(20.dp)
+    )
 }
