@@ -15,6 +15,8 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.component.Surface
 import kr.hs.dgsw.smartschool.components.theme.*
+import kr.hs.dgsw.smartschool.dui.R
+import kr.hs.dgsw.smartschool.dui.root.ItemImage
 import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
 
 
@@ -160,7 +162,12 @@ fun PalettePart(
             .height(100.dp)
             .width(30.dp)
             .clickable {
-                colorCode.value =Integer.toHexString(color.hashCode())
-            }
-    )
+                colorCode.value = Integer.toHexString(color.hashCode())
+            },
+        contentAlignment = Alignment.Center
+    ){
+        if(Integer.toHexString(color.hashCode()) == colorCode.value){
+            ItemImage(icon = kr.hs.smartschool.components.R.drawable.ic_palette_flat)
+        }
+    }
 }
