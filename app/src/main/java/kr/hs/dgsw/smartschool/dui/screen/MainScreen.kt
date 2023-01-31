@@ -1,8 +1,6 @@
 package kr.hs.dgsw.smartschool.dui.screen
 import androidx.compose.foundation.horizontalScroll
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
@@ -14,12 +12,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import kr.hs.dgsw.smartschool.components.component.card.DodamContentCard
+import kr.hs.dgsw.smartschool.components.component.card.DodamItemCard
+import kr.hs.dgsw.smartschool.components.theme.IcOut3D
 import kr.hs.dgsw.smartschool.components.theme.Title1
 import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.DataSet
 import kr.hs.dgsw.smartschool.dui.Item
 import kr.hs.dgsw.smartschool.dui.Text
-import kr.hs.dgsw.smartschool.dui.root.ColumnItemCard
+import kr.hs.dgsw.smartschool.dui.root.ItemImage
 
 @Preview(showBackground = true)
 @Composable
@@ -77,9 +78,15 @@ fun ColumnList(
         ) {
 
             items(list) { item ->
-                ColumnItemCard(
-                    item = item,
-                    navController = navController
+                DodamItemCard(
+                    title = item.title,
+                    subTitle = item.content,
+                    modifier = Modifier
+                        .height(110.dp)
+                        .width(320.dp)
+                        .padding(10.dp),
+                    onClick = { navController.navigate(item.route) },
+                    icon = { IcOut3D(contentDescription = null)}
                 )
             }
         }
