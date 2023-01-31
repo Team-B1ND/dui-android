@@ -56,6 +56,7 @@ dependencies {
 
     // Landscapist-glide
     implementation(Compose.LANDSCAPIST_COMPOSE)
+    implementation(Compose.LANDSCAPIST_PLACEHOLDER_COMPOSE)
 }
 
 group = "com.github.Team-B1ND"
