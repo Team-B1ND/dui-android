@@ -8,7 +8,7 @@ object DataSet {
         Item(R.drawable.ic_info_3d, "Test", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "test")
 
     val LIST_MAIN: List<Item> = listOf(
-        Item(R.drawable.ic_document_3d, "Color", "도담도담은 어떤 색을 사용할까?", "color"),
+        Item(R.drawable.ic_palette_3d, "Color", "도담도담은 어떤 색을 사용할까?", "color"),
         Item(R.drawable.ic_info_3d, "Typo", "테스트를 위한 이런 데이터도 괜찮지 않을까요..?", "typo"),
         Item(R.drawable.ic_info_3d, "Icon", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "icon"),
         Item(R.drawable.ic_info_3d, "Radius", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "radius"),
