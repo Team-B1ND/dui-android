@@ -27,8 +27,10 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.component.Surface
 import kr.hs.dgsw.smartschool.components.theme.Body2
+import kr.hs.dgsw.smartschool.components.theme.Body3
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.dui.R
 import kr.hs.dgsw.smartschool.dui.root.ItemImage
 import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
 
@@ -113,6 +115,12 @@ fun ColorScreen(
                 color0 = DodamColor.Check,
                 color1 = DodamColor.Error
             )
+            Palette(
+                title = "Background",
+                color0 = DodamColor.White,
+                color1 = DodamColor.Black,
+                color2 = DodamColor.Background
+            )
         }
     }
 }
@@ -145,41 +153,55 @@ fun Palette(
             .height(100.dp)
             .fillMaxWidth()
     ) {
-        PalettePart(color0, colorCode)
-        PalettePart(color1, colorCode)
-        PalettePart(color2, colorCode)
-        PalettePart(color3, colorCode)
-        PalettePart(color4, colorCode)
-        PalettePart(color5, colorCode)
-        PalettePart(color6, colorCode)
-        PalettePart(color7, colorCode)
-        PalettePart(color8, colorCode)
-        PalettePart(color9, colorCode)
+        PalettePart(color0, colorCode,"50")
+        PalettePart(color1, colorCode,"100")
+        PalettePart(color2, colorCode,"200")
+        PalettePart(color3, colorCode,"300")
+        PalettePart(color4, colorCode,"400")
+        PalettePart(color5, colorCode,"500")
+        PalettePart(color6, colorCode,"600")
+        PalettePart(color7, colorCode,"700")
+        PalettePart(color8, colorCode,"800")
+        PalettePart(color9, colorCode,"900")
     }
     Spacer(
         modifier = Modifier
             .padding(top = 3.dp)
     )
-    Body2(text = "현재 색은 ${colorCode.value.uppercase()}", textColor = DodamColor.Black)
+    Body2(text = "선택된 색은 ${colorCode.value.uppercase()}", textColor = DodamColor.Black)
 }
 
 @Composable
 fun PalettePart(
     color: Color,
-    colorCode: MutableState<String>
+    colorCode: MutableState<String>,
+    value : String
 ) {
-    Box(
+    Column (
         modifier = Modifier
-            .background(color)
             .height(100.dp)
             .width(30.dp)
-            .clickable {
-                colorCode.value = Integer.toHexString(color.hashCode())
-            },
-        contentAlignment = Alignment.Center
-    ) {
-        if (Integer.toHexString(color.hashCode()) == colorCode.value) {
-            ItemImage(icon = kr.hs.smartschool.components.R.drawable.ic_palette_flat)
+    ){
+        Box(
+            modifier = Modifier
+                .background(color)
+                .height(90.dp)
+                .width(30.dp)
+                .clickable {
+                    colorCode.value = Integer.toHexString(color.hashCode())
+                },
+            contentAlignment = Alignment.Center
+        ) {
+            if (Integer.toHexString(color.hashCode()) == colorCode.value) {
+                ItemImage(icon = R.drawable.ic_palette_flat)
+            }
         }
+        Body3(
+            text = value,
+            modifier = Modifier
+                .width(30.dp)
+                .height(10.dp),
+            textColor = DodamColor.Gray700
+        )
     }
 }
