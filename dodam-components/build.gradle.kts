@@ -49,6 +49,10 @@ dependencies {
     androidTestImplementation(Compose.UI_TEST_JUNIT4)
     debugImplementation(Compose.UI_TOOLING)
     debugImplementation(Compose.UI_TEST_MANIFEST)
+
+    // Pager
+    implementation(Compose.PAGER_COMPOSE)
+    implementation(Compose.PAGER_INDICATORS_COMPOSE)
 }
 
 group = "com.github.Team-B1ND"

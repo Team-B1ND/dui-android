@@ -28,6 +28,9 @@ object Compose {
     const val UI_TEST_MANIFEST = "androidx.compose.ui:ui-test-manifest:${Versions.COMPOSE_VERSION}"
     const val FOUNDATION = "androidx.compose.foundation:foundation:${Versions.COMPOSE_VERSION}"
     const val NAVIGATION_COMPOSE = "androidx.navigation:navigation-compose:${Versions.NAVIGATION_COMPOSE}"
+
+    const val PAGER_COMPOSE = "com.google.accompanist:accompanist-pager:${Versions.PAGER_COMPOSE}"
+    const val PAGER_INDICATORS_COMPOSE = "com.google.accompanist:accompanist-pager-indicators:${Versions.PAGER_COMPOSE}"
 }
 
 object Gradle {
