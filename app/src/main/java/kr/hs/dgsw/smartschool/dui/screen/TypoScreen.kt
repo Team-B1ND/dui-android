@@ -1,7 +1,6 @@
 package kr.hs.dgsw.smartschool.dui.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -23,7 +22,25 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.component.basic.Surface
 import kr.hs.dgsw.smartschool.components.component.input.Input
-import kr.hs.dgsw.smartschool.components.theme.*
+import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
+import kr.hs.dgsw.smartschool.components.theme.Body1
+import kr.hs.dgsw.smartschool.components.theme.Body2
+import kr.hs.dgsw.smartschool.components.theme.Body3
+import kr.hs.dgsw.smartschool.components.theme.Display1
+import kr.hs.dgsw.smartschool.components.theme.Display2
+import kr.hs.dgsw.smartschool.components.theme.Display3
+import kr.hs.dgsw.smartschool.components.theme.DodamColor
+import kr.hs.dgsw.smartschool.components.theme.DodamError
+import kr.hs.dgsw.smartschool.components.theme.DodamTypography
+import kr.hs.dgsw.smartschool.components.theme.Headline1
+import kr.hs.dgsw.smartschool.components.theme.Headline2
+import kr.hs.dgsw.smartschool.components.theme.Headline3
+import kr.hs.dgsw.smartschool.components.theme.Label1
+import kr.hs.dgsw.smartschool.components.theme.Label2
+import kr.hs.dgsw.smartschool.components.theme.Label3
+import kr.hs.dgsw.smartschool.components.theme.Title1
+import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.components.theme.Title3
 import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
 
 @Composable
@@ -38,10 +55,10 @@ fun TypoPreview() {
 }
 
 data class FontSpec(
-    val fontFamily : String,
-    val fontWeight : String,
-    val fontSize : String,
-    val lineHeight : String
+    val fontFamily: String,
+    val fontWeight: String,
+    val fontSize: String,
+    val lineHeight: String
 )
 
 @Composable
@@ -53,12 +70,14 @@ fun TypoScreen(
         mutableStateOf("텍스트 입력")
     }
     val fontState = remember {
-        mutableStateOf(FontSpec(
-            "pretendard",
+        mutableStateOf(
+            FontSpec(
+                "pretendard",
                 DodamTypography.display1.fontWeight.toString(),
                 DodamTypography.display1.fontSize.toString(),
                 DodamTypography.display1.lineHeight.toString()
-        ))
+            )
+        )
     }
     Column(
         modifier = Modifier
@@ -70,7 +89,7 @@ fun TypoScreen(
         Spacer(modifier = Modifier.height(20.dp))
         Input(
             value = textState.value,
-            onValueChange = {textState.value =it },
+            onValueChange = { textState.value = it },
             modifier = Modifier
                 .width(320.dp),
             hint = "텍스트를 입력해주세요..."
@@ -85,7 +104,7 @@ fun TypoScreen(
 
         ) {
             Spacer(modifier = Modifier.height(10.dp))
-            Label1(text ="fontFamily = ${fontState.value.fontFamily}")
+            Label1(text = "fontFamily = ${fontState.value.fontFamily}")
             Label1(text = "fontWeight = ${fontState.value.fontWeight}")
             Label1(text = "fontSize = ${fontState.value.fontSize}")
             Label1(text = "lineHeight = ${fontState.value.lineHeight}")
@@ -97,7 +116,7 @@ fun TypoScreen(
             Display1(
                 text = "Display1",
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -110,7 +129,7 @@ fun TypoScreen(
             Display1(
                 text = textState.value,
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -126,7 +145,7 @@ fun TypoScreen(
             Display2(
                 text = "Display2",
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -134,11 +153,12 @@ fun TypoScreen(
                                 DodamTypography.display2.fontSize.toString(),
                                 DodamTypography.display2.lineHeight.toString()
                             )
-                    })
+                    }
+            )
             Display2(
                 text = textState.value,
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -154,7 +174,7 @@ fun TypoScreen(
             Display3(
                 text = "Display3",
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -167,7 +187,7 @@ fun TypoScreen(
             Display3(
                 text = textState.value,
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -185,7 +205,7 @@ fun TypoScreen(
             Headline1(
                 text = "Headline1",
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -198,7 +218,7 @@ fun TypoScreen(
             Headline1(
                 text = textState.value,
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -214,7 +234,7 @@ fun TypoScreen(
             Headline2(
                 text = "Headline2",
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -223,11 +243,11 @@ fun TypoScreen(
                                 DodamTypography.headline2.lineHeight.toString()
                             )
                     }
-                )
+            )
             Headline2(
                 text = textState.value,
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -243,7 +263,7 @@ fun TypoScreen(
             Headline3(
                 text = "Headline3",
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -256,7 +276,7 @@ fun TypoScreen(
             Headline3(
                 text = textState.value,
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -264,7 +284,8 @@ fun TypoScreen(
                                 DodamTypography.headline3.fontSize.toString(),
                                 DodamTypography.headline3.lineHeight.toString()
                             )
-                    })
+                    }
+            )
 
             TypoTitle(text = "Title")
 
@@ -273,7 +294,7 @@ fun TypoScreen(
             Title1(
                 text = "Title1",
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -286,7 +307,7 @@ fun TypoScreen(
             Title1(
                 text = textState.value,
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -302,7 +323,7 @@ fun TypoScreen(
             Title2(
                 text = "Title2",
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -315,7 +336,7 @@ fun TypoScreen(
             Title2(
                 text = textState.value,
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -323,14 +344,15 @@ fun TypoScreen(
                                 DodamTypography.title2.fontSize.toString(),
                                 DodamTypography.title2.lineHeight.toString()
                             )
-                    })
+                    }
+            )
 
             // Title3
             Spacer(modifier = Modifier.height(10.dp))
             Title3(
                 text = "Title3",
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -338,11 +360,12 @@ fun TypoScreen(
                                 DodamTypography.title3.fontSize.toString(),
                                 DodamTypography.title3.lineHeight.toString()
                             )
-                    })
+                    }
+            )
             Title3(
                 text = textState.value,
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -350,7 +373,8 @@ fun TypoScreen(
                                 DodamTypography.title3.fontSize.toString(),
                                 DodamTypography.title3.lineHeight.toString()
                             )
-                    })
+                    }
+            )
 
             TypoTitle(text = "Body")
 
@@ -359,7 +383,7 @@ fun TypoScreen(
             Body1(
                 text = "Body1",
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -372,7 +396,7 @@ fun TypoScreen(
             Body1(
                 text = textState.value,
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -388,7 +412,7 @@ fun TypoScreen(
             Body2(
                 text = "Body2",
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -401,7 +425,7 @@ fun TypoScreen(
             Body2(
                 text = textState.value,
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -417,7 +441,7 @@ fun TypoScreen(
             Body3(
                 text = "Body3",
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -430,7 +454,7 @@ fun TypoScreen(
             Body3(
                 text = textState.value,
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -448,7 +472,7 @@ fun TypoScreen(
             Label1(
                 text = "Label1",
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -461,7 +485,7 @@ fun TypoScreen(
             Label1(
                 text = textState.value,
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -477,7 +501,7 @@ fun TypoScreen(
             Label2(
                 text = "Label2",
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -490,7 +514,7 @@ fun TypoScreen(
             Label2(
                 text = textState.value,
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -506,7 +530,7 @@ fun TypoScreen(
             Label3(
                 text = "Label3",
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -519,7 +543,7 @@ fun TypoScreen(
             Label3(
                 text = textState.value,
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -537,7 +561,7 @@ fun TypoScreen(
             DodamError(
                 text = "DodamError",
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,
@@ -550,7 +574,7 @@ fun TypoScreen(
             DodamError(
                 text = textState.value,
                 modifier = Modifier
-                    .clickable {
+                    .dodamClickable {
                         fontState.value =
                             FontSpec(
                                 fontFamily,

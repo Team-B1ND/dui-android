@@ -109,7 +109,8 @@ fun ScreenAppBar(title: String, navController: NavController) {
         navigationIcon = {
             kr.hs.dgsw.smartschool.components.component.button.IconButton(
                 icon = { IcLeftArrow(contentDescription = null) },
-                onClick = { navController.popBackStack() })
+                onClick = { navController.popBackStack() }
+            )
         },
         elevation = 12.dp,
     )
