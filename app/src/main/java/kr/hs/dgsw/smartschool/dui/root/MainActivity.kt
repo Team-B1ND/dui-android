@@ -11,14 +11,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -33,6 +29,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
+import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
 import kr.hs.dgsw.smartschool.dui.screen.ColorScreen
 import kr.hs.dgsw.smartschool.dui.screen.IconScreen
 import kr.hs.dgsw.smartschool.dui.screen.MainScreen
@@ -78,7 +75,6 @@ private fun sampleOnClick(context: Context) {
 @Composable
 fun Navigation(
     modifier: Modifier,
-    // viewModel: ViewModel,
     navController: NavHostController
 ) {
     NavHost(
@@ -111,12 +107,9 @@ fun ScreenAppBar(title: String, navController: NavController) {
         contentColor = MaterialTheme.colors.primary,
         backgroundColor = Color.White,
         navigationIcon = {
-            IconButton(onClick = { navController.popBackStack() }) {
-                Icon(
-                    imageVector = Icons.Filled.ArrowBack,
-                    contentDescription = "Menu"
-                )
-            }
+            kr.hs.dgsw.smartschool.components.component.button.IconButton(
+                icon = { IcLeftArrow(contentDescription = null) },
+                onClick = { navController.popBackStack() })
         },
         elevation = 12.dp,
     )
