@@ -75,7 +75,7 @@ fun BottomSheetDialog(
 }
 
 @Composable
-private fun ColumnScope.BottomSheetBar() {
+fun ColumnScope.BottomSheetBar() {
     Box(
         modifier = Modifier
             .width(26.dp)
