@@ -39,29 +39,49 @@ fun TypoScreen(
     navController: NavController
 ) {
     val textState = remember {
-        mutableStateOf("문자를 입력하세요")
+        mutableStateOf("텍스트 입력")
     }
     Column(
         modifier = Modifier
-            .fillMaxSize(),
+            .fillMaxSize()
+            .background(DodamColor.White),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         ScreenAppBar(title = "TypoScreen", navController = navController)
+        Spacer(modifier = Modifier.height(20.dp))
+        TextField(
+            value = textState.value,
+            onValueChange = {textValue -> textState.value = textValue},
+            modifier = Modifier
+                .width(320.dp),
+        )
         Column(
             modifier = Modifier
-                .fillMaxHeight()
-                .width(320.dp)
-                .verticalScroll(rememberScrollState()),
+                .fillMaxSize()
+                .padding(horizontal = 25.dp)
+                .verticalScroll(rememberScrollState())
+                .background(DodamColor.White),
             horizontalAlignment = Alignment.Start
 
         ) {
             Spacer(modifier = Modifier.height(20.dp))
-            TextField(
-                value = textState.value,
-                onValueChange = {textValue -> textState.value = textValue},
-                modifier = Modifier
-                    .width(320.dp),
-            )
+            TypoTitle(text = "Display")
+
+            //Display1
+            Spacer(modifier = Modifier.height(10.dp))
+            Display1(text = "Display1")
+            Display1(text = textState.value)
+
+            //Display2
+            Spacer(modifier = Modifier.height(10.dp))
+            Display2(text = "Display2")
+            Display2(text = textState.value)
+
+            //Display3
+            Spacer(modifier = Modifier.height(10.dp))
+            Display3(text = "Display3")
+            Display3(text = textState.value)
+
             TypoTitle(text = "HeadLine")
 
             //HeadLine1
