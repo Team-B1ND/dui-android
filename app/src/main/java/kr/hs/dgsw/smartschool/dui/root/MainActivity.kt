@@ -7,31 +7,19 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CornerSize
-import androidx.compose.material.Card
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -39,11 +27,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import kr.hs.dgsw.smartschool.components.theme.Body3
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
-import kr.hs.dgsw.smartschool.components.theme.Title2
-import kr.hs.dgsw.smartschool.dui.Item
+import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
 import kr.hs.dgsw.smartschool.dui.screen.ColorScreen
 import kr.hs.dgsw.smartschool.dui.screen.IconScreen
 import kr.hs.dgsw.smartschool.dui.screen.MainScreen
@@ -89,7 +75,6 @@ private fun sampleOnClick(context: Context) {
 @Composable
 fun Navigation(
     modifier: Modifier,
-    // viewModel: ViewModel,
     navController: NavHostController
 ) {
     NavHost(
@@ -122,18 +107,16 @@ fun ScreenAppBar(title: String, navController: NavController) {
         contentColor = MaterialTheme.colors.primary,
         backgroundColor = Color.White,
         navigationIcon = {
-            IconButton(onClick = { navController.popBackStack() }) {
-                Icon(
-                    imageVector = Icons.Filled.ArrowBack,
-                    contentDescription = "Menu"
-                )
-            }
+            kr.hs.dgsw.smartschool.components.component.button.IconButton(
+                icon = { IcLeftArrow(contentDescription = null) },
+                onClick = { navController.popBackStack() }
+            )
         },
         elevation = 12.dp,
     )
 }
 
-@Composable
+/*@Composable
 fun ColumnItemCard(
     item: Item,
     navController: NavController
@@ -181,7 +164,7 @@ fun ColumnItemCard(
             )
         }
     }
-}
+}*/
 
 @Composable
 fun ItemImage(icon: Int) {
@@ -190,6 +173,7 @@ fun ItemImage(icon: Int) {
         contentDescription = null,
         modifier = Modifier
             .width(20.dp)
-            .height(20.dp)
+            .height(20.dp),
+        Alignment.CenterEnd
     )
 }
