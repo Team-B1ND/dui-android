@@ -1,4 +1,5 @@
 package kr.hs.dgsw.smartschool.dui.screen
+import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -14,6 +15,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.component.card.DodamContentCard
 import kr.hs.dgsw.smartschool.components.component.card.DodamItemCard
+import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.IcOut3D
 import kr.hs.dgsw.smartschool.components.theme.Title1
 import kr.hs.dgsw.smartschool.components.theme.Title2
@@ -39,6 +41,7 @@ fun MainScreen(
     Surface(
         modifier = Modifier
             .fillMaxSize()
+            .background(DodamColor.Background),
     ) {
         ColumnList(list = DataSet.LIST_MAIN, navController)
     }
@@ -52,6 +55,7 @@ fun ColumnList(
         modifier = Modifier
             .fillMaxSize()
             .padding(start = 10.dp, 10.dp, 10.dp, 10.dp)
+            .background(DodamColor.Background)
     ) {
         Title1(
             text = Text.DUI_TITLE,
@@ -82,12 +86,11 @@ fun ColumnList(
                     title = item.title,
                     subTitle = item.content,
                     modifier = Modifier
-                        .height(110.dp)
-                        .width(320.dp)
-                        .padding(10.dp),
+                        .width(320.dp),
                     onClick = { navController.navigate(item.route) },
-                    icon = { IcOut3D(contentDescription = null)}
+                    icon = { ItemImage(item.icon)}
                 )
+                Spacer(modifier = Modifier.height(10.dp))
             }
         }
     }
