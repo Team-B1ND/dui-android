@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,10 +30,10 @@ import kr.hs.dgsw.smartschool.components.theme.Label1
 
 @Composable
 fun BottomSheet(
-    sheetTopContent: @Composable ColumnScope.() -> Unit,
-    sheetBottomContent: @Composable ColumnScope.() -> Unit,
-    sheetElevation: Dp,
+    sheetContent: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
+    sheetElevation: Dp = 0.dp,
+    sheetBackgroundColor: Color = DodamTheme.color.Background,
     sheetShape: Shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp),
     content: @Composable () -> Unit,
 ) {
@@ -49,29 +50,12 @@ fun BottomSheet(
                     .shadow(elevation = sheetElevation, shape = sheetShape, clip = false)
                     .clip(sheetShape)
             ) {
-                Column(Modifier.background(DodamTheme.color.Background)) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .height(70.dp)
-                    ) {
-                        Spacer(modifier = Modifier.height(10.dp))
-                        Box(
-                            modifier = Modifier
-                                .width(26.dp)
-                                .height(3.dp)
-                                .background(
-                                    color = DodamTheme.color.Gray200,
-                                    shape = RoundedCornerShape(20.dp)
-                                )
-                                .clip(RoundedCornerShape(20.dp))
-                                .align(Alignment.CenterHorizontally)
-                        )
-                        Spacer(modifier = Modifier.height(18.dp))
-                        sheetTopContent()
-                    }
-                    Divider(color = DodamTheme.color.Gray200)
-                    sheetBottomContent()
+                Column(
+                    Modifier
+                        .background(sheetBackgroundColor)
+                        .fillMaxWidth()
+                ) {
+                    sheetContent()
                 }
             }
         }
@@ -108,10 +92,7 @@ private fun BottomSheetStack(
 @Composable
 private fun PreviewBottomSheet() {
     BottomSheet(
-        sheetTopContent = { Label1(text = "Title", modifier = Modifier.align(Alignment.CenterHorizontally)) },
-        sheetBottomContent = { DodamItemCard(title = "test", subTitle = "TestTest") },
-        sheetShape = RoundedCornerShape(topStart = 45.dp, topEnd = 45.dp),
-        sheetElevation = 16.dp,
+        sheetContent = { SheetSample() },
     ) {
         Box(
             Modifier
@@ -120,5 +101,14 @@ private fun PreviewBottomSheet() {
         ) {
             IcSong(contentDescription = null)
         }
+    }
+}
+
+@Composable
+private fun SheetSample() {
+    Column {
+        DodamItemCard(title = "Hello", subTitle = "test")
+        DodamItemCard(title = "Hello", subTitle = "test")
+        DodamItemCard(title = "Hello", subTitle = "test")
     }
 }
