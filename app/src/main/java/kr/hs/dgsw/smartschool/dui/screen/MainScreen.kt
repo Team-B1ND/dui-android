@@ -43,8 +43,8 @@ fun MainScreen(
 ) {
     Surface(
         modifier = Modifier
-            .fillMaxSize()
-            .background(DodamColor.Background),
+            .fillMaxSize(),
+        color = DodamColor.Background
     ) {
         ColumnList(list = DataSet.LIST_MAIN, navController)
     }
