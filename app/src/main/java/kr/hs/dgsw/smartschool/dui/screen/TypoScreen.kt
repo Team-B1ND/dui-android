@@ -5,6 +5,7 @@ import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -50,24 +51,18 @@ fun TypoScreen(
             modifier = Modifier
                 .fillMaxHeight()
                 .width(320.dp)
-                .scrollable(rememberScrollState(),Orientation.Vertical),
+                .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.Start
 
         ) {
+            Spacer(modifier = Modifier.height(20.dp))
             TextField(
                 value = textState.value,
                 onValueChange = {textValue -> textState.value = textValue},
                 modifier = Modifier
                     .width(320.dp),
             )
-            Spacer(modifier = Modifier.height(20.dp))
-            Title1(
-                text = "HeadLine",
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(DodamColor.Background)
-            )
+            TypoTitle(text = "HeadLine")
 
             //HeadLine1
             Spacer(modifier = Modifier.height(10.dp))
@@ -84,14 +79,7 @@ fun TypoScreen(
             Headline3(text = "Headline3")
             Headline3(text = textState.value)
 
-            Spacer(modifier = Modifier.height(20.dp))
-            Title1(
-                text = "Title",
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(DodamColor.Background)
-            )
+            TypoTitle(text = "Title")
 
             //Title1
             Spacer(modifier = Modifier.height(10.dp))
@@ -108,14 +96,7 @@ fun TypoScreen(
             Title3(text = "Title3")
             Title3(text = textState.value)
 
-            Spacer(modifier = Modifier.height(20.dp))
-            Title1(
-                text = "Body",
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(DodamColor.Background)
-            )
+            TypoTitle(text = "Body")
 
             //Body1
             Spacer(modifier = Modifier.height(10.dp))
@@ -132,14 +113,7 @@ fun TypoScreen(
             Body3(text = "Body3")
             Body3(text = textState.value)
             
-            Spacer(modifier = Modifier.height(20.dp))
-            Title1(
-                text = "Label",
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(DodamColor.Background)
-            )
+            TypoTitle(text = "Label")
 
             //Label1
             Spacer(modifier = Modifier.height(10.dp))
@@ -155,6 +129,31 @@ fun TypoScreen(
             Spacer(modifier = Modifier.height(10.dp))
             Label3(text = "Label3")
             Label3(text = textState.value)
+
+            TypoTitle(text = "DodamError")
+
+            //Error
+            Spacer(modifier = Modifier.height(10.dp))
+            DodamError(text = "DodamError")
+            DodamError(text = textState.value)
+
+
+            Spacer(modifier = Modifier.height(20.dp))
         }
+
     }
+}
+
+@Composable
+fun TypoTitle(
+    text : String
+){
+    Spacer(modifier = Modifier.height(20.dp))
+    Title1(
+        text = text,
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(DodamColor.Background)
+    )
 }
