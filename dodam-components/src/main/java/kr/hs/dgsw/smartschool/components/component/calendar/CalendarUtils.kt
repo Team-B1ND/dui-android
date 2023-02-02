@@ -61,6 +61,22 @@ fun LocalDate.hasSchedules(schedules: List<Schedule>): List<DaySchedule> {
             daySchedules.add(DaySchedule(DayScheduleType.END, schedule))
         }
     }
+    val comparator: Comparator<DaySchedule> = Comparator { schedule1, schedule2 ->
+        if (
+            (schedule1.schedule.startDateTime < schedule2.schedule.startDateTime) &&
+            (schedule1.schedule.endDateTime > schedule2.schedule.endDateTime)
+        ) {
+            -1
+        } else if (
+            (schedule1.schedule.startDateTime > schedule2.schedule.startDateTime) &&
+            (schedule1.schedule.endDateTime < schedule2.schedule.endDateTime)
+        ) {
+            1
+        } else {
+            0
+        }
+    }
+    daySchedules.sortWith(comparator)
     return daySchedules
 }
 
