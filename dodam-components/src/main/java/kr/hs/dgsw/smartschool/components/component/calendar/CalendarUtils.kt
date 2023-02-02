@@ -80,3 +80,11 @@ fun LocalDate.hasSchedules(schedules: List<Schedule>): List<DaySchedule> {
     return daySchedules
 }
 
+fun LocalDateTime.toKoreanDateTime(): String {
+    val isAfter = if (hour >= 12) {
+        "오후"
+    } else {
+        "오전"
+    }
+    return String.format("${monthValue}월 ${dayOfMonth}일 $isAfter %02d:%02d", hour, minute)
+}

@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -38,10 +39,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import java.time.LocalDate
+import kr.hs.dgsw.smartschool.components.component.basic.Divider
 import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
+import kr.hs.dgsw.smartschool.components.theme.IcCalendar
 import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
 import kr.hs.dgsw.smartschool.components.theme.IcRightArrow
 import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
@@ -52,11 +55,10 @@ fun DodamCalendar(
     modifier: Modifier = Modifier,
     categories: List<DodamBasicCategory> = dodamBasicCategories,
     showCategories: Boolean = true,
-    onDayChange: (date: LocalDate) -> Unit = {},
+    onDayChange: (date: LocalDate, daySchedules: List<DaySchedule>) -> Unit = { _, _ -> Unit },
 ) {
     var selectedDay by remember { mutableStateOf(LocalDate.now()) }
-
-    onDayChange(selectedDay)
+    onDayChange(selectedDay, selectedDay.hasSchedules(schedules))
 
     Column(
         modifier = modifier.fillMaxWidth()
@@ -185,7 +187,7 @@ private fun ColumnScope.BasicDayText(textColor: Color, monthDay: MonthDay) {
 }
 
 @Composable
-private fun ColumnScope.ScheduleEndHorizontalBar(color: Color) {
+private fun ScheduleEndHorizontalBar(color: Color) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -196,7 +198,7 @@ private fun ColumnScope.ScheduleEndHorizontalBar(color: Color) {
 }
 
 @Composable
-private fun ColumnScope.ScheduleStartHorizontalBar(color: Color) {
+private fun ScheduleStartHorizontalBar(color: Color) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -207,7 +209,7 @@ private fun ColumnScope.ScheduleStartHorizontalBar(color: Color) {
 }
 
 @Composable
-private fun ColumnScope.ScheduleMiddleHorizontalBar(color: Color) {
+private fun ScheduleMiddleHorizontalBar(color: Color) {
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -326,11 +328,40 @@ private fun DayOfWeekBar() {
 @Preview
 @Composable
 private fun PreviewCalendar() {
-    val context = LocalContext.current
-    DodamCalendar(
-        schedules = sampleSchedules,
-    ) {
-        Toast.makeText(context, it.toString(), Toast.LENGTH_SHORT).show()
+    var selectedDay by remember { mutableStateOf(LocalDate.now()) }
+    var selectedSchedules by remember { mutableStateOf(emptyList<DaySchedule>()) }
+
+    Column(Modifier.fillMaxSize()) {
+        DodamCalendar(
+            schedules = sampleSchedules,
+        ) { date, schedules ->
+            selectedDay = date
+            selectedSchedules = schedules
+        }
+        Spacer(modifier = Modifier.height(10.dp))
+        Divider(thickness = 1.dp, color = DodamTheme.color.Gray100)
+        Spacer(modifier = Modifier.height(10.dp))
+        Text(
+            text = "${selectedDay.monthValue}월 ${selectedDay.dayOfMonth}일",
+            color = DodamTheme.color.Gray500,
+            style = DodamTheme.typography.body3.copy(
+                fontSize = 10.sp,
+                lineHeight = 12.sp,
+            ),
+            modifier = Modifier.padding(start = 16.dp)
+        )
+        Spacer(modifier = Modifier.height(16.dp))
+        Row {
+            Spacer(modifier = Modifier.width(24.dp))
+            IcCalendar(contentDescription = null, tint = DodamTheme.color.Gray500, modifier = Modifier.size(16.dp))
+            Spacer(modifier = Modifier.width(11.dp))
+            LazyColumn {
+                items(selectedSchedules) { daySchedule ->
+                    ScheduleItem(schedule = daySchedule.schedule)
+                    Spacer(modifier = Modifier.height(24.dp))
+                }
+            }
+        }
     }
 }
 
@@ -351,7 +382,7 @@ private val sampleSchedules = listOf(
         title = "겨울방학",
         category = DodamBasicCategory.AllGrade(),
         startDateTime = LocalDate.of(2023, 2, 10).getLocalDateTime(),
-        endDateTime = LocalDate.of(2023, 2, 28).getLocalDateTime(),
+        endDateTime = LocalDate.of(2023, 3, 7).getLocalDateTime(),
     ),
 )
 
