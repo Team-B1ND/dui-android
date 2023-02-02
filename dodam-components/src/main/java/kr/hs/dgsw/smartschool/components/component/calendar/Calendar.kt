@@ -1,5 +1,6 @@
 package kr.hs.dgsw.smartschool.components.component.calendar
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -28,6 +29,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -47,8 +49,10 @@ fun DodamCalendar(
     modifier: Modifier = Modifier,
     categories: List<DodamBasicCategory> = dodamBasicCategories,
     showCategories: Boolean = true,
+    onDayChange: (date: LocalDate) -> Unit = {},
 ) {
     var selectedDay by remember { mutableStateOf(LocalDate.now()) }
+    onDayChange(selectedDay)
 
     Column(
         modifier = modifier.fillMaxWidth()
@@ -93,7 +97,7 @@ fun DodamCalendar(
 
 @Composable
 private fun DayItem(selectedDay: LocalDate, monthDay: MonthDay, onClickItem: (day: Int) -> Unit) {
-    Column(
+    Box(
         Modifier
             .fillMaxSize()
             .aspectRatio(1f)
@@ -110,20 +114,42 @@ private fun DayItem(selectedDay: LocalDate, monthDay: MonthDay, onClickItem: (da
                     onClickItem(monthDay.day)
             }
     ) {
-        if (monthDay.day != -1) {
-            Text(
-                text = monthDay.day.toString(),
-                color = if ((monthDay.dayOfWeek == 0) || (monthDay.dayOfWeek == 6))
-                    DodamColor.FeatureColor.ScheduleColor
-                else
-                    DodamTheme.color.Black,
-                style = DodamTheme.typography.body3.copy(
-                    fontSize = 10.sp,
-                    fontWeight = FontWeight.SemiBold,
-                    lineHeight = 10.sp,
-                ),
-                modifier = Modifier.align(Alignment.CenterHorizontally)
-            )
+        var textColor = DodamTheme.color.Black
+        if(monthDay.day != -1)
+            if (LocalDate.now().isEqual(LocalDate.of(selectedDay.year, selectedDay.monthValue, monthDay.day))) {
+                Column(
+                    modifier = Modifier.align(Alignment.TopCenter)
+                ) {
+                    Spacer(modifier = Modifier.height(3.dp))
+                    Box(
+                        modifier = Modifier
+                            .background(DodamTheme.color.Black, shape = DodamTheme.shape.small)
+                            .size(15.dp)
+                    )
+                }
+
+                textColor = DodamTheme.color.White
+            }
+
+        Column(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            if (monthDay.day != -1) {
+                Spacer(modifier = Modifier.height(3.dp))
+                Text(
+                    text = monthDay.day.toString(),
+                    color = if ((monthDay.dayOfWeek == 0) || (monthDay.dayOfWeek == 6))
+                        DodamColor.FeatureColor.ScheduleColor
+                    else
+                        textColor,
+                    style = DodamTheme.typography.body3.copy(
+                        fontSize = 10.sp,
+                        fontWeight = FontWeight.SemiBold,
+                        lineHeight = 10.sp,
+                    ),
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
+                )
+            }
         }
     }
 }
@@ -238,9 +264,12 @@ private fun DayOfWeekBar() {
 @Preview
 @Composable
 private fun PreviewCalendar() {
+    val context = LocalContext.current
     DodamCalendar(
         schedules = sampleSchedules,
-    )
+    ) {
+        Toast.makeText(context, it.toString(), Toast.LENGTH_SHORT).show()
+    }
 }
 
 @Preview
