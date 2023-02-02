@@ -7,12 +7,17 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -63,6 +68,40 @@ fun DodamCalendar(
         )
         Spacer(modifier = Modifier.height(19.dp))
         DayOfWeekBar()
+        Spacer(modifier = Modifier.height(5.dp))
+
+        LazyVerticalGrid(
+            columns = GridCells.Fixed(7),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = DodamDimen.ScreenSidePadding),
+            userScrollEnabled = false,
+            contentPadding = PaddingValues(all = 1.dp)
+        ) {
+
+            items(selectedDay.getMonthDays()) { monthDays ->
+                Column(
+                    Modifier
+                        .fillMaxSize()
+                        .aspectRatio(1f)
+                ) {
+                    if (monthDays.day != -1)
+                        Text(
+                            text = monthDays.day.toString(),
+                            color = if ((monthDays.dayOfWeek == 0) || (monthDays.dayOfWeek == 6))
+                                DodamColor.FeatureColor.ScheduleColor
+                            else
+                                DodamTheme.color.Black,
+                            style = DodamTheme.typography.body3.copy(
+                                fontSize = 10.sp,
+                                fontWeight = FontWeight.SemiBold,
+                                lineHeight = 10.sp,
+                            ),
+                            modifier = Modifier.align(Alignment.CenterHorizontally)
+                        )
+                }
+            }
+        }
 
     }
 }
