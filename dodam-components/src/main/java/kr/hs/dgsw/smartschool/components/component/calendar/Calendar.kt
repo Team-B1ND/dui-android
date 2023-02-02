@@ -5,7 +5,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -21,6 +23,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -52,6 +55,7 @@ fun DodamCalendar(
     onDayChange: (date: LocalDate) -> Unit = {},
 ) {
     var selectedDay by remember { mutableStateOf(LocalDate.now()) }
+
     onDayChange(selectedDay)
 
     Column(
@@ -80,10 +84,10 @@ fun DodamCalendar(
                 .fillMaxWidth()
                 .padding(horizontal = DodamDimen.ScreenSidePadding),
             userScrollEnabled = false,
-            contentPadding = PaddingValues(all = 1.dp)
+            contentPadding = PaddingValues(all = 1.dp),
         ) {
             items(selectedDay.getMonthDays()) { monthDay ->
-                DayItem(selectedDay = selectedDay, monthDay = monthDay) {
+                DayItem(selectedDay = selectedDay, monthDay = monthDay, schedules = schedules) {
                     val selected = LocalDate.of(selectedDay.year, selectedDay.monthValue, it)
                     if (selectedDay.isEqual(selected).not()) {
                         selectedDay = selected
@@ -91,12 +95,16 @@ fun DodamCalendar(
                 }
             }
         }
-
     }
 }
 
 @Composable
-private fun DayItem(selectedDay: LocalDate, monthDay: MonthDay, onClickItem: (day: Int) -> Unit) {
+private fun DayItem(
+    selectedDay: LocalDate,
+    monthDay: MonthDay,
+    schedules: List<Schedule>,
+    onClickItem: (day: Int) -> Unit,
+) {
     Box(
         Modifier
             .fillMaxSize()
@@ -117,17 +125,7 @@ private fun DayItem(selectedDay: LocalDate, monthDay: MonthDay, onClickItem: (da
         var textColor = DodamTheme.color.Black
         if(monthDay.day != -1)
             if (LocalDate.now().isEqual(LocalDate.of(selectedDay.year, selectedDay.monthValue, monthDay.day))) {
-                Column(
-                    modifier = Modifier.align(Alignment.TopCenter)
-                ) {
-                    Spacer(modifier = Modifier.height(3.dp))
-                    Box(
-                        modifier = Modifier
-                            .background(DodamTheme.color.Black, shape = DodamTheme.shape.small)
-                            .size(15.dp)
-                    )
-                }
-
+                TodayIndicationBox()
                 textColor = DodamTheme.color.White
             }
 
@@ -136,22 +134,86 @@ private fun DayItem(selectedDay: LocalDate, monthDay: MonthDay, onClickItem: (da
         ) {
             if (monthDay.day != -1) {
                 Spacer(modifier = Modifier.height(3.dp))
-                Text(
-                    text = monthDay.day.toString(),
-                    color = if ((monthDay.dayOfWeek == 0) || (monthDay.dayOfWeek == 6))
-                        DodamColor.FeatureColor.ScheduleColor
-                    else
-                        textColor,
-                    style = DodamTheme.typography.body3.copy(
-                        fontSize = 10.sp,
-                        fontWeight = FontWeight.SemiBold,
-                        lineHeight = 10.sp,
-                    ),
-                    modifier = Modifier.align(Alignment.CenterHorizontally)
-                )
+                BasicDayText(textColor = textColor, monthDay = monthDay)
+                Spacer(modifier = Modifier.height(6.dp))
+                val daySchedules =  LocalDate.of(selectedDay.year, selectedDay.monthValue, monthDay.day)
+                    .hasSchedules(schedules)
+                if (daySchedules.isNotEmpty()) {
+                    daySchedules.forEach {
+                        when(it.type) {
+                            DayScheduleType.START -> ScheduleStartHorizontalBar(color = it.schedule.category.color)
+                            DayScheduleType.MIDDLE -> ScheduleMiddleHorizontalBar(color = it.schedule.category.color)
+                            DayScheduleType.END -> ScheduleEndHorizontalBar(color = it.schedule.category.color)
+                        }
+                        Spacer(modifier = Modifier.height(3.dp))
+                    }
+                }
             }
         }
     }
+}
+
+@Composable
+private fun BoxScope.TodayIndicationBox() {
+    Column(
+        modifier = Modifier.align(Alignment.TopCenter)
+    ) {
+        Spacer(modifier = Modifier.height(3.dp))
+        Box(
+            modifier = Modifier
+                .background(DodamTheme.color.Black, shape = DodamTheme.shape.small)
+                .size(15.dp)
+        )
+    }
+}
+
+@Composable
+private fun ColumnScope.BasicDayText(textColor: Color, monthDay: MonthDay) {
+    Text(
+        text = monthDay.day.toString(),
+        color = if ((monthDay.dayOfWeek == 0) || (monthDay.dayOfWeek == 6))
+            DodamColor.FeatureColor.ScheduleColor
+        else
+            textColor,
+        style = DodamTheme.typography.body3.copy(
+            fontSize = 10.sp,
+            fontWeight = FontWeight.SemiBold,
+            lineHeight = 10.sp,
+        ),
+        modifier = Modifier.align(Alignment.CenterHorizontally)
+    )
+}
+
+@Composable
+private fun ColumnScope.ScheduleEndHorizontalBar(color: Color) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(4.dp)
+            .background(color, shape = RoundedCornerShape(topEnd = 20.dp, bottomEnd = 20.dp))
+            .padding(end = 2.dp)
+    )
+}
+
+@Composable
+private fun ColumnScope.ScheduleStartHorizontalBar(color: Color) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(4.dp)
+            .background(color, shape = RoundedCornerShape(topStart = 20.dp, bottomStart = 20.dp))
+            .padding(start = 2.dp)
+    )
+}
+
+@Composable
+private fun ColumnScope.ScheduleMiddleHorizontalBar(color: Color) {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(4.dp)
+            .background(color)
+    )
 }
 
 @Composable

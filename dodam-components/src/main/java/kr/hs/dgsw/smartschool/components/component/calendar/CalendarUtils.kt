@@ -41,3 +41,26 @@ data class MonthDay(
     val dayOfWeek: Int, // 0 ~ 6
 )
 
+enum class DayScheduleType {
+    START, MIDDLE, END
+}
+
+data class DaySchedule(
+    val type: DayScheduleType,
+    val schedule: Schedule,
+)
+
+fun LocalDate.hasSchedules(schedules: List<Schedule>): List<DaySchedule> {
+    val daySchedules = mutableListOf<DaySchedule>()
+    schedules.forEach { schedule ->
+        if (this.isAfter(schedule.startDateTime.toLocalDate()) && this.isBefore(schedule.endDateTime.toLocalDate())) {
+            daySchedules.add(DaySchedule(DayScheduleType.MIDDLE, schedule))
+        } else if (this.isEqual(schedule.startDateTime.toLocalDate())) {
+            daySchedules.add(DaySchedule(DayScheduleType.START, schedule))
+        } else if (this.isEqual(schedule.endDateTime.toLocalDate())) {
+            daySchedules.add(DaySchedule(DayScheduleType.END, schedule))
+        }
+    }
+    return daySchedules
+}
+
