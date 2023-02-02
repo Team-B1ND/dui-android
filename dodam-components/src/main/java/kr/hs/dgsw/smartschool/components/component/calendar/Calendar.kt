@@ -1,6 +1,7 @@
 package kr.hs.dgsw.smartschool.components.component.calendar
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -47,7 +48,6 @@ fun DodamCalendar(
     categories: List<DodamBasicCategory> = dodamBasicCategories,
     showCategories: Boolean = true,
 ) {
-    val today = LocalDate.now()
     var selectedDay by remember { mutableStateOf(LocalDate.now()) }
 
     Column(
@@ -78,31 +78,53 @@ fun DodamCalendar(
             userScrollEnabled = false,
             contentPadding = PaddingValues(all = 1.dp)
         ) {
-
-            items(selectedDay.getMonthDays()) { monthDays ->
-                Column(
-                    Modifier
-                        .fillMaxSize()
-                        .aspectRatio(1f)
-                ) {
-                    if (monthDays.day != -1)
-                        Text(
-                            text = monthDays.day.toString(),
-                            color = if ((monthDays.dayOfWeek == 0) || (monthDays.dayOfWeek == 6))
-                                DodamColor.FeatureColor.ScheduleColor
-                            else
-                                DodamTheme.color.Black,
-                            style = DodamTheme.typography.body3.copy(
-                                fontSize = 10.sp,
-                                fontWeight = FontWeight.SemiBold,
-                                lineHeight = 10.sp,
-                            ),
-                            modifier = Modifier.align(Alignment.CenterHorizontally)
-                        )
+            items(selectedDay.getMonthDays()) { monthDay ->
+                DayItem(selectedDay = selectedDay, monthDay = monthDay) {
+                    val selected = LocalDate.of(selectedDay.year, selectedDay.monthValue, it)
+                    if (selectedDay.isEqual(selected).not()) {
+                        selectedDay = selected
+                    }
                 }
             }
         }
 
+    }
+}
+
+@Composable
+private fun DayItem(selectedDay: LocalDate, monthDay: MonthDay, onClickItem: (day: Int) -> Unit) {
+    Column(
+        Modifier
+            .fillMaxSize()
+            .aspectRatio(1f)
+            .border(
+                width = 1.dp,
+                color = if (selectedDay.dayOfMonth == monthDay.day)
+                    DodamTheme.color.Gray100
+                else
+                    DodamTheme.color.Transparent,
+                shape = DodamTheme.shape.small,
+            )
+            .dodamClickable(rippleEnable = false) {
+                if (monthDay.day != -1)
+                    onClickItem(monthDay.day)
+            }
+    ) {
+        if (monthDay.day != -1) {
+            Text(
+                text = monthDay.day.toString(),
+                color = if ((monthDay.dayOfWeek == 0) || (monthDay.dayOfWeek == 6))
+                    DodamColor.FeatureColor.ScheduleColor
+                else
+                    DodamTheme.color.Black,
+                style = DodamTheme.typography.body3.copy(
+                    fontSize = 10.sp,
+                    fontWeight = FontWeight.SemiBold,
+                    lineHeight = 10.sp,
+                ),
+                modifier = Modifier.align(Alignment.CenterHorizontally)
+            )
+        }
     }
 }
 
