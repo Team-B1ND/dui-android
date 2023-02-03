@@ -15,7 +15,7 @@ import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 
 @Composable
 fun DodamSmallRoundedButton(
-    onClick: () -> Unit,
+    text: String,
     modifier: Modifier = Modifier,
     iconLeft: @Composable (() -> Unit)? = null,
     iconRight: @Composable (() -> Unit)? = null,
@@ -24,7 +24,7 @@ fun DodamSmallRoundedButton(
     rippleColor: Color = Color.Unspecified,
     rippleEnable: Boolean = true,
     bounded: Boolean = true,
-    text: String,
+    onClick: () -> Unit,
 ) {
     Button(
         onClick = onClick,
@@ -44,7 +44,7 @@ fun DodamSmallRoundedButton(
 
 @Composable
 fun DodamMediumRoundedButton(
-    onClick: () -> Unit,
+    text: String,
     modifier: Modifier = Modifier,
     iconLeft: @Composable (() -> Unit)? = null,
     iconRight: @Composable (() -> Unit)? = null,
@@ -53,7 +53,7 @@ fun DodamMediumRoundedButton(
     rippleColor: Color = Color.Unspecified,
     rippleEnable: Boolean = true,
     bounded: Boolean = true,
-    text: String,
+    onClick: () -> Unit,
 ) {
     Button(
         onClick = onClick,
@@ -72,7 +72,7 @@ fun DodamMediumRoundedButton(
 
 @Composable
 fun DodamLargeRoundedButton(
-    onClick: () -> Unit,
+    text: String,
     modifier: Modifier = Modifier,
     iconLeft: @Composable (() -> Unit)? = null,
     iconRight: @Composable (() -> Unit)? = null,
@@ -81,7 +81,7 @@ fun DodamLargeRoundedButton(
     rippleColor: Color = Color.Unspecified,
     rippleEnable: Boolean = true,
     bounded: Boolean = true,
-    text: String,
+    onClick: () -> Unit,
 ) {
     Button(
         onClick = onClick,
