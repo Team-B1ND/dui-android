@@ -149,6 +149,20 @@ fun IcGallery(
 }
 
 @Composable
+fun IcCalendar(
+    contentDescription: String?,
+    modifier: Modifier = Modifier,
+    tint: Color = Color.Unspecified,
+) {
+    Icon(
+        painter = painterResource(id = R.drawable.ic_calendar),
+        contentDescription = contentDescription,
+        modifier = modifier,
+        tint = tint
+    )
+}
+
+@Composable
 fun IcSearch(
     contentDescription: String?,
     modifier: Modifier = Modifier,
