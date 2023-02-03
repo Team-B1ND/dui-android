@@ -1,6 +1,5 @@
 package kr.hs.dgsw.smartschool.components.component.calendar
 
-import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -33,13 +32,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import java.time.LocalDate
 import kr.hs.dgsw.smartschool.components.component.basic.Divider
+import kr.hs.dgsw.smartschool.components.component.calendar.schedule.Schedule
+import kr.hs.dgsw.smartschool.components.component.calendar.schedule.ScheduleItem
 import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
@@ -53,7 +53,7 @@ import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 fun DodamCalendar(
     schedules: List<Schedule>,
     modifier: Modifier = Modifier,
-    categories: List<DodamBasicCategory> = dodamBasicCategories,
+    categories: List<DodamBasicCalendarCategory> = dodamBasicCalendarCategories,
     showCategories: Boolean = true,
     onDayChange: (date: LocalDate, daySchedules: List<DaySchedule>) -> Unit = { _, _ -> Unit },
 ) {
@@ -61,7 +61,8 @@ fun DodamCalendar(
     onDayChange(selectedDay, selectedDay.hasSchedules(schedules))
 
     Column(
-        modifier = modifier.fillMaxWidth()
+        modifier = modifier
+            .fillMaxWidth()
     ) {
         // Category Bar
         if (showCategories) {
@@ -220,7 +221,7 @@ private fun ScheduleMiddleHorizontalBar(color: Color) {
 
 @Composable
 private fun CategoryBar(
-    categories: List<DodamBasicCategory>
+    categories: List<DodamBasicCalendarCategory>
 ) {
     LazyRow(
         modifier = Modifier.fillMaxWidth(),
@@ -234,7 +235,7 @@ private fun CategoryBar(
 }
 
 @Composable
-private fun CategoryItem(category: DodamBasicCategory) {
+private fun CategoryItem(category: DodamBasicCalendarCategory) {
     Row {
         Box(
             modifier = Modifier
@@ -368,19 +369,19 @@ private fun PreviewCalendar() {
 @Preview
 @Composable
 private fun PreviewCategoryItem() {
-    CategoryItem(category = DodamBasicCategory.FirstGrade())
+    CategoryItem(category = DodamBasicCalendarCategory.FirstGrade())
 }
 
 private val sampleSchedules = listOf(
     Schedule(
         title = "비포스쿨",
-        category = DodamBasicCategory.FirstGrade(),
+        category = DodamBasicCalendarCategory.FirstGrade(),
         startDateTime = LocalDate.of(2023, 2, 12).getLocalDateTime(),
         endDateTime = LocalDate.of(2023, 2, 15).getLocalDateTime(),
     ),
     Schedule(
         title = "겨울방학",
-        category = DodamBasicCategory.AllGrade(),
+        category = DodamBasicCalendarCategory.AllGrade(),
         startDateTime = LocalDate.of(2023, 2, 10).getLocalDateTime(),
         endDateTime = LocalDate.of(2023, 3, 7).getLocalDateTime(),
     ),

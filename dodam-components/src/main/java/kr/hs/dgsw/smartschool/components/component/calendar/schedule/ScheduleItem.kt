@@ -1,4 +1,4 @@
-package kr.hs.dgsw.smartschool.components.component.calendar
+package kr.hs.dgsw.smartschool.components.component.calendar.schedule
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kr.hs.dgsw.smartschool.components.component.calendar.toKoreanDateTime
 import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.theme.Body2
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme

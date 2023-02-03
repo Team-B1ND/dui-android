@@ -3,6 +3,7 @@ package kr.hs.dgsw.smartschool.components.component.calendar
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
+import kr.hs.dgsw.smartschool.components.component.calendar.schedule.Schedule
 
 fun LocalDate.getLocalDateTime(): LocalDateTime =
     LocalDateTime.of(this, LocalTime.of(9, 0))

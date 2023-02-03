@@ -46,11 +46,6 @@ fun DodamPrompt(
                     color = DodamTheme.color.White,
                     shape = DodamTheme.shape.medium,
                 )
-                .border(
-                    width = 1.dp,
-                    color = DodamTheme.color.Gray100,
-                    shape = DodamTheme.shape.medium,
-                )
                 .padding(
                     top = 16.dp,
                     start = 16.dp,

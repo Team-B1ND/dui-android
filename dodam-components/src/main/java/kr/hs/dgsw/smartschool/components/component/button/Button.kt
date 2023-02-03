@@ -219,3 +219,20 @@ private fun backgroundColorFor(type: ButtonType): Color =
         ButtonType.Itmap -> DodamColor.FeatureColor.ItMapColor
         ButtonType.MyInfo -> DodamColor.FeatureColor.MyInfoColor
     }
+
+@Composable
+fun Color.buttonTypeFor(): ButtonType =
+    when (this) {
+        DodamTheme.color.MainColor -> ButtonType.Primary
+        DodamTheme.color.MainColor400 -> ButtonType.PrimaryVariant
+        DodamTheme.color.SecondaryColor -> ButtonType.Secondary
+        DodamTheme.color.SecondaryColor400 -> ButtonType.SecondaryVariant
+        DodamTheme.color.Error -> ButtonType.Danger
+        DodamTheme.color.Gray100 -> ButtonType.Disable
+        DodamColor.FeatureColor.SongColor -> ButtonType.Song
+        DodamColor.FeatureColor.ScheduleColor -> ButtonType.Schedule
+        DodamColor.FeatureColor.LostFoundColor -> ButtonType.LostFound
+        DodamColor.FeatureColor.ItMapColor -> ButtonType.Itmap
+        DodamColor.FeatureColor.MyInfoColor -> ButtonType.MyInfo
+        else -> ButtonType.Primary
+    }
