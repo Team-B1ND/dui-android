@@ -1,9 +1,9 @@
 package kr.hs.dgsw.smartschool.components.component.calendar
 
+import kr.hs.dgsw.smartschool.components.component.calendar.schedule.Schedule
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
-import kr.hs.dgsw.smartschool.components.component.calendar.schedule.Schedule
 
 fun LocalDate.getLocalDateTime(): LocalDateTime =
     LocalDateTime.of(this, LocalTime.of(9, 0))
@@ -11,7 +11,7 @@ fun LocalDate.getLocalDateTime(): LocalDateTime =
 fun getLocalDateTime(year: Int, month: Int, day: Int): LocalDateTime =
     LocalDateTime.of(LocalDate.of(year, month, day), LocalTime.of(9, 0))
 
-fun LocalDate.getMonthDays() : List<MonthDay> {
+fun LocalDate.getMonthDays(): List<MonthDay> {
 
     val monthDays = mutableListOf<MonthDay>()
     val year = this.year
@@ -28,7 +28,7 @@ fun LocalDate.getMonthDays() : List<MonthDay> {
     }
 
     // 실제 값 채우기
-    for (i in 1 .. this.lengthOfMonth()) {
+    for (i in 1..this.lengthOfMonth()) {
         val realDate = LocalDate.of(year, month, i)
         val realDayOfWeekData = realDate.dayOfWeek.value
         monthDays.add(MonthDay(i, if (realDayOfWeekData == 7) 0 else realDayOfWeekData))

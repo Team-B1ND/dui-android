@@ -1,7 +1,7 @@
 package kr.hs.dgsw.smartschool.components.component.calendar.schedule
 
-import java.time.LocalDateTime
 import kr.hs.dgsw.smartschool.components.component.calendar.DodamBasicCalendarCategory
+import java.time.LocalDateTime
 
 data class Schedule(
     val title: String,

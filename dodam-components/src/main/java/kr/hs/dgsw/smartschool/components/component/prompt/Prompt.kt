@@ -1,7 +1,6 @@
 package kr.hs.dgsw.smartschool.components.component.prompt
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -86,9 +85,9 @@ private fun PreviewDodamPrompt() {
             title = "Test DodamPrompt",
             description = "TestTestTestTestTestTest",
             secondaryButton = {
-               DodamMediumRoundedButton(text = "No", type = ButtonType.Danger) {
-                   showPrompt = false
-               }
+                DodamMediumRoundedButton(text = "No", type = ButtonType.Danger) {
+                    showPrompt = false
+                }
             },
             primaryButton = {
                 DodamMediumRoundedButton(text = "Yes") {

@@ -36,7 +36,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import java.time.LocalDate
 import kr.hs.dgsw.smartschool.components.component.basic.Divider
 import kr.hs.dgsw.smartschool.components.component.calendar.schedule.Schedule
 import kr.hs.dgsw.smartschool.components.component.calendar.schedule.ScheduleItem
@@ -48,6 +47,7 @@ import kr.hs.dgsw.smartschool.components.theme.IcCalendar
 import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
 import kr.hs.dgsw.smartschool.components.theme.IcRightArrow
 import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
+import java.time.LocalDate
 
 @Composable
 fun DodamCalendar(
@@ -126,7 +126,7 @@ private fun DayItem(
             }
     ) {
         var textColor = DodamTheme.color.Black
-        if(monthDay.day != -1)
+        if (monthDay.day != -1)
             if (LocalDate.now().isEqual(LocalDate.of(selectedDay.year, selectedDay.monthValue, monthDay.day))) {
                 TodayIndicationBox()
                 textColor = DodamTheme.color.White
@@ -139,11 +139,11 @@ private fun DayItem(
                 Spacer(modifier = Modifier.height(3.dp))
                 BasicDayText(textColor = textColor, monthDay = monthDay)
                 Spacer(modifier = Modifier.height(6.dp))
-                val daySchedules =  LocalDate.of(selectedDay.year, selectedDay.monthValue, monthDay.day)
+                val daySchedules = LocalDate.of(selectedDay.year, selectedDay.monthValue, monthDay.day)
                     .hasSchedules(schedules)
                 if (daySchedules.isNotEmpty()) {
                     daySchedules.forEach {
-                        when(it.type) {
+                        when (it.type) {
                             DayScheduleType.START -> ScheduleStartHorizontalBar(color = it.schedule.category.color)
                             DayScheduleType.MIDDLE -> ScheduleMiddleHorizontalBar(color = it.schedule.category.color)
                             DayScheduleType.END -> ScheduleEndHorizontalBar(color = it.schedule.category.color)
@@ -266,9 +266,10 @@ private fun CalendarTopBar(
     onClickPlus: () -> Unit,
     onClickMinus: () -> Unit,
 ) {
-    Row(modifier = Modifier
-        .padding(horizontal = DodamDimen.ScreenSidePadding)
-        .fillMaxWidth()
+    Row(
+        modifier = Modifier
+            .padding(horizontal = DodamDimen.ScreenSidePadding)
+            .fillMaxWidth()
     ) {
         Text(
             text = dayTitle,
@@ -386,4 +387,3 @@ private val sampleSchedules = listOf(
         endDateTime = LocalDate.of(2023, 3, 7).getLocalDateTime(),
     ),
 )
-

@@ -22,17 +22,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import java.time.LocalDate
 import kr.hs.dgsw.smartschool.components.component.button.ButtonType
 import kr.hs.dgsw.smartschool.components.component.button.DodamLargeRoundedButton
 import kr.hs.dgsw.smartschool.components.component.button.DodamMediumRoundedButton
-import kr.hs.dgsw.smartschool.components.component.button.buttonTypeFor
 import kr.hs.dgsw.smartschool.components.component.calendar.DodamCalendar
 import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.Label2
 import kr.hs.dgsw.smartschool.components.theme.Title1
+import java.time.LocalDate
 
 @Composable
 fun CalendarDialog(
@@ -113,7 +112,7 @@ private fun PreviewDodamCalendarDialog() {
         CalendarDialog { date ->
             showPrompt = false
             date?.let {
-                 selectedDate = it
+                selectedDate = it
             }
         }
     }
