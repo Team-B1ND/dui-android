@@ -1,7 +1,14 @@
 package kr.hs.dgsw.smartschool.dui.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -12,7 +19,34 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
-import kr.hs.dgsw.smartschool.components.theme.*
+import kr.hs.dgsw.smartschool.components.theme.DodamColor
+import kr.hs.dgsw.smartschool.components.theme.IcAdd
+import kr.hs.dgsw.smartschool.components.theme.IcBreakfast3D
+import kr.hs.dgsw.smartschool.components.theme.IcBus3D
+import kr.hs.dgsw.smartschool.components.theme.IcDelete
+import kr.hs.dgsw.smartschool.components.theme.IcDinner3D
+import kr.hs.dgsw.smartschool.components.theme.IcDocument3D
+import kr.hs.dgsw.smartschool.components.theme.IcGallery
+import kr.hs.dgsw.smartschool.components.theme.IcHome
+import kr.hs.dgsw.smartschool.components.theme.IcInfo3D
+import kr.hs.dgsw.smartschool.components.theme.IcItmap3D
+import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
+import kr.hs.dgsw.smartschool.components.theme.IcLock3D
+import kr.hs.dgsw.smartschool.components.theme.IcLogout3D
+import kr.hs.dgsw.smartschool.components.theme.IcLostFound3D
+import kr.hs.dgsw.smartschool.components.theme.IcLunch3D
+import kr.hs.dgsw.smartschool.components.theme.IcMeal
+import kr.hs.dgsw.smartschool.components.theme.IcOut3D
+import kr.hs.dgsw.smartschool.components.theme.IcPoint3D
+import kr.hs.dgsw.smartschool.components.theme.IcRightArrow
+import kr.hs.dgsw.smartschool.components.theme.IcSearch
+import kr.hs.dgsw.smartschool.components.theme.IcSetting3D
+import kr.hs.dgsw.smartschool.components.theme.IcSong
+import kr.hs.dgsw.smartschool.components.theme.IcSong3D
+import kr.hs.dgsw.smartschool.components.theme.IcUser
+import kr.hs.dgsw.smartschool.components.theme.IcX
+import kr.hs.dgsw.smartschool.components.theme.Label3
+import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
 
 @Composable
@@ -45,8 +79,8 @@ fun IconScreen(
                     .height(70.dp)
                     .width(350.dp),
 
-            ){
-                Icon2D(icon = { IcAdd(contentDescription = null)}, name = "Add")
+            ) {
+                Icon2D(icon = { IcAdd(contentDescription = null) }, name = "Add")
                 Icon2D(icon = { IcLeftArrow(contentDescription = null) }, name = "Left Arrow")
                 Icon2D(icon = { IcRightArrow(contentDescription = null) }, name = "Right Arrow")
                 Icon2D(icon = { IcHome(contentDescription = null) }, name = "Home")
@@ -57,12 +91,20 @@ fun IconScreen(
                     .height(70.dp)
                     .width(350.dp),
 
-                ){
+            ) {
                 Icon2D(icon = { IcSong(contentDescription = null) }, name = "Song")
-                Icon2D(icon = { IcX(contentDescription = null) }, name = "User")
+                Icon2D(icon = { IcX(contentDescription = null) }, name = "X")
                 Icon2D(icon = { IcDelete(contentDescription = null) }, name = "Delete")
                 Icon2D(icon = { IcGallery(contentDescription = null) }, name = "Gallery")
                 Icon2D(icon = { IcSearch(contentDescription = null) }, name = "Search")
+            }
+            Row(
+                modifier = Modifier
+                    .height(70.dp)
+                    .width(350.dp),
+
+            ) {
+                Icon2D(icon = { IcUser(contentDescription = null) }, name = "User")
             }
 
             Spacer(modifier = Modifier.height(20.dp))
@@ -74,7 +116,7 @@ fun IconScreen(
                     .height(70.dp)
                     .width(350.dp),
 
-                ){
+            ) {
                 Icon3D(icon = { IcBreakfast3D(contentDescription = null) }, name = "Breakfast")
                 Icon3D(icon = { IcDinner3D(contentDescription = null) }, name = "Dinner")
                 Icon3D(icon = { IcLunch3D(contentDescription = null) }, name = "Lunch")
@@ -86,7 +128,7 @@ fun IconScreen(
                     .height(70.dp)
                     .width(350.dp),
 
-                ){
+            ) {
                 Icon3D(icon = { IcItmap3D(contentDescription = null) }, name = "ItMap")
                 Icon3D(icon = { IcLostFound3D(contentDescription = null) }, name = "LostFound")
                 Icon3D(icon = { IcPoint3D(contentDescription = null) }, name = "Point")
@@ -98,7 +140,7 @@ fun IconScreen(
                     .height(70.dp)
                     .width(350.dp),
 
-                ){
+            ) {
                 Icon3D(icon = { IcDocument3D(contentDescription = null) }, name = "Document")
                 Icon3D(icon = { IcInfo3D(contentDescription = null) }, name = "Info")
                 Icon3D(icon = { IcLock3D(contentDescription = null) }, name = "Lock")
@@ -110,9 +152,9 @@ fun IconScreen(
 
 @Composable
 fun Icon2D(
-    icon : (@Composable () -> Unit),
-    name : String
-){
+    icon: (@Composable () -> Unit),
+    name: String
+) {
     val clicked = remember {
         mutableStateOf(false)
     }
@@ -125,7 +167,7 @@ fun Icon2D(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         icon()
-        if(clicked.value){
+        if (clicked.value) {
             Spacer(modifier = Modifier.height(10.dp))
             Label3(text = name)
         }
@@ -134,9 +176,9 @@ fun Icon2D(
 
 @Composable
 fun Icon3D(
-    icon : (@Composable () -> Unit),
-    name : String
-){
+    icon: (@Composable () -> Unit),
+    name: String
+) {
     val clicked = remember {
         mutableStateOf(false)
     }
@@ -149,10 +191,8 @@ fun Icon3D(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         icon()
-        if(clicked.value){
+        if (clicked.value) {
             Label3(text = name)
         }
     }
 }
-
-

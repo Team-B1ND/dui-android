@@ -7,18 +7,16 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -27,9 +25,11 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import kr.hs.dgsw.smartschool.components.component.button.IconButton
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
+import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.screen.ColorScreen
 import kr.hs.dgsw.smartschool.dui.screen.IconScreen
 import kr.hs.dgsw.smartschool.dui.screen.MainScreen
@@ -64,7 +64,8 @@ fun TestPreview() {
     Surface(
         modifier = Modifier.fillMaxSize()
     ) {
-        MainScreen(rememberNavController())
+        ScreenAppBar(title = "Test", navController = rememberNavController())
+        // MainScreen(rememberNavController())
     }
 }
 
@@ -102,70 +103,18 @@ fun ScreenAppBar(title: String, navController: NavController) {
     TopAppBar(
         modifier = Modifier
             .height(60.dp)
-            .fillMaxWidth(),
-        title = { Text(text = title) },
-        contentColor = MaterialTheme.colors.primary,
-        backgroundColor = Color.White,
+            .fillMaxWidth()
+            .background(DodamColor.White),
+        title = { Title2(text = title) },
         navigationIcon = {
-            kr.hs.dgsw.smartschool.components.component.button.IconButton(
+            IconButton(
                 icon = { IcLeftArrow(contentDescription = null) },
                 onClick = { navController.popBackStack() }
             )
         },
-        elevation = 12.dp,
+        elevation = 10.dp,
     )
 }
-
-/*@Composable
-fun ColumnItemCard(
-    item: Item,
-    navController: NavController
-) {
-    Card(
-        modifier = Modifier
-            .height(110.dp)
-            .width(320.dp)
-            .padding(vertical = 10.dp)
-            .clickable {
-                navController.navigate(item.route)
-            },
-        shape = MaterialTheme.shapes.small.copy(CornerSize(20.dp)),
-        elevation = 3.dp
-    ) {
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(all = 10.dp)
-        ) {
-            Row(
-                modifier = Modifier
-                    .height(20.dp)
-                    .fillMaxWidth(),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                ItemImage(
-                    item.icon
-                )
-                Title2(
-                    text = item.title,
-                    modifier = Modifier
-                        .width(200.dp)
-                        .padding(start = 10.dp),
-                    textAlign = TextAlign.Start,
-                )
-            }
-            Body3(
-                modifier = Modifier
-                    .padding(top = 10.dp, start = 10.dp)
-                    .fillMaxHeight(),
-                text = item.content,
-                textAlign = TextAlign.Start,
-                maxLines = 2
-            )
-        }
-    }
-}*/
-
 @Composable
 fun ItemImage(icon: Int) {
     Image(
