@@ -8,6 +8,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -15,6 +16,7 @@ import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.component.button.*
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.IcOut3D
+import kr.hs.dgsw.smartschool.components.theme.Label3
 import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
 
@@ -68,11 +70,23 @@ fun ButtonRow(
     Spacer(modifier = Modifier.height(30.dp))
     Title2(text = title)
     Spacer(modifier = Modifier.height(20.dp))
+    Row(verticalAlignment = Alignment.CenterVertically){
+        Label3(text = "Icon\nButton", textAlign = TextAlign.Center)
+        Spacer(modifier = Modifier.width(25.dp))
+        Label3(text = "Radio\nButton", textAlign = TextAlign.Center)
+        Spacer(modifier = Modifier.width(25.dp))
+        Label3(text = "Small\nRounded", textAlign = TextAlign.Center)
+        Spacer(modifier = Modifier.width(25.dp))
+        Label3(text = "Medium\nRounded", textAlign = TextAlign.Center)
+        Spacer(modifier = Modifier.width(25.dp))
+        Label3(text = "Large\nRounded", textAlign = TextAlign.Center)
+    }
+    Spacer(modifier = Modifier.height(20.dp))
     Row(verticalAlignment = Alignment.CenterVertically) {
         IconButton(icon = { IcOut3D(contentDescription = null) }, onClick = { onClick() }, type = type)
-        Spacer(modifier = Modifier.width(7.dp))
+        Spacer(modifier = Modifier.width(20.dp))
         RadioButton(selected = selected.value, onClick = { selected.value = !selected.value}, type = type)
-        Spacer(modifier = Modifier.width(7.dp))
+        Spacer(modifier = Modifier.width(20.dp))
         DodamSmallRoundedButton(onClick = { onClick() }, text = "Button", type = type)
         Spacer(modifier = Modifier.width(7.dp))
         DodamMediumRoundedButton(onClick = { onClick() }, text = "Button", type = type)
