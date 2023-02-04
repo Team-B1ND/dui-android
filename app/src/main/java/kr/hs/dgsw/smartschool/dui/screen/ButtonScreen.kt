@@ -1,7 +1,13 @@
 package kr.hs.dgsw.smartschool.dui.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -13,7 +19,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import kr.hs.dgsw.smartschool.components.component.button.*
+import kr.hs.dgsw.smartschool.components.component.button.ButtonType
+import kr.hs.dgsw.smartschool.components.component.button.DodamLargeRoundedButton
+import kr.hs.dgsw.smartschool.components.component.button.DodamMediumRoundedButton
+import kr.hs.dgsw.smartschool.components.component.button.DodamSmallRoundedButton
+import kr.hs.dgsw.smartschool.components.component.button.IconButton
+import kr.hs.dgsw.smartschool.components.component.button.RadioButton
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.IcOut3D
 import kr.hs.dgsw.smartschool.components.theme.Label3
@@ -64,13 +75,13 @@ fun ButtonRow(
     type: ButtonType,
     onClick: () -> Unit = {}
 ) {
-    var selected : MutableState<Boolean> = remember {
+    var selected: MutableState<Boolean> = remember {
         mutableStateOf(true)
     }
     Spacer(modifier = Modifier.height(30.dp))
     Title2(text = title)
     Spacer(modifier = Modifier.height(20.dp))
-    Row(verticalAlignment = Alignment.CenterVertically){
+    Row(verticalAlignment = Alignment.CenterVertically) {
         Label3(text = "Icon\nButton", textAlign = TextAlign.Center)
         Spacer(modifier = Modifier.width(25.dp))
         Label3(text = "Radio\nButton", textAlign = TextAlign.Center)
@@ -85,7 +96,7 @@ fun ButtonRow(
     Row(verticalAlignment = Alignment.CenterVertically) {
         IconButton(icon = { IcOut3D(contentDescription = null) }, onClick = { onClick() }, type = type)
         Spacer(modifier = Modifier.width(20.dp))
-        RadioButton(selected = selected.value, onClick = { selected.value = !selected.value}, type = type)
+        RadioButton(selected = selected.value, onClick = { selected.value = !selected.value }, type = type)
         Spacer(modifier = Modifier.width(20.dp))
         DodamSmallRoundedButton(onClick = { onClick() }, text = "Button", type = type)
         Spacer(modifier = Modifier.width(7.dp))
