@@ -269,7 +269,6 @@ fun SelectAreaDecoration(
             Box(modifier = Modifier.padding(start = 12.dp)) {
                 trailingIcon()
             }
-
         }
     }
 }
