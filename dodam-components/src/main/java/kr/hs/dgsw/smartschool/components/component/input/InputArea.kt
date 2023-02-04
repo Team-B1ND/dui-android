@@ -145,7 +145,7 @@ fun InputAreaDecoration(
     }
 }
 
-fun stateAsInputAreaType(
+private fun stateAsInputAreaType(
     isFocused: Boolean,
     currentValue: String,
     isError: Boolean,
@@ -161,7 +161,7 @@ fun stateAsInputAreaType(
     }
 
 @Composable
-fun getInputAreaColorByType(
+private fun getInputAreaColorByType(
     inputAreaType: InputAreaType,
     focusColor: Color,
     isLabel: Boolean = true,

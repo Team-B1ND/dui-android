@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -26,9 +25,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.onFocusChanged
@@ -51,6 +48,12 @@ import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
 
+sealed interface SelectAreaType {
+    object Default : SelectAreaType
+    object Focus : SelectAreaType
+    object UnFocus : SelectAreaType
+    object Error : SelectAreaType
+}
 @Composable
 fun SelectArea(
     itemList: List<String>,
@@ -178,14 +181,14 @@ private fun SelectInputArea(
     val mergedTextStyle = textStyle.merge(TextStyle(color = textColor))
     val focusRequester by remember { mutableStateOf(FocusRequester()) }
 
-    var currentInputType: InputAreaType by remember { mutableStateOf(InputAreaType.Default) }
+    var currentSelectAreaType: SelectAreaType by remember { mutableStateOf(SelectAreaType.Default) }
 
     Column {
         if (topLabel.isNotBlank())
             Body3(
                 text = topLabel,
-                textColor = getInputAreaColorByType(
-                    inputAreaType = currentInputType,
+                textColor = getSelectAreaColorByType(
+                    selectAreaType = currentSelectAreaType,
                     focusColor = focusColor,
                 )
             )
@@ -198,7 +201,7 @@ private fun SelectInputArea(
                 .width(IntrinsicSize.Max)
                 .focusRequester(focusRequester)
                 .onFocusChanged {
-                    currentInputType = stateAsInputAreaType(it.isFocused, value, isError)
+                    currentSelectAreaType = stateAsSelectAreaType(it.isFocused, value, isError)
                 },
             enabled = enabled,
             textStyle = mergedTextStyle,
@@ -211,7 +214,7 @@ private fun SelectInputArea(
             readOnly = readOnly,
             decorationBox = @Composable { innerTextField ->
                 SelectAreaDecoration(
-                    inputAreaType = currentInputType,
+                    selectAreaType = currentSelectAreaType,
                     trailingIcon = trailingIcon,
                     hint = hint,
                     innerTextField = innerTextField,
@@ -224,8 +227,8 @@ private fun SelectInputArea(
         if (bottomLabel.isNotBlank())
             Body3(
                 text = bottomLabel,
-                textColor = getInputAreaColorByType(
-                    inputAreaType = currentInputType,
+                textColor = getSelectAreaColorByType(
+                    selectAreaType = currentSelectAreaType,
                     focusColor = focusColor,
                 )
             )
@@ -234,7 +237,7 @@ private fun SelectInputArea(
 
 @Composable
 fun SelectAreaDecoration(
-    inputAreaType: InputAreaType,
+    selectAreaType: SelectAreaType,
     trailingIcon: @Composable () -> Unit,
     hint: String,
     innerTextField: @Composable () -> Unit,
@@ -252,7 +255,7 @@ fun SelectAreaDecoration(
             verticalAlignment = Alignment.CenterVertically
         ) {
 
-            if (inputAreaType is InputAreaType.Default)
+            if (selectAreaType is SelectAreaType.Default)
                 Body2(
                     text = hint,
                     textColor = DodamTheme.color.Gray200,
@@ -270,6 +273,34 @@ fun SelectAreaDecoration(
         }
     }
 }
+
+private fun stateAsSelectAreaType(
+    isFocused: Boolean,
+    currentValue: String,
+    isError: Boolean,
+): SelectAreaType =
+    if (isError) {
+        SelectAreaType.Error
+    } else if (isFocused) {
+        SelectAreaType.Focus
+    } else if (currentValue.isBlank()) {
+        SelectAreaType.Default
+    } else {
+        SelectAreaType.UnFocus
+    }
+
+@Composable
+private fun getSelectAreaColorByType(
+    selectAreaType: SelectAreaType,
+    focusColor: Color,
+    isLabel: Boolean = true,
+): Color =
+    when (selectAreaType) {
+        SelectAreaType.Default -> if (isLabel) DodamTheme.color.Black else DodamTheme.color.Gray200
+        SelectAreaType.UnFocus -> DodamTheme.color.Black
+        SelectAreaType.Focus -> focusColor
+        SelectAreaType.Error -> DodamTheme.color.Error
+    }
 
 @Preview(showBackground = true)
 @Composable
