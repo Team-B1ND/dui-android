@@ -51,6 +51,20 @@ fun IcRightArrow(
 }
 
 @Composable
+fun IcCheck(
+    contentDescription: String?,
+    modifier: Modifier = Modifier,
+    tint: Color = Color.Unspecified,
+) {
+    Icon(
+        painter = painterResource(id = R.drawable.ic_check),
+        contentDescription = contentDescription,
+        modifier = modifier,
+        tint = tint
+    )
+}
+
+@Composable
 fun IcHome(
     contentDescription: String?,
     modifier: Modifier = Modifier,
