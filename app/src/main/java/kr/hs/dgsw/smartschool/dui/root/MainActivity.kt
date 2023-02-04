@@ -92,10 +92,10 @@ fun Navigation(
         composable("icon") {
             IconScreen(navController)
         }
-        composable("shape"){
+        composable("shape") {
             ShapeScreen(navController)
         }
-        composable("button"){
+        composable("button") {
             ButtonScreen(navController)
         }
     }
