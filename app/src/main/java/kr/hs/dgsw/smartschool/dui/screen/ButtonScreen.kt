@@ -41,17 +41,17 @@ fun ButtonScreen(
                 .background(DodamColor.White),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            ButtonRow(title = "Primary Button", type = ButtonType.Primary)
-            ButtonRow(title = "Primary Button", type = ButtonType.PrimaryVariant)
-            ButtonRow(title = "Primary Button", type = ButtonType.Secondary)
-            ButtonRow(title = "Primary Button", type = ButtonType.SecondaryVariant)
-            ButtonRow(title = "Primary Button", type = ButtonType.LostFound)
-            ButtonRow(title = "Primary Button", type = ButtonType.Itmap)
-            ButtonRow(title = "Primary Button", type = ButtonType.MyInfo)
-            ButtonRow(title = "Primary Button", type = ButtonType.Schedule)
-            ButtonRow(title = "Primary Button", type = ButtonType.Song)
-            ButtonRow(title = "Primary Button", type = ButtonType.Danger)
-            ButtonRow(title = "Primary Button", type = ButtonType.Disable)
+            ButtonRow(title = "Primary", type = ButtonType.Primary)
+            ButtonRow(title = "Primary Variant", type = ButtonType.PrimaryVariant)
+            ButtonRow(title = "Secondary", type = ButtonType.Secondary)
+            ButtonRow(title = "Secondary Variant", type = ButtonType.SecondaryVariant)
+            ButtonRow(title = "LostFound", type = ButtonType.LostFound)
+            ButtonRow(title = "Itmap", type = ButtonType.Itmap)
+            ButtonRow(title = "MyInfo", type = ButtonType.MyInfo)
+            ButtonRow(title = "Schedule", type = ButtonType.Schedule)
+            ButtonRow(title = "Song", type = ButtonType.Song)
+            ButtonRow(title = "Danger", type = ButtonType.Danger)
+            ButtonRow(title = "Disable", type = ButtonType.Disable)
         }
     }
 }
