@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -51,8 +53,9 @@ fun ButtonScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(20.dp)
-                .background(DodamColor.White),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .background(DodamColor.White)
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             ButtonRow(title = "Primary", type = ButtonType.Primary)
             ButtonRow(title = "Primary Variant", type = ButtonType.PrimaryVariant)
