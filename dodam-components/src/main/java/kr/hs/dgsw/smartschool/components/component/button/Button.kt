@@ -43,7 +43,6 @@ sealed interface ButtonType {
     object SecondaryVariant : ButtonType
     object Danger : ButtonType
     object Disable : ButtonType
-
     object Song : ButtonType
     object Schedule : ButtonType
     object LostFound : ButtonType
