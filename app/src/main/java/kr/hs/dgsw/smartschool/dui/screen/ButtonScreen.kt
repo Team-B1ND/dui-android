@@ -60,21 +60,23 @@ fun ButtonScreen(
 fun ButtonRow(
     title : String,
     type: ButtonType,
-    onClick : @Composable (()-> Unit) = {}
+    onClick : () -> Unit ={}
 ){
     Spacer(modifier = Modifier.height(30.dp))
     Title2(text = title)
     Spacer(modifier = Modifier.height(20.dp))
     Row(verticalAlignment = Alignment.CenterVertically){
-        IconButton(icon = { IcOut3D(contentDescription = null) }, onClick = { /*TODO*/ }, type = type)
+        IconButton(icon = { IcOut3D(contentDescription = null) }, onClick = { onClick() }, type = type)
         Spacer(modifier = Modifier.width(7.dp))
-        RadioButton(selected = true, onClick = { /*TODO*/ }, type = type)
+        RadioButton(selected = true, onClick = { onClick()}, type = type)
         Spacer(modifier = Modifier.width(7.dp))
-        DodamSmallRoundedButton(onClick = {}, text = "Button", type = type)
+        DodamSmallRoundedButton(onClick = {onClick()}, text = "Button", type = type)
         Spacer(modifier = Modifier.width(7.dp))
-        DodamMediumRoundedButton(onClick = {}, text = "Button", type = type)
+        DodamMediumRoundedButton(onClick = {onClick()}, text = "Button", type = type)
         Spacer(modifier = Modifier.width(7.dp))
-        DodamLargeRoundedButton(onClick = {}, text = "Button", type = type)
+        DodamLargeRoundedButton(onClick = {onClick()}, text = "Button", type = type)
     }
 }
+
+
 

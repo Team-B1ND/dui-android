@@ -30,10 +30,7 @@ import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
 import kr.hs.dgsw.smartschool.components.theme.Title2
-import kr.hs.dgsw.smartschool.dui.screen.ColorScreen
-import kr.hs.dgsw.smartschool.dui.screen.IconScreen
-import kr.hs.dgsw.smartschool.dui.screen.MainScreen
-import kr.hs.dgsw.smartschool.dui.screen.TypoScreen
+import kr.hs.dgsw.smartschool.dui.screen.*
 
 @ExperimentalFoundationApi
 class MainActivity : ComponentActivity() {
@@ -94,6 +91,12 @@ fun Navigation(
         }
         composable("icon") {
             IconScreen(navController)
+        }
+        composable("shape"){
+            ShapeScreen(navController)
+        }
+        composable("button"){
+            ButtonScreen(navController)
         }
     }
 }
