@@ -9,6 +9,20 @@ import kr.hs.dgsw.smartschool.components.foundation.Icon
 import kr.hs.smartschool.components.R
 
 @Composable
+fun IcBackArrow(
+    contentDescription: String?,
+    modifier: Modifier = Modifier,
+    tint: Color = Color.Unspecified,
+) {
+    Icon(
+        painter = painterResource(id = R.drawable.ic_back_arrow),
+        contentDescription = contentDescription,
+        modifier = modifier,
+        tint = tint
+    )
+}
+
+@Composable
 fun IcLeftArrow(
     contentDescription: String?,
     modifier: Modifier = Modifier,
