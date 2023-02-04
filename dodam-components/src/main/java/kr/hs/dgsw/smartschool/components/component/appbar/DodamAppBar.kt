@@ -24,7 +24,6 @@ import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcBackArrow
 import kr.hs.dgsw.smartschool.components.theme.IcDelete
-import kr.hs.dgsw.smartschool.components.theme.IcUser
 import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 
 @Composable
@@ -55,11 +54,11 @@ fun DodamAppBar(
             startIcon?.let {
                 it()
             } ?: IcBackArrow(
-                    modifier = Modifier
-                        .size(DodamDimen.AppBarDefaultIconSize),
-                    tint = DodamTheme.color.Black,
-                    contentDescription = null,
-                )
+                modifier = Modifier
+                    .size(DodamDimen.AppBarDefaultIconSize),
+                tint = DodamTheme.color.Black,
+                contentDescription = null,
+            )
         }
         title?.let {
             Text(
@@ -80,7 +79,6 @@ fun DodamAppBar(
                 it()
             }
         }
-
     }
 }
 

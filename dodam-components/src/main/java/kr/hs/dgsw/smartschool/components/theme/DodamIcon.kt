@@ -8,7 +8,6 @@ import androidx.compose.ui.res.painterResource
 import kr.hs.dgsw.smartschool.components.foundation.Icon
 import kr.hs.smartschool.components.R
 
-
 @Composable
 fun IcBackArrow(
     contentDescription: String?,
