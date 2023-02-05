@@ -28,7 +28,7 @@ import kr.hs.dgsw.smartschool.components.component.button.DodamSmallRoundedButto
 import kr.hs.dgsw.smartschool.components.component.button.IconButton
 import kr.hs.dgsw.smartschool.components.component.button.RadioButton
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
-import kr.hs.dgsw.smartschool.components.theme.IcOut3D
+import kr.hs.dgsw.smartschool.components.theme.IcAdd
 import kr.hs.dgsw.smartschool.components.theme.Label3
 import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
@@ -78,7 +78,7 @@ fun ButtonRow(
     type: ButtonType,
     onClick: () -> Unit = {}
 ) {
-    var selected: MutableState<Boolean> = remember {
+    val selected: MutableState<Boolean> = remember {
         mutableStateOf(true)
     }
     Spacer(modifier = Modifier.height(30.dp))
@@ -97,7 +97,7 @@ fun ButtonRow(
     }
     Spacer(modifier = Modifier.height(20.dp))
     Row(verticalAlignment = Alignment.CenterVertically) {
-        IconButton(icon = { IcOut3D(contentDescription = null) }, onClick = { onClick() }, type = type)
+        IconButton(icon = { IcAdd(contentDescription = null) }, onClick = { onClick() }, type = type)
         Spacer(modifier = Modifier.width(20.dp))
         RadioButton(selected = selected.value, onClick = { selected.value = !selected.value }, type = type)
         Spacer(modifier = Modifier.width(20.dp))
