@@ -82,7 +82,8 @@ fun TypoScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(DodamColor.White),
+            .background(DodamColor.White)
+            .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         ScreenAppBar(title = "TypoScreen", navController = navController)
