@@ -1,10 +1,7 @@
 package kr.hs.dgsw.smartschool.dui.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -22,6 +19,7 @@ import kr.hs.dgsw.smartschool.components.component.input.InputDecoration
 import kr.hs.dgsw.smartschool.components.component.input.InputType
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.IcSearch
+import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.DataSet
 import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
 
@@ -40,7 +38,7 @@ fun InputScreen(
             .fillMaxSize()
             .background(DodamColor.White)
     ) {
-        ScreenAppBar(title = "IconScreen", navController = navController)
+        ScreenAppBar(title = "InputScreen", navController = navController)
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -56,18 +54,13 @@ fun InputScreen(
                 focusColor = DodamColor.MainColor,
                 icon = { IcSearch(contentDescription = null) }
             )
-
+            Spacer(modifier = Modifier.height(20.dp))
             TestInputDecorationArea(
                 modifier = Modifier,
                 inputType = InputType.Default,
-                focusColor = DodamColor.MainColor
-            ){}
-
-            TestInputDecorationArea(
-                modifier = Modifier,
-                inputType = InputType.Error.Default,
-                focusColor = DodamColor.MainColor
-            ){}
+                focusColor = DodamColor.MainColor,
+                icon = { IcSearch(contentDescription = null) }
+            )
         }
     }
 }
@@ -82,32 +75,31 @@ fun TestInputArea(
     val text = remember {
         mutableStateOf("")
     }
+    Spacer(modifier = Modifier.height(20.dp))
+    Title2(text = "Input")
+    Spacer(modifier = Modifier.height(20.dp))
     Column(modifier = modifier) {
         Input(
             value = text.value,
             onValueChange = { text.value = it },
             hint = hint,
-            focusColor = focusColor
+            focusColor = focusColor,
+            modifier = Modifier.fillMaxWidth()
         )
         Input(
             value = text.value,
             onValueChange = { text.value = it },
             hint = hint,
             focusColor = focusColor,
-            trailingIcon = icon
+            trailingIcon = icon,
+            modifier = Modifier.fillMaxWidth()
         )
         Input(
             value = text.value,
             onValueChange = { text.value = it },
             hint = hint,
             focusColor = focusColor,
-            leadingIcon = icon
-        )
-        Input(
-            value = text.value,
-            onValueChange = { text.value = it },
-            hint = "modifier을 통해 사이즈 조절 가능",
-            focusColor = focusColor,
+            leadingIcon = icon,
             modifier = Modifier.fillMaxWidth()
         )
     }
@@ -125,6 +117,9 @@ fun TestInputDecorationArea(
     val text = remember {
         mutableStateOf("")
     }
+    Spacer(modifier = Modifier.height(20.dp))
+    Title2(text = "InputDecoration")
+    Spacer(modifier = Modifier.height(20.dp))
     Column(modifier = modifier) {
         InputDecoration(
             inputType = inputType,
