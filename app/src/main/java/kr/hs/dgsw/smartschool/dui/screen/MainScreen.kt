@@ -23,8 +23,6 @@ import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.Title1
 import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.DataSet
-import kr.hs.dgsw.smartschool.dui.Item
-import kr.hs.dgsw.smartschool.dui.Text
 import kr.hs.dgsw.smartschool.dui.root.ItemImage
 
 @Preview(showBackground = true)
@@ -51,7 +49,7 @@ fun MainScreen(
 }
 @Composable
 fun ColumnList(
-    list: List<Item>,
+    list: List<DataSet.Item>,
     navController: NavController
 ) {
     Column(
@@ -61,7 +59,7 @@ fun ColumnList(
             .background(DodamColor.Background)
     ) {
         Title1(
-            text = Text.DUI_TITLE,
+            text = DataSet.Text.DUI_TITLE,
             modifier = Modifier
                 .padding(
                     start = 35.dp,
@@ -70,7 +68,7 @@ fun ColumnList(
                 )
         )
         Title2(
-            text = Text.DUI_DESCRIPTION,
+            text = DataSet.Text.DUI_DESCRIPTION,
             modifier = Modifier
                 .padding(
                     start = 35.dp,

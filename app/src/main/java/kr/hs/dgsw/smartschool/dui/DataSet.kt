@@ -26,16 +26,18 @@ object DataSet {
 
 
         )
-}
 
-object Text {
-    const val DUI_TITLE = "DUI Preview"
-    const val DUI_DESCRIPTION = "도담 디자인 시스템"
-}
+    object Text {
+        const val DUI_TITLE = "DUI Preview"
+        const val DUI_DESCRIPTION = "도담 디자인 시스템"
 
-data class Item(
-    val icon: Int,
-    val title: String,
-    val content: String,
-    val route: String
-)
+        const val TEXT_HINT = "값을 입력해주세요"
+    }
+
+    data class Item(
+        val icon: Int,
+        val title: String,
+        val content: String,
+        val route: String
+    )
+}
