@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import kr.hs.dgsw.smartschool.components.component.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.component.basic.Surface
 import kr.hs.dgsw.smartschool.components.component.input.Input
 import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
@@ -86,7 +87,7 @@ fun TypoScreen(
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        ScreenAppBar(title = "TypoScreen", navController = navController)
+        DodamAppBar(title = "Typo", onStartIconClick = {navController.popBackStack()})
         Spacer(modifier = Modifier.height(20.dp))
         Input(
             value = textState.value,

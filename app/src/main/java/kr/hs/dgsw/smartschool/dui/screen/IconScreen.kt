@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import kr.hs.dgsw.smartschool.components.component.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.IcAdd
@@ -66,7 +67,7 @@ fun IconScreen(
             .fillMaxSize()
             .background(DodamColor.White)
     ) {
-        ScreenAppBar(title = "IconScreen", navController = navController)
+        DodamAppBar(title = "Input", onStartIconClick = {navController.popBackStack()})
         Column(
             modifier = Modifier
                 .fillMaxSize()

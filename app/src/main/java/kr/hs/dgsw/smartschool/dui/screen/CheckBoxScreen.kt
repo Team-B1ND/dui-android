@@ -15,6 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import kr.hs.dgsw.smartschool.components.component.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
 
@@ -33,7 +34,7 @@ fun CheckBoxScreen(
             .fillMaxSize()
             .background(DodamColor.White)
     ) {
-        ScreenAppBar(title = "IconScreen", navController = navController)
+        DodamAppBar(title = "Check BOx", onStartIconClick = {navController.popBackStack()})
         Column(
             modifier = Modifier
                 .fillMaxSize()

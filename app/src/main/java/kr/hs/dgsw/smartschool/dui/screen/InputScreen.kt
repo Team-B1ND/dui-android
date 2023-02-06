@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import kr.hs.dgsw.smartschool.components.component.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.component.input.Input
 import kr.hs.dgsw.smartschool.components.component.input.InputDecoration
 import kr.hs.dgsw.smartschool.components.component.input.InputType
@@ -21,7 +22,7 @@ import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.IcSearch
 import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.DataSet
-import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
+
 
 @Composable
 @Preview(showBackground = true)
@@ -38,7 +39,7 @@ fun InputScreen(
             .fillMaxSize()
             .background(DodamColor.White)
     ) {
-        ScreenAppBar(title = "InputScreen", navController = navController)
+        DodamAppBar(title = "Input", onStartIconClick = {navController.popBackStack()})
         Column(
             modifier = Modifier
                 .fillMaxSize()
