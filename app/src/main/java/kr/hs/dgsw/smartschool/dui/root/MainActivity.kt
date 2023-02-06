@@ -101,7 +101,7 @@ fun Navigation(
         composable("input"){
             InputScreen(navController)
         }
-        composable("selectArea"){
+        composable("select"){
             SelectScreen(navController)
         }
         composable("tab"){

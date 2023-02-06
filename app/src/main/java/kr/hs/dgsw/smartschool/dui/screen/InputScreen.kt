@@ -39,7 +39,10 @@ fun InputScreen(
             .fillMaxSize()
             .background(DodamColor.White)
     ) {
-        DodamAppBar(title = "Input", onStartIconClick = {navController.popBackStack()})
+        DodamAppBar(
+            title = "Input",
+            onStartIconClick = { navController.popBackStack() },
+            )
         Column(
             modifier = Modifier
                 .fillMaxSize()

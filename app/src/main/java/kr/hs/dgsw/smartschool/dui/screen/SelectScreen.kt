@@ -34,7 +34,7 @@ fun SelectScreen(
             .fillMaxSize()
             .background(DodamColor.White)
     ) {
-        DodamAppBar(title = "Select", onStartIconClick = {navController.popBackStack()})
+        DodamAppBar(title = "Select", onStartIconClick = { navController.popBackStack() })
         Column(
             modifier = Modifier
                 .fillMaxSize()
