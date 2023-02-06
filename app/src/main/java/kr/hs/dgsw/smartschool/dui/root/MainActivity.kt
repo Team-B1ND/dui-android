@@ -30,12 +30,7 @@ import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
 import kr.hs.dgsw.smartschool.components.theme.Title2
-import kr.hs.dgsw.smartschool.dui.screen.ButtonScreen
-import kr.hs.dgsw.smartschool.dui.screen.ColorScreen
-import kr.hs.dgsw.smartschool.dui.screen.IconScreen
-import kr.hs.dgsw.smartschool.dui.screen.MainScreen
-import kr.hs.dgsw.smartschool.dui.screen.ShapeScreen
-import kr.hs.dgsw.smartschool.dui.screen.TypoScreen
+import kr.hs.dgsw.smartschool.dui.screen.*
 
 @ExperimentalFoundationApi
 class MainActivity : ComponentActivity() {
@@ -102,6 +97,36 @@ fun Navigation(
         }
         composable("button") {
             ButtonScreen(navController)
+        }
+        composable("input"){
+            InputScreen(navController)
+        }
+        composable("selectArea"){
+            SelectScreen(navController)
+        }
+        composable("tab"){
+            TabScreen(navController)
+        }
+        composable("avatar"){
+            AvatarScreen(navController)
+        }
+        composable("banner"){
+            BannerScreen(navController)
+        }
+        composable("bottomSheet"){
+            BottomSheetScreen(navController)
+        }
+        composable("calender"){
+            CalenderScreen(navController)
+        }
+        composable("appBar"){
+            AppBarScreen(navController)
+        }
+        composable("checkBox"){
+            CheckBoxScreen(navController)
+        }
+        composable("switch"){
+            SwitchScreen(navController)
         }
     }
 }

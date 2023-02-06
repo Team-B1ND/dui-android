@@ -39,12 +39,12 @@ import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
 
 @Composable
 @Preview(showBackground = true)
-fun InputPreview() {
+fun AppBarPreview() {
     InputScreen(navController = rememberNavController())
 }
 
 @Composable
-fun InputScreen(
+fun AppBarScreen(
     navController: NavController
 ) {
     val text = remember {
@@ -64,12 +64,7 @@ fun InputScreen(
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Input(value = text.value, onValueChange = { text.value = it}, hint = "값을 입력해주세요")
-            InputDecoration(inputType = InputType.Default, hint = "ㅆㄴㅅㄴㄴ", focusColor = DodamColor.Error, innerTextField = {
-                Input(value = text.value, onValueChange = { text.value = it}, hint = "값을 입력해주세요")
-            }) {
 
-            }
         }
     }
 }
