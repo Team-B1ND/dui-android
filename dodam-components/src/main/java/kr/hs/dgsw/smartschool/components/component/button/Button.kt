@@ -7,6 +7,7 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.Spacer
@@ -79,7 +80,6 @@ fun Button(
         Row(
             modifier = Modifier.padding(
                 horizontal = 16.dp,
-                vertical = 12.dp,
             ),
             horizontalArrangement = Arrangement.Center,
             verticalAlignment = Alignment.CenterVertically,
@@ -88,7 +88,12 @@ fun Button(
                 iconLeft()
                 Spacer(modifier = Modifier.width(8.dp))
             }
-            content()
+            Row(
+                modifier = Modifier.padding(vertical = 10.dp)
+            ) {
+                content()
+            }
+
             iconRight?.let {
                 Spacer(modifier = Modifier.width(8.dp))
                 iconRight()
