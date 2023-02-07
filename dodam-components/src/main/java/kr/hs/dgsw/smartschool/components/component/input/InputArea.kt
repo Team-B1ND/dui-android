@@ -43,7 +43,7 @@ sealed interface InputAreaType {
 }
 
 @Composable
-fun InputArea(
+fun TestInputArea(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -186,7 +186,7 @@ fun InputAreaPreview() {
             .padding(20.dp)
             .fillMaxSize()
     ) {
-        InputArea(
+        TestInputArea(
             value = testValue,
             onValueChange = { testValue = it },
             hint = "Hello World",
@@ -194,7 +194,7 @@ fun InputAreaPreview() {
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        InputArea(
+        TestInputArea(
             value = testValue2,
             onValueChange = { testValue2 = it },
             topLabel = "Top Label",
@@ -203,7 +203,7 @@ fun InputAreaPreview() {
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        InputArea(
+        TestInputArea(
             value = testValue3,
             onValueChange = { testValue3 = it },
             modifier = Modifier
