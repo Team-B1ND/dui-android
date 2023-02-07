@@ -32,7 +32,6 @@ import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.R
 import kr.hs.dgsw.smartschool.dui.root.ItemImage
-import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
 
 @Composable
 @Preview(showBackground = true)
@@ -54,7 +53,7 @@ fun ColorScreen(
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        DodamAppBar(title = "Color", onStartIconClick = {navController.popBackStack()})
+        DodamAppBar(title = "Color", onStartIconClick = { navController.popBackStack() })
 
         Column(
             modifier = Modifier

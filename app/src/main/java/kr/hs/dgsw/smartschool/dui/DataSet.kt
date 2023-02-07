@@ -24,8 +24,7 @@ object DataSet {
         Item(R.drawable.ic_info_3d, "Check Box", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "checkBox"),
         Item(R.drawable.ic_info_3d, "Switch", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "switch"),
 
-
-        )
+    )
 
     object Text {
         const val DUI_TITLE = "DUI Preview"

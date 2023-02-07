@@ -50,7 +50,6 @@ import kr.hs.dgsw.smartschool.components.theme.IcUser
 import kr.hs.dgsw.smartschool.components.theme.IcX
 import kr.hs.dgsw.smartschool.components.theme.Label3
 import kr.hs.dgsw.smartschool.components.theme.Title2
-import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
 
 @Composable
 @Preview(showBackground = true)
@@ -67,7 +66,7 @@ fun IconScreen(
             .fillMaxSize()
             .background(DodamColor.White)
     ) {
-        DodamAppBar(title = "Input", onStartIconClick = {navController.popBackStack()})
+        DodamAppBar(title = "Input", onStartIconClick = { navController.popBackStack() })
         Column(
             modifier = Modifier
                 .fillMaxSize()

@@ -1,7 +1,12 @@
 package kr.hs.dgsw.smartschool.dui.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -16,13 +21,10 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.component.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.component.input.Input
-import kr.hs.dgsw.smartschool.components.component.input.InputDecoration
-import kr.hs.dgsw.smartschool.components.component.input.InputType
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.IcSearch
 import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.DataSet
-
 
 @Composable
 @Preview(showBackground = true)
@@ -42,7 +44,7 @@ fun InputScreen(
         DodamAppBar(
             title = "Input",
             onStartIconClick = { navController.popBackStack() },
-            )
+        )
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -65,10 +67,10 @@ fun InputScreen(
 @Composable
 fun TestInputArea(
     modifier: Modifier,
-    hint : String = DataSet.Text.TEXT_HINT,
-    focusColor : Color,
-    icon : (@Composable () -> Unit)
-){
+    hint: String = DataSet.Text.TEXT_HINT,
+    focusColor: Color,
+    icon: (@Composable () -> Unit)
+) {
     val text = remember {
         mutableStateOf("")
     }
@@ -100,5 +102,4 @@ fun TestInputArea(
             modifier = Modifier.fillMaxWidth()
         )
     }
-
 }

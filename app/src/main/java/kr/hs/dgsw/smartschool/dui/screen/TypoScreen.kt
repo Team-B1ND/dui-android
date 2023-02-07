@@ -42,7 +42,6 @@ import kr.hs.dgsw.smartschool.components.theme.Label3
 import kr.hs.dgsw.smartschool.components.theme.Title1
 import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.components.theme.Title3
-import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
 
 @Composable
 @Preview(showBackground = true)
@@ -87,7 +86,7 @@ fun TypoScreen(
             .verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        DodamAppBar(title = "Typo", onStartIconClick = {navController.popBackStack()})
+        DodamAppBar(title = "Typo", onStartIconClick = { navController.popBackStack() })
         Spacer(modifier = Modifier.height(20.dp))
         Input(
             value = textState.value,
