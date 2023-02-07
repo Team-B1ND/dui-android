@@ -48,7 +48,7 @@ fun TabScreen(
             .fillMaxSize()
             .background(DodamColor.Background)
     ) {
-        DodamAppBar(onStartIconClick = { navController.popBackStack()}, title = "Tab")
+        DodamAppBar(onStartIconClick = { navController.popBackStack() }, title = "Tab")
         Column(
             modifier = Modifier
                 .fillMaxSize()
