@@ -53,18 +53,11 @@ fun InputScreen(
         ) {
             TestInputArea(
                 modifier = Modifier
-                    .fillMaxSize()
-                ,
+                    .fillMaxSize(),
                 focusColor = DodamColor.MainColor,
                 icon = { IcSearch(contentDescription = null) }
             )
             Spacer(modifier = Modifier.height(20.dp))
-            TestInputDecorationArea(
-                modifier = Modifier,
-                inputType = InputType.Default,
-                focusColor = DodamColor.MainColor,
-                icon = { IcSearch(contentDescription = null) }
-            )
         }
     }
 }
@@ -109,61 +102,3 @@ fun TestInputArea(
     }
 
 }
-
-@Composable
-fun TestInputDecorationArea(
-    modifier: Modifier,
-    inputType: InputType,
-    hint : String = DataSet.Text.TEXT_HINT,
-    focusColor : Color,
-    icon : (@Composable () -> Unit)
-){
-    val text = remember {
-        mutableStateOf("")
-    }
-    Spacer(modifier = Modifier.height(20.dp))
-    Title2(text = "InputDecoration")
-    Spacer(modifier = Modifier.height(20.dp))
-    Column(modifier = modifier) {
-        InputDecoration(
-            inputType = inputType,
-            hint = hint,
-            focusColor = focusColor,
-            innerTextField = {
-                Input(
-                    value = text.value,
-                    onValueChange = { text.value = it},
-                    hint = hint
-                )
-            }
-        )
-        InputDecoration(
-            inputType = inputType,
-            hint = hint,
-            focusColor = focusColor,
-            innerTextField = {
-                Input(
-                    value = text.value,
-                    onValueChange = { text.value = it},
-                    hint = hint
-                )
-            },
-            trailingIcon = icon
-        )
-        InputDecoration(
-            inputType = inputType,
-            hint = hint,
-            focusColor = focusColor,
-            innerTextField = {
-                Input(
-                    value = text.value,
-                    onValueChange = { text.value = it},
-                    hint = hint
-                )
-            },
-            leadingIcon = icon
-        )
-    }
-
-}
-
