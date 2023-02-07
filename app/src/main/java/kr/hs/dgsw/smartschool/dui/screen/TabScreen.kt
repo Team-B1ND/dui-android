@@ -27,7 +27,7 @@ import kr.hs.dgsw.smartschool.dui.root.ScreenAppBar
 @Composable
 @Preview(showBackground = true)
 fun TabPreview() {
-    ButtonScreen(navController = rememberNavController())
+    TabScreen(navController = rememberNavController())
 }
 
 @Composable
