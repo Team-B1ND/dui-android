@@ -58,8 +58,29 @@ sealed interface InputType {
     }
 }
 
+/**
+ * Dodam Input, can write some text
+ *
+ * @param value text in field
+ * @param onValueChange when value change callback
+ * @param hint input guide
+ * @param modifier
+ * @param isError error state, write condition!
+ * @param errorMessage message to guide error state, placed bottom
+ * @param enabled input area enabled state
+ * @param textColor color of text
+ * @param singleLine just write one line?
+ * @param maxLines count lines
+ * @param textStyle style of text
+ * @param focusColor color when focus to this input area
+ * @param readOnly just read?
+ * @param trailingIcon icon placed end
+ * @param visualTransformation
+ * @param keyboardOptions
+ * @param keyboardActions
+ */
 @Composable
-fun Input(
+fun DodamInput(
     value: String,
     onValueChange: (String) -> Unit,
     hint: String,
@@ -270,7 +291,7 @@ fun InputPreview() {
             .padding(20.dp)
             .fillMaxSize()
     ) {
-        Input(
+        DodamInput(
             value = testValue,
             onValueChange = { testValue = it },
             hint = "Hello World",
@@ -278,7 +299,7 @@ fun InputPreview() {
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        Input(
+        DodamInput(
             value = testValue2,
             onValueChange = { testValue2 = it },
             hint = "Input Some Text",
@@ -289,7 +310,7 @@ fun InputPreview() {
 
         var testValue3 by remember { mutableStateOf("") }
 
-        Input(
+        DodamInput(
             value = testValue3,
             onValueChange = {
                 testValue3 = it

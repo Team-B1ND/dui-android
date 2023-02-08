@@ -37,12 +37,30 @@ import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
 
+/**
+ * Dodam Select Area, can select item in area
+ *
+ * @param itemList list of item, select in here!
+ * @param hint select guide
+ * @param modifier
+ * @param onValueChange when value change callback
+ * @param focusColor color when focus to this input area
+ * @param enabled input area enabled state
+ * @param isError error state, write condition!
+ * @param errorMessage message to guide error, placed bottom
+ * @param textColor color of text
+ * @param textStyle style of text
+ * @param readOnly just read?
+ * @param rippleColor
+ * @param rippleEnable
+ * @param bounded
+ * @param onItemClickListener when click item callback(item name)
+ */
 @Composable
-fun Select(
+fun DodamSelect(
     itemList: List<String>,
     hint: String,
     modifier: Modifier = Modifier,
-    onItemClickListener: (String) -> Unit = {},
     onValueChange: (String) -> Unit = {},
     focusColor: Color = DodamColor.MainColor400,
     enabled: Boolean = true,
@@ -54,6 +72,7 @@ fun Select(
     rippleColor: Color = Color.Unspecified,
     rippleEnable: Boolean = false,
     bounded: Boolean = true,
+    onItemClickListener: (String) -> Unit = {},
 ) {
     var expanded by remember { mutableStateOf(false) }
     var selectedItem by remember { mutableStateOf("") }
@@ -62,7 +81,7 @@ fun Select(
     val focusRequester = remember { FocusRequester() }
 
     Column {
-        Input(
+        DodamInput(
             value = selectedItem,
             onValueChange = {
                 selectedItem = it
@@ -150,7 +169,7 @@ fun SelectPreview() {
             .padding(20.dp)
             .fillMaxSize()
     ) {
-        Select(
+        DodamSelect(
             itemList = sampleList,
             onItemClickListener = { Toast.makeText(context, it, Toast.LENGTH_SHORT).show() },
             hint = "Hello World",
@@ -159,7 +178,7 @@ fun SelectPreview() {
         Spacer(modifier = Modifier.height(20.dp))
 
         val isError = remember { mutableStateOf(false) }
-        Select(
+        DodamSelect(
             itemList = sampleList,
             onItemClickListener = {
                 Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
@@ -172,7 +191,7 @@ fun SelectPreview() {
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        Select(
+        DodamSelect(
             itemList = sampleList,
             onItemClickListener = { Toast.makeText(context, it, Toast.LENGTH_SHORT).show() },
             modifier = Modifier

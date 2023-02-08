@@ -42,8 +42,29 @@ sealed interface InputAreaType {
     object Error : InputAreaType
 }
 
+/**
+ * Dodam Input Area, can write multi line
+ *
+ * @param value text in field
+ * @param onValueChange when value change callback
+ * @param modifier
+ * @param hint input guide
+ * @param isError error state, write condition!
+ * @param topLabel label, top
+ * @param bottomLabel label, bottom
+ * @param enabled input area enabled state
+ * @param singleLine just write one line?
+ * @param maxLines count lines
+ * @param textColor color of text
+ * @param textStyle style of text
+ * @param focusColor color when focus to this input area
+ * @param readOnly just read?
+ * @param visualTransformation
+ * @param keyboardOptions
+ * @param keyboardActions
+ */
 @Composable
-fun TestInputArea(
+fun DodamInputArea(
     value: String,
     onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
@@ -197,7 +218,7 @@ fun InputAreaPreview() {
             .padding(20.dp)
             .fillMaxSize()
     ) {
-        TestInputArea(
+        DodamInputArea(
             value = testValue,
             onValueChange = { testValue = it },
             hint = "Hello World",
@@ -205,7 +226,7 @@ fun InputAreaPreview() {
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        TestInputArea(
+        DodamInputArea(
             value = testValue2,
             onValueChange = { testValue2 = it },
             topLabel = "Top Label",
@@ -214,7 +235,7 @@ fun InputAreaPreview() {
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        TestInputArea(
+        DodamInputArea(
             value = testValue3,
             onValueChange = { testValue3 = it },
             modifier = Modifier
