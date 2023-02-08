@@ -17,6 +17,20 @@ import kr.hs.dgsw.smartschool.components.theme.DodamTypography
 import kr.hs.dgsw.smartschool.components.theme.LocalContentAlpha
 import kr.hs.dgsw.smartschool.components.theme.LocalContentColor
 
+/**
+ * Dodam Basic Text
+ *
+ * @param text value
+ * @param modifier
+ * @param color text color
+ * @param style text style
+ * @param textAlign text alight
+ * @param textDecoration decoration of text
+ * @param overflow when text overflow
+ * @param softWrap basic is true
+ * @param maxLines Max line counts
+ * @param onTextLayout textLayout
+ */
 @Composable
 fun Text(
     text: String,

@@ -9,9 +9,9 @@ import androidx.compose.ui.composed
 import androidx.compose.ui.graphics.Color
 
 /**
- * @param onClick 클릭 됐을 때, 람다식 실행(null이라면 click 활성화를 하지 않음).
- * @param rippleColor ripple 색상을 지정
- * @param rippleEnable ripple 활성화 여부
+ * @param onClick action when click, active lambda fun(if null non click).
+ * @param rippleColor ripple color
+ * @param rippleEnable ripple enabled
  */
 fun Modifier.dodamClickable(
     rippleColor: Color = Color.Unspecified,
