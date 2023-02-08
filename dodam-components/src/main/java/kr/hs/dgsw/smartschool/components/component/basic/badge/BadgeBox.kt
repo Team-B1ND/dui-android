@@ -11,12 +11,25 @@ import androidx.compose.ui.unit.dp
 import kr.hs.dgsw.smartschool.components.component.basic.Surface
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 
+/**
+ * Dodam Badge Box, can contain composable contents
+ *
+ * @param modifier
+ * @param background color of badge
+ * @param shape shape of badge, basic is large
+ * @param onClick when click badge
+ * @param contentPaddingValues content Padding
+ * @param rippleColor
+ * @param rippleEnable
+ * @param bounded
+ * @param content composable contents
+ */
 @Composable
 fun BadgeBox(
     modifier: Modifier = Modifier,
-    onClick: (() -> Unit)? = null,
     background: Color = DodamTheme.color.MainColor,
     shape: Shape = DodamTheme.shape.large,
+    onClick: (() -> Unit)? = null,
     contentPaddingValues: PaddingValues = PaddingValues(horizontal = 10.dp, vertical = 3.dp),
     rippleColor: Color = Color.Unspecified,
     rippleEnable: Boolean = true,
