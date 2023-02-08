@@ -25,8 +25,8 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import kr.hs.dgsw.smartschool.components.component.appbar.DodamAppBar
-import kr.hs.dgsw.smartschool.components.component.avatar.Avatar
+import kr.hs.dgsw.smartschool.components.component.basic.avatar.Avatar
+import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.theme.Body1
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
