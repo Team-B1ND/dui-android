@@ -7,8 +7,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -24,8 +22,18 @@ import kr.hs.dgsw.smartschool.components.component.organization.card.DodamItemCa
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcSong
 
+/**
+ * Dodam Bottom Sheet
+ *
+ * @param sheetContent composable sheet contents in column scope
+ * @param modifier modifier
+ * @param sheetElevation sheet Elevation, shadow
+ * @param sheetBackgroundColor color of sheet background
+ * @param sheetShape shape of sheet, basic is 20.dp
+ * @param content composable content out of sheet
+ */
 @Composable
-fun BottomSheet(
+fun DodamBottomSheet(
     sheetContent: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
     sheetElevation: Dp = 0.dp,
@@ -86,7 +94,7 @@ private fun BottomSheetStack(
 @Preview
 @Composable
 private fun PreviewBottomSheet() {
-    BottomSheet(
+    DodamBottomSheet(
         sheetContent = { SheetSample() },
     ) {
         Box(

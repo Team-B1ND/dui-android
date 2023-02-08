@@ -28,6 +28,23 @@ import kr.hs.dgsw.smartschool.components.theme.IcRightArrow
 import kr.hs.dgsw.smartschool.components.theme.contentColorFor
 import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 
+/**
+ * Dodam Item Card, set title, subtitle, icon
+ *
+ * @param title card title
+ * @param subTitle card subTitle
+ * @param modifier modifier
+ * @param onClick action when click card
+ * @param icon card icon
+ * @param shape card shape, basic is large
+ * @param background card background color
+ * @param titleStyle title text style
+ * @param subTitleStyle subTitle text style
+ * @param enable card active state
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
+ */
 @Composable
 fun DodamItemCard(
     title: String,
@@ -74,6 +91,22 @@ fun DodamItemCard(
     }
 }
 
+/**
+ * Dodam Content Card, set title, contents
+ *
+ * @param title card title
+ * @param modifier modifier
+ * @param onClick action when click card
+ * @param hasLinkIcon link to other page icon
+ * @param shape card shape, basic is large
+ * @param background card background color
+ * @param titleStyle title text style
+ * @param enable card active state
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
+ * @param content composable content in card
+ */
 @Composable
 fun DodamContentCard(
     title: String,
@@ -179,10 +212,10 @@ private fun PreviewDodamCard() {
             }
         }
         Spacer(modifier = Modifier.height(10.dp))
-        MealCard(content = "오늘은 급식이 없어요!", mealType = MealType.BreakFast)
+        DodamMealCard(content = "오늘은 급식이 없어요!", mealType = MealType.BreakFast)
         Spacer(modifier = Modifier.height(10.dp))
-        MealCard(content = "*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장", mealType = MealType.Lunch)
+        DodamMealCard(content = "*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장", mealType = MealType.Lunch)
         Spacer(modifier = Modifier.height(10.dp))
-        MealCard(content = "*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장", mealType = MealType.Dinner)
+        DodamMealCard(content = "*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장", mealType = MealType.Dinner)
     }
 }

@@ -33,8 +33,16 @@ import kr.hs.dgsw.smartschool.components.theme.Label2
 import kr.hs.dgsw.smartschool.components.theme.Title1
 import java.time.LocalDate
 
+/**
+ * Calendar dialog use prompt
+ *
+ * @param modifier modifier
+ * @param buttonType done button type
+ * @param secondaryColor color of secondary button
+ * @param onDismiss when click anywhere, if cancel action give null
+ */
 @Composable
-fun CalendarDialog(
+fun DodamCalendarDialog(
     modifier: Modifier = Modifier,
     buttonType: ButtonType = ButtonType.Schedule,
     secondaryColor: Color = DodamColor.FeatureColor.ScheduleColor,
@@ -109,7 +117,7 @@ private fun PreviewDodamCalendarDialog() {
     var selectedDate by remember { mutableStateOf(LocalDate.now()) }
 
     if (showPrompt) {
-        CalendarDialog { date ->
+        DodamCalendarDialog { date ->
             showPrompt = false
             date?.let {
                 selectedDate = it

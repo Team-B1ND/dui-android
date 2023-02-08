@@ -24,6 +24,19 @@ import kr.hs.dgsw.smartschool.components.theme.IcLunch3D
 import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import kr.hs.dgsw.smartschool.components.utlis.DodamString
 
+/**
+ * Dodam basic base card
+ *
+ * @param modifier modifier
+ * @param onClick action when click card
+ * @param shape shape of card
+ * @param background background color of card
+ * @param enable card active state
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
+ * @param content composable contents in card
+ */
 @Composable
 fun Card(
     modifier: Modifier = Modifier,
@@ -57,8 +70,21 @@ sealed interface MealType {
 
 private val MEAL_ICON_SIZE = 30.dp
 
+/**
+ * Dodam meal card
+ *
+ * @param content meal content
+ * @param mealType type of meal
+ * @param modifier modifier
+ * @param onClick action when click card
+ * @param shape shape of card
+ * @param background background color of card
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
+ */
 @Composable
-fun MealCard(
+fun DodamMealCard(
     content: String,
     mealType: MealType,
     modifier: Modifier = Modifier,
