@@ -73,7 +73,7 @@ fun Input(
     textStyle: TextStyle = DodamTheme.typography.body2,
     focusColor: Color = DodamTheme.color.MainColor400,
     readOnly: Boolean = false,
-    leadingIcon: @Composable (() -> Unit)? = null,
+    //leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
@@ -118,7 +118,7 @@ fun Input(
                     hint = hint,
                     innerTextField = innerTextField,
                     focusColor = focusColor,
-                    leadingIcon = leadingIcon,
+                    // leadingIcon = leadingIcon,
                     trailingIcon = trailingIcon,
                 )
             }
@@ -148,7 +148,7 @@ fun InputDecoration(
     hint: String,
     focusColor: Color,
     innerTextField: @Composable () -> Unit,
-    leadingIcon: @Composable (() -> Unit)? = null,
+    // leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
 ) {
     val inputColor = getInputColor(focusColor, inputType)
@@ -184,14 +184,14 @@ fun InputDecoration(
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
-            leadingIcon?.let {
+            /*leadingIcon?.let {
                 CompositionLocalProvider(
                     LocalContentColor provides inputColor
                 ) {
                     it()
                 }
                 Spacer(modifier = Modifier.width(7.dp))
-            }
+            }*/
 
             Box(
                 modifier = Modifier
@@ -275,7 +275,6 @@ fun InputPreview() {
             value = testValue,
             onValueChange = { testValue = it },
             hint = "Hello World",
-            leadingIcon = { IcSearch(contentDescription = null) },
         )
 
         Spacer(modifier = Modifier.height(20.dp))
