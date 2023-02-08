@@ -13,6 +13,14 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kr.hs.dgsw.smartschool.components.theme.LocalContentColor
 
+/**
+ * Divider
+ *
+ * @param modifier
+ * @param color Color of Divider / recommend Gray200
+ * @param thickness width of Divider / basic 1.dp
+ * @param startIndent start padding
+ */
 @Composable
 fun Divider(
     modifier: Modifier = Modifier,

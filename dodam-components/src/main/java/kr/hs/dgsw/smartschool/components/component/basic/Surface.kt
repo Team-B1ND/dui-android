@@ -16,6 +16,19 @@ import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.LocalContentColor
 import kr.hs.dgsw.smartschool.components.theme.contentColorFor
 
+/**
+ * Dodam Clickable Surface
+ *
+ * @param onClick action when click surface
+ * @param modifier
+ * @param shape shape of surface basic is RectangleShape
+ * @param color color of surface basic is white
+ * @param contentColor color of composable contents in surface
+ * @param rippleColor
+ * @param rippleEnable
+ * @param bounded
+ * @param content composable content in surface
+ */
 @Composable
 fun Surface(
     onClick: (() -> Unit)?,
@@ -49,6 +62,15 @@ fun Surface(
     }
 }
 
+/**
+ * Dodam Basic Surface
+ *
+ * @param modifier
+ * @param shape shape of surface basic is RectangleShape
+ * @param color color of surface basic is white
+ * @param contentColor color of composable contents in surface
+ * @param content composable content in surface
+ */
 @Composable
 fun Surface(
     modifier: Modifier = Modifier,
