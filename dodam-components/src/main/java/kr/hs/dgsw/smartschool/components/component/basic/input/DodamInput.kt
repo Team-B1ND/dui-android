@@ -164,7 +164,7 @@ fun DodamInput(
 }
 
 @Composable
-fun InputDecoration(
+private fun InputDecoration(
     inputType: InputType,
     hint: String,
     focusColor: Color,

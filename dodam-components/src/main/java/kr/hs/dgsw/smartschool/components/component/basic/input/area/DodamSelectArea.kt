@@ -257,7 +257,7 @@ private fun SelectInputArea(
 }
 
 @Composable
-fun SelectAreaDecoration(
+private fun SelectAreaDecoration(
     selectAreaType: SelectAreaType,
     trailingIcon: @Composable () -> Unit,
     hint: String,

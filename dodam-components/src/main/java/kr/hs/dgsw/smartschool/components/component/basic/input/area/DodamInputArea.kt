@@ -151,7 +151,7 @@ fun DodamInputArea(
 }
 
 @Composable
-fun InputAreaDecoration(
+private fun InputAreaDecoration(
     inputAreaType: InputAreaType,
     hint: String,
     innerTextField: @Composable () -> Unit,

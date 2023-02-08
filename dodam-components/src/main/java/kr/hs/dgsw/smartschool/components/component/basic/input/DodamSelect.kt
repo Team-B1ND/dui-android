@@ -38,7 +38,7 @@ import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
 
 /**
- * Dodam Select Area, can select item in area
+ * Dodam Select, can select item
  *
  * @param itemList list of item, select in here!
  * @param hint select guide
