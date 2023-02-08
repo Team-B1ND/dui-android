@@ -1,5 +1,7 @@
 package kr.hs.dgsw.smartschool.components.component.input
 
+import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,6 +11,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.BasicTextField
@@ -33,8 +36,10 @@ import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import kr.hs.dgsw.smartschool.components.theme.Body2
+import androidx.compose.ui.unit.sp
+import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.theme.Body3
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
@@ -76,15 +81,11 @@ fun Input(
 ) {
     val mergedTextStyle = textStyle.merge(TextStyle(color = textColor))
     val focusRequester by remember { mutableStateOf(FocusRequester()) }
-
+    
     var isFocus by remember { mutableStateOf(false) }
     var currentInputType: InputType by remember { mutableStateOf(if (isError) InputType.Error.UnFocus else InputType.Default) }
-
+    
     Column {
-        // Top Label
-        if (!(currentInputType == InputType.Default || currentInputType == InputType.Error.Default))
-            Body3(text = hint, textColor = getInputColor(focusColor, currentInputType))
-
         currentInputType = focusStateAsInputType(isFocus, value, isError)
 
         BasicTextField(
@@ -151,6 +152,22 @@ fun InputDecoration(
     trailingIcon: @Composable (() -> Unit)? = null,
 ) {
     val inputColor = getInputColor(focusColor, inputType)
+
+    val hintOffsetAnimation: Dp by animateDpAsState(
+        if (inputType == InputType.Default || inputType == InputType.Error.Default)
+            0.dp
+        else
+            (-22).dp,
+    )
+
+
+    val hintFontSize by animateFloatAsState(
+        if (inputType == InputType.Default || inputType == InputType.Error.Default)
+            14f
+        else
+            12f
+    )
+
     Box(
         modifier = Modifier
             .drawBehind {
@@ -165,26 +182,34 @@ fun InputDecoration(
             },
     ) {
         Row(
-            modifier = Modifier.padding(
-                vertical = 12.dp,
-            ),
             verticalAlignment = Alignment.CenterVertically
         ) {
             leadingIcon?.let {
                 CompositionLocalProvider(
                     LocalContentColor provides inputColor
                 ) {
-                    leadingIcon()
+                    it()
                 }
                 Spacer(modifier = Modifier.width(7.dp))
             }
 
-            if (inputType == InputType.Default || inputType == InputType.Error.Default)
-                Body2(text = hint, textColor = inputColor, modifier = Modifier.weight(1f))
-            else
-                Box(modifier = Modifier.weight(1f)) {
-                    innerTextField()
-                }
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(vertical = 10.dp)
+            ) {
+                Text(
+                    text = hint,
+                    color = inputColor,
+                    style = DodamTheme.typography.body2.copy(
+                        fontSize = hintFontSize.sp,
+                        lineHeight = (hintFontSize + 4f).sp
+                    ),
+                    modifier = Modifier
+                        .offset(y = hintOffsetAnimation)
+                )
+                innerTextField()
+            }
 
             trailingIcon?.let {
                 Spacer(modifier = Modifier.width(7.dp))
@@ -253,7 +278,7 @@ fun InputPreview() {
             leadingIcon = { IcSearch(contentDescription = null) },
         )
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
         Input(
             value = testValue2,
@@ -262,7 +287,7 @@ fun InputPreview() {
             trailingIcon = { IcSearch(contentDescription = null) },
         )
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
         var testValue3 by remember { mutableStateOf("") }
 

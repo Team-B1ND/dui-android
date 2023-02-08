@@ -1,4 +1,4 @@
-package kr.hs.dgsw.smartschool.components.component.input
+package kr.hs.dgsw.smartschool.components.component.input.area
 
 import android.widget.Toast
 import androidx.compose.foundation.background
