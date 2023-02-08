@@ -82,8 +82,7 @@ fun TypoScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(DodamColor.White)
-            .verticalScroll(rememberScrollState()),
+            .background(DodamColor.White),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         DodamAppBar(title = "Typo", onStartIconClick = { navController.popBackStack() })
