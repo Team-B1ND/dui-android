@@ -67,9 +67,9 @@ fun AvatarScreen(
                     .width(300.dp),
                 verticalAlignment = Alignment.Bottom
             ) {
-                BasicAvatar(label = "color = primary\nsize = 40.dp", iconColor = DodamColor.MainColor)
-                BasicAvatar(label = "color = secondary\nsize = 60.dp", iconColor = DodamColor.SecondaryColor, size = 60.dp)
-                BasicAvatar(label = "color = myInfo\nsize = 80.dp", iconColor = DodamColor.FeatureColor.MyInfoColor, size = 80.dp)
+                BasicAvatar(label = "color = primary\nsize = 40.dp\niconSize = 20.dp", iconColor = DodamColor.MainColor)
+                BasicAvatar(label = "color = secondary\nsize = 60.dp\niconSize = 30.dp", iconColor = DodamColor.SecondaryColor, size = 60.dp, iconSize = 30.dp)
+                BasicAvatar(label = "color = myInfo\nsize = 80.dp\niconSize = 40.dp", iconColor = DodamColor.FeatureColor.MyInfoColor, size = 80.dp, iconSize = 40.dp)
             }
             Spacer(modifier = Modifier.height(20.dp))
             Body1(text = "Name Avatar")
