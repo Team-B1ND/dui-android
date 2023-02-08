@@ -2,7 +2,6 @@ package kr.hs.dgsw.smartschool.components.component.set.banner
 
 import android.widget.Toast
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
@@ -34,7 +33,7 @@ import com.skydoves.landscapist.components.rememberImageComponent
 import com.skydoves.landscapist.glide.GlideImage
 import com.skydoves.landscapist.placeholder.shimmer.ShimmerPlugin
 import kotlinx.coroutines.launch
-import kr.hs.dgsw.smartschool.components.component.basic.badge.BadgeBox
+import kr.hs.dgsw.smartschool.components.component.basic.badge.DodamBadgeBox
 import kr.hs.dgsw.smartschool.components.component.basic.indicator.PagerIndicator
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
@@ -94,7 +93,7 @@ fun Banner(
         }
 
         if (showIndicator && imageUrls.size > 1)
-            BadgeBox(
+            DodamBadgeBox(
                 modifier = Modifier
                     .align(Alignment.TopEnd)
                     .padding(top = 6.dp, end = 6.dp),

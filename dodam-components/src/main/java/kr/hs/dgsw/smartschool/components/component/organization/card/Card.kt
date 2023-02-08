@@ -15,7 +15,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
 import kr.hs.dgsw.smartschool.components.component.basic.Surface
-import kr.hs.dgsw.smartschool.components.component.basic.badge.Badge
+import kr.hs.dgsw.smartschool.components.component.basic.badge.DodamBadge
 import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcBreakfast3D
@@ -112,7 +112,7 @@ fun MealCard(
                     )
                     .fillMaxWidth()
             ) {
-                Badge(
+                DodamBadge(
                     text = mealData.name,
                     background = mealData.badgeColor,
                     modifier = Modifier.align(Alignment.CenterVertically),

@@ -25,7 +25,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import kr.hs.dgsw.smartschool.components.component.basic.button.IconButton
+import kr.hs.dgsw.smartschool.components.component.basic.button.DodamIconButton
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
@@ -155,7 +155,7 @@ fun ScreenAppBar(title: String, navController: NavController) {
             .background(DodamColor.White),
         title = { Title2(text = title) },
         navigationIcon = {
-            IconButton(
+            DodamIconButton(
                 icon = { IcLeftArrow(contentDescription = null) },
                 onClick = { navController.popBackStack() }
             )

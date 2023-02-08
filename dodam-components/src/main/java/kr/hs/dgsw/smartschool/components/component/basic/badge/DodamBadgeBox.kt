@@ -1,48 +1,40 @@
 package kr.hs.dgsw.smartschool.components.component.basic.badge
 
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import kr.hs.dgsw.smartschool.components.component.basic.Surface
-import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
-import kr.hs.dgsw.smartschool.components.theme.contentColorFor
 
 /**
- * Dodam Badge
+ * Dodam Badge Box, can contain composable contents
  *
- * @param text badge content
  * @param modifier
  * @param background color of badge
- * @param textColor color of text
- * @param textStyle badge textStyle
- * @param contentPaddingValues content Padding
  * @param shape shape of badge, basic is large
+ * @param onClick when click badge
+ * @param contentPaddingValues content Padding
  * @param rippleColor
  * @param rippleEnable
  * @param bounded
- * @param onClick when click badge
+ * @param content composable contents
  */
 @Composable
-fun Badge(
-    text: String,
+fun DodamBadgeBox(
     modifier: Modifier = Modifier,
     background: Color = DodamTheme.color.MainColor,
-    textColor: Color = contentColorFor(backgroundColor = background),
-    textStyle: TextStyle = DodamTheme.typography.label2,
-    contentPaddingValues: PaddingValues = PaddingValues(horizontal = 10.dp, vertical = 3.dp),
     shape: Shape = DodamTheme.shape.large,
+    onClick: (() -> Unit)? = null,
+    contentPaddingValues: PaddingValues = PaddingValues(horizontal = 10.dp, vertical = 3.dp),
     rippleColor: Color = Color.Unspecified,
     rippleEnable: Boolean = true,
     bounded: Boolean = true,
-    onClick: (() -> Unit)? = null,
+    content: @Composable () -> Unit,
 ) {
     Surface(
         onClick = onClick,
@@ -53,19 +45,11 @@ fun Badge(
         rippleColor = rippleColor,
         bounded = bounded,
     ) {
-        Text(
-            text = text,
-            style = textStyle,
-            color = textColor,
-            modifier = Modifier.padding(contentPaddingValues)
-        )
-    }
-}
-
-@Preview
-@Composable
-private fun PreviewBadge() {
-    Column(Modifier.padding(20.dp)) {
-        Badge(text = "도담도담", onClick = {})
+        Box(
+            modifier = Modifier
+                .padding(contentPaddingValues)
+        ) {
+            content()
+        }
     }
 }

@@ -13,6 +13,20 @@ import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.Label1
 import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 
+/**
+ * Dodam small rounded button, 5.dp
+ *
+ * @param text content in button
+ * @param modifier
+ * @param iconLeft left icon
+ * @param iconRight right icon
+ * @param type button type, define color
+ * @param enable button enable state
+ * @param rippleColor
+ * @param rippleEnable
+ * @param bounded
+ * @param onClick when click button
+ */
 @Composable
 fun DodamSmallRoundedButton(
     text: String,
@@ -42,6 +56,20 @@ fun DodamSmallRoundedButton(
     }
 }
 
+/**
+ * Dodam medium rounded button, 10.dp
+ *
+ * @param text content in button
+ * @param modifier
+ * @param iconLeft left icon
+ * @param iconRight right icon
+ * @param type button type, define color
+ * @param enable button enable state
+ * @param rippleColor
+ * @param rippleEnable
+ * @param bounded
+ * @param onClick when click button
+ */
 @Composable
 fun DodamMediumRoundedButton(
     text: String,
@@ -70,6 +98,20 @@ fun DodamMediumRoundedButton(
     }
 }
 
+/**
+ * Dodam large rounded button, 20.dp
+ *
+ * @param text content in button
+ * @param modifier
+ * @param iconLeft left icon
+ * @param iconRight right icon
+ * @param type button type, define color
+ * @param enable button enable state
+ * @param rippleColor
+ * @param rippleEnable
+ * @param bounded
+ * @param onClick when click button
+ */
 @Composable
 fun DodamLargeRoundedButton(
     text: String,
