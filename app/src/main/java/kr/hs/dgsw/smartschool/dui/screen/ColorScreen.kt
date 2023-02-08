@@ -27,7 +27,7 @@ import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.component.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.component.basic.Surface
 import kr.hs.dgsw.smartschool.components.theme.Body2
-import kr.hs.dgsw.smartschool.components.theme.Body3
+import kr.hs.dgsw.smartschool.components.theme.Label3
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.R
@@ -149,7 +149,7 @@ fun Palette(
     )
     Row(
         modifier = Modifier
-            .height(100.dp)
+            .height(110.dp)
             .fillMaxWidth()
     ) {
         PalettePart(color0, colorCode, "50")
@@ -178,7 +178,7 @@ fun PalettePart(
 ) {
     Column(
         modifier = Modifier
-            .height(100.dp)
+            .height(110.dp)
             .width(30.dp)
     ) {
         Box(
@@ -195,11 +195,10 @@ fun PalettePart(
                 ItemImage(icon = R.drawable.ic_palette_flat)
             }
         }
-        Body3(
+        Label3(
             text = value,
             modifier = Modifier
-                .width(30.dp)
-                .height(10.dp),
+                .width(30.dp),
             textColor = DodamColor.Gray700
         )
     }
