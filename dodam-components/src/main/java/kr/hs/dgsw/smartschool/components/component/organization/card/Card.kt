@@ -14,8 +14,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.dp
-import kr.hs.dgsw.smartschool.components.component.basic.badge.Badge
 import kr.hs.dgsw.smartschool.components.component.basic.Surface
+import kr.hs.dgsw.smartschool.components.component.basic.badge.Badge
 import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcBreakfast3D

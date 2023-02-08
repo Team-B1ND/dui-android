@@ -73,7 +73,7 @@ fun Input(
     textStyle: TextStyle = DodamTheme.typography.body2,
     focusColor: Color = DodamTheme.color.MainColor400,
     readOnly: Boolean = false,
-    //leadingIcon: @Composable (() -> Unit)? = null,
+    // leadingIcon: @Composable (() -> Unit)? = null,
     trailingIcon: @Composable (() -> Unit)? = null,
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
@@ -81,10 +81,10 @@ fun Input(
 ) {
     val mergedTextStyle = textStyle.merge(TextStyle(color = textColor))
     val focusRequester by remember { mutableStateOf(FocusRequester()) }
-    
+
     var isFocus by remember { mutableStateOf(false) }
     var currentInputType: InputType by remember { mutableStateOf(if (isError) InputType.Error.UnFocus else InputType.Default) }
-    
+
     Column {
         currentInputType = focusStateAsInputType(isFocus, value, isError)
 
@@ -159,7 +159,6 @@ fun InputDecoration(
         else
             (-22).dp,
     )
-
 
     val hintFontSize by animateFloatAsState(
         if (inputType == InputType.Default || inputType == InputType.Error.Default)
