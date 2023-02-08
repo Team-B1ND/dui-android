@@ -33,16 +33,16 @@ import kr.hs.dgsw.smartschool.components.utlis.animateAlignmentAsState
 /**
  * Dodam Toggle Switch
  *
- * @param modifier Modifier
+ * @param modifier modifier
  * @param boxHeight box height
  * @param isActive state of switch / active and inactive
  * @param shape shape of switch / recommend use large shape..
  * @param activeColor color of active state, switch background
  * @param inactiveColor color of inactive state, switch background
  * @param dotColor color of dot
- * @param rippleColor
- * @param rippleEnable
- * @param bounded
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
  * @param onActiveChangedListener when active state is change
  */
 @Composable

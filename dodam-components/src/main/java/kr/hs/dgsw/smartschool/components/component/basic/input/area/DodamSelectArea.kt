@@ -60,7 +60,7 @@ sealed interface SelectAreaType {
  *
  * @param itemList list of item, select in here!
  * @param hint select guide
- * @param modifier
+ * @param modifier modifier
  * @param onValueChange when value change callback
  * @param focusColor color when focus to this input area
  * @param enabled input area enabled state
@@ -70,9 +70,9 @@ sealed interface SelectAreaType {
  * @param textColor color of text
  * @param textStyle style of text
  * @param readOnly just read?
- * @param rippleColor
- * @param rippleEnable
- * @param bounded
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
  * @param onItemClickListener when click item callback(item name)
  */
 @Composable

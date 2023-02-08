@@ -20,13 +20,13 @@ import kr.hs.dgsw.smartschool.components.theme.contentColorFor
  * Dodam Clickable Surface
  *
  * @param onClick action when click surface
- * @param modifier
+ * @param modifier modifier
  * @param shape shape of surface basic is RectangleShape
  * @param color color of surface basic is white
  * @param contentColor color of composable contents in surface
- * @param rippleColor
- * @param rippleEnable
- * @param bounded
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
  * @param content composable content in surface
  */
 @Composable

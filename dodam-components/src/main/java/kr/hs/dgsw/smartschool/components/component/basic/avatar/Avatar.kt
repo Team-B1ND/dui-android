@@ -40,12 +40,12 @@ import kr.hs.smartschool.components.R
  * Dodam Avatar, can express saved image
  *
  * @param painter profile image
- * @param modifier
+ * @param modifier modifier
  * @param shape shape of avatar, basic is circle
  * @param size avatar circle size, basic is 40.dp
- * @param rippleColor
- * @param rippleEnable
- * @param bounded
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
  * @param onClick when click avatar
  */
 @Composable
@@ -83,15 +83,15 @@ fun Avatar(
  * Dodam Avatar, can express first word of name
  *
  * @param name show first word
- * @param modifier
+ * @param modifier modifier
  * @param nameStyle text Style
  * @param nameColor text Color
  * @param backgroundColor color for circle background
  * @param shape shape of avatar, basic is circle
  * @param size avatar circle size, basic is 40.dp
- * @param rippleColor
- * @param rippleEnable
- * @param bounded
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
  * @param onClick when click avatar
  */
 @Composable
@@ -131,15 +131,15 @@ fun Avatar(
 /**
  * Dodam Avatar, can express icon center
  *
- * @param modifier
+ * @param modifier modifier
  * @param iconSize icon's size
  * @param iconColor icon's color
  * @param backgroundColor color for circle background
  * @param shape shape of avatar, basic is circle
  * @param size avatar circle size, basic is 40.dp
- * @param rippleColor
- * @param rippleEnable
- * @param bounded
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
  * @param onClick when click avatar
  */
 @Composable
@@ -179,7 +179,7 @@ fun Avatar(
  * Dodam Avatar, can express remote image
  *
  * @param link remote image link
- * @param modifier
+ * @param modifier modifier
  * @param backgroundColor color for circle background
  * @param shape shape of avatar, basic is circle
  * @param size avatar circle size, basic is 40.dp
@@ -187,9 +187,9 @@ fun Avatar(
  * @param placeHolderHighlightColor loading place highlight bar color
  * @param failureIconSize icon size when fail to load image
  * @param failureIconColor icon color when fail to load image
- * @param rippleColor
- * @param rippleEnable
- * @param bounded
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
  * @param onClick when click avatar
  */
 @Composable

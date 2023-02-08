@@ -17,14 +17,14 @@ import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
  * Dodam small rounded button, 5.dp
  *
  * @param text content in button
- * @param modifier
+ * @param modifier modifier
  * @param iconLeft left icon
  * @param iconRight right icon
  * @param type button type, define color
  * @param enable button enable state
- * @param rippleColor
- * @param rippleEnable
- * @param bounded
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
  * @param onClick when click button
  */
 @Composable
@@ -60,14 +60,14 @@ fun DodamSmallRoundedButton(
  * Dodam medium rounded button, 10.dp
  *
  * @param text content in button
- * @param modifier
+ * @param modifier modifier
  * @param iconLeft left icon
  * @param iconRight right icon
  * @param type button type, define color
  * @param enable button enable state
- * @param rippleColor
- * @param rippleEnable
- * @param bounded
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
  * @param onClick when click button
  */
 @Composable
@@ -102,14 +102,14 @@ fun DodamMediumRoundedButton(
  * Dodam large rounded button, 20.dp
  *
  * @param text content in button
- * @param modifier
+ * @param modifier modifier
  * @param iconLeft left icon
  * @param iconRight right icon
  * @param type button type, define color
  * @param enable button enable state
- * @param rippleColor
- * @param rippleEnable
- * @param bounded
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
  * @param onClick when click button
  */
 @Composable

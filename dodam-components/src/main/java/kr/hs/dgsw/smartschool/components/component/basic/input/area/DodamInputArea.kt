@@ -47,7 +47,7 @@ sealed interface InputAreaType {
  *
  * @param value text in field
  * @param onValueChange when value change callback
- * @param modifier
+ * @param modifier modifier
  * @param hint input guide
  * @param isError error state, write condition!
  * @param topLabel label, top
@@ -59,9 +59,9 @@ sealed interface InputAreaType {
  * @param textStyle style of text
  * @param focusColor color when focus to this input area
  * @param readOnly just read?
- * @param visualTransformation
- * @param keyboardOptions
- * @param keyboardActions
+ * @param visualTransformation visualTransformation
+ * @param keyboardOptions keyboardOptions
+ * @param keyboardActions keyboardActions
  */
 @Composable
 fun DodamInputArea(

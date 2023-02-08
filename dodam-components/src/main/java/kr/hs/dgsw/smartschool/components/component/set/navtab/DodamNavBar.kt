@@ -33,8 +33,16 @@ import kr.hs.dgsw.smartschool.components.theme.contentColorFor
 
 private val NavBarHeight = 56.dp
 
+/**
+ * Dodam Bottom NavBar, just bar
+ *
+ * @param modifier modifier
+ * @param backgroundColor color of background
+ * @param contentColor color of content
+ * @param content composable contents in row scope
+ */
 @Composable
-fun NavBar(
+fun DodamNavBar(
     modifier: Modifier = Modifier,
     backgroundColor: Color = DodamTheme.color.White,
     contentColor: Color = contentColorFor(backgroundColor = backgroundColor),
@@ -67,31 +75,31 @@ private fun NavBarPreview() {
             .fillMaxSize()
             .background(DodamColor.Background)
     ) {
-        NavBar(
+        DodamNavBar(
             modifier = Modifier
                 .align(Alignment.BottomCenter)
                 .shadow(elevation = 10.dp, shape = RoundedCornerShape(topEnd = 20.dp, topStart = 20.dp))
                 .clip(RoundedCornerShape(topEnd = 20.dp, topStart = 20.dp))
         ) {
-            NavTab(
+            DodamNavTab(
                 text = "홈",
                 icon = { IcHome(contentDescription = null) },
                 onClick = { selectedNavTab = 0 },
                 selected = selectedNavTab == 0,
             )
-            NavTab(
+            DodamNavTab(
                 text = "급식",
                 icon = { IcMeal(contentDescription = null) },
                 onClick = { selectedNavTab = 1 },
                 selected = selectedNavTab == 1,
             )
-            NavTab(
+            DodamNavTab(
                 text = "기상송",
                 icon = { IcSong(contentDescription = null) },
                 onClick = { selectedNavTab = 2 },
                 selected = selectedNavTab == 2,
             )
-            NavTab(
+            DodamNavTab(
                 text = "내 정보",
                 icon = { IcUser(contentDescription = null) },
                 onClick = { selectedNavTab = 3 },

@@ -30,7 +30,7 @@ import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 /**
  * Dodam Indicator of pager
  *
- * @param modifier
+ * @param modifier modifier
  * @param pagerState state of pager
  * @param indicatorCount count of dot
  * @param indicatorShape shape of dot, basic is circle

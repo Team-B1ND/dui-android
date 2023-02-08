@@ -34,16 +34,16 @@ import kr.hs.dgsw.smartschool.components.theme.contentColorFor
 /**
  * Dodam Check Box
  *
- * @param modifier
+ * @param modifier modifier
  * @param checkColor when checked background color
  * @param unCheckedColor when unChecked background color
  * @param boxSize size of box / basic 12.dp
  * @param strokeWidth width of box stroke / basic 1.dp
  * @param isChecked state of check
  * @param shape box shape
- * @param rippleColor
- * @param rippleEnable
- * @param bounded
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
  * @param onCheckedChangeListener when check state changed callback
  */
 @Composable

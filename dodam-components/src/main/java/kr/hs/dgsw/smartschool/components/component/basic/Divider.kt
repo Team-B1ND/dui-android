@@ -16,7 +16,7 @@ import kr.hs.dgsw.smartschool.components.theme.LocalContentColor
 /**
  * Divider
  *
- * @param modifier
+ * @param modifier modifier
  * @param color Color of Divider / recommend Gray200
  * @param thickness width of Divider / basic 1.dp
  * @param startIndent start padding

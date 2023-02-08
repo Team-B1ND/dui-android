@@ -21,8 +21,19 @@ import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.LocalContentColor
 import kotlin.math.max
 
+/**
+ * Dodam Bottom NavTab, just single tab, can use with navbar
+ *
+ * @param text name
+ * @param icon main icon
+ * @param onClick action when click tab
+ * @param modifier modifier
+ * @param selectedColor color when selected
+ * @param selected state of navTab
+ * @param interactionSource interactionSource
+ */
 @Composable
-fun RowScope.NavTab(
+fun RowScope.DodamNavTab(
     text: String,
     icon: @Composable () -> Unit,
     onClick: () -> Unit,

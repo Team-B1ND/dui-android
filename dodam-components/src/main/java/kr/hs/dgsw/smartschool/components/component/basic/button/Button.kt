@@ -54,15 +54,15 @@ sealed interface ButtonType {
  * Dodam basic button
  *
  * @param onClick when click button
- * @param modifier
+ * @param modifier modifier
  * @param iconLeft left icon
  * @param iconRight right icon
  * @param shape shape of button, basic is medium
  * @param type button type, define color
  * @param enable button enable state
- * @param rippleColor
- * @param rippleEnable
- * @param bounded
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
  * @param content composable content in button RowScope
  */
 @Composable
@@ -122,12 +122,12 @@ private val IconButtonSize = 50.dp
  * Dodam icon button, only have icon
  *
  * @param icon center icon
- * @param modifier
+ * @param modifier modifier
  * @param type button type, define color
  * @param enable button enable state
- * @param rippleColor
- * @param rippleEnable
- * @param bounded
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
  * @param onClick when click icon button
  */
 @Composable
@@ -189,7 +189,7 @@ private val RadioButtonSize = 20.dp
  *
  * @param selected state of select
  * @param onClick when click button
- * @param modifier
+ * @param modifier modifier
  * @param enabled button enabled
  * @param type button type, define color
  */

@@ -25,8 +25,16 @@ import kr.hs.dgsw.smartschool.components.theme.IcSearch
 import kr.hs.dgsw.smartschool.components.theme.IcSong
 import kr.hs.dgsw.smartschool.components.theme.contentColorFor
 
+/**
+ * Dodam top tabs, just top bar, can use DodamTab
+ *
+ * @param modifier modifier,
+ * @param backgroundColor color of background
+ * @param contentColor color of contents
+ * @param content composable contents in row scope
+ */
 @Composable
-fun Tabs(
+fun DodamTabs(
     modifier: Modifier = Modifier,
     backgroundColor: Color = DodamTheme.color.White,
     contentColor: Color = contentColorFor(backgroundColor = backgroundColor),
@@ -51,22 +59,22 @@ fun Tabs(
 private fun TabsPreview() {
     Column {
         var selectedTab1 by remember { mutableStateOf(1) }
-        Tabs(
+        DodamTabs(
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Tab(
+            DodamTab(
                 text = "ITEM ONE",
                 selected = selectedTab1 == 1,
                 onClick = { selectedTab1 = 1 },
                 modifier = Modifier.weight(1f),
             )
-            Tab(
+            DodamTab(
                 text = "ITEM TWO",
                 selected = selectedTab1 == 2,
                 onClick = { selectedTab1 = 2 },
                 modifier = Modifier.weight(1f),
             )
-            Tab(
+            DodamTab(
                 text = "ITEM THREE",
                 selected = selectedTab1 == 3,
                 onClick = { selectedTab1 = 3 },
@@ -78,24 +86,24 @@ private fun TabsPreview() {
         Spacer(modifier = Modifier.height(10.dp))
 
         var selectedTab2 by remember { mutableStateOf(1) }
-        Tabs(
+        DodamTabs(
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Tab(
+            DodamTab(
                 text = "ITEM ONE",
                 selected = selectedTab2 == 1,
                 onClick = { selectedTab2 = 1 },
                 modifier = Modifier.weight(1f),
                 icon = { IcHome(contentDescription = null) },
             )
-            Tab(
+            DodamTab(
                 text = "ITEM TWO",
                 selected = selectedTab2 == 2,
                 onClick = { selectedTab2 = 2 },
                 modifier = Modifier.weight(1f),
                 icon = { IcSong(contentDescription = null) },
             )
-            Tab(
+            DodamTab(
                 text = "ITEM THREE",
                 selected = selectedTab2 == 3,
                 onClick = { selectedTab2 = 3 },
@@ -108,10 +116,10 @@ private fun TabsPreview() {
         Spacer(modifier = Modifier.height(10.dp))
 
         var selectedTab3 by remember { mutableStateOf(1) }
-        Tabs(
+        DodamTabs(
             modifier = Modifier.fillMaxWidth(),
         ) {
-            Tab(
+            DodamTab(
                 text = "ITEM ONE",
                 selected = selectedTab3 == 1,
                 onClick = { selectedTab3 = 1 },
@@ -119,7 +127,7 @@ private fun TabsPreview() {
                 icon = { IcHome(contentDescription = null) },
                 showLabel = false,
             )
-            Tab(
+            DodamTab(
                 text = "ITEM TWO",
                 selected = selectedTab3 == 2,
                 onClick = { selectedTab3 = 2 },
@@ -127,7 +135,7 @@ private fun TabsPreview() {
                 icon = { IcSong(contentDescription = null) },
                 showLabel = false,
             )
-            Tab(
+            DodamTab(
                 text = "ITEM THREE",
                 selected = selectedTab3 == 3,
                 onClick = { selectedTab3 = 3 },

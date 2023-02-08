@@ -19,15 +19,15 @@ import kr.hs.dgsw.smartschool.components.theme.contentColorFor
  * Dodam Badge
  *
  * @param text badge content
- * @param modifier
+ * @param modifier modifier
  * @param background color of badge
  * @param textColor color of text
  * @param textStyle badge textStyle
  * @param contentPaddingValues content Padding
  * @param shape shape of badge, basic is large
- * @param rippleColor
- * @param rippleEnable
- * @param bounded
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
  * @param onClick when click badge
  */
 @Composable
