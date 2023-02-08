@@ -156,7 +156,7 @@ fun SelectPreview() {
             hint = "Hello World",
         )
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
         val isError = remember { mutableStateOf(false) }
         Select(
@@ -170,7 +170,7 @@ fun SelectPreview() {
             errorMessage = if (isError.value) "Error Message" else ""
         )
 
-        Spacer(modifier = Modifier.height(10.dp))
+        Spacer(modifier = Modifier.height(20.dp))
 
         Select(
             itemList = sampleList,

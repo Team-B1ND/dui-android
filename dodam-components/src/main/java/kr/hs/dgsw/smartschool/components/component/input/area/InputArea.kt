@@ -65,9 +65,20 @@ fun InputArea(
     val mergedTextStyle = textStyle.merge(TextStyle(color = textColor))
     val focusRequester by remember { mutableStateOf(FocusRequester()) }
 
-    var currentInputType: InputAreaType by remember { mutableStateOf(InputAreaType.Default) }
+    var isFocus by remember { mutableStateOf(false) }
+
+    var currentInputType: InputAreaType by remember {
+        mutableStateOf(
+            if (isError)
+                InputAreaType.Error
+            else
+                InputAreaType.Default
+        )
+    }
 
     Column {
+        currentInputType = stateAsInputAreaType(isFocus, value, isError)
+
         if (topLabel.isNotBlank())
             Body3(
                 text = topLabel,
@@ -85,7 +96,7 @@ fun InputArea(
                 .width(IntrinsicSize.Max)
                 .focusRequester(focusRequester)
                 .onFocusChanged {
-                    currentInputType = stateAsInputAreaType(it.isFocused, value, isError)
+                    isFocus = it.isFocused
                 },
             enabled = enabled,
             textStyle = mergedTextStyle,
@@ -212,6 +223,7 @@ fun InputAreaPreview() {
             topLabel = "Top Label",
             bottomLabel = "Bottom Label",
             hint = "사이즈 조정 가능",
+            isError = testValue3 == "Hello",
             focusColor = DodamColor.FeatureColor.ItMapColor,
         )
     }
