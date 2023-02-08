@@ -17,9 +17,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import kr.hs.dgsw.smartschool.components.component.appbar.DodamAppBar
-import kr.hs.dgsw.smartschool.components.component.tab.Tab
-import kr.hs.dgsw.smartschool.components.component.tab.Tabs
+import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
+import kr.hs.dgsw.smartschool.components.component.set.tab.Tab
+import kr.hs.dgsw.smartschool.components.component.set.tab.Tabs
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.IcHome
 import kr.hs.dgsw.smartschool.components.theme.Title2
@@ -60,7 +60,7 @@ fun TabScreen(
             Spacer(modifier = Modifier.height(20.dp))
             Title2(text = "Label Only")
             Spacer(modifier = Modifier.height(20.dp))
-            Tabs() {
+            Tabs {
                 Tab(
                     text = "Tab1",
                     selected = selectedTab1.value == 1,
@@ -83,7 +83,7 @@ fun TabScreen(
             Spacer(modifier = Modifier.height(20.dp))
             Title2(text = "Label O, Icon O")
             Spacer(modifier = Modifier.height(20.dp))
-            Tabs() {
+            Tabs {
                 Tab(
                     text = "Tab1",
                     selected = selectedTab2.value == 1,
