@@ -1,4 +1,4 @@
-package kr.hs.dgsw.smartschool.components.component.checkbox
+package kr.hs.dgsw.smartschool.components.component.basic.toggle
 
 import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility
@@ -31,6 +31,21 @@ import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcCheck
 import kr.hs.dgsw.smartschool.components.theme.contentColorFor
 
+/**
+ * Dodam Check Box
+ *
+ * @param modifier
+ * @param checkColor when checked background color
+ * @param unCheckedColor when unChecked background color
+ * @param boxSize size of box / basic 12.dp
+ * @param strokeWidth width of box stroke / basic 1.dp
+ * @param isChecked state of check
+ * @param shape box shape
+ * @param rippleColor
+ * @param rippleEnable
+ * @param bounded
+ * @param onCheckedChangeListener when check state changed callback
+ */
 @Composable
 fun DodamCheckBox(
     modifier: Modifier = Modifier,

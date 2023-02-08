@@ -30,6 +30,21 @@ import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.utlis.animateAlignmentAsState
 
+/**
+ * Dodam Toggle Switch
+ *
+ * @param modifier Modifier
+ * @param boxHeight box height
+ * @param isActive state of switch / active and inactive
+ * @param shape shape of switch / recommend use large shape..
+ * @param activeColor color of active state, switch background
+ * @param inactiveColor color of inactive state, switch background
+ * @param dotColor color of dot
+ * @param rippleColor
+ * @param rippleEnable
+ * @param bounded
+ * @param onActiveChangedListener when active state is change
+ */
 @Composable
 fun DodamSwitch(
     modifier: Modifier = Modifier,
@@ -80,6 +95,21 @@ fun DodamSwitch(
     }
 }
 
+/**
+ * Dodam Selectable Toggle Switch
+ *
+ * @param modifier Modifier
+ * @param boxHeight box height
+ * @param isLeft state of switch / true(left) and false(right)
+ * @param shape shape of switch / recommend use large shape..
+ * @param rightColor color of false state, switch background
+ * @param leftColor color of true state, switch background
+ * @param dotColor color of dot
+ * @param rippleColor
+ * @param rippleEnable
+ * @param bounded
+ * @param onSelectChangedListener when isLeft state is change
+ */
 @Composable
 fun DodamSelectSwitch(
     modifier: Modifier = Modifier,
