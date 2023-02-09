@@ -55,7 +55,7 @@ fun ColumnList(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(start = 10.dp, 10.dp, 10.dp, 10.dp)
+            .padding(all = 10.dp)
             .background(DodamColor.Background)
     ) {
         Title1(
