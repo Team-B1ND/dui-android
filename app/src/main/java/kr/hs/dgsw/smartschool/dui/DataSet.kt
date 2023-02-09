@@ -48,6 +48,7 @@ object DataSet {
         const val TITLE_TYPO = "Typo"
 
         const val TEXT_HINT = "값을 입력해주세요"
+        const val TEXT_MEAL = "*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장"
     }
 
     data class Item(
