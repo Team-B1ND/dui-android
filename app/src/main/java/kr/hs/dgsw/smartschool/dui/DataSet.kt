@@ -17,6 +17,7 @@ object DataSet {
         Item(R.drawable.ic_info_3d, "Select", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "select"),
         Item(R.drawable.ic_info_3d, "Tab", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "tab"),
         Item(R.drawable.ic_info_3d, "Avatar", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "avatar"),
+        Item(R.drawable.ic_info_3d, "Card", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "card"),
         Item(R.drawable.ic_info_3d, "Banner", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "banner"),
         Item(R.drawable.ic_info_3d, "Bottom Sheet", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "bottomSheet"),
         Item(R.drawable.ic_info_3d, "Calender", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "calender"),
