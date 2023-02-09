@@ -42,7 +42,7 @@ fun InputScreen(
             .background(DodamColor.White)
     ) {
         DodamAppBar(
-            title = "Input",
+            title = DataSet.Text.TITLE_INPUT,
             onStartIconClick = { navController.popBackStack() },
         )
         Column(

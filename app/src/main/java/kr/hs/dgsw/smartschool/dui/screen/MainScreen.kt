@@ -55,11 +55,11 @@ fun ColumnList(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(start = 10.dp, 10.dp, 10.dp, 10.dp)
+            .padding(all = 10.dp)
             .background(DodamColor.Background)
     ) {
         Title1(
-            text = DataSet.Text.DUI_TITLE,
+            text = DataSet.Text.TITLE_DUI,
             modifier = Modifier
                 .padding(
                     start = 35.dp,
@@ -68,7 +68,7 @@ fun ColumnList(
                 )
         )
         Title2(
-            text = DataSet.Text.DUI_DESCRIPTION,
+            text = DataSet.Text.DESCRIPTION_DUI,
             modifier = Modifier
                 .padding(
                     start = 35.dp,
