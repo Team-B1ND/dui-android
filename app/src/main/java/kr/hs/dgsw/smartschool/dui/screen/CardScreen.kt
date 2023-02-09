@@ -1,7 +1,15 @@
 package kr.hs.dgsw.smartschool.dui.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -14,13 +22,22 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import kr.hs.dgsw.smartschool.components.component.basic.button.*
+import kr.hs.dgsw.smartschool.components.component.basic.button.DodamLargeRoundedButton
+import kr.hs.dgsw.smartschool.components.component.basic.button.DodamMediumRoundedButton
+import kr.hs.dgsw.smartschool.components.component.basic.button.DodamSmallRoundedButton
+import kr.hs.dgsw.smartschool.components.component.basic.button.IconButton
+import kr.hs.dgsw.smartschool.components.component.basic.button.RadioButton
 import kr.hs.dgsw.smartschool.components.component.organization.card.DodamContentCard
 import kr.hs.dgsw.smartschool.components.component.organization.card.DodamItemCard
 import kr.hs.dgsw.smartschool.components.component.organization.card.MealCard
 import kr.hs.dgsw.smartschool.components.component.organization.card.MealType
 import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
-import kr.hs.dgsw.smartschool.components.theme.*
+import kr.hs.dgsw.smartschool.components.theme.Body3
+import kr.hs.dgsw.smartschool.components.theme.DodamColor
+import kr.hs.dgsw.smartschool.components.theme.IcAdd
+import kr.hs.dgsw.smartschool.components.theme.IcDinner3D
+import kr.hs.dgsw.smartschool.components.theme.IcOut3D
+import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
@@ -85,7 +102,7 @@ fun CardScreen(
             DodamContentCard(
                 title = "Content Card",
                 hasLinkIcon = true
-            ){
+            ) {
                 Row(modifier = Modifier.fillMaxWidth()) {
                     IcDinner3D(contentDescription = null, modifier = Modifier.size(32.dp))
                     Spacer(modifier = Modifier.width(12.dp))
@@ -96,7 +113,7 @@ fun CardScreen(
             DodamContentCard(
                 title = "Content Card",
                 hasLinkIcon = true
-            ){
+            ) {
                 val selected: MutableState<Boolean> = remember {
                     mutableStateOf(true)
                 }
@@ -116,14 +133,13 @@ fun CardScreen(
             Spacer(modifier = Modifier.height(20.dp))
             Title2(text = "Dodam Content Card")
             Spacer(modifier = Modifier.height(10.dp))
-            
+
             MealCard(content = DataSet.Text.TEXT_MEAL, mealType = MealType.BreakFast)
             Spacer(modifier = Modifier.height(10.dp))
             MealCard(content = DataSet.Text.TEXT_MEAL, mealType = MealType.Dinner)
             Spacer(modifier = Modifier.height(10.dp))
             MealCard(content = DataSet.Text.TEXT_MEAL, mealType = MealType.Lunch)
             Spacer(modifier = Modifier.height(10.dp))
-
         }
     }
 }

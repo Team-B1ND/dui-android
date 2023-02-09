@@ -30,7 +30,23 @@ import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcLeftArrow
 import kr.hs.dgsw.smartschool.components.theme.Title2
-import kr.hs.dgsw.smartschool.dui.screen.*
+import kr.hs.dgsw.smartschool.dui.screen.AppBarScreen
+import kr.hs.dgsw.smartschool.dui.screen.AvatarScreen
+import kr.hs.dgsw.smartschool.dui.screen.BannerScreen
+import kr.hs.dgsw.smartschool.dui.screen.BottomSheetScreen
+import kr.hs.dgsw.smartschool.dui.screen.ButtonScreen
+import kr.hs.dgsw.smartschool.dui.screen.CalenderScreen
+import kr.hs.dgsw.smartschool.dui.screen.CardScreen
+import kr.hs.dgsw.smartschool.dui.screen.CheckBoxScreen
+import kr.hs.dgsw.smartschool.dui.screen.ColorScreen
+import kr.hs.dgsw.smartschool.dui.screen.IconScreen
+import kr.hs.dgsw.smartschool.dui.screen.InputScreen
+import kr.hs.dgsw.smartschool.dui.screen.MainScreen
+import kr.hs.dgsw.smartschool.dui.screen.SelectScreen
+import kr.hs.dgsw.smartschool.dui.screen.ShapeScreen
+import kr.hs.dgsw.smartschool.dui.screen.SwitchScreen
+import kr.hs.dgsw.smartschool.dui.screen.TabScreen
+import kr.hs.dgsw.smartschool.dui.screen.TypoScreen
 
 @ExperimentalFoundationApi
 class MainActivity : ComponentActivity() {
@@ -110,7 +126,7 @@ fun Navigation(
         composable("avatar") {
             AvatarScreen(navController)
         }
-        composable("card"){
+        composable("card") {
             CardScreen(navController)
         }
         composable("banner") {
