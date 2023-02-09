@@ -15,6 +15,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
+import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
 @Preview(showBackground = true)
@@ -31,7 +32,7 @@ fun CalenderScreen(
             .fillMaxSize()
             .background(DodamColor.White)
     ) {
-        DodamAppBar(title = "Calender", onStartIconClick = { navController.popBackStack() })
+        DodamAppBar(title = DataSet.Text.TITLE_CALENDER, onStartIconClick = { navController.popBackStack() })
         Column(
             modifier = Modifier
                 .fillMaxSize()

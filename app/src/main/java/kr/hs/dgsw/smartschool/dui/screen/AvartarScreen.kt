@@ -32,6 +32,7 @@ import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.Label2
 import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
 @Preview(showBackground = true)
@@ -48,7 +49,7 @@ fun AvatarScreen(
             .fillMaxSize()
             .background(DodamColor.White)
     ) {
-        DodamAppBar(title = "Avatar", onStartIconClick = { navController.popBackStack() })
+        DodamAppBar(title = DataSet.Text.TITLE_AVATAR, onStartIconClick = { navController.popBackStack() })
         Column(
             modifier = Modifier
                 .fillMaxSize()

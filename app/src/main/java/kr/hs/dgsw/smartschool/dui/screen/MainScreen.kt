@@ -59,7 +59,7 @@ fun ColumnList(
             .background(DodamColor.Background)
     ) {
         Title1(
-            text = DataSet.Text.DUI_TITLE,
+            text = DataSet.Text.TITLE_DUI,
             modifier = Modifier
                 .padding(
                     start = 35.dp,
@@ -68,7 +68,7 @@ fun ColumnList(
                 )
         )
         Title2(
-            text = DataSet.Text.DUI_DESCRIPTION,
+            text = DataSet.Text.DESCRIPTION_DUI,
             modifier = Modifier
                 .padding(
                     start = 35.dp,

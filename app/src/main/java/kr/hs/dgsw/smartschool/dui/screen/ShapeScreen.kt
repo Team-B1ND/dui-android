@@ -24,6 +24,7 @@ import kr.hs.dgsw.smartschool.components.theme.Body3
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamShape
 import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
 @Preview(showBackground = true)
@@ -46,7 +47,7 @@ fun ShapeScreen(
             .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        DodamAppBar(title = "Shape", onStartIconClick = { navController.popBackStack() })
+        DodamAppBar(title = DataSet.Text.TITLE_SHAPE, onStartIconClick = { navController.popBackStack() })
 
         Column(
             modifier = Modifier

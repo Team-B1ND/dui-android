@@ -27,8 +27,25 @@ object DataSet {
     )
 
     object Text {
-        const val DUI_TITLE = "DUI Preview"
-        const val DUI_DESCRIPTION = "도담 디자인 시스템"
+        const val TITLE_DUI = "DUI Preview"
+        const val DESCRIPTION_DUI = "도담 디자인 시스템"
+
+        const val TITLE_APP_BAR = "App Bar"
+        const val TITLE_AVATAR = "Avatar"
+        const val TITLE_BANNER = "Banner"
+        const val TITLE_BOTTOM_SHEET = "Bottom Sheet"
+        const val TITLE_BUTTON = "Button"
+        const val TITLE_CALENDER = "Calender"
+        const val TITLE_CARD = "Card"
+        const val TITLE_CHECK_BOX = "Check Box"
+        const val TITLE_COLOR = "Color"
+        const val TITLE_ICON = "Icon"
+        const val TITLE_INPUT = "Input"
+        const val TITLE_SELECT = "Select"
+        const val TITLE_SHAPE = "Shape"
+        const val TITLE_SWITCH = "Switch"
+        const val TITLE_TAB = "Tab"
+        const val TITLE_TYPO = "Typo"
 
         const val TEXT_HINT = "값을 입력해주세요"
     }

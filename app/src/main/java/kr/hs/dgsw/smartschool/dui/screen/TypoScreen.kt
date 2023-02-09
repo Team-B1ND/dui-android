@@ -42,6 +42,7 @@ import kr.hs.dgsw.smartschool.components.theme.Label3
 import kr.hs.dgsw.smartschool.components.theme.Title1
 import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.components.theme.Title3
+import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
 @Preview(showBackground = true)
@@ -85,7 +86,7 @@ fun TypoScreen(
             .background(DodamColor.White),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        DodamAppBar(title = "Typo", onStartIconClick = { navController.popBackStack() })
+        DodamAppBar(title = DataSet.Text.TITLE_TYPO, onStartIconClick = { navController.popBackStack() })
         Spacer(modifier = Modifier.height(20.dp))
         Input(
             value = textState.value,
