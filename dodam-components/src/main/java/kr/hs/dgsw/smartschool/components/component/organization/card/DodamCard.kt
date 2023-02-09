@@ -83,7 +83,7 @@ fun DodamItemCard(
             Text(text = title, style = titleStyle.copy(color = contentColorFor(backgroundColor = background)))
             icon?.let {
                 Spacer(modifier = Modifier.height(14.dp))
-                Box(modifier = modifier.align(Alignment.End)) {
+                Box(modifier = Modifier.align(Alignment.End)) {
                     it()
                 }
             }
