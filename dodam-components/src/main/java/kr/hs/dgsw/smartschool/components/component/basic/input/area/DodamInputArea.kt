@@ -1,11 +1,13 @@
 package kr.hs.dgsw.smartschool.components.component.basic.input.area
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -42,11 +44,12 @@ sealed interface InputAreaType {
     object Error : InputAreaType
 }
 
+private val AREA_MIN_WIDTH = 70.dp
+
 /**
  * Dodam Input Area, can write multi line
  *
  * @param value text in field
- * @param onValueChange when value change callback
  * @param modifier modifier
  * @param hint input guide
  * @param isError error state, write condition!
@@ -62,11 +65,11 @@ sealed interface InputAreaType {
  * @param visualTransformation visualTransformation
  * @param keyboardOptions keyboardOptions
  * @param keyboardActions keyboardActions
+ * @param onValueChange when value change callback
  */
 @Composable
 fun DodamInputArea(
     value: String,
-    onValueChange: (String) -> Unit,
     modifier: Modifier = Modifier,
     hint: String = "",
     isError: Boolean = false,
@@ -82,6 +85,7 @@ fun DodamInputArea(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions(),
+    onValueChange: (String) -> Unit,
 ) {
     val mergedTextStyle = textStyle.merge(TextStyle(color = textColor))
     val focusRequester by remember { mutableStateOf(FocusRequester()) }
@@ -158,6 +162,7 @@ private fun InputAreaDecoration(
 ) {
     Box(
         modifier = Modifier
+            .defaultMinSize(AREA_MIN_WIDTH)
             .background(
                 color = DodamTheme.color.White,
                 shape = DodamTheme.shape.medium
@@ -169,10 +174,10 @@ private fun InputAreaDecoration(
             verticalAlignment = Alignment.CenterVertically
         ) {
 
-            if (inputAreaType is InputAreaType.Default)
+            AnimatedVisibility(visible = inputAreaType is InputAreaType.Default) {
                 Body2(text = hint, textColor = DodamTheme.color.Gray200)
-            else
-                innerTextField()
+            }
+            innerTextField()
         }
     }
 }
@@ -208,9 +213,6 @@ private fun getInputAreaColorByType(
 @Preview(showBackground = true)
 @Composable
 fun InputAreaPreview() {
-    var testValue by remember { mutableStateOf("") }
-    var testValue2 by remember { mutableStateOf("") }
-    var testValue3 by remember { mutableStateOf("") }
 
     Column(
         Modifier
@@ -218,6 +220,8 @@ fun InputAreaPreview() {
             .padding(20.dp)
             .fillMaxSize()
     ) {
+
+        var testValue by remember { mutableStateOf("") }
         DodamInputArea(
             value = testValue,
             onValueChange = { testValue = it },
@@ -226,6 +230,7 @@ fun InputAreaPreview() {
 
         Spacer(modifier = Modifier.height(10.dp))
 
+        var testValue2 by remember { mutableStateOf("") }
         DodamInputArea(
             value = testValue2,
             onValueChange = { testValue2 = it },
@@ -235,6 +240,7 @@ fun InputAreaPreview() {
 
         Spacer(modifier = Modifier.height(10.dp))
 
+        var testValue3 by remember { mutableStateOf("") }
         DodamInputArea(
             value = testValue3,
             onValueChange = { testValue3 = it },

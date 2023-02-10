@@ -34,7 +34,7 @@ import com.skydoves.landscapist.glide.GlideImage
 import com.skydoves.landscapist.placeholder.shimmer.ShimmerPlugin
 import kotlinx.coroutines.launch
 import kr.hs.dgsw.smartschool.components.component.basic.badge.DodamBadgeBox
-import kr.hs.dgsw.smartschool.components.component.basic.indicator.PagerIndicator
+import kr.hs.dgsw.smartschool.components.component.basic.indicator.DodamPagerIndicator
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import kr.hs.smartschool.components.R
@@ -111,7 +111,7 @@ fun DodamBanner(
                 background = DodamTheme.color.Gray200.copy(alpha = 0.8f),
                 contentPaddingValues = PaddingValues(horizontal = 6.dp, vertical = 1.dp)
             ) {
-                PagerIndicator(
+                DodamPagerIndicator(
                     pagerState = pagerState,
                     indicatorCount = imageUrls.size,
                 ) {

@@ -164,10 +164,13 @@ private fun PreviewDodamSwitch() {
             .fillMaxSize()
             .padding(20.dp),
     ) {
+
         DodamSwitch { isActive ->
             Toast.makeText(context, isActive.toString(), Toast.LENGTH_SHORT).show()
         }
+
         Spacer(modifier = Modifier.height(20.dp))
+
         DodamSelectSwitch { isLeft ->
             Toast.makeText(context, isLeft.toString(), Toast.LENGTH_SHORT).show()
         }

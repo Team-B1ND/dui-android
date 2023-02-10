@@ -188,18 +188,18 @@ private val RadioButtonSize = 20.dp
  * Dodam RadioButton
  *
  * @param selected state of select
- * @param onClick when click button
  * @param modifier modifier
  * @param enabled button enabled
  * @param type button type, define color
+ * @param onClick when click button
  */
 @Composable
 fun DodamRadioButton(
     selected: Boolean,
-    onClick: (() -> Unit)?,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     type: ButtonType = ButtonType.PrimaryVariant,
+    onClick: (() -> Unit)?,
 ) {
     val selectedColor = animateColorAsState(
         if (selected) backgroundColorFor(type) else DodamColor.Gray500

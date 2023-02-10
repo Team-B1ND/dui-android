@@ -1,10 +1,16 @@
 package kr.hs.dgsw.smartschool.components.component.basic.button
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
@@ -152,5 +158,30 @@ private fun PreviewDodamButton() {
         DodamMediumRoundedButton(onClick = {}, text = "도담")
         Spacer(modifier = Modifier.height(10.dp))
         DodamSmallRoundedButton(onClick = {}, text = "Button")
+    }
+}
+
+@Preview
+@Composable
+private fun PreviewDodamRadioButton() {
+    Column(
+        modifier = Modifier
+            .padding(DodamDimen.ScreenSidePadding)
+            .fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(20.dp)
+    ) {
+        var radioSelect by remember { mutableStateOf(0) }
+        DodamRadioButton(selected = radioSelect == 0) {
+            radioSelect = 0
+        }
+        DodamRadioButton(selected = radioSelect == 1) {
+            radioSelect = 1
+        }
+        DodamRadioButton(selected = radioSelect == 2) {
+            radioSelect = 2
+        }
+        DodamRadioButton(selected = radioSelect == 3) {
+            radioSelect = 3
+        }
     }
 }

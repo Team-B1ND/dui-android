@@ -62,7 +62,6 @@ sealed interface InputType {
  * Dodam Input, can write some text
  *
  * @param value text in field
- * @param onValueChange when value change callback
  * @param hint input guide
  * @param modifier modifier
  * @param isError error state, write condition!
@@ -78,11 +77,11 @@ sealed interface InputType {
  * @param visualTransformation visualTransformation
  * @param keyboardOptions keyboardOptions
  * @param keyboardActions keyboardActions
+ * @param onValueChange when value change callback
  */
 @Composable
 fun DodamInput(
     value: String,
-    onValueChange: (String) -> Unit,
     hint: String,
     modifier: Modifier = Modifier,
     isError: Boolean = false,
@@ -99,6 +98,7 @@ fun DodamInput(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions(),
+    onValueChange: (String) -> Unit,
 ) {
     val mergedTextStyle = textStyle.merge(TextStyle(color = textColor))
     val focusRequester by remember { mutableStateOf(FocusRequester()) }
@@ -282,8 +282,6 @@ private fun getInputColor(focusColor: Color, inputType: InputType): Color =
 @Preview(showBackground = true)
 @Composable
 fun InputPreview() {
-    var testValue by remember { mutableStateOf("") }
-    var testValue2 by remember { mutableStateOf("") }
 
     Column(
         Modifier
@@ -291,6 +289,8 @@ fun InputPreview() {
             .padding(20.dp)
             .fillMaxSize()
     ) {
+
+        var testValue by remember { mutableStateOf("") }
         DodamInput(
             value = testValue,
             onValueChange = { testValue = it },
@@ -299,6 +299,7 @@ fun InputPreview() {
 
         Spacer(modifier = Modifier.height(20.dp))
 
+        var testValue2 by remember { mutableStateOf("") }
         DodamInput(
             value = testValue2,
             onValueChange = { testValue2 = it },
@@ -309,7 +310,6 @@ fun InputPreview() {
         Spacer(modifier = Modifier.height(20.dp))
 
         var testValue3 by remember { mutableStateOf("") }
-
         DodamInput(
             value = testValue3,
             onValueChange = {

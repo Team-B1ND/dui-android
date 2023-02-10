@@ -30,9 +30,9 @@ import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 /**
  * Dodam Indicator of pager
  *
- * @param modifier modifier
  * @param pagerState state of pager
  * @param indicatorCount count of dot
+ * @param modifier modifier
  * @param indicatorShape shape of dot, basic is circle
  * @param space size of between dots
  * @param activeColor current pager's dot color
@@ -41,10 +41,10 @@ import kr.hs.dgsw.smartschool.components.theme.DodamTheme
  */
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun PagerIndicator(
-    modifier: Modifier = Modifier,
+fun DodamPagerIndicator(
     pagerState: PagerState,
     indicatorCount: Int,
+    modifier: Modifier = Modifier,
     indicatorSize: Dp = 6.dp,
     indicatorShape: Shape = CircleShape,
     space: Dp = 3.dp,

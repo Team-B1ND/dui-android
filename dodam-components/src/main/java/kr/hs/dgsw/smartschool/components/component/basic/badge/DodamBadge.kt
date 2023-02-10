@@ -1,7 +1,9 @@
 package kr.hs.dgsw.smartschool.components.component.basic.badge
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -13,7 +15,9 @@ import androidx.compose.ui.unit.dp
 import kr.hs.dgsw.smartschool.components.component.basic.Surface
 import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
+import kr.hs.dgsw.smartschool.components.theme.IcDinner3D
 import kr.hs.dgsw.smartschool.components.theme.contentColorFor
+import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 
 /**
  * Dodam Badge
@@ -65,7 +69,16 @@ fun DodamBadge(
 @Preview
 @Composable
 private fun PreviewBadge() {
-    Column(Modifier.padding(20.dp)) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(DodamDimen.ScreenSidePadding),
+        verticalArrangement = Arrangement.spacedBy(20.dp)
+    ) {
         DodamBadge(text = "도담도담", onClick = {})
+
+        DodamBadgeBox {
+            IcDinner3D(contentDescription = null)
+        }
     }
 }

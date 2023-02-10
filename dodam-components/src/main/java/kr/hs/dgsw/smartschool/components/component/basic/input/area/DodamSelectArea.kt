@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -59,8 +60,8 @@ sealed interface SelectAreaType {
  * Dodam Select Area, can select item in area
  *
  * @param itemList list of item, select in here!
- * @param hint select guide
  * @param modifier modifier
+ * @param hint select guide
  * @param onValueChange when value change callback
  * @param focusColor color when focus to this input area
  * @param enabled input area enabled state
@@ -78,8 +79,8 @@ sealed interface SelectAreaType {
 @Composable
 fun DodamSelectArea(
     itemList: List<String>,
-    hint: String,
     modifier: Modifier = Modifier,
+    hint: String = "",
     onValueChange: (String) -> Unit = {},
     focusColor: Color = DodamColor.MainColor400,
     enabled: Boolean = true,
@@ -256,6 +257,8 @@ private fun SelectInputArea(
     }
 }
 
+private val SELECT_AREA_MIN_WIDTH = 70.dp
+
 @Composable
 private fun SelectAreaDecoration(
     selectAreaType: SelectAreaType,
@@ -265,6 +268,7 @@ private fun SelectAreaDecoration(
 ) {
     Box(
         modifier = Modifier
+            .defaultMinSize(SELECT_AREA_MIN_WIDTH)
             .background(
                 color = DodamTheme.color.White,
                 shape = DodamTheme.shape.medium
