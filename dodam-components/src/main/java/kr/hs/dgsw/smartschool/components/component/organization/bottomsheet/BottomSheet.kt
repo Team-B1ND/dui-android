@@ -2,13 +2,10 @@ package kr.hs.dgsw.smartschool.components.component.organization.bottomsheet
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -33,8 +30,7 @@ fun BottomSheet(
     sheetShape: Shape = RoundedCornerShape(topStart = 20.dp, topEnd = 20.dp),
     content: @Composable () -> Unit,
 ) {
-
-    BoxWithConstraints(modifier) {
+    Box(modifier) {
         BottomSheetStack(body = {
             Column(modifier = Modifier.fillMaxSize()) {
                 content()
