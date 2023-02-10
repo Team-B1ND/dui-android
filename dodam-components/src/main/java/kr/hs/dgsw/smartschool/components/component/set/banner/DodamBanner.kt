@@ -44,6 +44,7 @@ import kr.hs.smartschool.components.R
  *
  * @param imageUrls banner image urls, use list type
  * @param modifier modifier
+ * @param ratio Banner ratio, 36f / 5f
  * @param shape Banner shape, 5.dp
  * @param showIndicator visibility of indicator, if page count is one, not show indicator
  * @param placeHolderBaseColor base color when loading
@@ -55,6 +56,7 @@ import kr.hs.smartschool.components.R
 fun DodamBanner(
     imageUrls: List<String>,
     modifier: Modifier = Modifier,
+    ratio: Float = 36f / 5f,
     shape: Shape = DodamTheme.shape.small,
     showIndicator: Boolean = true,
     placeHolderBaseColor: Color = DodamTheme.color.White,
@@ -68,7 +70,7 @@ fun DodamBanner(
         HorizontalPager(
             modifier = modifier
                 .fillMaxWidth()
-                .aspectRatio(36f / 5f)
+                .aspectRatio(ratio)
                 .clip(shape),
             count = imageUrls.size,
             state = pagerState
