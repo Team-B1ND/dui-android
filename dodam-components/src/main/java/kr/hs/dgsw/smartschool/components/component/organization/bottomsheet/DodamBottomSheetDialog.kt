@@ -46,7 +46,7 @@ import kr.hs.dgsw.smartschool.components.theme.Label1
  */
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun BottomSheetDialog(
+fun DodamBottomSheetDialog(
     sheetTopContent: @Composable ColumnScope.() -> Unit,
     sheetBottomContent: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
@@ -106,7 +106,7 @@ fun ColumnScope.BottomSheetBar() {
 @Composable
 private fun PreviewBottomSheetDialog() {
     val context = LocalContext.current
-    BottomSheetDialog(
+    DodamBottomSheetDialog(
         sheetTopContent = {
             Spacer(modifier = Modifier.height(18.dp))
             Label1(
