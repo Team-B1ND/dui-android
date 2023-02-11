@@ -23,6 +23,7 @@ import kr.hs.dgsw.smartschool.components.component.set.tab.DodamTabs
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.IcHome
 import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
 @Preview(showBackground = true)
@@ -48,7 +49,7 @@ fun TabScreen(
             .fillMaxSize()
             .background(DodamColor.Background)
     ) {
-        DodamAppBar(onStartIconClick = { navController.popBackStack() }, title = "Tab")
+        DodamAppBar(onStartIconClick = { navController.popBackStack() }, title = DataSet.Text.TITLE_TAB)
         Column(
             modifier = Modifier
                 .fillMaxSize()

@@ -32,6 +32,7 @@ import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.IcAdd
 import kr.hs.dgsw.smartschool.components.theme.Label3
 import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
 @Preview(showBackground = true)
@@ -48,7 +49,7 @@ fun ButtonScreen(
             .fillMaxSize()
             .background(DodamColor.White)
     ) {
-        DodamAppBar(title = "Button", onStartIconClick = { navController.popBackStack() })
+        DodamAppBar(title = DataSet.Text.TITLE_BUTTON, onStartIconClick = { navController.popBackStack() })
         Column(
             modifier = Modifier
                 .fillMaxSize()
