@@ -22,14 +22,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import kr.hs.dgsw.smartschool.components.component.basic.button.DodamIconButton
 import kr.hs.dgsw.smartschool.components.component.basic.button.DodamLargeRoundedButton
 import kr.hs.dgsw.smartschool.components.component.basic.button.DodamMediumRoundedButton
+import kr.hs.dgsw.smartschool.components.component.basic.button.DodamRadioButton
 import kr.hs.dgsw.smartschool.components.component.basic.button.DodamSmallRoundedButton
-import kr.hs.dgsw.smartschool.components.component.basic.button.IconButton
-import kr.hs.dgsw.smartschool.components.component.basic.button.RadioButton
 import kr.hs.dgsw.smartschool.components.component.organization.card.DodamContentCard
 import kr.hs.dgsw.smartschool.components.component.organization.card.DodamItemCard
-import kr.hs.dgsw.smartschool.components.component.organization.card.MealCard
+import kr.hs.dgsw.smartschool.components.component.organization.card.DodamMealCard
 import kr.hs.dgsw.smartschool.components.component.organization.card.MealType
 import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.theme.Body3
@@ -118,9 +118,9 @@ fun CardScreen(
                     mutableStateOf(true)
                 }
                 Row(verticalAlignment = Alignment.CenterVertically) {
-                    IconButton(icon = { IcAdd(contentDescription = null) }, onClick = { })
+                    DodamIconButton(icon = { IcAdd(contentDescription = null) }, onClick = { })
                     Spacer(modifier = Modifier.width(20.dp))
-                    RadioButton(selected = selected.value, onClick = { selected.value = !selected.value })
+                    DodamRadioButton(selected = selected.value, onClick = { selected.value = !selected.value })
                     Spacer(modifier = Modifier.width(20.dp))
                     DodamSmallRoundedButton(onClick = { }, text = "Button")
                     Spacer(modifier = Modifier.width(7.dp))
@@ -134,11 +134,11 @@ fun CardScreen(
             Title2(text = "Dodam Content Card")
             Spacer(modifier = Modifier.height(10.dp))
 
-            MealCard(content = DataSet.Text.TEXT_MEAL, mealType = MealType.BreakFast)
+            DodamMealCard(content = DataSet.Text.TEXT_MEAL, mealType = MealType.BreakFast)
             Spacer(modifier = Modifier.height(10.dp))
-            MealCard(content = DataSet.Text.TEXT_MEAL, mealType = MealType.Dinner)
+            DodamMealCard(content = DataSet.Text.TEXT_MEAL, mealType = MealType.Dinner)
             Spacer(modifier = Modifier.height(10.dp))
-            MealCard(content = DataSet.Text.TEXT_MEAL, mealType = MealType.Lunch)
+            DodamMealCard(content = DataSet.Text.TEXT_MEAL, mealType = MealType.Lunch)
             Spacer(modifier = Modifier.height(10.dp))
         }
     }
