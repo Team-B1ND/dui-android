@@ -37,8 +37,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kr.hs.dgsw.smartschool.components.component.basic.Divider
-import kr.hs.dgsw.smartschool.components.component.organization.calendar.schedule.Schedule
 import kr.hs.dgsw.smartschool.components.component.organization.calendar.schedule.DodamScheduleItem
+import kr.hs.dgsw.smartschool.components.component.organization.calendar.schedule.Schedule
 import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
