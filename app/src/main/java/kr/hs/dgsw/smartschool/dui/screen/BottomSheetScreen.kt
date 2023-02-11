@@ -1,8 +1,12 @@
 package kr.hs.dgsw.smartschool.dui.screen
 
-import android.widget.Toast
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
@@ -13,12 +17,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import kr.hs.dgsw.smartschool.components.component.basic.button.DodamLargeRoundedButton
 import kr.hs.dgsw.smartschool.components.component.organization.bottomsheet.BottomSheet
 import kr.hs.dgsw.smartschool.components.component.organization.bottomsheet.BottomSheetDialog
 import kr.hs.dgsw.smartschool.components.component.organization.card.DodamItemCard
 import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
-import kr.hs.dgsw.smartschool.components.theme.*
+import kr.hs.dgsw.smartschool.components.theme.Display1
+import kr.hs.dgsw.smartschool.components.theme.DodamColor
+import kr.hs.dgsw.smartschool.components.theme.Label1
+import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
@@ -38,7 +44,8 @@ fun BottomSheetScreen(
     ) {
         DodamAppBar(
             title = DataSet.Text.TITLE_BOTTOM_SHEET,
-            onStartIconClick = { navController.popBackStack() })
+            onStartIconClick = { navController.popBackStack() }
+        )
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -59,10 +66,10 @@ fun BottomSheetScreen(
             ) {
                 BottomSheet(
                     sheetContent = {
-                        DodamItemCard(title = "TestTitle", subTitle = "title")
-                        DodamItemCard(title = "TestTitle", subTitle = "title")
-                        DodamItemCard(title = "TestTitle", subTitle = "title")
-                        DodamItemCard(title = "TestTitle", subTitle = "title")
+                        DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
+                        DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
+                        DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
+                        DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
                     },
                     content = {
                         Display1(text = "Content")
@@ -90,14 +97,13 @@ fun BottomSheetScreen(
                         )
                     },
                     sheetBottomContent = {
-                        DodamItemCard(title = "TestTitle", subTitle = "title")
-                        DodamItemCard(title = "TestTitle", subTitle = "title")
-                        DodamItemCard(title = "TestTitle", subTitle = "title")
-                        DodamItemCard(title = "TestTitle", subTitle = "title")
+                        DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
+                        DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
+                        DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
+                        DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
                     },
                 ) { sheetState ->
                     Display1(text = "Content", onClick = {
-
                     })
                 }
             }
