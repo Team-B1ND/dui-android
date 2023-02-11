@@ -65,6 +65,8 @@ fun BottomSheetScreen(
                     .padding(10.dp)
             ) {
                 BottomSheet(
+                    modifier = Modifier
+                        .padding(10.dp),
                     sheetContent = {
                         DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
                         DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
@@ -88,6 +90,8 @@ fun BottomSheetScreen(
                     .padding(10.dp)
             ) {
                 BottomSheetDialog(
+                    modifier = Modifier
+                    .padding(10.dp),
                     sheetTopContent = {
                         Spacer(modifier = Modifier.height(18.dp))
                         Label1(
