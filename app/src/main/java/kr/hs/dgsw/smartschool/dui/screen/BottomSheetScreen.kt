@@ -95,7 +95,7 @@ fun BottomSheetScreen(
                     sheetTopContent = {
                         Spacer(modifier = Modifier.height(18.dp))
                         Label1(
-                            text = "Title",
+                            text = "SheetContent",
                             modifier = Modifier
                                 .align(Alignment.CenterHorizontally)
                         )
