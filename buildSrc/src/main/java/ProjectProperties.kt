@@ -11,8 +11,6 @@ object ProjectProperties {
     const val PUBLISHING_NAME = "maven"
     const val COMPONENT_ARTIFACT_ID = "dui-android"
     const val COMPONENT_VERSION = "1.0.2"
-    fun getArtifactSource(buildDir: String, artifactId: String): String =
-        "$buildDir/outputs/aar/${artifactId}-release.aar"
 
     val JAVA_VERSION = JavaVersion.VERSION_1_8
 

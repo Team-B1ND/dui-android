@@ -14,7 +14,7 @@ publishing {
             artifactId = ProjectProperties.COMPONENT_ARTIFACT_ID
             version = ProjectProperties.COMPONENT_VERSION
 
-            artifact(ProjectProperties.getArtifactSource(buildDir.toString(), artifactId))
+            artifact("$buildDir/outputs/aar/${artifactId}-release.aar")
         }
     }
 }
