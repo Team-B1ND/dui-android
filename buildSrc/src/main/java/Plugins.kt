@@ -1,4 +1,5 @@
 object Plugins {
+
     const val androidApplication = "com.android.application"
     const val androidLibrary = "com.android.library"
 
@@ -10,5 +11,5 @@ object Plugins {
 
     const val jetbrainsKotlinAndroid = "org.jetbrains.kotlin.android"
     const val jetbrainsKotlinJvm = "org.jetbrains.kotlin.jvm"
-
+    const val maven = "maven-publish"
 }
