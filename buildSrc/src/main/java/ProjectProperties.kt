@@ -8,7 +8,7 @@ object ProjectProperties {
     const val APPLICATION_COMPONENTS = "kr.hs.smartschool.components"
     const val TEST_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
 
-    const val GROUP_ID = "com.github.Team-B1ND"
+    const val GROUP_ID = "kr.hs.dgsw.smartschool"
     const val PUBLISHING_NAME = "maven"
     const val COMPONENT_ARTIFACT_ID = "dodam-components"
     const val COMPONENT_VERSION = "1.0.2"
