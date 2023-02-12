@@ -7,14 +7,15 @@ plugins {
     id(Plugins.maven)
 }
 
-publishing {
-    publications {
-        create<MavenPublication>(ProjectProperties.PUBLISHING_NAME) {
-            groupId = ProjectProperties.GROUP_ID
-            artifactId = ProjectProperties.COMPONENT_ARTIFACT_ID
-            version = ProjectProperties.COMPONENT_VERSION
-
-            artifact("$buildDir/outputs/aar/$artifactId-release.aar")
+afterEvaluate {
+    publishing {
+        publications {
+            register("release", MavenPublication::class) {
+                from(components["release"])
+                groupId = ProjectProperties.GROUP_ID
+                artifactId = ProjectProperties.COMPONENT_ARTIFACT_ID
+                version = ProjectProperties.COMPONENT_VERSION
+            }
         }
     }
 }
