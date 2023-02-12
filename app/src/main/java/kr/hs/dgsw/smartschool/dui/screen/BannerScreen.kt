@@ -14,6 +14,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.component.set.banner.Banner
+import kr.hs.dgsw.smartschool.components.theme.Body2
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
@@ -22,7 +23,7 @@ import kr.hs.dgsw.smartschool.dui.DataSet
 @Composable
 @Preview(showBackground = true)
 fun BannerPreview() {
-    InputScreen(navController = rememberNavController())
+    BannerScreen(navController = rememberNavController())
 }
 
 @Composable
@@ -51,6 +52,8 @@ fun BannerScreen(
                 Spacer(modifier = Modifier.height(20.dp))
                 Title2(text = "Banner")
                 Spacer(modifier = Modifier.height(10.dp))
+                Body2(text = "indicator O, 배너 여러 개")
+                Spacer(modifier = Modifier.height(10.dp))
                 Banner(
                     imageUrls = listOf(
                         "https://dodam.kr.object.ncloudstorage.com/dodam/c70c7b96-dd67-4467-a49c-2d0baa459624TEAM%20B1ND%20Banner.png",
@@ -59,12 +62,16 @@ fun BannerScreen(
                     )
                 )
                 Spacer(modifier = Modifier.height(20.dp))
+                Body2(text = "indicator O, 배너 한 개")
+                Spacer(modifier = Modifier.height(10.dp))
                 Banner(
                     imageUrls = listOf(
                         "https://dodam.kr.object.ncloudstorage.com/dodam/c70c7b96-dd67-4467-a49c-2d0baa459624TEAM%20B1ND%20Banner.png",
                     )
                 )
                 Spacer(modifier = Modifier.height(20.dp))
+                Body2(text = "indicator X, 배너 여러 개")
+                Spacer(modifier = Modifier.height(10.dp))
                 Banner(
                     imageUrls = listOf(
                         "https://dodam.kr.object.ncloudstorage.com/dodam/c70c7b96-dd67-4467-a49c-2d0baa459624TEAM%20B1ND%20Banner.png",
