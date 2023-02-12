@@ -7,6 +7,19 @@ plugins {
     id(Plugins.maven)
 }
 
+afterEvaluate {
+    publishing {
+        publications {
+            register("release", MavenPublication::class) {
+                from(components["release"])
+                groupId = ProjectProperties.GROUP_ID
+                artifactId = ProjectProperties.COMPONENT_ARTIFACT_ID
+                version = ProjectProperties.COMPONENT_VERSION
+            }
+        }
+    }
+}
+
 android {
     namespace = ProjectProperties.APPLICATION_COMPONENTS
     compileSdk = ProjectProperties.COMPILE_SDK_VERSION
@@ -69,5 +82,3 @@ dependencies {
     implementation(Compose.LANDSCAPIST_COMPOSE)
     implementation(Compose.LANDSCAPIST_PLACEHOLDER_COMPOSE)
 }
-
-group = "com.github.Team-B1ND"
