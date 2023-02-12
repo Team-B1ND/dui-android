@@ -65,13 +65,33 @@ fun BottomSheetScreen(
                     .padding(10.dp)
             ) {
                 BottomSheet(
-                    modifier = Modifier
-                        .padding(10.dp),
                     sheetContent = {
-                        DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
-                        DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
-                        DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
-                        DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
+                        Column(
+                            modifier = Modifier
+                                .padding(10.dp)
+                                .fillMaxWidth()
+                        ) {
+                            DodamItemCard(
+                                title = "SheetContent",
+                                subTitle = "DodamItemCard",
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                            DodamItemCard(
+                                title = "SheetContent",
+                                subTitle = "DodamItemCard",
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                            DodamItemCard(
+                                title = "SheetContent",
+                                subTitle = "DodamItemCard",
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                            DodamItemCard(
+                                title = "SheetContent",
+                                subTitle = "DodamItemCard",
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                        }
                     },
                     content = {
                         Display1(text = "Content")
@@ -101,10 +121,32 @@ fun BottomSheetScreen(
                         )
                     },
                     sheetBottomContent = {
-                        DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
-                        DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
-                        DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
-                        DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
+                        Column(
+                            modifier = Modifier
+                                .padding(10.dp)
+                                .fillMaxWidth()
+                        ) {
+                            DodamItemCard(
+                                title = "SheetContent",
+                                subTitle = "DodamItemCard",
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                            DodamItemCard(
+                                title = "SheetContent",
+                                subTitle = "DodamItemCard",
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                            DodamItemCard(
+                                title = "SheetContent",
+                                subTitle = "DodamItemCard",
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                            DodamItemCard(
+                                title = "SheetContent",
+                                subTitle = "DodamItemCard",
+                                modifier = Modifier.fillMaxWidth()
+                            )
+                        }
                     },
                 ) {
                     Display1(text = "Content", onClick = {
