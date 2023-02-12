@@ -9,12 +9,12 @@ plugins {
 
 publishing {
     publications {
-        create<MavenPublication>("maven") {
-            groupId = "kr.hs.dgsw.smartschool.components"
-            artifactId = "dui-android"
-            version = "1.0.2"
+        create<MavenPublication>(ProjectProperties.PUBLISHING_NAME) {
+            groupId = ProjectProperties.APPLICATION_COMPONENTS
+            artifactId = ProjectProperties.COMPONENT_ARTIFACT_ID
+            version = ProjectProperties.COMPONENT_VERSION
 
-            artifact("$buildDir/outputs/aar/${artifactId}-release.aar")
+            artifact(ProjectProperties.getArtifactSource(buildDir.toString(), artifactId))
         }
     }
 }
