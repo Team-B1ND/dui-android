@@ -91,7 +91,7 @@ fun BottomSheetScreen(
             ) {
                 BottomSheetDialog(
                     modifier = Modifier
-                    .padding(10.dp),
+                        .padding(10.dp),
                     sheetTopContent = {
                         Spacer(modifier = Modifier.height(18.dp))
                         Label1(
@@ -106,7 +106,7 @@ fun BottomSheetScreen(
                         DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
                         DodamItemCard(title = "SheetContent", subTitle = "DodamItemCard", modifier = Modifier.fillMaxWidth())
                     },
-                ) { sheetState ->
+                ) {
                     Display1(text = "Content", onClick = {
                     })
                 }
