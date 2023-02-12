@@ -18,8 +18,14 @@ import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.theme.Body2
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 
+/**
+ * Dodam Schedule Item
+ *
+ * @param schedule schedule
+ * @param modifier modifier
+ */
 @Composable
-fun ScheduleItem(
+fun DodamScheduleItem(
     schedule: Schedule,
     modifier: Modifier = Modifier,
 ) {

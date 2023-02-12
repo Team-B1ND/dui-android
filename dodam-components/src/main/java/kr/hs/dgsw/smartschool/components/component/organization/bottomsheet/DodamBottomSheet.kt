@@ -21,8 +21,18 @@ import kr.hs.dgsw.smartschool.components.component.organization.card.DodamItemCa
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcSong
 
+/**
+ * Dodam Bottom Sheet
+ *
+ * @param sheetContent composable sheet contents in column scope
+ * @param modifier modifier
+ * @param sheetElevation sheet Elevation, shadow
+ * @param sheetBackgroundColor color of sheet background
+ * @param sheetShape shape of sheet, basic is 20.dp
+ * @param content composable content out of sheet
+ */
 @Composable
-fun BottomSheet(
+fun DodamBottomSheet(
     sheetContent: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
     sheetElevation: Dp = 0.dp,
@@ -82,7 +92,7 @@ private fun BottomSheetStack(
 @Preview
 @Composable
 private fun PreviewBottomSheet() {
-    BottomSheet(
+    DodamBottomSheet(
         sheetContent = { SheetSample() },
     ) {
         Box(

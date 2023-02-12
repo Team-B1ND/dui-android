@@ -27,12 +27,24 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.PagerState
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 
+/**
+ * Dodam Indicator of pager
+ *
+ * @param pagerState state of pager
+ * @param indicatorCount count of dot
+ * @param modifier modifier
+ * @param indicatorShape shape of dot, basic is circle
+ * @param space size of between dots
+ * @param activeColor current pager's dot color
+ * @param inActiveColor color of basic
+ * @param onClick when click dot callback page
+ */
 @OptIn(ExperimentalPagerApi::class)
 @Composable
-fun PagerIndicator(
-    modifier: Modifier = Modifier,
+fun DodamPagerIndicator(
     pagerState: PagerState,
     indicatorCount: Int,
+    modifier: Modifier = Modifier,
     indicatorSize: Dp = 6.dp,
     indicatorShape: Shape = CircleShape,
     space: Dp = 3.dp,

@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -54,12 +55,32 @@ sealed interface SelectAreaType {
     object UnFocus : SelectAreaType
     object Error : SelectAreaType
 }
+
+/**
+ * Dodam Select Area, can select item in area
+ *
+ * @param itemList list of item, select in here!
+ * @param modifier modifier
+ * @param hint select guide
+ * @param onValueChange when value change callback
+ * @param focusColor color when focus to this input area
+ * @param enabled input area enabled state
+ * @param topLabel label, top
+ * @param bottomLabel label, bottom
+ * @param isError error state, write condition!
+ * @param textColor color of text
+ * @param textStyle style of text
+ * @param readOnly just read?
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
+ * @param onItemClickListener when click item callback(item name)
+ */
 @Composable
-fun SelectArea(
+fun DodamSelectArea(
     itemList: List<String>,
-    hint: String,
     modifier: Modifier = Modifier,
-    onItemClickListener: (String) -> Unit = {},
+    hint: String = "",
     onValueChange: (String) -> Unit = {},
     focusColor: Color = DodamColor.MainColor400,
     enabled: Boolean = true,
@@ -72,6 +93,7 @@ fun SelectArea(
     rippleColor: Color = Color.Unspecified,
     rippleEnable: Boolean = false,
     bounded: Boolean = true,
+    onItemClickListener: (String) -> Unit = {},
 ) {
     var expanded by remember { mutableStateOf(false) }
     var selectedItem by remember { mutableStateOf("") }
@@ -235,8 +257,10 @@ private fun SelectInputArea(
     }
 }
 
+private val SELECT_AREA_MIN_WIDTH = 70.dp
+
 @Composable
-fun SelectAreaDecoration(
+private fun SelectAreaDecoration(
     selectAreaType: SelectAreaType,
     trailingIcon: @Composable () -> Unit,
     hint: String,
@@ -244,6 +268,7 @@ fun SelectAreaDecoration(
 ) {
     Box(
         modifier = Modifier
+            .defaultMinSize(SELECT_AREA_MIN_WIDTH)
             .background(
                 color = DodamTheme.color.White,
                 shape = DodamTheme.shape.medium
@@ -313,7 +338,7 @@ fun SelectAreaPreview() {
             .padding(20.dp)
             .fillMaxSize()
     ) {
-        SelectArea(
+        DodamSelectArea(
             itemList = sampleList,
             onItemClickListener = { Toast.makeText(context, it, Toast.LENGTH_SHORT).show() },
             hint = "Hello World",
@@ -323,7 +348,7 @@ fun SelectAreaPreview() {
         Spacer(modifier = Modifier.height(10.dp))
 
         val isError = remember { mutableStateOf(false) }
-        SelectArea(
+        DodamSelectArea(
             itemList = sampleList,
             topLabel = "TestTest",
             onItemClickListener = {
@@ -336,7 +361,7 @@ fun SelectAreaPreview() {
 
         Spacer(modifier = Modifier.height(10.dp))
 
-        SelectArea(
+        DodamSelectArea(
             itemList = sampleList,
             onItemClickListener = { Toast.makeText(context, it, Toast.LENGTH_SHORT).show() },
             modifier = Modifier

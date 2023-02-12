@@ -27,8 +27,20 @@ import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.LocalContentColor
 
+/**
+ * Dodam top tab, just single tab, can use DodamTabs
+ *
+ * @param text name
+ * @param selected state of tab
+ * @param onClick action when click tab
+ * @param modifier modifier
+ * @param showLabel visible label
+ * @param icon main icon
+ * @param selectedColor color when select
+ * @param interactionSource interactionSource
+ */
 @Composable
-fun RowScope.Tab(
+fun RowScope.DodamTab(
     text: String,
     selected: Boolean,
     onClick: () -> Unit,

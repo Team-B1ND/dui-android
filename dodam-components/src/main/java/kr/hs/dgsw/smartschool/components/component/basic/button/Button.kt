@@ -50,6 +50,21 @@ sealed interface ButtonType {
     object MyInfo : ButtonType
 }
 
+/**
+ * Dodam basic button
+ *
+ * @param onClick when click button
+ * @param modifier modifier
+ * @param iconLeft left icon
+ * @param iconRight right icon
+ * @param shape shape of button, basic is medium
+ * @param type button type, define color
+ * @param enable button enable state
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
+ * @param content composable content in button RowScope
+ */
 @Composable
 fun Button(
     onClick: () -> Unit,
@@ -102,16 +117,28 @@ fun Button(
 
 private val IconButtonSize = 50.dp
 
+/**
+ * Dodam icon button, only have icon
+ *
+ * @param icon center icon
+ * @param modifier modifier
+ * @param type button type, define color
+ * @param enable button enable state
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
+ * @param onClick when click icon button
+ */
 @Composable
-fun IconButton(
+fun DodamIconButton(
     icon: @Composable () -> Unit,
-    onClick: () -> Unit,
     modifier: Modifier = Modifier,
     type: ButtonType = ButtonType.Primary,
     enable: Boolean = true,
     rippleColor: Color = Color.Unspecified,
     rippleEnable: Boolean = true,
     bounded: Boolean = true,
+    onClick: () -> Unit,
 ) {
     val backgroundColor = backgroundColorFor(type)
 
@@ -156,13 +183,22 @@ private val RadioButtonDotSize = 12.dp
 private val StrokeWidth = 1.dp
 private val RadioButtonSize = 20.dp
 
+/**
+ * Dodam RadioButton
+ *
+ * @param selected state of select
+ * @param modifier modifier
+ * @param enabled button enabled
+ * @param type button type, define color
+ * @param onClick when click button
+ */
 @Composable
-fun RadioButton(
+fun DodamRadioButton(
     selected: Boolean,
-    onClick: (() -> Unit)?,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     type: ButtonType = ButtonType.PrimaryVariant,
+    onClick: (() -> Unit)?,
 ) {
     val selectedColor = animateColorAsState(
         if (selected) backgroundColorFor(type) else DodamColor.Gray500
@@ -221,21 +257,4 @@ private fun backgroundColorFor(type: ButtonType): Color =
         ButtonType.LostFound -> DodamColor.FeatureColor.LostFoundColor
         ButtonType.Itmap -> DodamColor.FeatureColor.ItMapColor
         ButtonType.MyInfo -> DodamColor.FeatureColor.MyInfoColor
-    }
-
-@Composable
-fun Color.buttonTypeFor(): ButtonType =
-    when (this) {
-        DodamTheme.color.MainColor -> ButtonType.Primary
-        DodamTheme.color.MainColor400 -> ButtonType.PrimaryVariant
-        DodamTheme.color.SecondaryColor -> ButtonType.Secondary
-        DodamTheme.color.SecondaryColor400 -> ButtonType.SecondaryVariant
-        DodamTheme.color.Error -> ButtonType.Danger
-        DodamTheme.color.Gray100 -> ButtonType.Disable
-        DodamColor.FeatureColor.SongColor -> ButtonType.Song
-        DodamColor.FeatureColor.ScheduleColor -> ButtonType.Schedule
-        DodamColor.FeatureColor.LostFoundColor -> ButtonType.LostFound
-        DodamColor.FeatureColor.ItMapColor -> ButtonType.Itmap
-        DodamColor.FeatureColor.MyInfoColor -> ButtonType.MyInfo
-        else -> ButtonType.Primary
     }

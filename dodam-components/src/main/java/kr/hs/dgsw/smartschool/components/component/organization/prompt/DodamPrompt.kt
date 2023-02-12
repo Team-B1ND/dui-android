@@ -27,6 +27,16 @@ import kr.hs.dgsw.smartschool.components.theme.Body1
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.Title2
 
+/**
+ * Dodam Prompt dialog, set title, butotn, description
+ *
+ * @param title title
+ * @param primaryButton positive button
+ * @param onDismiss onClick other place
+ * @param modifier modifier
+ * @param description prompt desc
+ * @param secondaryButton negative button
+ */
 @Composable
 fun DodamPrompt(
     title: String,

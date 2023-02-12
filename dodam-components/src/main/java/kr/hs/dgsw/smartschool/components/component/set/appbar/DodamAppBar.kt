@@ -26,6 +26,17 @@ import kr.hs.dgsw.smartschool.components.theme.IcBackArrow
 import kr.hs.dgsw.smartschool.components.theme.IcDelete
 import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 
+/**
+ * Dodam top app bar, navigation and guide
+ *
+ * @param onStartIconClick action when click start icon
+ * @param modifier modifier
+ * @param backgroundColor color of background
+ * @param startIcon icon placed start, if null place basic back arrow icon, recommend null
+ * @param endContents end composable contents in row scope
+ * @param title title left to start icon, recommend null
+ * @param titleStyle text style to title
+ */
 @Composable
 fun DodamAppBar(
     onStartIconClick: () -> Unit,

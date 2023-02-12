@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.component.basic.Surface
-import kr.hs.dgsw.smartschool.components.component.basic.input.Input
+import kr.hs.dgsw.smartschool.components.component.basic.input.DodamInput
 import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
 import kr.hs.dgsw.smartschool.components.theme.Body1
@@ -88,7 +88,7 @@ fun TypoScreen(
     ) {
         DodamAppBar(title = DataSet.Text.TITLE_TYPO, onStartIconClick = { navController.popBackStack() })
         Spacer(modifier = Modifier.height(20.dp))
-        Input(
+        DodamInput(
             value = textState.value,
             onValueChange = { textState.value = it },
             modifier = Modifier

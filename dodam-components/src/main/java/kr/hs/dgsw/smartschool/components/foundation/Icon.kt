@@ -21,9 +21,9 @@ import kr.hs.dgsw.smartschool.components.theme.LocalContentColor
 
 /**
  * @param painter Draw Icon
- * @param contentDescription Icon 설명
- * @param modifier modifier
- * @param tint 아이콘의 색을 지정해 줌. null일 경우 아무 값도 지정 되지 않음 (3D Icon).
+ * @param contentDescription Icon description
+ * @param modifier
+ * @param tint define icon color. if null, non color (use 3D icon recommend put null)
  */
 @Composable
 fun Icon(

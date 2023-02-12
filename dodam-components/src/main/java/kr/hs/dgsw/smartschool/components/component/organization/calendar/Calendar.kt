@@ -37,8 +37,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kr.hs.dgsw.smartschool.components.component.basic.Divider
+import kr.hs.dgsw.smartschool.components.component.organization.calendar.schedule.DodamScheduleItem
 import kr.hs.dgsw.smartschool.components.component.organization.calendar.schedule.Schedule
-import kr.hs.dgsw.smartschool.components.component.organization.calendar.schedule.ScheduleItem
 import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
@@ -49,6 +49,15 @@ import kr.hs.dgsw.smartschool.components.theme.IcRightArrow
 import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import java.time.LocalDate
 
+/**
+ * Dodam Calendar, for schedule
+ *
+ * @param schedules schedules(events) list type
+ * @param modifier modifier
+ * @param categories use DodamBasicCalendarCategory, list type
+ * @param showCategories visible state category
+ * @param onDayChange callback when day state changed, (currentDate, daySchedules)
+ */
 @Composable
 fun DodamCalendar(
     schedules: List<Schedule>,
@@ -359,7 +368,7 @@ private fun PreviewCalendar() {
             Spacer(modifier = Modifier.width(11.dp))
             LazyColumn {
                 items(selectedSchedules) { daySchedule ->
-                    ScheduleItem(schedule = daySchedule.schedule)
+                    DodamScheduleItem(schedule = daySchedule.schedule)
                     Spacer(modifier = Modifier.height(24.dp))
                 }
             }
