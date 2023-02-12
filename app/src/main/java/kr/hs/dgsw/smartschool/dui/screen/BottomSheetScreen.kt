@@ -1,6 +1,7 @@
 package kr.hs.dgsw.smartschool.dui.screen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -70,6 +71,7 @@ fun BottomSheetScreen(
                             modifier = Modifier
                                 .padding(10.dp)
                                 .fillMaxWidth()
+                                .border(width = 2.dp, DodamColor.MainColor)
                         ) {
                             DodamItemCard(
                                 title = "SheetContent",
@@ -125,6 +127,7 @@ fun BottomSheetScreen(
                             modifier = Modifier
                                 .padding(10.dp)
                                 .fillMaxWidth()
+                                .border(width = 2.dp, DodamColor.MainColor)
                         ) {
                             DodamItemCard(
                                 title = "SheetContent",
