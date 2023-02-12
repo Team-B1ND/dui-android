@@ -15,7 +15,7 @@
 DUI의 개발 과정을 보고 싶다면? ([Dodam Android Design System(DUI)](https://minjae1230.notion.site/Dodam-Android-Design-System-DUI-2e6afc9b205d4f37be5d7b8230136c81))
 
 ## FEATURE ⚡️
-[DUI 사용 가이드](https://minjae1230.notion.site/DUI-GUIDE-f9fac16ca7df4718b68328e83db9479f)
+[DUI 사용 가이드](https://minjae1230.notion.site/DUI-GUIDE-f9fac16ca7df4718b68328e83db9479f)</br></br>
 [Foundation](https://minjae1230.notion.site/Foundation-d61c793338b744bd93047958a8caba89)</br>
   - icon
   - shape
