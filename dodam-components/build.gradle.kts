@@ -7,6 +7,18 @@ plugins {
     id(Plugins.maven)
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = "kr.hs.dgsw.smartschool.components"
+            artifactId = "dui-android"
+            version = "1.0.2"
+
+            artifact("$buildDir/outputs/aar/${artifactId}-release.aar")
+        }
+    }
+}
+
 android {
     namespace = ProjectProperties.APPLICATION_COMPONENTS
     compileSdk = ProjectProperties.COMPILE_SDK_VERSION
@@ -69,5 +81,3 @@ dependencies {
     implementation(Compose.LANDSCAPIST_COMPOSE)
     implementation(Compose.LANDSCAPIST_PLACEHOLDER_COMPOSE)
 }
-
-group = "com.github.Team-B1ND"
