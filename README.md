@@ -15,8 +15,16 @@
 DUI의 개발 과정을 보고 싶다면? ([Dodam Android Design System(DUI)](https://minjae1230.notion.site/Dodam-Android-Design-System-DUI-2e6afc9b205d4f37be5d7b8230136c81))
 
 ## FEATURE ⚡️
-[Foundation](https://www.notion.so/Foundation-d61c793338b744bd93047958a8caba89)</br>
-[Component](https://www.notion.so/Component-fcb2c8d585db4c4ab600b7cffa53ff0c)
+[Foundation](https://minjae1230.notion.site/Foundation-d61c793338b744bd93047958a8caba89)</br>
+  - icon
+  - shape
+  - color
+  - typo
+ ---
+[Component](https://minjae1230.notion.site/Component-fcb2c8d585db4c4ab600b7cffa53ff0c)
+  - basic
+  - set
+  - organization
 
 ## PLAYGROUND 🛝
 app 모듈을 빌드하여 Preview를 볼 수 있습니다.</br>
