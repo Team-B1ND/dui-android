@@ -32,9 +32,21 @@ import kr.hs.dgsw.smartschool.components.theme.Display1
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.Label1
 
+/**
+ * Bottom Sheet Dialog, can up down motion (use material)
+ *
+ * @param sheetTopContent composable content placed top in column scope
+ * @param sheetBottomContent composable content placed bottom in column scope
+ * @param modifier modifier
+ * @param sheetElevation elevation, shadow
+ * @param sheetShape shape of sheet, 20.dp
+ * @param sheetBackgroundColor color of sheet background
+ * @param sheetPickHeight height when down motion
+ * @param content composable contents out of sheet
+ */
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun BottomSheetDialog(
+fun DodamBottomSheetDialog(
     sheetTopContent: @Composable ColumnScope.() -> Unit,
     sheetBottomContent: @Composable ColumnScope.() -> Unit,
     modifier: Modifier = Modifier,
@@ -94,7 +106,7 @@ fun ColumnScope.BottomSheetBar() {
 @Composable
 private fun PreviewBottomSheetDialog() {
     val context = LocalContext.current
-    BottomSheetDialog(
+    DodamBottomSheetDialog(
         sheetTopContent = {
             Spacer(modifier = Modifier.height(18.dp))
             Label1(

@@ -58,10 +58,30 @@ sealed interface InputType {
     }
 }
 
+/**
+ * Dodam Input, can write some text
+ *
+ * @param value text in field
+ * @param hint input guide
+ * @param modifier modifier
+ * @param isError error state, write condition!
+ * @param errorMessage message to guide error state, placed bottom
+ * @param enabled input area enabled state
+ * @param textColor color of text
+ * @param singleLine just write one line?
+ * @param maxLines count lines
+ * @param textStyle style of text
+ * @param focusColor color when focus to this input area
+ * @param readOnly just read?
+ * @param trailingIcon icon placed end
+ * @param visualTransformation visualTransformation
+ * @param keyboardOptions keyboardOptions
+ * @param keyboardActions keyboardActions
+ * @param onValueChange when value change callback
+ */
 @Composable
-fun Input(
+fun DodamInput(
     value: String,
-    onValueChange: (String) -> Unit,
     hint: String,
     modifier: Modifier = Modifier,
     isError: Boolean = false,
@@ -78,6 +98,7 @@ fun Input(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     keyboardOptions: KeyboardOptions = KeyboardOptions.Default,
     keyboardActions: KeyboardActions = KeyboardActions(),
+    onValueChange: (String) -> Unit,
 ) {
     val mergedTextStyle = textStyle.merge(TextStyle(color = textColor))
     val focusRequester by remember { mutableStateOf(FocusRequester()) }
@@ -143,7 +164,7 @@ fun Input(
 }
 
 @Composable
-fun InputDecoration(
+private fun InputDecoration(
     inputType: InputType,
     hint: String,
     focusColor: Color,
@@ -261,8 +282,6 @@ private fun getInputColor(focusColor: Color, inputType: InputType): Color =
 @Preview(showBackground = true)
 @Composable
 fun InputPreview() {
-    var testValue by remember { mutableStateOf("") }
-    var testValue2 by remember { mutableStateOf("") }
 
     Column(
         Modifier
@@ -270,7 +289,9 @@ fun InputPreview() {
             .padding(20.dp)
             .fillMaxSize()
     ) {
-        Input(
+
+        var testValue by remember { mutableStateOf("") }
+        DodamInput(
             value = testValue,
             onValueChange = { testValue = it },
             hint = "Hello World",
@@ -278,7 +299,8 @@ fun InputPreview() {
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        Input(
+        var testValue2 by remember { mutableStateOf("") }
+        DodamInput(
             value = testValue2,
             onValueChange = { testValue2 = it },
             hint = "Input Some Text",
@@ -288,8 +310,7 @@ fun InputPreview() {
         Spacer(modifier = Modifier.height(20.dp))
 
         var testValue3 by remember { mutableStateOf("") }
-
-        Input(
+        DodamInput(
             value = testValue3,
             onValueChange = {
                 testValue3 = it

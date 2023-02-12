@@ -22,11 +22,11 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.component.basic.button.ButtonType
+import kr.hs.dgsw.smartschool.components.component.basic.button.DodamIconButton
 import kr.hs.dgsw.smartschool.components.component.basic.button.DodamLargeRoundedButton
 import kr.hs.dgsw.smartschool.components.component.basic.button.DodamMediumRoundedButton
+import kr.hs.dgsw.smartschool.components.component.basic.button.DodamRadioButton
 import kr.hs.dgsw.smartschool.components.component.basic.button.DodamSmallRoundedButton
-import kr.hs.dgsw.smartschool.components.component.basic.button.IconButton
-import kr.hs.dgsw.smartschool.components.component.basic.button.RadioButton
 import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.IcAdd
@@ -98,9 +98,9 @@ fun ButtonRow(
     }
     Spacer(modifier = Modifier.height(20.dp))
     Row(verticalAlignment = Alignment.CenterVertically) {
-        IconButton(icon = { IcAdd(contentDescription = null) }, onClick = { onClick() }, type = type)
+        DodamIconButton(icon = { IcAdd(contentDescription = null) }, onClick = { onClick() }, type = type)
         Spacer(modifier = Modifier.width(20.dp))
-        RadioButton(selected = selected.value, onClick = { selected.value = !selected.value }, type = type)
+        DodamRadioButton(selected = selected.value, onClick = { selected.value = !selected.value }, type = type)
         Spacer(modifier = Modifier.width(20.dp))
         DodamSmallRoundedButton(onClick = { onClick() }, text = "Button", type = type)
         Spacer(modifier = Modifier.width(7.dp))

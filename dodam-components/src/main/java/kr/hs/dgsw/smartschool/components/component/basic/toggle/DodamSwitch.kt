@@ -1,4 +1,4 @@
-package kr.hs.dgsw.smartschool.components.component.toggle
+package kr.hs.dgsw.smartschool.components.component.basic.toggle
 
 import android.widget.Toast
 import androidx.compose.animation.animateColorAsState
@@ -30,6 +30,21 @@ import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.utlis.animateAlignmentAsState
 
+/**
+ * Dodam Toggle Switch
+ *
+ * @param modifier modifier
+ * @param boxHeight box height
+ * @param isActive state of switch / active and inactive
+ * @param shape shape of switch / recommend use large shape..
+ * @param activeColor color of active state, switch background
+ * @param inactiveColor color of inactive state, switch background
+ * @param dotColor color of dot
+ * @param rippleColor rippleColor
+ * @param rippleEnable rippleEnable
+ * @param bounded bounded
+ * @param onActiveChangedListener when active state is change
+ */
 @Composable
 fun DodamSwitch(
     modifier: Modifier = Modifier,
@@ -80,6 +95,66 @@ fun DodamSwitch(
     }
 }
 
+/**
+ * Dodam Selectable Toggle Switch
+ *
+ * @param modifier Modifier
+ * @param boxHeight box height
+ * @param isLeft state of switch / true(left) and false(right)
+ * @param shape shape of switch / recommend use large shape..
+ * @param rightColor color of false state, switch background
+ * @param leftColor color of true state, switch background
+ * @param dotColor color of dot
+ * @param rippleColor
+ * @param rippleEnable
+ * @param bounded
+ * @param onSelectChangedListener when isLeft state is change
+ */
+@Composable
+fun DodamSelectSwitch(
+    modifier: Modifier = Modifier,
+    boxHeight: Dp = 26.dp,
+    isLeft: Boolean = true,
+    shape: Shape = DodamTheme.shape.large,
+    rightColor: Color = DodamTheme.color.MainColor400,
+    leftColor: Color = DodamTheme.color.SecondaryColor400,
+    dotColor: Color = DodamTheme.color.White,
+    rippleColor: Color = Color.Unspecified,
+    rippleEnable: Boolean = false,
+    bounded: Boolean = true,
+    onSelectChangedListener: ((isLeft: Boolean) -> Unit)? = null,
+) {
+    var isLeft by remember { mutableStateOf(isLeft) }
+
+    val alignment by animateAlignmentAsState(if (isLeft) Alignment.CenterStart else Alignment.CenterEnd)
+
+    val backgroundColor by animateColorAsState(
+        if (isLeft) leftColor
+        else rightColor
+    )
+
+    Box(
+        modifier = modifier
+            .height(boxHeight)
+            .aspectRatio(22f / 13f)
+            .background(color = backgroundColor, shape = shape)
+            .dodamClickable(rippleColor, rippleEnable, bounded) {
+                isLeft = !isLeft
+                onSelectChangedListener?.let {
+                    it(isLeft)
+                }
+            },
+        contentAlignment = alignment,
+    ) {
+        Box(
+            modifier = Modifier
+                .padding(horizontal = (boxHeight - (boxHeight - 4.dp)) / 2)
+                .background(color = dotColor, shape = CircleShape)
+                .size(boxHeight - 4.dp)
+        )
+    }
+}
+
 @Preview
 @Composable
 private fun PreviewDodamSwitch() {
@@ -89,9 +164,15 @@ private fun PreviewDodamSwitch() {
             .fillMaxSize()
             .padding(20.dp),
     ) {
+
         DodamSwitch { isActive ->
             Toast.makeText(context, isActive.toString(), Toast.LENGTH_SHORT).show()
         }
+
         Spacer(modifier = Modifier.height(20.dp))
+
+        DodamSelectSwitch { isLeft ->
+            Toast.makeText(context, isLeft.toString(), Toast.LENGTH_SHORT).show()
+        }
     }
 }
