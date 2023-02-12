@@ -64,6 +64,7 @@ fun BottomSheetScreen(
                     .fillMaxWidth()
                     .background(DodamColor.White)
                     .padding(10.dp)
+                    .border(width = 2.dp, DodamColor.MainColor)
             ) {
                 BottomSheet(
                     sheetContent = {
@@ -71,7 +72,6 @@ fun BottomSheetScreen(
                             modifier = Modifier
                                 .padding(10.dp)
                                 .fillMaxWidth()
-                                .border(width = 2.dp, DodamColor.MainColor)
                         ) {
                             DodamItemCard(
                                 title = "SheetContent",
@@ -110,6 +110,7 @@ fun BottomSheetScreen(
                     .fillMaxWidth()
                     .background(DodamColor.White)
                     .padding(10.dp)
+                    .border(width = 2.dp, DodamColor.MainColor)
             ) {
                 BottomSheetDialog(
                     modifier = Modifier
@@ -127,7 +128,6 @@ fun BottomSheetScreen(
                             modifier = Modifier
                                 .padding(10.dp)
                                 .fillMaxWidth()
-                                .border(width = 2.dp, DodamColor.MainColor)
                         ) {
                             DodamItemCard(
                                 title = "SheetContent",
