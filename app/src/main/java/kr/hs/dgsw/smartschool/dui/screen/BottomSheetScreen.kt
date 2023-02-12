@@ -21,12 +21,12 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import kr.hs.dgsw.smartschool.components.component.organization.bottomsheet.BottomSheet
-import kr.hs.dgsw.smartschool.components.component.organization.bottomsheet.BottomSheetDialog
+import kr.hs.dgsw.smartschool.components.component.organization.bottomsheet.DodamBottomSheet
+import kr.hs.dgsw.smartschool.components.component.organization.bottomsheet.DodamBottomSheetDialog
 import kr.hs.dgsw.smartschool.components.component.organization.card.DodamItemCard
 import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
-import kr.hs.dgsw.smartschool.components.component.set.tab.Tab
-import kr.hs.dgsw.smartschool.components.component.set.tab.Tabs
+import kr.hs.dgsw.smartschool.components.component.set.tab.DodamTab
+import kr.hs.dgsw.smartschool.components.component.set.tab.DodamTabs
 import kr.hs.dgsw.smartschool.components.theme.Display1
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.Label1
@@ -63,8 +63,8 @@ fun BottomSheetScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Spacer(modifier = Modifier.height(20.dp))
-            Tabs(modifier = Modifier.fillMaxWidth()) {
-                Tab(
+            DodamTabs(modifier = Modifier.fillMaxWidth()) {
+                DodamTab(
                     modifier = Modifier.weight(1f),
                     text = "BottomSheet",
                     selected = tabSelected.value == 1,
@@ -73,7 +73,7 @@ fun BottomSheetScreen(
                         bottomSheetNavController.navigate("bottom_sheet")
                     }
                 )
-                Tab(
+                DodamTab(
                     modifier = Modifier.weight(1f),
                     text = "BottomSheet\n" +
                         "Dialog",
@@ -112,7 +112,7 @@ fun BottomSheetPlayGround() {
         Spacer(modifier = Modifier.height(20.dp))
         Title2(text = "BottomSheet")
         Spacer(modifier = Modifier.height(10.dp))
-        BottomSheet(
+        DodamBottomSheet(
             sheetContent = {
                 Column(
                     modifier = Modifier
@@ -151,7 +151,7 @@ fun BottomSheetDialogPlayground() {
         Spacer(modifier = Modifier.height(20.dp))
         Title2(text = "BottomSheet Dialog")
         Spacer(modifier = Modifier.height(10.dp))
-        BottomSheetDialog(
+        DodamBottomSheetDialog(
             modifier = Modifier
                 .padding(10.dp),
             sheetTopContent = {
