@@ -10,7 +10,7 @@ plugins {
 publishing {
     publications {
         create<MavenPublication>(ProjectProperties.PUBLISHING_NAME) {
-            groupId = ProjectProperties.APPLICATION_COMPONENTS
+            groupId = ProjectProperties.GROUP_ID
             artifactId = ProjectProperties.COMPONENT_ARTIFACT_ID
             version = ProjectProperties.COMPONENT_VERSION
 
