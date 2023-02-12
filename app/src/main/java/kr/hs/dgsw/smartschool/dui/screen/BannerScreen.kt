@@ -2,17 +2,10 @@ package kr.hs.dgsw.smartschool.dui.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-<<<<<<< HEAD
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-=======
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.height
->>>>>>> 50_banner_preview
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
