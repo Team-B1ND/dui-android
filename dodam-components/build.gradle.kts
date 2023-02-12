@@ -4,6 +4,7 @@ plugins {
     id(Plugins.kotlinKapt)
     id(Plugins.kotlinParcelize)
     id(Plugins.kt_lint) version Versions.KT_LINT
+    id(Plugins.maven)
 }
 
 android {
@@ -17,16 +18,26 @@ android {
         testInstrumentationRunner = ProjectProperties.TEST_RUNNER
     }
 
+    buildTypes {
+        getByName(ProjectProperties.APPLICATION_BUILD_TYPE) {
+            isMinifyEnabled = ProjectProperties.IS_MINIFY_ENABLE
+            proguardFiles(getDefaultProguardFile(ProjectProperties.PROGUARD_NAME), ProjectProperties.PROGUARD_FILE)
+        }
+    }
+
     compileOptions {
         sourceCompatibility = ProjectProperties.JAVA_VERSION
         targetCompatibility = ProjectProperties.JAVA_VERSION
     }
+
     kotlinOptions {
         jvmTarget = ProjectProperties.JVM_TARGET
     }
+
     buildFeatures {
         compose = ProjectProperties.BUILD_FEATURE_COMPOSE
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = Versions.COMPOSE_VERSION
     }
