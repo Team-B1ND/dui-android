@@ -4,7 +4,7 @@
 <h1 align="center">DUI</h1>
 <h5 align="center">Dodam Android Design System</h5>
 
-![version](https://img.shields.io/badge/version-1.0.0-blue)
+![version](https://img.shields.io/badge/version-1.0.2-blue)
 [![Tests](https://github.com/Team-B1ND/dui-android/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Team-B1ND/dui-android/actions)
 
 > 💡 **DUI란?** </br>
