@@ -30,7 +30,7 @@ object ProjectProperties {
     const val KT_LINT = "10.2.0"
     const val COMPILE_SDK_VERSION = 33
 
-    const val ANDROID_VERSION = "7.2.1"
+    const val ANDROID_VERSION = "7.4.1"
     const val JETBRAINS_KOTLIN = "1.7.10"
 
     const val BUILD_FEATURE_COMPOSE = true
