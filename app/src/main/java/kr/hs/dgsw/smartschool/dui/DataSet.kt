@@ -22,9 +22,7 @@ object DataSet {
         Item(R.drawable.ic_info_3d, "Bottom Sheet", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "bottomSheet"),
         Item(R.drawable.ic_info_3d, "Calender", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "calender"),
         Item(R.drawable.ic_info_3d, "App Bar", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "appBar"),
-        Item(R.drawable.ic_info_3d, "Check Box", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "checkBox"),
-        Item(R.drawable.ic_info_3d, "Switch", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "switch"),
-
+        Item(R.drawable.ic_info_3d, "Toggle", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "toggle"),
     )
 
     object Text {
@@ -38,13 +36,12 @@ object DataSet {
         const val TITLE_BUTTON = "Button"
         const val TITLE_CALENDER = "Calender"
         const val TITLE_CARD = "Card"
-        const val TITLE_CHECK_BOX = "Check Box"
+        const val TITLE_TOGGLE = "Toggle"
         const val TITLE_COLOR = "Color"
         const val TITLE_ICON = "Icon"
         const val TITLE_INPUT = "Input"
         const val TITLE_SELECT = "Select"
         const val TITLE_SHAPE = "Shape"
-        const val TITLE_SWITCH = "Switch"
         const val TITLE_TAB = "Tab"
         const val TITLE_TYPO = "Typo"
 
