@@ -2,7 +2,11 @@ package kr.hs.dgsw.smartschool.dui.screen
 
 import android.widget.Toast
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -14,7 +18,11 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
-import kr.hs.dgsw.smartschool.components.theme.*
+import kr.hs.dgsw.smartschool.components.theme.DodamColor
+import kr.hs.dgsw.smartschool.components.theme.IcAdd
+import kr.hs.dgsw.smartschool.components.theme.IcHome
+import kr.hs.dgsw.smartschool.components.theme.Label3
+import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import kr.hs.dgsw.smartschool.dui.DataSet
 
@@ -51,7 +59,7 @@ fun AppBarScreen(
             Label3(text = "Basic Dodam App Bar")
             Spacer(modifier = Modifier.height(20.dp))
 
-            DodamAppBar(onStartIconClick = { Toast.makeText(context, "클릭됨", Toast.LENGTH_SHORT).show() }, title = "Title" )
+            DodamAppBar(onStartIconClick = { Toast.makeText(context, "클릭됨", Toast.LENGTH_SHORT).show() }, title = "Title")
             Spacer(modifier = Modifier.height(5.dp))
             Label3(text = "Title O")
             Spacer(modifier = Modifier.height(20.dp))
@@ -61,11 +69,13 @@ fun AppBarScreen(
             Label3(text = "Title O, StartIcon O (IcAdd)")
             Spacer(modifier = Modifier.height(20.dp))
 
-            DodamAppBar(onStartIconClick = { Toast.makeText(context, "클릭됨", Toast.LENGTH_SHORT).show() }, title = "Title", endContents = { IcHome(
-                contentDescription = null,
-                modifier = Modifier
-                    .align(Alignment.CenterVertically)
-                    .size(DodamDimen.AppBarDefaultIconSize))
+            DodamAppBar(onStartIconClick = { Toast.makeText(context, "클릭됨", Toast.LENGTH_SHORT).show() }, title = "Title", endContents = {
+                IcHome(
+                    contentDescription = null,
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .size(DodamDimen.AppBarDefaultIconSize)
+                )
             })
             Spacer(modifier = Modifier.height(5.dp))
             Label3(text = "Title O, EndContent O (IcHome)")
