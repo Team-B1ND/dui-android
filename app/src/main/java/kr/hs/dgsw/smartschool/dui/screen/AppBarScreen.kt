@@ -1,5 +1,6 @@
 package kr.hs.dgsw.smartschool.dui.screen
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -7,6 +8,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -26,6 +28,7 @@ fun AppBarPreview() {
 fun AppBarScreen(
     navController: NavController
 ) {
+    val context = LocalContext.current
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -43,22 +46,22 @@ fun AppBarScreen(
             Title2(text = "Dodam App Bar")
             Spacer(modifier = Modifier.height(10.dp))
 
-            DodamAppBar(onStartIconClick = { /*TODO*/ })
+            DodamAppBar(onStartIconClick = { Toast.makeText(context, "클릭됨", Toast.LENGTH_SHORT).show() })
             Spacer(modifier = Modifier.height(5.dp))
             Label3(text = "Basic Dodam App Bar")
             Spacer(modifier = Modifier.height(20.dp))
 
-            DodamAppBar(onStartIconClick = { /*TODO*/ }, title = "Title" )
+            DodamAppBar(onStartIconClick = { Toast.makeText(context, "클릭됨", Toast.LENGTH_SHORT).show() }, title = "Title" )
             Spacer(modifier = Modifier.height(5.dp))
             Label3(text = "Title O")
             Spacer(modifier = Modifier.height(20.dp))
 
-            DodamAppBar(onStartIconClick = { /*TODO*/ }, title = "Title", startIcon = { IcAdd(contentDescription = null) })
+            DodamAppBar(onStartIconClick = { Toast.makeText(context, "클릭됨", Toast.LENGTH_SHORT).show() }, title = "Title", startIcon = { IcAdd(contentDescription = null) })
             Spacer(modifier = Modifier.height(5.dp))
             Label3(text = "Title O, StartIcon O (IcAdd)")
             Spacer(modifier = Modifier.height(20.dp))
 
-            DodamAppBar(onStartIconClick = { /*TODO*/ }, title = "Title", endContents = { IcHome(
+            DodamAppBar(onStartIconClick = { Toast.makeText(context, "클릭됨", Toast.LENGTH_SHORT).show() }, title = "Title", endContents = { IcHome(
                 contentDescription = null,
                 modifier = Modifier
                     .align(Alignment.CenterVertically)
