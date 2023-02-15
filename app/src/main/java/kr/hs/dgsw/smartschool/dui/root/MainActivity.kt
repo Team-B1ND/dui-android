@@ -37,7 +37,6 @@ import kr.hs.dgsw.smartschool.dui.screen.BottomSheetScreen
 import kr.hs.dgsw.smartschool.dui.screen.ButtonScreen
 import kr.hs.dgsw.smartschool.dui.screen.CalenderScreen
 import kr.hs.dgsw.smartschool.dui.screen.CardScreen
-import kr.hs.dgsw.smartschool.dui.screen.ToggleScreen
 import kr.hs.dgsw.smartschool.dui.screen.ColorScreen
 import kr.hs.dgsw.smartschool.dui.screen.IconScreen
 import kr.hs.dgsw.smartschool.dui.screen.InputScreen
@@ -45,6 +44,7 @@ import kr.hs.dgsw.smartschool.dui.screen.MainScreen
 import kr.hs.dgsw.smartschool.dui.screen.SelectScreen
 import kr.hs.dgsw.smartschool.dui.screen.ShapeScreen
 import kr.hs.dgsw.smartschool.dui.screen.TabScreen
+import kr.hs.dgsw.smartschool.dui.screen.ToggleScreen
 import kr.hs.dgsw.smartschool.dui.screen.TypoScreen
 
 @ExperimentalFoundationApi

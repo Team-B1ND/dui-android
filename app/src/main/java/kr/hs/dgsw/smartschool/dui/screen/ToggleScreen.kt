@@ -1,7 +1,16 @@
 package kr.hs.dgsw.smartschool.dui.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -9,7 +18,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.modifier.modifierLocalProvider
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -62,10 +70,10 @@ fun ToggleScreen(
             Spacer(modifier = Modifier.height(10.dp))
             Row(
                 verticalAlignment = Alignment.CenterVertically
-            ){
+            ) {
                 Column {
-                    DodamCheckBox(){isChecked ->
-                        if(isChecked) checkColor1.value = DodamColor.Check
+                    DodamCheckBox() { isChecked ->
+                        if (isChecked) checkColor1.value = DodamColor.Check
                         else checkColor1.value = DodamColor.Error
                     }
                     Label3(text = "Check Box")
@@ -86,11 +94,11 @@ fun ToggleScreen(
             Spacer(modifier = Modifier.height(50.dp))
             Title2(text = "Switch")
             Spacer(modifier = Modifier.height(10.dp))
-            Column{
+            Column {
                 Row {
                     Column {
                         DodamSwitch { isChecked ->
-                            if(isChecked) checkColor2.value = DodamColor.Check
+                            if (isChecked) checkColor2.value = DodamColor.Check
                             else checkColor2.value = DodamColor.Error
                         }
                         Label3(text = "Switch")
@@ -112,7 +120,7 @@ fun ToggleScreen(
                 Row {
                     Column {
                         DodamSelectSwitch { isChecked ->
-                            if(isChecked) checkColor3.value = DodamColor.Check
+                            if (isChecked) checkColor3.value = DodamColor.Check
                             else checkColor3.value = DodamColor.Error
                         }
                         Label3(text = "Select Switch")
