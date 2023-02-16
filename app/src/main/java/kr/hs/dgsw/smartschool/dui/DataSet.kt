@@ -17,6 +17,7 @@ object DataSet {
         Item(R.drawable.ic_info_3d, "Select", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "select"),
         Item(R.drawable.ic_info_3d, "Tab", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "tab"),
         Item(R.drawable.ic_info_3d, "Avatar", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "avatar"),
+        Item(R.drawable.ic_info_3d, "Card", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "card"),
         Item(R.drawable.ic_info_3d, "Banner", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "banner"),
         Item(R.drawable.ic_info_3d, "Bottom Sheet", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "bottomSheet"),
         Item(R.drawable.ic_info_3d, "Calender", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "calender"),
@@ -27,10 +28,28 @@ object DataSet {
     )
 
     object Text {
-        const val DUI_TITLE = "DUI Preview"
-        const val DUI_DESCRIPTION = "도담 디자인 시스템"
+        const val TITLE_DUI = "DUI Preview"
+        const val DESCRIPTION_DUI = "도담 디자인 시스템"
+
+        const val TITLE_APP_BAR = "App Bar"
+        const val TITLE_AVATAR = "Avatar"
+        const val TITLE_BANNER = "Banner"
+        const val TITLE_BOTTOM_SHEET = "Bottom Sheet"
+        const val TITLE_BUTTON = "Button"
+        const val TITLE_CALENDER = "Calender"
+        const val TITLE_CARD = "Card"
+        const val TITLE_CHECK_BOX = "Check Box"
+        const val TITLE_COLOR = "Color"
+        const val TITLE_ICON = "Icon"
+        const val TITLE_INPUT = "Input"
+        const val TITLE_SELECT = "Select"
+        const val TITLE_SHAPE = "Shape"
+        const val TITLE_SWITCH = "Switch"
+        const val TITLE_TAB = "Tab"
+        const val TITLE_TYPO = "Typo"
 
         const val TEXT_HINT = "값을 입력해주세요"
+        const val TEXT_MEAL = "*기장밥, 김치어묵국, *명태껍질볶음, 새송이돈육마늘구이, *짜먹는요거트, *꽃상추쌈/쌈장"
     }
 
     data class Item(

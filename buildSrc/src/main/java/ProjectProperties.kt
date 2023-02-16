@@ -8,6 +8,11 @@ object ProjectProperties {
     const val APPLICATION_COMPONENTS = "kr.hs.smartschool.components"
     const val TEST_RUNNER = "androidx.test.runner.AndroidJUnitRunner"
 
+    const val GROUP_ID = "kr.hs.dgsw.smartschool.components"
+    const val PUBLISHING_NAME = "maven"
+    const val COMPONENT_ARTIFACT_ID = "dodam-components"
+    const val COMPONENT_VERSION = "1.0.2"
+
     val JAVA_VERSION = JavaVersion.VERSION_1_8
 
     const val PROGUARD_NAME = "proguard-android.txt"
@@ -25,7 +30,7 @@ object ProjectProperties {
     const val KT_LINT = "10.2.0"
     const val COMPILE_SDK_VERSION = 33
 
-    const val ANDROID_VERSION = "7.2.1"
+    const val ANDROID_VERSION = "7.4.1"
     const val JETBRAINS_KOTLIN = "1.7.10"
 
     const val BUILD_FEATURE_COMPOSE = true

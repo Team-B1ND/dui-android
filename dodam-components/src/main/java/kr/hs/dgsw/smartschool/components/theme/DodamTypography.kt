@@ -1,5 +1,11 @@
 package kr.hs.dgsw.smartschool.components.theme
 
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.staticCompositionLocalOf
@@ -13,6 +19,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
@@ -122,7 +130,7 @@ object DodamTypography {
         fontFamily = pretendard,
         fontWeight = FontWeight.Medium,
         fontSize = 11.sp,
-        lineHeight = 16.sp
+        lineHeight = 14.sp
     )
 
     @Stable
@@ -711,3 +719,38 @@ fun DodamError(
 }
 
 internal val LocalTypography = staticCompositionLocalOf { DodamTypography }
+
+@Preview
+@Composable
+private fun PreviewTypo() {
+
+    val scrollState = rememberScrollState()
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .verticalScroll(scrollState)
+            .padding(horizontal = 10.dp),
+        verticalArrangement = Arrangement.spacedBy(10.dp),
+    ) {
+        Display1(text = "Display1")
+        Display2(text = "Display2")
+        Display3(text = "Display3")
+
+        Headline1(text = "Headline1")
+        Headline2(text = "Headline2")
+        Headline3(text = "Headline3")
+
+        Title1(text = "Title1")
+        Title2(text = "Title2")
+        Title3(text = "Title3")
+
+        Label1(text = "Label1")
+        Label2(text = "Label2")
+        Label3(text = "Label3")
+
+        Body1(text = "Body1")
+        Body2(text = "Body2")
+        Body3(text = "Body3")
+    }
+}

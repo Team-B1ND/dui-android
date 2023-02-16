@@ -19,8 +19,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import kr.hs.dgsw.smartschool.components.component.appbar.DodamAppBar
-import kr.hs.dgsw.smartschool.components.component.input.Input
+import kr.hs.dgsw.smartschool.components.component.basic.input.DodamInput
+import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.IcSearch
 import kr.hs.dgsw.smartschool.components.theme.Title2
@@ -42,7 +42,7 @@ fun InputScreen(
             .background(DodamColor.White)
     ) {
         DodamAppBar(
-            title = "Input",
+            title = DataSet.Text.TITLE_INPUT,
             onStartIconClick = { navController.popBackStack() },
         )
         Column(
@@ -78,14 +78,14 @@ fun TestInputArea(
     Title2(text = "Input")
     Spacer(modifier = Modifier.height(20.dp))
     Column(modifier = modifier) {
-        Input(
+        DodamInput(
             value = text.value,
             onValueChange = { text.value = it },
             hint = hint,
             focusColor = focusColor,
             modifier = Modifier.fillMaxWidth()
         )
-        Input(
+        DodamInput(
             value = text.value,
             onValueChange = { text.value = it },
             hint = hint,
@@ -93,12 +93,11 @@ fun TestInputArea(
             trailingIcon = icon,
             modifier = Modifier.fillMaxWidth()
         )
-        Input(
+        DodamInput(
             value = text.value,
             onValueChange = { text.value = it },
             hint = hint,
             focusColor = focusColor,
-            leadingIcon = icon,
             modifier = Modifier.fillMaxWidth()
         )
     }

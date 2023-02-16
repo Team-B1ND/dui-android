@@ -21,17 +21,18 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import kr.hs.dgsw.smartschool.components.component.appbar.DodamAppBar
-import kr.hs.dgsw.smartschool.components.component.button.ButtonType
-import kr.hs.dgsw.smartschool.components.component.button.DodamLargeRoundedButton
-import kr.hs.dgsw.smartschool.components.component.button.DodamMediumRoundedButton
-import kr.hs.dgsw.smartschool.components.component.button.DodamSmallRoundedButton
-import kr.hs.dgsw.smartschool.components.component.button.IconButton
-import kr.hs.dgsw.smartschool.components.component.button.RadioButton
+import kr.hs.dgsw.smartschool.components.component.basic.button.ButtonType
+import kr.hs.dgsw.smartschool.components.component.basic.button.DodamIconButton
+import kr.hs.dgsw.smartschool.components.component.basic.button.DodamLargeRoundedButton
+import kr.hs.dgsw.smartschool.components.component.basic.button.DodamMediumRoundedButton
+import kr.hs.dgsw.smartschool.components.component.basic.button.DodamRadioButton
+import kr.hs.dgsw.smartschool.components.component.basic.button.DodamSmallRoundedButton
+import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.IcAdd
 import kr.hs.dgsw.smartschool.components.theme.Label3
 import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
 @Preview(showBackground = true)
@@ -48,7 +49,7 @@ fun ButtonScreen(
             .fillMaxSize()
             .background(DodamColor.White)
     ) {
-        DodamAppBar(title = "Button", onStartIconClick = { navController.popBackStack() })
+        DodamAppBar(title = DataSet.Text.TITLE_BUTTON, onStartIconClick = { navController.popBackStack() })
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -97,9 +98,9 @@ fun ButtonRow(
     }
     Spacer(modifier = Modifier.height(20.dp))
     Row(verticalAlignment = Alignment.CenterVertically) {
-        IconButton(icon = { IcAdd(contentDescription = null) }, onClick = { onClick() }, type = type)
+        DodamIconButton(icon = { IcAdd(contentDescription = null) }, onClick = { onClick() }, type = type)
         Spacer(modifier = Modifier.width(20.dp))
-        RadioButton(selected = selected.value, onClick = { selected.value = !selected.value }, type = type)
+        DodamRadioButton(selected = selected.value, onClick = { selected.value = !selected.value }, type = type)
         Spacer(modifier = Modifier.width(20.dp))
         DodamSmallRoundedButton(onClick = { onClick() }, text = "Button", type = type)
         Spacer(modifier = Modifier.width(7.dp))

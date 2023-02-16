@@ -20,9 +20,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
-import kr.hs.dgsw.smartschool.components.component.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.component.basic.Surface
-import kr.hs.dgsw.smartschool.components.component.input.Input
+import kr.hs.dgsw.smartschool.components.component.basic.input.DodamInput
+import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.modifier.dodamClickable
 import kr.hs.dgsw.smartschool.components.theme.Body1
 import kr.hs.dgsw.smartschool.components.theme.Body2
@@ -42,6 +42,7 @@ import kr.hs.dgsw.smartschool.components.theme.Label3
 import kr.hs.dgsw.smartschool.components.theme.Title1
 import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.components.theme.Title3
+import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
 @Preview(showBackground = true)
@@ -82,13 +83,12 @@ fun TypoScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(DodamColor.White)
-            .verticalScroll(rememberScrollState()),
+            .background(DodamColor.White),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        DodamAppBar(title = "Typo", onStartIconClick = { navController.popBackStack() })
+        DodamAppBar(title = DataSet.Text.TITLE_TYPO, onStartIconClick = { navController.popBackStack() })
         Spacer(modifier = Modifier.height(20.dp))
-        Input(
+        DodamInput(
             value = textState.value,
             onValueChange = { textState.value = it },
             modifier = Modifier
