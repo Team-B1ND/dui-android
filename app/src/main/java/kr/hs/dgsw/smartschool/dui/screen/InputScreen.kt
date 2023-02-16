@@ -53,7 +53,7 @@ fun InputScreen(
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            TestInputArea(
+            SampleInputArea(
                 modifier = Modifier
                     .fillMaxSize(),
                 focusColor = DodamColor.MainColor,
@@ -65,7 +65,7 @@ fun InputScreen(
 }
 
 @Composable
-fun TestInputArea(
+fun SampleInputArea(
     modifier: Modifier,
     hint: String = DataSet.Text.TEXT_HINT,
     focusColor: Color,
