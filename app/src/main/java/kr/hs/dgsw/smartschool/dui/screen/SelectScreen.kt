@@ -11,6 +11,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -75,6 +76,7 @@ fun SampleSelect(
             onItemClickListener = { Toast.makeText(context, it, Toast.LENGTH_SHORT).show() },
             hint = "Hint",
             focusColor = DodamColor.MainColor,
+            modifier = Modifier.width(100.dp)
         )
         
         Spacer(modifier = Modifier.height(20.dp))
@@ -88,7 +90,8 @@ fun SampleSelect(
             hint = "Error 테스트",
             isError = isError.value,
             focusColor = if (isError.value) DodamColor.Error else DodamColor.MainColor,
-            errorMessage = if (isError.value) "Error Message" else ""
+            errorMessage = if (isError.value) "Error Message" else "",
+            modifier = Modifier.width(100.dp)
         )
         
         Spacer(modifier = Modifier.height(20.dp))
@@ -119,6 +122,7 @@ fun SampleSelectArea(
             onItemClickListener = { Toast.makeText(context, it, Toast.LENGTH_SHORT).show() },
             hint = "Hint",
             focusColor = DodamColor.MainColor,
+            modifier = Modifier.width(100.dp)
         )
 
         Spacer(modifier = Modifier.height(20.dp))
@@ -132,6 +136,7 @@ fun SampleSelectArea(
             hint = "Error 테스트",
             isError = isError.value,
             focusColor = if (isError.value) DodamColor.Error else DodamColor.MainColor,
+            modifier = Modifier.width(100.dp)
         )
 
         Spacer(modifier = Modifier.height(20.dp))
