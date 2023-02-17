@@ -1,5 +1,6 @@
 package kr.hs.dgsw.smartschool.dui.screen
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -10,6 +11,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -68,32 +70,43 @@ fun SampleSelect(
     focusColor: Color,
     icon: (@Composable () -> Unit)
 ) {
-    val text = remember {
-        mutableStateOf("")
+    val isError = remember {
+        mutableStateOf(false)
     }
+    val context = LocalContext.current
 
     Column(modifier = modifier) {
-        DodamInput(
-            value = text.value,
-            onValueChange = { text.value = it },
-            hint = hint,
-            focusColor = focusColor,
-            modifier = Modifier.fillMaxWidth()
+        DodamSelect(
+            itemList = sampleList,
+            onItemClickListener = { Toast.makeText(context, it, Toast.LENGTH_SHORT).show() },
+            hint = "Hint",
+            focusColor = DodamColor.MainColor,
         )
-        DodamInput(
-            value = text.value,
-            onValueChange = { text.value = it },
-            hint = hint,
-            focusColor = focusColor,
-            trailingIcon = icon,
-            modifier = Modifier.fillMaxWidth()
+        
+        Spacer(modifier = Modifier.height(20.dp))
+        
+        DodamSelect(
+            itemList = sampleList,
+            onItemClickListener = {
+                Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+                isError.value = it == "Error"
+            },
+            hint = "Error 테스트",
+            isError = isError.value,
+            focusColor = if (isError.value) DodamColor.Error else DodamColor.MainColor,
+            errorMessage = if (isError.value) "Error Message" else ""
         )
-        DodamInput(
-            value = text.value,
-            onValueChange = { text.value = it },
-            hint = hint,
-            focusColor = focusColor,
-            modifier = Modifier.fillMaxWidth()
+        
+        Spacer(modifier = Modifier.height(20.dp))
+        
+        DodamSelect(
+            itemList = sampleList,
+            onItemClickListener = { Toast.makeText(context, it, Toast.LENGTH_SHORT).show() },
+            modifier = Modifier
+                .fillMaxWidth(),
+            readOnly = false,
+            hint = "사이즈 조정 & 직접 입력 가능",
+            focusColor = DodamColor.MainColor,
         )
     }
 }
@@ -108,9 +121,6 @@ fun SampleSelectArea(
     val text = remember {
         mutableStateOf("")
     }
-    Spacer(modifier = Modifier.height(20.dp))
-    Title2(text = "Input")
-    Spacer(modifier = Modifier.height(20.dp))
     Column(modifier = modifier) {
         DodamInput(
             value = text.value,
@@ -136,3 +146,10 @@ fun SampleSelectArea(
         )
     }
 }
+
+private val sampleList = listOf<String>(
+    "Default",
+    "Error",
+    "Dummy",
+    "Dummy"
+)
