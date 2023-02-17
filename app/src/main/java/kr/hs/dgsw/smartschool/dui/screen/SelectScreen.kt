@@ -125,7 +125,6 @@ fun SampleSelectArea(
             onItemClickListener = { Toast.makeText(context, it, Toast.LENGTH_SHORT).show() },
             hint = "Hint",
             focusColor = DodamColor.MainColor,
-            modifier = Modifier.width(100.dp)
         )
 
         Spacer(modifier = Modifier.height(20.dp))
@@ -139,7 +138,6 @@ fun SampleSelectArea(
             hint = "Error 테스트",
             isError = isError.value,
             focusColor = if (isError.value) DodamColor.Error else DodamColor.MainColor,
-            modifier = Modifier.width(100.dp)
         )
 
         Spacer(modifier = Modifier.height(20.dp))
