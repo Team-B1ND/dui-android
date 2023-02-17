@@ -18,6 +18,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kr.hs.dgsw.smartschool.components.component.basic.input.DodamInput
 import kr.hs.dgsw.smartschool.components.component.basic.input.DodamSelect
+import kr.hs.dgsw.smartschool.components.component.basic.input.area.DodamSelectArea
 import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.Title2
@@ -36,29 +37,25 @@ fun SelectScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(DodamColor.White)
+            .background(DodamColor.Background)
     ) {
         DodamAppBar(title = DataSet.Text.TITLE_SELECT, onStartIconClick = { navController.popBackStack() })
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(20.dp)
-                .background(DodamColor.White)
+                .background(DodamColor.Background)
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Spacer(modifier = Modifier.height(20.dp))
             Title2(text = "Select")
             Spacer(modifier = Modifier.height(10.dp))
-            SampleSelect(modifier = Modifier, focusColor = DodamColor.MainColor) {
-                
-            }
+            SampleSelect(modifier = Modifier)
             Spacer(modifier = Modifier.height(20.dp))
             Title2(text = "Select Area")
             Spacer(modifier = Modifier.height(10.dp))
-            SampleSelectArea(modifier = Modifier, focusColor = DodamColor.MainColor) {
-
-            }
+            SampleSelectArea(modifier = Modifier)
         }
     }
 }
@@ -66,9 +63,6 @@ fun SelectScreen(
 @Composable
 fun SampleSelect(
     modifier: Modifier,
-    hint: String = DataSet.Text.TEXT_HINT,
-    focusColor: Color,
-    icon: (@Composable () -> Unit)
 ) {
     val isError = remember {
         mutableStateOf(false)
@@ -113,36 +107,43 @@ fun SampleSelect(
 
 @Composable
 fun SampleSelectArea(
-    modifier: Modifier,
-    hint: String = DataSet.Text.TEXT_HINT,
-    focusColor: Color,
-    icon: (@Composable () -> Unit)
+    modifier: Modifier
 ) {
-    val text = remember {
-        mutableStateOf("")
+    val isError = remember {
+        mutableStateOf(false)
     }
+    val context = LocalContext.current
     Column(modifier = modifier) {
-        DodamInput(
-            value = text.value,
-            onValueChange = { text.value = it },
-            hint = hint,
-            focusColor = focusColor,
-            modifier = Modifier.fillMaxWidth()
+        DodamSelectArea(
+            itemList = sampleList,
+            onItemClickListener = { Toast.makeText(context, it, Toast.LENGTH_SHORT).show() },
+            hint = "Hint",
+            focusColor = DodamColor.MainColor,
         )
-        DodamInput(
-            value = text.value,
-            onValueChange = { text.value = it },
-            hint = hint,
-            focusColor = focusColor,
-            trailingIcon = icon,
-            modifier = Modifier.fillMaxWidth()
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        DodamSelectArea(
+            itemList = sampleList,
+            onItemClickListener = {
+                Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
+                isError.value = it == "Error"
+            },
+            hint = "Error 테스트",
+            isError = isError.value,
+            focusColor = if (isError.value) DodamColor.Error else DodamColor.MainColor,
         )
-        DodamInput(
-            value = text.value,
-            onValueChange = { text.value = it },
-            hint = hint,
-            focusColor = focusColor,
-            modifier = Modifier.fillMaxWidth()
+
+        Spacer(modifier = Modifier.height(20.dp))
+
+        DodamSelectArea(
+            itemList = sampleList,
+            onItemClickListener = { Toast.makeText(context, it, Toast.LENGTH_SHORT).show() },
+            modifier = Modifier
+                .fillMaxWidth(),
+            readOnly = false,
+            hint = "사이즈 조정 & 직접 입력 가능",
+            focusColor = DodamColor.MainColor,
         )
     }
 }
