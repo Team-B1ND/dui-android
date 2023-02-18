@@ -598,6 +598,6 @@ fun TypoTitle(
         textAlign = TextAlign.Center,
         modifier = Modifier
             .fillMaxWidth()
-            .background(DodamColor.Background)
+            .background(DodamColor.White)
     )
 }

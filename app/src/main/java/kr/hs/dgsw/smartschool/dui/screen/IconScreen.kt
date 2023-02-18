@@ -75,6 +75,7 @@ fun IconScreen(
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Spacer(modifier = Modifier.height(20.dp))
             Title2(text = "기본 아이콘")
             Spacer(modifier = Modifier.height(20.dp))
             Row(

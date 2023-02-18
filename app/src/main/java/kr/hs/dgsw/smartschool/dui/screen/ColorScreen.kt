@@ -73,7 +73,8 @@ fun ColorScreen(
                 color6 = DodamColor.MainColor600,
                 color7 = DodamColor.MainColor700,
                 color8 = DodamColor.MainColor800,
-                color9 = DodamColor.MainColor900
+                color9 = DodamColor.MainColor900,
+                true
             )
             Palette(
                 title = "SecondaryColor",
@@ -87,6 +88,7 @@ fun ColorScreen(
                 color7 = DodamColor.SecondaryColor700,
                 color8 = DodamColor.SecondaryColor800,
                 color9 = DodamColor.SecondaryColor900,
+                true
             )
             Palette(
                 title = "Gray",
@@ -100,6 +102,7 @@ fun ColorScreen(
                 color7 = DodamColor.Gray700,
                 color8 = DodamColor.Gray800,
                 color9 = DodamColor.Gray900,
+                true
             )
             Palette(
                 title = "Feature",
@@ -107,19 +110,22 @@ fun ColorScreen(
                 color1 = DodamColor.FeatureColor.ItMapColor,
                 color2 = DodamColor.FeatureColor.LostFoundColor,
                 color3 = DodamColor.FeatureColor.MyInfoColor,
-                color4 = DodamColor.FeatureColor.ScheduleColor
+                color4 = DodamColor.FeatureColor.ScheduleColor,
+                showNumber = false
             )
 
             Palette(
                 title = "Check & Error",
                 color0 = DodamColor.Check,
-                color1 = DodamColor.Error
+                color1 = DodamColor.Error,
+                showNumber = false
             )
             Palette(
                 title = "Background",
                 color0 = DodamColor.White,
                 color1 = DodamColor.Black,
-                color2 = DodamColor.Background
+                color2 = DodamColor.Background,
+                showNumber = false
             )
         }
     }
@@ -138,6 +144,7 @@ fun Palette(
     color7: Color = DodamColor.White,
     color8: Color = DodamColor.White,
     color9: Color = DodamColor.White,
+    showNumber : Boolean,
 ) {
     val colorCode = remember { mutableStateOf(Integer.toHexString(color0.hashCode())) }
     Spacer(
@@ -151,18 +158,17 @@ fun Palette(
     Row(
         modifier = Modifier
             .height(110.dp)
-            .fillMaxWidth()
     ) {
-        PalettePart(color0, colorCode, "50")
-        PalettePart(color1, colorCode, "100")
-        PalettePart(color2, colorCode, "200")
-        PalettePart(color3, colorCode, "300")
-        PalettePart(color4, colorCode, "400")
-        PalettePart(color5, colorCode, "500")
-        PalettePart(color6, colorCode, "600")
-        PalettePart(color7, colorCode, "700")
-        PalettePart(color8, colorCode, "800")
-        PalettePart(color9, colorCode, "900")
+        PalettePart(color0, colorCode, if (showNumber) "50" else "")
+        PalettePart(color1, colorCode, if (showNumber) "100" else "")
+        PalettePart(color2, colorCode, if (showNumber) "200" else "")
+        PalettePart(color3, colorCode, if (showNumber) "300" else "")
+        PalettePart(color4, colorCode, if (showNumber) "400" else "")
+        PalettePart(color5, colorCode, if (showNumber) "500" else "")
+        PalettePart(color6, colorCode, if (showNumber) "600" else "")
+        PalettePart(color7, colorCode, if (showNumber) "700" else "")
+        PalettePart(color8, colorCode, if (showNumber) "800" else "")
+        PalettePart(color9, colorCode, if (showNumber) "900" else "")
     }
     Spacer(
         modifier = Modifier

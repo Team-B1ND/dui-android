@@ -1,13 +1,7 @@
 package kr.hs.dgsw.smartschool.dui.screen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.verticalScroll
@@ -74,7 +68,7 @@ fun ShapeBox(
     Box(
         modifier = Modifier
             .background(DodamColor.White)
-            .fillMaxWidth()
+            .width(200.dp)
             .height(100.dp)
             .border(
                 width = 2.dp,

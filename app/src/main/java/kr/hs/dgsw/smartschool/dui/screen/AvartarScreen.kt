@@ -68,7 +68,9 @@ fun AvatarScreen(
                 verticalAlignment = Alignment.Bottom
             ) {
                 BasicAvatar(label = "color = primary\nsize = 40.dp\niconSize = 20.dp", iconColor = DodamColor.MainColor)
+                Spacer(modifier = Modifier.width(20.dp))
                 BasicAvatar(label = "color = secondary\nsize = 60.dp\niconSize = 30.dp", iconColor = DodamColor.SecondaryColor, size = 60.dp, iconSize = 30.dp)
+                Spacer(modifier = Modifier.width(20.dp))
                 BasicAvatar(label = "color = myInfo\nsize = 80.dp\niconSize = 40.dp", iconColor = DodamColor.FeatureColor.MyInfoColor, size = 80.dp, iconSize = 40.dp)
             }
             Spacer(modifier = Modifier.height(20.dp))
@@ -84,12 +86,14 @@ fun AvatarScreen(
                         "size = 40.dp",
                     name = "홍길동"
                 )
+                Spacer(modifier = Modifier.width(20.dp))
                 NameAvatar(
                     label = "name = 김김김\n" +
                         "size = 60.dp",
                     name = "김김김",
                     size = 60.dp
                 )
+                Spacer(modifier = Modifier.width(20.dp))
                 NameAvatar(
                     label = "name = John\n" +
                         "size = 80.dp",
@@ -106,7 +110,9 @@ fun AvatarScreen(
                 verticalAlignment = Alignment.Bottom
             ) {
                 ImageAvatar(label = "img = dummy\nsize 40.dp", painter = painterResource(id = kr.hs.dgsw.smartschool.dui.R.drawable.img_dummy))
+                Spacer(modifier = Modifier.width(20.dp))
                 ImageAvatar(label = "img = dummy\nsize = 60.dp", painter = painterResource(id = kr.hs.dgsw.smartschool.dui.R.drawable.img_dummy), size = 60.dp)
+                Spacer(modifier = Modifier.width(20.dp))
                 ImageAvatar(label = "img = dummy\nsize = 80.dp", painter = painterResource(id = kr.hs.dgsw.smartschool.dui.R.drawable.img_dummy), size = 80.dp)
             }
         }
@@ -125,8 +131,6 @@ fun NameAvatar(
     size: Dp = 40.dp,
 ) {
     Column(
-        modifier = Modifier
-            .width(100.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Avatar(
@@ -150,8 +154,6 @@ fun ImageAvatar(
     size: Dp = 40.dp,
 ) {
     Column(
-        modifier = Modifier
-            .width(100.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Avatar(
@@ -174,8 +176,6 @@ fun BasicAvatar(
     size: Dp = 40.dp,
 ) {
     Column(
-        modifier = Modifier
-            .width(100.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Avatar(

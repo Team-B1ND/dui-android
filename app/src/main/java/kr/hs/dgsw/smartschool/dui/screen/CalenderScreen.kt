@@ -35,6 +35,7 @@ import kr.hs.dgsw.smartschool.components.foundation.Text
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcCalendar
+import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.dui.DataSet
 import java.time.LocalDate
 
@@ -62,6 +63,9 @@ fun CalenderScreen(
         ) {
             var selectedDay by remember { mutableStateOf(LocalDate.now()) }
             var selectedSchedules by remember { mutableStateOf(emptyList<DaySchedule>()) }
+            Spacer(modifier = Modifier.height(20.dp))
+            Title2(text = DataSet.Text.TITLE_CALENDER)
+            Spacer(modifier = Modifier.height(20.dp))
             DodamCalendar(schedules = sampleSchedules) { date, daySchedules ->
                 selectedDay = date
                 selectedSchedules = daySchedules
