@@ -63,8 +63,7 @@ fun AvatarScreen(
             Body1(text = "Basic Avatar")
             Spacer(modifier = Modifier.height(10.dp))
             Row(
-                modifier = Modifier
-                    .width(300.dp),
+                modifier = Modifier,
                 verticalAlignment = Alignment.Bottom
             ) {
                 BasicAvatar(label = "color = primary\nsize = 40.dp\niconSize = 20.dp", iconColor = DodamColor.MainColor)
@@ -77,8 +76,7 @@ fun AvatarScreen(
             Body1(text = "Name Avatar")
             Spacer(modifier = Modifier.height(10.dp))
             Row(
-                modifier = Modifier
-                    .width(300.dp),
+                modifier = Modifier,
                 verticalAlignment = Alignment.Bottom
             ) {
                 NameAvatar(
@@ -105,8 +103,7 @@ fun AvatarScreen(
             Body1(text = "Image Avatar")
             Spacer(modifier = Modifier.height(10.dp))
             Row(
-                modifier = Modifier
-                    .width(300.dp),
+                modifier = Modifier,
                 verticalAlignment = Alignment.Bottom
             ) {
                 ImageAvatar(label = "img = dummy\nsize 40.dp", painter = painterResource(id = kr.hs.dgsw.smartschool.dui.R.drawable.img_dummy))
