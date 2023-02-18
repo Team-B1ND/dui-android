@@ -100,7 +100,7 @@ fun TypoScreen(
                     .width(320.dp),
                 hint = "텍스트를 입력해주세요..."
             )
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(20.dp))
             Label1(text = "fontFamily = ${fontState.value.fontFamily}")
             Label1(text = "fontWeight = ${fontState.value.fontWeight}")
             Label1(text = "fontSize = ${fontState.value.fontSize}")
@@ -109,7 +109,7 @@ fun TypoScreen(
             TypoTitle(text = "Display")
 
             // Display1
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(20.dp))
             Display1(
                 text = "Display1",
                 modifier = Modifier

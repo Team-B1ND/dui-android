@@ -55,9 +55,9 @@ fun ShapeScreen(
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(20.dp))
             Title2(text = "도담 Shape")
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(20.dp))
             ShapeBox(dodamShape.small, "DodamShape.small", "5.dp")
             ShapeBox(dodamShape.medium, "DodamShape.medium", "10.dp")
             ShapeBox(dodamShape.large, "DodamShape.large", "20.dp")

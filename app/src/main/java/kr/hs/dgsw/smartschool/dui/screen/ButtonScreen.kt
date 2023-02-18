@@ -80,7 +80,7 @@ fun ButtonRow(
     val selected: MutableState<Boolean> = remember {
         mutableStateOf(true)
     }
-    Spacer(modifier = Modifier.height(30.dp))
+    Spacer(modifier = Modifier.height(20.dp))
     Title2(text = title)
     Spacer(modifier = Modifier.height(20.dp))
     Row(verticalAlignment = Alignment.CenterVertically) {
