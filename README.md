@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/dodam_logo.svg" width="25%" alt="dodamdodam" />
+  <img src="./assets/dui_banner.svg" width="100%" alt="dui_banner" />
 </p>
 <h1 align="center">DUI</h1>
 <h5 align="center">Dodam Android Design System</h5>
