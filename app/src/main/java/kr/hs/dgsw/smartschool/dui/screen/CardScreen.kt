@@ -32,12 +32,7 @@ import kr.hs.dgsw.smartschool.components.component.organization.card.DodamItemCa
 import kr.hs.dgsw.smartschool.components.component.organization.card.DodamMealCard
 import kr.hs.dgsw.smartschool.components.component.organization.card.MealType
 import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
-import kr.hs.dgsw.smartschool.components.theme.Body3
-import kr.hs.dgsw.smartschool.components.theme.DodamColor
-import kr.hs.dgsw.smartschool.components.theme.IcAdd
-import kr.hs.dgsw.smartschool.components.theme.IcDinner3D
-import kr.hs.dgsw.smartschool.components.theme.IcOut3D
-import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.components.theme.*
 import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import kr.hs.dgsw.smartschool.dui.DataSet
 
@@ -69,24 +64,54 @@ fun CardScreen(
             Title2(text = "Dodam Item Card")
             Spacer(modifier = Modifier.height(10.dp))
 
-            DodamItemCard(
-                title = "Item Card",
-                subTitle = "subTitle",
-            )
+            Row {
+                DodamItemCard(
+                    title = "Title",
+                    subTitle = "subTitle",
+                    icon = { IcBus3D(contentDescription = null) },
+                )
+                Spacer(modifier = Modifier.width(10.dp))
+                DodamItemCard(
+                    title = "Title",
+                    subTitle = "subTitle",
+                    icon = { IcDocument3D(contentDescription = null) }
+                )
+                Spacer(modifier = Modifier.width(10.dp))
+                DodamItemCard(
+                    title = "Title",
+                    subTitle = "subTitle",
+                    icon = { IcOut3D(contentDescription = null) },
+                )
+            }
+            Spacer(modifier = Modifier.height(20.dp))
+            Row {
+                DodamItemCard(
+                    title = "Title",
+                    subTitle = "subTitle",
+                    icon = { IcLock3D(contentDescription = null) }
+                )
+                Spacer(modifier = Modifier.width(10.dp))
+                DodamItemCard(
+                    title = "Title",
+                    subTitle = "subTitle",
+                    icon = { IcItmap3D(contentDescription = null) },
+                )
+            }
             Spacer(modifier = Modifier.height(10.dp))
-            DodamItemCard(
-                title = "Item Card",
-                subTitle = "subTitle",
-                icon = { IcOut3D(contentDescription = null) }
-            )
-            Spacer(modifier = Modifier.height(10.dp))
-            DodamItemCard(
-                title = "도담 Item Card",
-                subTitle = "subTitle",
-                icon = { IcOut3D(contentDescription = null) },
-                modifier = Modifier
-                    .width(320.dp)
-            )
+            Row {
+                DodamItemCard(
+                    title = "Title",
+                    subTitle = "subTitle",
+                    icon = { IcBreakfast3D(contentDescription = null)}
+                )
+                Spacer(modifier = Modifier.width(10.dp))
+                DodamItemCard(
+                    title = "Title",
+                    subTitle = "subTitle",
+                    icon = { IcDinner3D(contentDescription = null) },
+                )
+            }
+
 
             Spacer(modifier = Modifier.height(20.dp))
             Title2(text = "Dodam Content Card")
