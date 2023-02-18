@@ -32,6 +32,7 @@ import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.Label2
 import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
@@ -63,7 +64,9 @@ fun AvatarScreen(
             Body1(text = "Basic Avatar")
             Spacer(modifier = Modifier.height(10.dp))
             Row(
-                modifier = Modifier,
+                modifier = Modifier
+                    .background(DodamColor.White)
+                    .padding(DodamDimen.CardSidePadding),
                 verticalAlignment = Alignment.Bottom
             ) {
                 BasicAvatar(label = "color = primary\nsize = 40.dp\niconSize = 20.dp", iconColor = DodamColor.MainColor)
@@ -76,7 +79,9 @@ fun AvatarScreen(
             Body1(text = "Name Avatar")
             Spacer(modifier = Modifier.height(10.dp))
             Row(
-                modifier = Modifier,
+                modifier = Modifier
+                    .background(DodamColor.White)
+                    .padding(DodamDimen.CardSidePadding),
                 verticalAlignment = Alignment.Bottom
             ) {
                 NameAvatar(
@@ -103,7 +108,9 @@ fun AvatarScreen(
             Body1(text = "Image Avatar")
             Spacer(modifier = Modifier.height(10.dp))
             Row(
-                modifier = Modifier,
+                modifier = Modifier
+                    .background(DodamColor.White)
+                    .padding(DodamDimen.CardSidePadding),
                 verticalAlignment = Alignment.Bottom
             ) {
                 ImageAvatar(label = "img = dummy\nsize 40.dp", painter = painterResource(id = kr.hs.dgsw.smartschool.dui.R.drawable.img_dummy))
