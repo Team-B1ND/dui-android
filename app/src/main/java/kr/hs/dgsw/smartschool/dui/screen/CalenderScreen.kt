@@ -64,7 +64,7 @@ fun CalenderScreen(
             var selectedDay by remember { mutableStateOf(LocalDate.now()) }
             var selectedSchedules by remember { mutableStateOf(emptyList<DaySchedule>()) }
             Spacer(modifier = Modifier.height(20.dp))
-            Title2(text = DataSet.Text.TITLE_CALENDER)
+            Title2(text = "Dodam Calender")
             Spacer(modifier = Modifier.height(20.dp))
             DodamCalendar(schedules = sampleSchedules) { date, daySchedules ->
                 selectedDay = date

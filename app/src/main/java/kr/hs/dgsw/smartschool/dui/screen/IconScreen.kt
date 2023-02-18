@@ -75,7 +75,7 @@ fun IconScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Spacer(modifier = Modifier.height(20.dp))
-            Title2(text = "기본 아이콘")
+            Title2(text = "2D Dodam Icon")
             Spacer(modifier = Modifier.height(20.dp))
             Row(
                 modifier = Modifier
@@ -112,7 +112,7 @@ fun IconScreen(
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            Title2(text = "3D 아이콘")
+            Title2(text = "3D Dodam Icon")
             Spacer(modifier = Modifier.height(20.dp))
             Row(
                 modifier = Modifier

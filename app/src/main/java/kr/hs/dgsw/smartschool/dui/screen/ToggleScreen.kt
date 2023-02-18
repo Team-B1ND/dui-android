@@ -79,7 +79,7 @@ fun ToggleScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Spacer(modifier = Modifier.height(20.dp))
-            Title2(text = "Check Box")
+            Title2(text = "Dodam Check Box")
             Spacer(modifier = Modifier.height(10.dp))
             Row(
                 verticalAlignment = Alignment.CenterVertically
@@ -104,7 +104,7 @@ fun ToggleScreen(
                 }
             }
             Spacer(modifier = Modifier.height(50.dp))
-            Title2(text = "Switch")
+            Title2(text = "Dodam Switch")
             Spacer(modifier = Modifier.height(10.dp))
             Column {
                 Row {

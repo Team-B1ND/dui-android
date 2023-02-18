@@ -54,11 +54,11 @@ fun SelectScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Spacer(modifier = Modifier.height(20.dp))
-            Title2(text = "Select")
+            Title2(text = "Dodam Select")
             Spacer(modifier = Modifier.height(10.dp))
             SampleSelect(modifier = Modifier)
             Spacer(modifier = Modifier.height(20.dp))
-            Title2(text = "Select Area")
+            Title2(text = "Dodam Select Area")
             Spacer(modifier = Modifier.height(10.dp))
             SampleSelectArea(modifier = Modifier)
         }

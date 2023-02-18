@@ -59,7 +59,7 @@ fun AvatarScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Spacer(Modifier.height(20.dp))
-            Title2(text = "Avatar")
+            Title2(text = "Dodam Avatar")
             Spacer(modifier = Modifier.height(20.dp))
             Body1(text = "Basic Avatar")
             Spacer(modifier = Modifier.height(10.dp))

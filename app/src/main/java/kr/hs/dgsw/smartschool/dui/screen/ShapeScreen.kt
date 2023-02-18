@@ -56,7 +56,7 @@ fun ShapeScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Spacer(modifier = Modifier.height(20.dp))
-            Title2(text = "도담 Shape")
+            Title2(text = "Dodam Shape")
             Spacer(modifier = Modifier.height(20.dp))
             ShapeBox(dodamShape.small, "DodamShape.small", "5.dp")
             ShapeBox(dodamShape.medium, "DodamShape.medium", "10.dp")

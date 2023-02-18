@@ -52,7 +52,7 @@ fun BannerScreen(
                     .padding(DodamDimen.ScreenSidePadding)
             ) {
                 Spacer(modifier = Modifier.height(20.dp))
-                Title2(text = "Banner")
+                Title2(text = "Dodam Banner")
                 Spacer(modifier = Modifier.height(10.dp))
                 Body2(text = "indicator O, 배너 여러 개")
                 Spacer(modifier = Modifier.height(10.dp))
