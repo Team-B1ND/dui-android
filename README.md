@@ -1,8 +1,7 @@
 <p align="center">
-  <img src="./assets/dodam_logo.svg" width="25%" alt="dodamdodam" />
+  <img src="./assets/dui_banner.png" width="100%" alt="dui_banner" />
 </p>
-<h1 align="center">DUI</h1>
-<h5 align="center">Dodam Android Design System</h5>
+
 
 ![version](https://img.shields.io/badge/version-1.0.2-blue)
 [![Tests](https://github.com/Team-B1ND/dui-android/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Team-B1ND/dui-android/actions)
@@ -30,6 +29,13 @@ DUI의 개발 과정을 보고 싶다면? ([Dodam Android Design System(DUI)](ht
 ## PLAYGROUND 🛝
 app 모듈을 빌드하여 Preview를 볼 수 있습니다.</br>
 [dui-android/app at develop · Team-B1ND/dui-android](https://github.com/Team-B1ND/dui-android/tree/develop/app)
+
+## TEAM 😀
+B1ND-ANDROID</br>
+| 개발자 | 담당 |
+| --- | --- |
+| **최민재** [@snack655](https://github.com/snack655) | [DUI COMPONENTS](https://github.com/Team-B1ND/dui-android/tree/main/dodam-components) |
+| **김도현** [@kdh1123](https://github.com/kdh1123) | [DUI PLAYGROUND](https://github.com/Team-B1ND/dui-android/tree/main/app) |
 
 ## START  ⬇️
 in your project
