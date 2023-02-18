@@ -17,7 +17,7 @@ object DataSet {
         Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_select_3d, "Select", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "select"),
         Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_tab_3d, "Tab", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "tab"),
         Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_avatar_3d, "Avatar", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "avatar"),
-        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_card_3d,"Card", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "card"),
+        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_card_3d, "Card", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "card"),
         Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_banner_3d, "Banner", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "banner"),
         Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_bottom_sheet_3d, "Bottom Sheet", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "bottomSheet"),
         Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_calendar_3d, "Calender", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "calender"),
