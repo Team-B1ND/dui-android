@@ -32,7 +32,17 @@ import kr.hs.dgsw.smartschool.components.component.organization.card.DodamItemCa
 import kr.hs.dgsw.smartschool.components.component.organization.card.DodamMealCard
 import kr.hs.dgsw.smartschool.components.component.organization.card.MealType
 import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
-import kr.hs.dgsw.smartschool.components.theme.*
+import kr.hs.dgsw.smartschool.components.theme.Body3
+import kr.hs.dgsw.smartschool.components.theme.DodamColor
+import kr.hs.dgsw.smartschool.components.theme.IcAdd
+import kr.hs.dgsw.smartschool.components.theme.IcBreakfast3D
+import kr.hs.dgsw.smartschool.components.theme.IcBus3D
+import kr.hs.dgsw.smartschool.components.theme.IcDinner3D
+import kr.hs.dgsw.smartschool.components.theme.IcDocument3D
+import kr.hs.dgsw.smartschool.components.theme.IcItmap3D
+import kr.hs.dgsw.smartschool.components.theme.IcLock3D
+import kr.hs.dgsw.smartschool.components.theme.IcOut3D
+import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import kr.hs.dgsw.smartschool.dui.DataSet
 
@@ -102,7 +112,7 @@ fun CardScreen(
                 DodamItemCard(
                     title = "Title",
                     subTitle = "subTitle",
-                    icon = { IcBreakfast3D(contentDescription = null)}
+                    icon = { IcBreakfast3D(contentDescription = null) }
                 )
                 Spacer(modifier = Modifier.width(10.dp))
                 DodamItemCard(
@@ -111,7 +121,6 @@ fun CardScreen(
                     icon = { IcDinner3D(contentDescription = null) },
                 )
             }
-
 
             Spacer(modifier = Modifier.height(20.dp))
             Title2(text = "Dodam Content Card")
