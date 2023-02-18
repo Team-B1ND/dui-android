@@ -83,27 +83,24 @@ fun TypoScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(DodamColor.White),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .background(DodamColor.Background)
     ) {
         DodamAppBar(title = DataSet.Text.TITLE_TYPO, onStartIconClick = { navController.popBackStack() })
-        Spacer(modifier = Modifier.height(20.dp))
-        DodamInput(
-            value = textState.value,
-            onValueChange = { textState.value = it },
-            modifier = Modifier
-                .width(320.dp),
-            hint = "텍스트를 입력해주세요..."
-        )
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = 25.dp)
-                .verticalScroll(rememberScrollState())
-                .background(DodamColor.White),
-            horizontalAlignment = Alignment.Start
-
+                .background(DodamColor.Background)
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
+            Spacer(modifier = Modifier.height(20.dp))
+            DodamInput(
+                value = textState.value,
+                onValueChange = { textState.value = it },
+                modifier = Modifier
+                    .width(320.dp),
+                hint = "텍스트를 입력해주세요..."
+            )
             Spacer(modifier = Modifier.height(10.dp))
             Label1(text = "fontFamily = ${fontState.value.fontFamily}")
             Label1(text = "fontWeight = ${fontState.value.fontWeight}")

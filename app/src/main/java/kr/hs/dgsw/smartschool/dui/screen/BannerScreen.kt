@@ -36,14 +36,13 @@ fun BannerScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(DodamColor.White)
+            .background(DodamColor.Background)
     ) {
         DodamAppBar(title = DataSet.Text.TITLE_BANNER, onStartIconClick = { navController.popBackStack() })
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(20.dp)
-                .background(DodamColor.White)
+                .background(DodamColor.Background)
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {

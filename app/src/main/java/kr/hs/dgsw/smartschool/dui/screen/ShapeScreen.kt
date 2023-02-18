@@ -44,16 +44,16 @@ fun ShapeScreen(
     val dodamShape = DodamShape()
     Column(
         modifier = Modifier
-            .fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .fillMaxSize()
+            .background(DodamColor.Background)
     ) {
         DodamAppBar(title = DataSet.Text.TITLE_SHAPE, onStartIconClick = { navController.popBackStack() })
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .padding(20.dp)
+                .background(DodamColor.Background)
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Spacer(modifier = Modifier.height(10.dp))
             Title2(text = "도담 Shape")

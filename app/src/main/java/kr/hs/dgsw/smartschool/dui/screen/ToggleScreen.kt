@@ -67,14 +67,13 @@ fun ToggleScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(DodamColor.White)
+            .background(DodamColor.Background)
     ) {
         DodamAppBar(title = DataSet.Text.TITLE_TOGGLE, onStartIconClick = { navController.popBackStack() })
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(DodamDimen.ScreenSidePadding)
-                .background(DodamColor.White)
+                .background(DodamColor.Background)
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {

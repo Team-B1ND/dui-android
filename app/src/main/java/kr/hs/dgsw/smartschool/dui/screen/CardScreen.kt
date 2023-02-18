@@ -59,10 +59,9 @@ fun CardScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(20.dp)
                 .background(DodamColor.Background)
                 .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.Start,
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Spacer(modifier = Modifier.height(20.dp))
             Title2(text = "Dodam Item Card")

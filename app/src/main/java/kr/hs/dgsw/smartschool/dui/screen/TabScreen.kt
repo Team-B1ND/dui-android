@@ -49,11 +49,10 @@ fun TabScreen(
             .fillMaxSize()
             .background(DodamColor.Background)
     ) {
-        DodamAppBar(onStartIconClick = { navController.popBackStack() }, title = DataSet.Text.TITLE_TAB)
+        DodamAppBar(title = DataSet.Text.TITLE_TAB, onStartIconClick = { navController.popBackStack() })
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(20.dp)
                 .background(DodamColor.Background)
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally,

@@ -51,16 +51,16 @@ fun ColorScreen(
 ) {
     Column(
         modifier = Modifier
-            .fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .fillMaxSize()
+            .background(DodamColor.Background)
     ) {
         DodamAppBar(title = DataSet.Text.TITLE_COLOR, onStartIconClick = { navController.popBackStack() })
-
         Column(
             modifier = Modifier
-                .fillMaxHeight()
-                .width(300.dp)
-                .verticalScroll(rememberScrollState())
+                .fillMaxSize()
+                .background(DodamColor.Background)
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Palette(
                 title = "MainColor",

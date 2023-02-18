@@ -40,7 +40,7 @@ fun AppBarScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(DodamColor.White)
+            .background(DodamColor.Background)
     ) {
         DodamAppBar(title = DataSet.Text.TITLE_APP_BAR, onStartIconClick = { navController.popBackStack() })
         Column(

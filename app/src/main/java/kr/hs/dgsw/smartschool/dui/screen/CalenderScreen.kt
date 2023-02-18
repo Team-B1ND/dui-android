@@ -51,14 +51,13 @@ fun CalenderScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(DodamColor.White)
+            .background(DodamColor.Background)
     ) {
         DodamAppBar(title = DataSet.Text.TITLE_CALENDER, onStartIconClick = { navController.popBackStack() })
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(20.dp)
-                .background(DodamColor.White),
+                .background(DodamColor.Background),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             var selectedDay by remember { mutableStateOf(LocalDate.now()) }
