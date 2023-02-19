@@ -1,10 +1,7 @@
 package kr.hs.dgsw.smartschool.dui.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
@@ -22,6 +19,7 @@ import kr.hs.dgsw.smartschool.components.component.set.tab.DodamTabs
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.IcHome
 import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
@@ -52,9 +50,10 @@ fun TabScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .padding(horizontal = DodamDimen.ScreenSidePadding)
                 .background(DodamColor.Background)
                 .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.Start,
         ) {
             Spacer(modifier = Modifier.height(20.dp))
             Title2(text = "Label Only")

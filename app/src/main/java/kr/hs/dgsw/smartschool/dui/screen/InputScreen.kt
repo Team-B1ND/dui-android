@@ -55,7 +55,7 @@ fun InputScreen(
                 .padding(horizontal = DodamDimen.ScreenSidePadding)
                 .background(DodamColor.Background)
                 .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.Start,
         ) {
             SampleInputArea(
                 modifier = Modifier

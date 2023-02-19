@@ -51,7 +51,7 @@ fun SelectScreen(
                 .padding(horizontal = DodamDimen.ScreenSidePadding)
                 .background(DodamColor.Background)
                 .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.Start,
         ) {
             Spacer(modifier = Modifier.height(20.dp))
             Title2(text = "Dodam Select")

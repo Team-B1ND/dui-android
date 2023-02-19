@@ -54,9 +54,10 @@ fun AvatarScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .padding(horizontal = DodamDimen.ScreenSidePadding)
                 .background(DodamColor.Background)
                 .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.Start,
         ) {
             Spacer(Modifier.height(20.dp))
             Title2(text = "Dodam Avatar")

@@ -11,6 +11,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -36,6 +38,7 @@ import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamTheme
 import kr.hs.dgsw.smartschool.components.theme.IcCalendar
 import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import kr.hs.dgsw.smartschool.dui.DataSet
 import java.time.LocalDate
 
@@ -58,8 +61,9 @@ fun CalenderScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .padding(horizontal = DodamDimen.ScreenSidePadding)
                 .background(DodamColor.Background),
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.Start,
         ) {
             var selectedDay by remember { mutableStateOf(LocalDate.now()) }
             var selectedSchedules by remember { mutableStateOf(emptyList<DaySchedule>()) }

@@ -28,6 +28,7 @@ import kr.hs.dgsw.smartschool.components.theme.Body2
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.Label3
 import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import kr.hs.dgsw.smartschool.dui.DataSet
 import kr.hs.dgsw.smartschool.dui.R
 import kr.hs.dgsw.smartschool.dui.root.ItemImage
@@ -56,9 +57,10 @@ fun ColorScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .padding(horizontal = DodamDimen.ScreenSidePadding)
                 .background(DodamColor.Background)
                 .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.Start,
         ) {
             Palette(
                 title = "MainColor",
