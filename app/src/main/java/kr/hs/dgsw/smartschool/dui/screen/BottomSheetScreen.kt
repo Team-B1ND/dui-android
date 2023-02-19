@@ -56,47 +56,42 @@ fun BottomSheetScreen(
             title = DataSet.Text.TITLE_BOTTOM_SHEET,
             onStartIconClick = { navController.popBackStack() }
         )
-        Column(
+        DodamTabs(
             modifier = Modifier
-                .fillMaxSize()
-                .padding(horizontal = DodamDimen.ScreenSidePadding)
-                .background(DodamColor.Background)
-                .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally,
+                .fillMaxWidth()
         ) {
-            Spacer(modifier = Modifier.height(20.dp))
-            DodamTabs(modifier = Modifier.fillMaxWidth()) {
-                DodamTab(
-                    modifier = Modifier.weight(1f),
-                    text = "BottomSheet",
-                    selected = tabSelected.value == 1,
-                    onClick = {
-                        tabSelected.value = 1
-                        bottomSheetNavController.navigate("bottom_sheet")
-                    }
-                )
-                DodamTab(
-                    modifier = Modifier.weight(1f),
-                    text = "BottomSheet\n" +
-                        "Dialog",
-                    selected = tabSelected.value == 2,
-                    onClick = {
-                        tabSelected.value = 2
-                        bottomSheetNavController.navigate("bottom_sheet_dialog")
-                    }
-                )
-            }
-            NavHost(
-                navController = bottomSheetNavController,
-                startDestination = "bottom_sheet",
+            DodamTab(
                 modifier = Modifier
-            ) {
-                composable("bottom_sheet") {
-                    BottomSheetPlayGround()
+                    .weight(1f),
+                text = "BottomSheet",
+                selected = tabSelected.value == 1,
+                onClick = {
+                    tabSelected.value = 1
+                    bottomSheetNavController.navigate("bottom_sheet")
                 }
-                composable("bottom_sheet_dialog") {
-                    BottomSheetDialogPlayground()
+            )
+            DodamTab(
+                modifier = Modifier
+                    .weight(1f),
+                text = "BottomSheet " +
+                        "Dialog",
+                selected = tabSelected.value == 2,
+                onClick = {
+                    tabSelected.value = 2
+                    bottomSheetNavController.navigate("bottom_sheet_dialog")
                 }
+            )
+        }
+        NavHost(
+            navController = bottomSheetNavController,
+            startDestination = "bottom_sheet",
+            modifier = Modifier
+        ) {
+            composable("bottom_sheet") {
+                BottomSheetPlayGround()
+            }
+            composable("bottom_sheet_dialog") {
+                BottomSheetDialogPlayground()
             }
         }
     }
@@ -106,15 +101,17 @@ fun BottomSheetScreen(
 fun BottomSheetPlayGround() {
     Column(
         modifier = Modifier
-            .height(400.dp)
-            .fillMaxWidth()
-            .background(DodamColor.White)
-            .padding()
-    ) {
+            .fillMaxSize()
+            .padding(horizontal = DodamDimen.ScreenSidePadding)
+            .background(DodamColor.Background),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    )  {
         Spacer(modifier = Modifier.height(20.dp))
         Title2(text = "BottomSheet")
         Spacer(modifier = Modifier.height(10.dp))
         DodamBottomSheet(
+            modifier = Modifier
+                .background(DodamColor.White),
             sheetContent = {
                 Column(
                     modifier = Modifier
@@ -145,17 +142,17 @@ fun BottomSheetPlayGround() {
 fun BottomSheetDialogPlayground() {
     Column(
         modifier = Modifier
-            .height(400.dp)
-            .fillMaxWidth()
-            .background(DodamColor.White)
-            .padding(10.dp)
-    ) {
+            .fillMaxSize()
+            .padding(horizontal = DodamDimen.ScreenSidePadding)
+            .background(DodamColor.Background),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    )  {
         Spacer(modifier = Modifier.height(20.dp))
         Title2(text = "BottomSheet Dialog")
         Spacer(modifier = Modifier.height(10.dp))
         DodamBottomSheetDialog(
             modifier = Modifier
-                .padding(10.dp),
+                .background(DodamColor.White),
             sheetTopContent = {
                 Spacer(modifier = Modifier.height(18.dp))
                 Label1(
@@ -193,8 +190,7 @@ fun BottomSheetDialogPlayground() {
                 }
             },
         ) {
-            Display1(text = "Content", onClick = {
-            })
+            Display1(text = "Content")
         }
     }
 }
