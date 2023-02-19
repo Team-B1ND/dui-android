@@ -5,9 +5,9 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.foundation.verticalScroll
@@ -76,7 +76,7 @@ fun ShapeBox(
     Box(
         modifier = Modifier
             .background(DodamColor.White)
-            .width(200.dp)
+            .fillMaxWidth()
             .height(100.dp)
             .border(
                 width = 2.dp,
