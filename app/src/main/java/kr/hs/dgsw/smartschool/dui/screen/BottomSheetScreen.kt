@@ -7,8 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -74,7 +72,7 @@ fun BottomSheetScreen(
                 modifier = Modifier
                     .weight(1f),
                 text = "BottomSheet " +
-                        "Dialog",
+                    "Dialog",
                 selected = tabSelected.value == 2,
                 onClick = {
                     tabSelected.value = 2
@@ -105,7 +103,7 @@ fun BottomSheetPlayGround() {
             .padding(horizontal = DodamDimen.ScreenSidePadding)
             .background(DodamColor.Background),
         horizontalAlignment = Alignment.CenterHorizontally,
-    )  {
+    ) {
         Spacer(modifier = Modifier.height(20.dp))
         Title2(text = "BottomSheet")
         Spacer(modifier = Modifier.height(10.dp))
@@ -146,7 +144,7 @@ fun BottomSheetDialogPlayground() {
             .padding(horizontal = DodamDimen.ScreenSidePadding)
             .background(DodamColor.Background),
         horizontalAlignment = Alignment.CenterHorizontally,
-    )  {
+    ) {
         Spacer(modifier = Modifier.height(20.dp))
         Title2(text = "BottomSheet Dialog")
         Spacer(modifier = Modifier.height(10.dp))
