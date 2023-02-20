@@ -83,33 +83,44 @@ fun Button(
 
     Surface(
         onClick = if (enable) onClick else null,
-        modifier = modifier,
         shape = shape,
         color = color,
         rippleEnable = rippleEnable,
         rippleColor = rippleColor,
         bounded = bounded,
     ) {
+
         Row(
-            modifier = Modifier.padding(
-                horizontal = 16.dp,
-            ),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
+            modifier = modifier
+                .padding(
+                    horizontal = 16.dp,
+                ),
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
             iconLeft?.let {
-                iconLeft()
+                Row(
+                    modifier = Modifier.align(Alignment.CenterVertically)
+                ) {
+                    iconLeft()
+                }
                 Spacer(modifier = Modifier.width(8.dp))
             }
+
             Row(
-                modifier = Modifier.padding(vertical = 10.dp)
+                modifier = Modifier
+                    .padding(vertical = 10.dp)
             ) {
                 content()
             }
 
             iconRight?.let {
+                Row(
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                ) {
+                    iconRight()
+                }
                 Spacer(modifier = Modifier.width(8.dp))
-                iconRight()
             }
         }
     }
