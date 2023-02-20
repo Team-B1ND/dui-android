@@ -111,9 +111,7 @@ fun DodamInput(
 
         BasicTextField(
             value = value,
-            onValueChange = {
-                onValueChange(it)
-            },
+            onValueChange = onValueChange,
             modifier = modifier
                 .width(IntrinsicSize.Max)
                 .background(
