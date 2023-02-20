@@ -22,6 +22,7 @@ import kr.hs.dgsw.smartschool.components.component.organization.card.DodamItemCa
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.Title1
 import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import kr.hs.dgsw.smartschool.dui.DataSet
 import kr.hs.dgsw.smartschool.dui.root.ItemImage
 
@@ -55,26 +56,20 @@ fun ColumnList(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(all = 10.dp)
+            .padding(horizontal = DodamDimen.ScreenSidePadding)
             .background(DodamColor.Background)
     ) {
+        Spacer(modifier = Modifier.height(20.dp))
         Title1(
             text = DataSet.Text.TITLE_DUI,
             modifier = Modifier
-                .padding(
-                    start = 35.dp,
-                    top = 40.dp,
-                    bottom = 10.dp
-                )
         )
+        Spacer(modifier = Modifier.height(10.dp))
         Title2(
             text = DataSet.Text.DESCRIPTION_DUI,
             modifier = Modifier
-                .padding(
-                    start = 35.dp,
-                    bottom = 20.dp
-                )
         )
+        Spacer(modifier = Modifier.height(20.dp))
         LazyColumn(
             modifier = Modifier
                 .fillMaxSize()

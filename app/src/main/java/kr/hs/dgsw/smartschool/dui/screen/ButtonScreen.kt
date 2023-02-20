@@ -32,6 +32,7 @@ import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.IcAdd
 import kr.hs.dgsw.smartschool.components.theme.Label3
 import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
@@ -47,16 +48,16 @@ fun ButtonScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(DodamColor.White)
+            .background(DodamColor.Background)
     ) {
         DodamAppBar(title = DataSet.Text.TITLE_BUTTON, onStartIconClick = { navController.popBackStack() })
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(20.dp)
-                .background(DodamColor.White)
+                .padding(horizontal = DodamDimen.ScreenSidePadding)
+                .background(DodamColor.Background)
                 .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.Start,
         ) {
             ButtonRow(title = "Primary", type = ButtonType.Primary)
             ButtonRow(title = "Primary Variant", type = ButtonType.PrimaryVariant)
@@ -82,7 +83,7 @@ fun ButtonRow(
     val selected: MutableState<Boolean> = remember {
         mutableStateOf(true)
     }
-    Spacer(modifier = Modifier.height(30.dp))
+    Spacer(modifier = Modifier.height(20.dp))
     Title2(text = title)
     Spacer(modifier = Modifier.height(20.dp))
     Row(verticalAlignment = Alignment.CenterVertically) {

@@ -26,6 +26,7 @@ import kr.hs.dgsw.smartschool.components.component.basic.input.area.DodamSelectA
 import kr.hs.dgsw.smartschool.components.component.set.appbar.DodamAppBar
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
@@ -47,17 +48,17 @@ fun SelectScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(20.dp)
+                .padding(horizontal = DodamDimen.ScreenSidePadding)
                 .background(DodamColor.Background)
                 .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.Start,
         ) {
             Spacer(modifier = Modifier.height(20.dp))
-            Title2(text = "Select")
+            Title2(text = "Dodam Select")
             Spacer(modifier = Modifier.height(10.dp))
             SampleSelect(modifier = Modifier)
             Spacer(modifier = Modifier.height(20.dp))
-            Title2(text = "Select Area")
+            Title2(text = "Dodam Select Area")
             Spacer(modifier = Modifier.height(10.dp))
             SampleSelectArea(modifier = Modifier)
         }

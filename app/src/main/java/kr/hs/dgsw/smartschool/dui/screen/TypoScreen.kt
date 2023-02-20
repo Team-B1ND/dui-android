@@ -42,6 +42,7 @@ import kr.hs.dgsw.smartschool.components.theme.Label3
 import kr.hs.dgsw.smartschool.components.theme.Title1
 import kr.hs.dgsw.smartschool.components.theme.Title2
 import kr.hs.dgsw.smartschool.components.theme.Title3
+import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
@@ -83,28 +84,26 @@ fun TypoScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(DodamColor.White),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .background(DodamColor.Background)
     ) {
         DodamAppBar(title = DataSet.Text.TITLE_TYPO, onStartIconClick = { navController.popBackStack() })
-        Spacer(modifier = Modifier.height(20.dp))
-        DodamInput(
-            value = textState.value,
-            onValueChange = { textState.value = it },
-            modifier = Modifier
-                .width(320.dp),
-            hint = "텍스트를 입력해주세요..."
-        )
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(horizontal = 25.dp)
-                .verticalScroll(rememberScrollState())
-                .background(DodamColor.White),
-            horizontalAlignment = Alignment.Start
-
+                .padding(horizontal = DodamDimen.ScreenSidePadding)
+                .background(DodamColor.Background)
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.Start,
         ) {
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(20.dp))
+            DodamInput(
+                value = textState.value,
+                onValueChange = { textState.value = it },
+                modifier = Modifier
+                    .width(320.dp),
+                hint = "텍스트를 입력해주세요..."
+            )
+            Spacer(modifier = Modifier.height(20.dp))
             Label1(text = "fontFamily = ${fontState.value.fontFamily}")
             Label1(text = "fontWeight = ${fontState.value.fontWeight}")
             Label1(text = "fontSize = ${fontState.value.fontSize}")
@@ -113,7 +112,7 @@ fun TypoScreen(
             TypoTitle(text = "Display")
 
             // Display1
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(20.dp))
             Display1(
                 text = "Display1",
                 modifier = Modifier
@@ -601,6 +600,6 @@ fun TypoTitle(
         textAlign = TextAlign.Center,
         modifier = Modifier
             .fillMaxWidth()
-            .background(DodamColor.Background)
+            .background(DodamColor.White)
     )
 }

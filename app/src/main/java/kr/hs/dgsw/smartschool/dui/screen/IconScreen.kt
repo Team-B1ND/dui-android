@@ -50,6 +50,7 @@ import kr.hs.dgsw.smartschool.components.theme.IcUser
 import kr.hs.dgsw.smartschool.components.theme.IcX
 import kr.hs.dgsw.smartschool.components.theme.Label3
 import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
@@ -65,18 +66,19 @@ fun IconScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(DodamColor.White)
+            .background(DodamColor.Background)
     ) {
         DodamAppBar(title = DataSet.Text.TITLE_ICON, onStartIconClick = { navController.popBackStack() })
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(20.dp)
-                .background(DodamColor.White)
+                .padding(horizontal = DodamDimen.ScreenSidePadding)
+                .background(DodamColor.Background)
                 .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.Start,
         ) {
-            Title2(text = "기본 아이콘")
+            Spacer(modifier = Modifier.height(20.dp))
+            Title2(text = "2D Dodam Icon")
             Spacer(modifier = Modifier.height(20.dp))
             Row(
                 modifier = Modifier
@@ -113,7 +115,7 @@ fun IconScreen(
 
             Spacer(modifier = Modifier.height(20.dp))
 
-            Title2(text = "3D 아이콘")
+            Title2(text = "3D Dodam Icon")
             Spacer(modifier = Modifier.height(20.dp))
             Row(
                 modifier = Modifier

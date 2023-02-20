@@ -36,16 +36,16 @@ fun BannerScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(DodamColor.White)
+            .background(DodamColor.Background)
     ) {
         DodamAppBar(title = DataSet.Text.TITLE_BANNER, onStartIconClick = { navController.popBackStack() })
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(20.dp)
-                .background(DodamColor.White)
+                .padding(horizontal = DodamDimen.ScreenSidePadding)
+                .background(DodamColor.Background)
                 .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.Start,
         ) {
             Column(
                 modifier = Modifier
@@ -53,7 +53,7 @@ fun BannerScreen(
                     .padding(DodamDimen.ScreenSidePadding)
             ) {
                 Spacer(modifier = Modifier.height(20.dp))
-                Title2(text = "Banner")
+                Title2(text = "Dodam Banner")
                 Spacer(modifier = Modifier.height(10.dp))
                 Body2(text = "indicator O, 배너 여러 개")
                 Spacer(modifier = Modifier.height(10.dp))

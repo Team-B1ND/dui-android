@@ -55,7 +55,7 @@ fun InputScreen(
                 .padding(horizontal = DodamDimen.ScreenSidePadding)
                 .background(DodamColor.Background)
                 .verticalScroll(rememberScrollState()),
-            horizontalAlignment = Alignment.CenterHorizontally,
+            horizontalAlignment = Alignment.Start,
         ) {
             SampleInputArea(
                 modifier = Modifier
@@ -80,7 +80,7 @@ fun SampleInputArea(
         mutableStateOf("")
     }
     Spacer(modifier = Modifier.height(20.dp))
-    Title2(text = "Input")
+    Title2(text = "Dodam Input")
     Spacer(modifier = Modifier.height(20.dp))
     Column(modifier = modifier) {
         DodamInput(
@@ -111,7 +111,7 @@ fun SampleInputArea(
 @Composable
 fun SampleInputArea() {
     Spacer(modifier = Modifier.height(20.dp))
-    Title2(text = "Input Area")
+    Title2(text = "Dodam Input Area")
     Spacer(modifier = Modifier.height(20.dp))
     Column() {
         var testValue by remember { mutableStateOf("") }

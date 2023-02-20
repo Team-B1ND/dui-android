@@ -24,6 +24,7 @@ import kr.hs.dgsw.smartschool.components.theme.Body3
 import kr.hs.dgsw.smartschool.components.theme.DodamColor
 import kr.hs.dgsw.smartschool.components.theme.DodamShape
 import kr.hs.dgsw.smartschool.components.theme.Title2
+import kr.hs.dgsw.smartschool.components.utlis.DodamDimen
 import kr.hs.dgsw.smartschool.dui.DataSet
 
 @Composable
@@ -44,20 +45,21 @@ fun ShapeScreen(
     val dodamShape = DodamShape()
     Column(
         modifier = Modifier
-            .fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally
+            .fillMaxSize()
+            .background(DodamColor.Background)
     ) {
         DodamAppBar(title = DataSet.Text.TITLE_SHAPE, onStartIconClick = { navController.popBackStack() })
-
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .verticalScroll(rememberScrollState())
-                .padding(20.dp)
+                .padding(horizontal = DodamDimen.ScreenSidePadding)
+                .background(DodamColor.Background)
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.Start,
         ) {
-            Spacer(modifier = Modifier.height(10.dp))
-            Title2(text = "도담 Shape")
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(20.dp))
+            Title2(text = "Dodam Shape")
+            Spacer(modifier = Modifier.height(20.dp))
             ShapeBox(dodamShape.small, "DodamShape.small", "5.dp")
             ShapeBox(dodamShape.medium, "DodamShape.medium", "10.dp")
             ShapeBox(dodamShape.large, "DodamShape.large", "20.dp")
