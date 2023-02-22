@@ -8,23 +8,21 @@ object DataSet {
         Item(R.drawable.ic_info_3d, "Test", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "test")
 
     val LIST_MAIN: List<Item> = listOf(
-        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_palette_3d, "Color", "도담도담은 어떤 색을 사용할까?", "color"),
-        Item(R.drawable.ic_info_3d, "Typo", "테스트를 위한 이런 데이터도 괜찮지 않을까요..?", "typo"),
-        Item(R.drawable.ic_info_3d, "Icon", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "icon"),
-        Item(R.drawable.ic_info_3d, "Shape", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "shape"),
-        Item(R.drawable.ic_info_3d, "Button", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "button"),
-        Item(R.drawable.ic_info_3d, "Input", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "Input"),
-        Item(R.drawable.ic_info_3d, "Select", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "select"),
-        Item(R.drawable.ic_info_3d, "Tab", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "tab"),
-        Item(R.drawable.ic_info_3d, "Avatar", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "avatar"),
-        Item(R.drawable.ic_info_3d, "Card", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "card"),
-        Item(R.drawable.ic_info_3d, "Banner", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "banner"),
-        Item(R.drawable.ic_info_3d, "Bottom Sheet", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "bottomSheet"),
-        Item(R.drawable.ic_info_3d, "Calender", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "calender"),
-        Item(R.drawable.ic_info_3d, "App Bar", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "appBar"),
-        Item(R.drawable.ic_info_3d, "Check Box", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "checkBox"),
-        Item(R.drawable.ic_info_3d, "Switch", "테스트를 위한 이런 데이터도 괜찮지 않을까요?", "switch"),
-
+        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_palette_3d, "Color", "도담도담은 사용하는 색상 모임입니다", "color"),
+        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_pencil_3d, "Typo", "도담도담에서 사용하는 Typography", "typo"),
+        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_star_3d, "Icon", "도담도담의 각 Feature에서 사용하는 Icon", "icon"),
+        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_shape_3d, "Shape", "기본적인 Shape들을 담고 있습니다", "shape"),
+        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_button_3d, "Button", "도담도담의 다양한 버튼을 살펴보세요", "button"),
+        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_input_3d, "Input", "정보를 입력받는 Input입니다", "Input"),
+        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_select_3d, "Select", "입력 및 선택이 가능한 Select입니다", "select"),
+        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_tab_3d, "Tab", "주로 전환에 사용되는 Tab입니다", "tab"),
+        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_avatar_3d, "Avatar", "사용자의 Profile을 나타냅니다", "avatar"),
+        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_card_3d, "Card", "View 구성에 꼭 필요한 Card 디자인입니다", "card"),
+        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_banner_3d, "Banner", "도담도담은 배너를 이런 식으로 구성한다!", "banner"),
+        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_bottom_sheet_3d, "Bottom Sheet", "아래에서 올라오는 BottomSheet입니다", "bottomSheet"),
+        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_calendar_3d, "Calender", "도담도담이 일정을 보여줄 때 꼭 필요한..", "calender"),
+        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_app_bar_3d, "App Bar", "편리하고 깔끔한 AppBar", "appBar"),
+        Item(kr.hs.dgsw.smartschool.dui.R.drawable.ic_check_3d, "Toggle", "CheckBox, Switch를 한데 모은 Toggle입니다", "toggle"),
     )
 
     object Text {
@@ -38,13 +36,12 @@ object DataSet {
         const val TITLE_BUTTON = "Button"
         const val TITLE_CALENDER = "Calender"
         const val TITLE_CARD = "Card"
-        const val TITLE_CHECK_BOX = "Check Box"
+        const val TITLE_TOGGLE = "Toggle"
         const val TITLE_COLOR = "Color"
         const val TITLE_ICON = "Icon"
         const val TITLE_INPUT = "Input"
         const val TITLE_SELECT = "Select"
         const val TITLE_SHAPE = "Shape"
-        const val TITLE_SWITCH = "Switch"
         const val TITLE_TAB = "Tab"
         const val TITLE_TYPO = "Typo"
 
