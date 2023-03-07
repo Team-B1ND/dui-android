@@ -82,6 +82,7 @@ fun Button(
     val color = backgroundColorFor(type)
 
     Surface(
+        modifier = modifier,
         onClick = if (enable) onClick else null,
         shape = shape,
         color = color,
@@ -91,7 +92,7 @@ fun Button(
     ) {
 
         Row(
-            modifier = modifier
+            modifier = Modifier
                 .padding(
                     horizontal = 16.dp,
                 ),
