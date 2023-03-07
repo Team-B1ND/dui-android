@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
@@ -166,7 +167,9 @@ fun Avatar(
         contentAlignment = Alignment.Center
     ) {
         IcUser(
-            modifier = modifier.size(iconSize),
+            modifier = Modifier
+                .align(Alignment.Center)
+                .size(iconSize),
             tint = iconColor,
             contentDescription = null,
         )
@@ -234,7 +237,7 @@ fun Avatar(
             },
             failure = {
                 IcUser(
-                    modifier = modifier
+                    modifier = Modifier
                         .size(failureIconSize)
                         .align(Alignment.Center),
                     tint = failureIconColor,
@@ -261,5 +264,14 @@ private fun AvatarPreview() {
         Avatar(iconColor = DodamColor.FeatureColor.MyInfoColor, size = 100.dp, iconSize = 50.dp)
         Spacer(modifier = Modifier.height(10.dp))
         Avatar(link = "https://i.ytimg.com/vi/zbyet4HK4ko/maxresdefault.jpg", size = 100.dp)
+        Spacer(modifier = Modifier.height(10.dp))
+        Avatar(
+            modifier = Modifier.padding(start = 10.dp),
+            link = "https://i.ytimg.com/vi/zbyet4HK4ko/maxresdefault.jp",
+            size = 26.dp,
+            failureIconSize = 13.dp,
+            failureIconColor = DodamTheme.color.Gray400,
+            backgroundColor = DodamColor.White
+        )
     }
 }

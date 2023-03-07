@@ -211,8 +211,7 @@ private fun PreviewDodamButton() {
         )
         DodamMediumRoundedButton(onClick = {}, text = "도담", iconLeft = { IcHome(contentDescription = null) })
         DodamSmallRoundedButton(onClick = {}, text = "Button", modifier = Modifier.width(150.dp))
-        DodamMaxWidthButton(text = "로그인") {
-        }
+        DodamMaxWidthButton(modifier = Modifier.padding(horizontal = 20.dp), text = "Heelo") {}
     }
 }
 

@@ -11,7 +11,7 @@ object ProjectProperties {
     const val GROUP_ID = "kr.hs.dgsw.smartschool.components"
     const val PUBLISHING_NAME = "maven"
     const val COMPONENT_ARTIFACT_ID = "dodam-components"
-    const val COMPONENT_VERSION = "1.0.3"
+    const val COMPONENT_VERSION = "1.0.4"
 
     val JAVA_VERSION = JavaVersion.VERSION_1_8
 
